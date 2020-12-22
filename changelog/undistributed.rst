@@ -1,33 +1,33 @@
-November 2020
+January 2021
 =============
 
-November XXth - Genie v20.11
+January xxth - Genie v21.1
 ----------------------------
 
 +-----------------------------------+-------------------------------+
 | Module                            | Versions                      |
 +===================================+===============================+
-| ``genie``                         | 20.11                         |
+| ``genie``                         | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.libs.health``             | 20.11                         |
+| ``genie.libs.health``             | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.libs.clean``              | 20.11                         |
+| ``genie.libs.clean``              | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.libs.conf``               | 20.11                         |
+| ``genie.libs.conf``               | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.libs.filetransferutils``  | 20.11                         |
+| ``genie.libs.filetransferutils``  | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.libs.ops``                | 20.11                         |
+| ``genie.libs.ops``                | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.libs.parser``             | 20.11                         |
+| ``genie.libs.parser``             | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.libs.robot``              | 20.11                         |
+| ``genie.libs.robot``              | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.libs.sdk``                | 20.11                         |
+| ``genie.libs.sdk``                | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.telemetry``               | 20.11                         |
+| ``genie.telemetry``               | 21.1                          |
 +-----------------------------------+-------------------------------+
-| ``genie.trafficgen``              | 20.11                         |
+| ``genie.trafficgen``              | 21.1                          |
 +-----------------------------------+-------------------------------+
 
 Upgrade Instructions
@@ -50,12 +50,7 @@ Features:
 ^^^^^^^^^
 
 **genie**
-
-* Enhanced mapping datafile to pass netconf_poolsize as argument for NetConf connections.
-* Enhancement to Standalone to support non UUT testbed
-* Updated genie device error pattern to propagate into device settings 
-* Enhanced mapping datafile to pass netconf_poolsize as argument for NetConf connections.
-* Fixed API abstraction for platform specific APIs
+* Fixed an issue using run_genie_sdk with only a connection defined for a device
 
 --------
 
@@ -97,7 +92,6 @@ Features:
 
 **genie.utils**
 
-* Removed python sorted method in genie diff in instances where tuple could have different types
 
 
 

@@ -536,6 +536,14 @@ Configuration Datafile
                       # the applied configurations on the device.
 
                 config: # Full path of config file to apply on the device.
+                        # (Optional)
+
+                jinja2_config: # Full path of jinja2 config file
+                               # (Optional)
+
+                jinja2_arguments: # Arguments to be added into the jinja2 file
+                                  # (Optional)
+                        <key>: <value>  # Key/Value pair of arguments
 
                 sleep: # As device configurations take some time to
                        # stabilize, this sleep will tell Genie 
@@ -721,67 +729,67 @@ Subsection datafile
 
             <subsection name>: # Name of the Subsection.
 
-            method: # Location of the subsection methods
-                    # (Example: genie_libs.sdk.libs.subsections.my_subsection)
+                method: # Location of the subsection methods
+                        # (Example: genie_libs.sdk.libs.subsections.my_subsection)
 
-            parameters: # (Optional if no parameters)
-                        # Any key will be passed as a parameters
-                        <key>: <value>
-            processors: # This section is used to let
-                        # Genie know where the pyATS processors is located
+                parameters: # (Optional if no parameters)
+                                # Any key will be passed as a parameters
+                                <key>: <value>
+                processors: # This section is used to let
+                                # Genie know where the pyATS processors is located
 
-                pre: # pre processors
-                     # (Optional if no pre processors)
-                     # Accepts a list of pre-processors
-                     # (Example: [sdk.libs.prepostprocessor.sleep_processor])
-                     # or use abstraction and define optional parameters
-                    <processor name>: # Processor name goes here
+                        pre: # pre processors
+                        # (Optional if no pre processors)
+                        # Accepts a list of pre-processors
+                        # (Example: [sdk.libs.prepostprocessor.sleep_processor])
+                        # or use abstraction and define optional parameters
+                        <processor name>: # Processor name goes here
 
-                        pkg: # Abstraction package
-                             # (Example: genie_libs)
+                                pkg: # Abstraction package
+                                # (Example: genie_libs)
 
-                        method: # Location of the processor method
-                                # (Example: sdk.libs.prepostprocessor.sleep_processor)
+                                method: # Location of the processor method
+                                        # (Example: sdk.libs.prepostprocessor.sleep_processor)
 
-                        parameters: # (Optional if no parameters)
-                                    # Any key will be passed as a parameters
-                                    <key>: <value>
+                                parameters: # (Optional if no parameters)
+                                        # Any key will be passed as a parameters
+                                        <key>: <value>
 
-                post: # post processors
-                      # (Optional if no post processors)
-                      # Accepts a list of post processors
-                      # (Example: [sdk.libs.prepostprocessor.sleep_processor])
-                      # or use abstraction and define optional parameters
-                    <processor name>: # Processor name goes here
+                        post: # post processors
+                        # (Optional if no post processors)
+                        # Accepts a list of post processors
+                        # (Example: [sdk.libs.prepostprocessor.sleep_processor])
+                        # or use abstraction and define optional parameters
+                        <processor name>: # Processor name goes here
 
-                        pkg: # Abstraction package
-                             # (Example: genie_libs)
+                                pkg: # Abstraction package
+                                # (Example: genie_libs)
 
-                        method: # Location of the processor method
-                                # (Example: sdk.libs.prepostprocessor.sleep_processor)
+                                method: # Location of the processor method
+                                        # (Example: sdk.libs.prepostprocessor.sleep_processor)
 
-                        parameters: # (Optional if no parameters)
-                                    # Any key will be passed as a parameters
-                                    <key>: <value>
+                                parameters: # (Optional if no parameters)
+                                        # Any key will be passed as a parameters
+                                        <key>: <value>
 
-                exception: # exception processors
-                           # (Optional if no exception processors)
+                        exception: # exception processors
+                                # (Optional if no exception processors)
 
-                           # Accepts a list of exception processors
-                           # (Example: [sdk.libs.prepostprocessor.sleep_processor])
+                                # Accepts a list of exception processors
+                                # (Example: [sdk.libs.prepostprocessor.sleep_processor])
 
-                           # or use abstraction and define optional parameters
-                    <processor name>: # Processor name goes here
+                                # or use abstraction and define optional parameters
+                        <processor name>: # Processor name goes here
 
-                        pkg: # Abstraction package
-                             # (Example: genie_libs)
+                                pkg: # Abstraction package
+                                # (Example: genie_libs)
 
-                        method: # Location of the processor method
-                                # (Example: sdk.libs.prepostprocessor.sleep_processor)
+                                method: # Location of the processor method
+                                        # (Example: sdk.libs.prepostprocessor.sleep_processor)
 
-                        parameters: # (Optional if no parameters)
-                                    # Any key will be passed as a parameters
-                                    <key>: <value>
+                                parameters: # (Optional if no parameters)
+                                        # Any key will be passed as a parameters
+                                        <key>: <value>
 
         order: # accepts a list of subsections
                # (Optional if no special ordering expected)
