@@ -1,3 +1,0 @@
-Triggers/Verifications/Models/Parsers
-=====================================
-
