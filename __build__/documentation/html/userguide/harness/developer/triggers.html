@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Triggers &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Mapping" href="mapping.html" />
+    <link rel="prev" title="Verifications" href="verifications.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Harness Guide</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../user/index.html">Harness User Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Harness Developer Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="verifications.html">Verifications</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Triggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapping.html">Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pts.html">PTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsections.html">Subsections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">User Guide</a> &raquo;</li>
+        
+          <li><a href="../index.html">Harness Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Harness Developer Guide</a> &raquo;</li>
+        
+      <li>Triggers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="triggers">
+<span id="harness-trigger"></span><h1>Triggers<a class="headerlink" href="#triggers" title="Permalink to this headline">¶</a></h1>
+<p>A trigger is a set of actions and verifications that, together, constitute a
+testcase. These actions can include removal/addition of configuration, flapping
+protocols/interfaces, perform HA events, and any other actions that a user may want to
+perform to test his/her device. Triggers can also include verifications that
+check whether or not the actions were performed correctly on the devices. We call these
+verifications, <code class="xref py py-obj docutils literal notranslate"><span class="pre">local</span> <span class="pre">verifications</span></code>.</p>
+<div class="section" id="your-first-trigger">
+<h2>Your First Trigger<a class="headerlink" href="#your-first-trigger" title="Permalink to this headline">¶</a></h2>
+<p>The idea of writing a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code> is quite simple. The process is very similar to the
+process users rely on to write a testcase in <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyATS</span></code>  that performs an action on a device.
+It goes something like this:</p>
+<ul class="simple">
+<li><p>Check the device has the configuration for the action.</p></li>
+<li><p>Perform the action.</p></li>
+<li><p>Verify the expected result on the device.</p></li>
+<li><p>Undo the action (If the device state was changed).</p></li>
+<li><p>Verify the expected result on the device.</p></li>
+</ul>
+<p>Let’s use an example to illustrate this further. Let’s shut and unshut an
+interface:</p>
+<ul class="simple">
+<li><p>Find an interface which is <code class="xref py py-obj docutils literal notranslate"><span class="pre">up</span></code>.</p></li>
+<li><p>Shutdown this interface.</p></li>
+<li><p>Verify the interface is <code class="xref py py-obj docutils literal notranslate"><span class="pre">down</span></code>.</p></li>
+<li><p>Unshut this interface.</p></li>
+<li><p>Verify the interface is <code class="xref py py-obj docutils literal notranslate"><span class="pre">up</span></code>.</p></li>
+</ul>
+<div class="figure align-center">
+<img alt="../../../_images/TriggerSDKNoMapping.png" src="../../../_images/TriggerSDKNoMapping.png" />
+</div>
+<p>Let’s convert that to code now:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyats</span> <span class="kn">import</span> <span class="n">aetest</span>
+
+<span class="c1"># Genie import</span>
+<span class="kn">from</span> <span class="nn">genie.harness.base</span> <span class="kn">import</span> <span class="n">Trigger</span>
+
+<span class="c1"># Parser import</span>
+<span class="kn">from</span> <span class="nn">genie.libs.parser.show_interface.iosxe.show_interface</span> <span class="kn">import</span> <span class="n">ShowIpInterfaceBrief</span>
+
+<span class="c1"># Import Genie Conf</span>
+<span class="kn">from</span> <span class="nn">genie.libs.conf.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="k">class</span> <span class="nc">ShutNoShutInterface</span><span class="p">(</span><span class="n">Trigger</span><span class="p">):</span>
+
+    <span class="nd">@aetest</span><span class="o">.</span><span class="n">test</span>
+    <span class="k">def</span> <span class="nf">learn_interface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uut</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">ShowIpInterfaceBrief</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+        <span class="c1"># let&#39;s find an interface which is up</span>
+        <span class="k">for</span> <span class="n">interface</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Up&#39;</span><span class="p">:</span>
+                <span class="c1"># found an interface which is up</span>
+                <span class="n">interface</span> <span class="o">=</span> <span class="n">interface</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Could not find an interface</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">skipped</span><span class="p">(</span><span class="s2">&quot;Could not find an interface &quot;</span>
+                         <span class="s2">&quot;for device &#39;</span><span class="si">{u}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="n">uut</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+                         <span class="n">goto</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;next_tc&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Create a Genie conf object out of it</span>
+        <span class="c1"># This way, it will be OS/Cli/Yang Agnostic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intf1</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">interface</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+    <span class="nd">@aetest</span><span class="o">.</span><span class="n">test</span>
+    <span class="k">def</span> <span class="nf">shut</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Call Genie Conf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intf1</span><span class="o">.</span><span class="n">shutdown</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intf1</span><span class="o">.</span><span class="n">build_config</span><span class="p">()</span>
+
+    <span class="nd">@aetest</span><span class="o">.</span><span class="n">test</span>
+    <span class="k">def</span> <span class="nf">verify_shut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uut</span><span class="p">):</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">ShowIpInterfaceBrief</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+        <span class="c1"># Verify if the interface is down</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Down&#39;</span><span class="p">)</span>
+
+    <span class="nd">@aetest</span><span class="o">.</span><span class="n">test</span>
+    <span class="k">def</span> <span class="nf">noshut</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Call Genie Conf</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intf1</span><span class="o">.</span><span class="n">build_unconfig</span><span class="p">()</span>
+
+    <span class="nd">@aetest</span><span class="o">.</span><span class="n">test</span>
+    <span class="k">def</span> <span class="nf">verify_noshut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uut</span><span class="p">):</span>
+        <span class="c1"># Call Ops</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+        <span class="c1"># Verify if the interface is back up</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Up&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more information on how to add and execute this <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code>, please refer
+to the <a class="reference internal" href="../user/gettingstarted.html#getting-trigger"><span class="std std-ref">user guide</span></a>.</p>
+</div>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+<p>A trigger must inherit from <code class="xref py py-obj docutils literal notranslate"><span class="pre">from</span> <span class="pre">genie.harness.base</span> <span class="pre">import</span> <span class="pre">Trigger</span></code>,
+which itself inherits from the pyATS <code class="xref py py-obj docutils literal notranslate"><span class="pre">Testcase</span></code>.</p>
+<p>As you can see from the examples above, we have divided most actions into different subsections. By dividing
+actions in this way, we facilitate inheritance. This means that other engineers can inherit
+this <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code> and easily add a new test section or modify an existing <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code>.
+When designing <code class="xref py py-obj docutils literal notranslate"><span class="pre">Triggers</span></code>, please follow good OOP design.</p>
+<p>More guideline can also be found on the <a class="reference external" href="http://wiki.cisco.com/display/GENIE/Genie+Guidelines">wiki</a>.</p>
+</div>
+<div class="section" id="using-processors">
+<h2>Using Processors<a class="headerlink" href="#using-processors" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> triggers are fully customizable with the help of pyats
+pre/post/exception <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/aetest/processors.html">Processors</a> and <a class="reference internal" href="../../../abstract/index.html#abstract"><span class="std std-ref">abstraction</span></a>.</p>
+<p>Step 0: You got a processor? Great, that is all you need! If you don’t have a
+processor, simply write a new pre/post/exception <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/aetest/processors.html">Processors</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please ensure newly created processors have met the requirements outlined at
+<a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/aetest/processors.html">Processors</a>.</p>
+</div>
+<p>Step 1: Add your processors information to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">trigger_datafile</span></code> as
+shown below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;trigger name&gt;</span><span class="p">:</span>
+    <span class="nt">source</span><span class="p">:</span>
+        <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.sdk</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sdk.triggers.clear.bgp.clear.TriggerClearBgpAll&gt;</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uut&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">processors</span><span class="p">:</span>
+        <span class="nt">pre</span><span class="p">:</span>
+            <span class="nt">&lt;your pre processor name&gt;</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your abstraction package, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.sdk&gt;</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sdk.libs.prepostprocessor.sleep_processor&gt;</span>
+                <span class="nt">parameters</span><span class="p">:</span>
+                    <span class="nt">&lt;your parameters variable name&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your parameters value&gt;</span>
+        <span class="nt">post</span><span class="p">:</span>
+            <span class="nt">&lt;your post processor name&gt;</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your abstraction package, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.sdk&gt;</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sdk.libs.prepostprocessor.sleep_processor&gt;</span>
+                <span class="nt">parameters</span><span class="p">:</span>
+                    <span class="nt">&lt;your parameters variable name&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your parameters value&gt;</span>
+        <span class="nt">exception</span><span class="p">:</span>
+            <span class="nt">&lt;your exception processor name&gt;</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your abstraction package, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.sdk&gt;</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sdk.libs.prepostprocessor.sleep_processor&gt;</span>
+                <span class="nt">parameters</span><span class="p">:</span>
+                    <span class="nt">&lt;your parameters variable name&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your parameters value&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If needed, abstraction can be added via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pkg</span></code> key.
+If needed, extra parameters can be added via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">parameters</span></code> key.</p>
+</div>
+<p>Step 3: Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">job</span></code> file is pointing to this trigger file via
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">trigger_datafile</span></code> argument.</p>
+<p>Step 4: To execute your trigger, run your job via easypy with the required
+arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only mandatory argument is the <a class="reference internal" href="../../../cookbooks/genie.html#book-setup-testbed"><span class="std std-ref">testbed file</span></a>.</p>
+</div>
+<p>Step 5: You have a processor which you think should be part of <code class="docutils literal notranslate"><span class="pre">Genie</span></code> master
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">trigger_datafile</span></code> ?  Feel free to send an email to <code class="xref py py-obj docutils literal notranslate"><span class="pre">asg-genie-dev</span></code> for
+review to add this processor to the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> Master <code class="xref py py-obj docutils literal notranslate"><span class="pre">trigger_datafile</span></code>.</p>
+</div>
+<div class="section" id="using-filetransferutils">
+<h2>Using FileTransferUtils<a class="headerlink" href="#using-filetransferutils" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyATS</span></code> provides a useful package <code class="docutils literal notranslate"><span class="pre">FileTransferUtils</span></code> that can be used for
+file copy operation to/from device as per <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/filetransferutils/latest/introduction.html">filetransferutils</a> documentation.</p>
+<p>It supports different transfer protocols like tftp, ftp, etc.</p>
+<p>Examples can be found at <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/filetransferutils/latest/introduction.html#example">filetransferutils_examples</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Genie already instantiates the <code class="xref py py-obj docutils literal notranslate"><span class="pre">filetransfer</span></code> in CommonSetup section under
+configure section and store it under each device object. Then <code class="xref py py-obj docutils literal notranslate"><span class="pre">filetransfer</span></code>
+object can be reused during the run whenever needed. If user didn’t chose
+to run <code class="xref py py-obj docutils literal notranslate"><span class="pre">configure</span></code> under CommonSetup, then <code class="xref py py-obj docutils literal notranslate"><span class="pre">filetransfer</span></code> object need to be
+instantiated once as shown in the below example.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">uut</span><span class="p">,</span> <span class="s1">&#39;filetransfer&#39;</span><span class="p">):</span>
+  <span class="c1"># Instantiate a filetransferutils instance for the device.That points</span>
+  <span class="c1"># to the OS corresponding implementation of the package.</span>
+  <span class="n">uut</span><span class="o">.</span><span class="n">filetransfer</span> <span class="o">=</span> <span class="n">FileUtils</span><span class="o">.</span><span class="n">from_device</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="c1"># This object can then be used later for multiple device/server operations</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">filetransfer</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;URL to copy from&#39;</span><span class="p">,</span>
+                          <span class="n">destination</span><span class="o">=</span><span class="s1">&#39;URL to copy to&#39;</span><span class="p">,</span>
+                          <span class="n">timeout_seconds</span><span class="o">=</span><span class="s1">&#39;timeout in seconds&#39;</span><span class="p">,</span>
+                          <span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="available-restore-methods">
+<h2>Available Restore methods<a class="headerlink" href="#available-restore-methods" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie</span></code> team developed multiple restore methods that can be called out
+inside the trigger to perform common restore actions.</p>
+<p>There are three restore methods avaialble;</p>
+<p>1-  <code class="xref py py-obj docutils literal notranslate"><span class="pre">checkpoint</span></code>:  by creating a checkpoint on the device and then rollback
+configuration using that checkpoint</p>
+<p>2-  <code class="xref py py-obj docutils literal notranslate"><span class="pre">config_replace</span></code>: by copying current configuration to tftp locationa and then
+copying it back after trigger action</p>
+<p>3-  <code class="xref py py-obj docutils literal notranslate"><span class="pre">local</span></code>: recover the deivce with the whole running-config</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TriggerShutNoShutBgp:
+    source:
+      pkg: genie.libs.sdk
+      class: triggers.shutnoshut.bgp.shutnoshut.TriggerShutNoShutBgp
+    groups: [&#39;shut-noshut&#39;, &#39;bgp&#39;, &#39;L3&#39;]
+    method: &#39;checkpoint&#39;
+    timeout:
+       max_time: 300
+       interval: 15
+    devices:
+      uut:
+        None
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mapping.html" class="btn btn-neutral float-right" title="Mapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="verifications.html" class="btn btn-neutral float-left" title="Verifications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Verifications &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Triggers" href="triggers.html" />
+    <link rel="prev" title="Harness Developer Guide" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Harness Guide</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../user/index.html">Harness User Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Harness Developer Guide</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Verifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triggers.html">Triggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapping.html">Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pts.html">PTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsections.html">Subsections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">User Guide</a> &raquo;</li>
+        
+          <li><a href="../index.html">Harness Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Harness Developer Guide</a> &raquo;</li>
+        
+      <li>Verifications</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="verifications">
+<span id="harness-verification"></span><h1>Verifications<a class="headerlink" href="#verifications" title="Permalink to this headline">¶</a></h1>
+<p>&lt;todo&gt;</p>
+<p>A verification is the execution of a command to retrieve the current state of a
+device. The state can be retrieved with <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">yang</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">xml</span></code> and so on or a mix of them.</p>
+<p>There are three types of verifications within Genie.</p>
+<blockquote>
+<div><div class="figure align-center">
+<img alt="They can talk" src="../../../_images/VerificationSDK.png" />
+</div>
+</div></blockquote>
+<div class="section" id="using-ops">
+<h2>Using Ops<a class="headerlink" href="#using-ops" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> <a class="reference internal" href="../../Ops/index.html#ops-guide"><span class="std std-ref">Ops</span></a> represents a device/feature operational state/data using
+Python object. Each <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> on a device is represented via a single <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code>
+object instance, where state/status information is stored as an object
+attribute.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> objects are snapshot of a particular <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> on a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> at
+a specific time. Hence <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code>  objects are perfectly suited to be used as
+comparable verification snapshot.</p>
+<p>Now, let’s see how to write one:</p>
+<p>Step 0: Check if the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> class exists for the feature you want to
+verify. If so, go to Step 2.</p>
+<p>Step 1: Write an ops object for the feature you would like to verify. Once you are
+finished, commit the ops object to <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code></p>
+<p>Step 2: Add your verification information to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> as
+shown below:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Verify_&lt;feature name&gt;</span><span class="p">:</span>
+    <span class="nt">source</span><span class="p">:</span>
+        <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie_libs.genie</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ops.ospf.ospf.Ospf&gt;</span>
+    <span class="nt">exclude</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;list of generic keys to ignore in the comparison&gt;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span>
+        <span class="nt">uut</span><span class="p">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="nt">iteration</span><span class="p">:</span>
+        <span class="nt">attempt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Feel free to add more keys from the datafile schema.</p>
+</div>
+<p>Step 3: Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">job</span></code> file is pointing to this verification
+file via <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> argument.</p>
+<p>Step 4: To execute your verification, run your job via easypy with the
+required arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">testbed_file</span></code> is the only mandatory argument</p>
+</div>
+<p>Step 5: To add this verification to the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> Master <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code>,
+please send an email to <code class="xref py py-obj docutils literal notranslate"><span class="pre">asg-genie-support</span></code> for review. Once this verification is
+reviewed and then added to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code>, other teams may easily use your
+new verification in their <a class="reference internal" href="../user/datafile.html#verification-datafile"><span class="std std-ref">verification datafile</span></a> via <code class="xref py py-obj docutils literal notranslate"><span class="pre">extend</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are unsure about extend, please refer to the datafile schema.</p>
+</div>
+</div>
+<div class="section" id="using-template">
+<h2>Using Template<a class="headerlink" href="#using-template" title="Permalink to this headline">¶</a></h2>
+<p>Step 0: Do you have a parser? Great, that’s all you need! If you don’t have a
+parser, simply write a new parser with <a class="reference internal" href="../../../metaparser/index.html#metaparser"><span class="std std-ref">metaparser</span></a>.</p>
+<p>Step 1: Add your verification information to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> as
+shown below:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Verify_&lt;feature name&gt;</span><span class="p">:</span>
+    <span class="nt">exclude</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;list of generic keys to ignore in the comparison&gt;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span>
+        <span class="nt">uut</span><span class="p">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="nt">cmd</span><span class="p">:</span>
+        <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie_libs.parser</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your parser location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ops.ospf.ospf.Ospf&gt;</span>
+    <span class="nt">iteration</span><span class="p">:</span>
+        <span class="nt">attempt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+</pre></div>
+</div>
+<p>Step 2: Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">job</span></code> file is pointing to this verification
+file via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> argument.</p>
+<p>Step 3: To execute your verification, run your job via easypy with the
+required arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only mandatory argument is the <a class="reference internal" href="../../../cookbooks/genie.html#book-setup-testbed"><span class="std std-ref">testbed file</span></a>.</p>
+</div>
+<p>Step 4: To add this verification to the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> Master <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code>,
+please send an email to <code class="xref py py-obj docutils literal notranslate"><span class="pre">asg-genie-dev</span></code> for review. Once this verification is
+reviewed and then added to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code>, other teams may easily use your
+new verification in their <a class="reference internal" href="../user/datafile.html#verification-datafile"><span class="std std-ref">verification datafile</span></a> via <code class="xref py py-obj docutils literal notranslate"><span class="pre">extend</span></code>.</p>
+</div>
+<div class="section" id="using-callable">
+<span id="harness-user-callable"></span><h2>Using Callable<a class="headerlink" href="#using-callable" title="Permalink to this headline">¶</a></h2>
+<p>If the two previous sections did not meet your requirements, you
+may write your own callable. However, we strongly encourage you to use the
+previous sections to create your verifications as they provide users with
+multiple advantages, including: os agnostic, extensibility for different management interfaces
+(Cli/Yang), among others.</p>
+<p>Step 1: Write a callable which has <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> as its first argument and also has
+<a href="#id1"><span class="problematic" id="id2">*</span></a>arg and <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs (as shown below). This callable needs to return a dictionary
+as it will be used as a snapshot for verifications.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if no comparison is needed, simply return an empty dictionary.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">a_callable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="n">var1</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Step 2: Add your callable information to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> as shown
+below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Verify_&lt;feature name&gt;</span><span class="p">:</span>
+    <span class="nt">source</span><span class="p">:</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.callable.function&gt;</span>
+    <span class="nt">exclude</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;list of generic keys to ignore in the comparison&gt;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span>
+        <span class="nt">uut</span><span class="p">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="nt">var1</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9</span>
+    <span class="nt">iteration</span><span class="p">:</span>
+        <span class="nt">attempt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If needed, abstraction can be added with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pkg</span></code> key.</p>
+</div>
+<p>Step 3: Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">job</span></code> file is pointing to this verification
+file via <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> argument.</p>
+<p>Step 4: To execute your verification, run your job via easypy with the
+required arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only mandatory argument is the <a class="reference internal" href="../../../cookbooks/genie.html#book-setup-testbed"><span class="std std-ref">testbed file</span></a>.</p>
+</div>
+<p>Step 5: If you now have a callable which you think should be a part of the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> master
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code>, please feel free to send an email to <code class="xref py py-obj docutils literal notranslate"><span class="pre">asg-genie-dev</span></code> for
+review.</p>
+</div>
+<div class="section" id="using-parameters">
+<h2>Using Parameters<a class="headerlink" href="#using-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Step 0: Do you have a parser? Great, that’s all you need! If you don’t have a
+parser, simply write a new parser with <a class="reference internal" href="../../../metaparser/index.html#metaparser"><span class="std std-ref">metaparser</span></a>.</p>
+<p>Step 1: Add your verification information to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> as
+shown below:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Verify_&lt;feature name&gt;</span><span class="p">:</span>
+    <span class="nt">exclude</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;list of generic keys to ignore in the comparison&gt;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span>
+        <span class="nt">uut</span><span class="p">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="nt">cmd</span><span class="p">:</span>
+        <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie_libs.parser</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your parser location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ops.ospf.ospf.Ospf&gt;</span>
+    <span class="nt">iteration</span><span class="p">:</span>
+        <span class="nt">attempt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">parameters</span><span class="p">:</span>
+        <span class="nt">&lt;key&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;value&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to pass parameters to verification, please use key <code class="xref py py-obj docutils literal notranslate"><span class="pre">parameters</span></code>
+and follow by your parameters.</p>
+</div>
+<p>Step 2: Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">job</span></code> file is pointing to this verification
+file via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> argument.</p>
+<p>Step 3: To execute your verification, run your job via easypy with the
+required arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only mandatory argument is the <a class="reference internal" href="../../../cookbooks/genie.html#book-setup-testbed"><span class="std std-ref">testbed file</span></a>.</p>
+</div>
+<p>Step 5: If you now have a callable which you think should be a part of the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> master
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code>, please feel free to send an email to <code class="xref py py-obj docutils literal notranslate"><span class="pre">asg-genie-dev</span></code> for
+review.</p>
+</div>
+<div class="section" id="using-processors">
+<h2>Using Processors<a class="headerlink" href="#using-processors" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> verifications are fully customizable with the help of pyats
+pre/post/exception <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/aetest/processors.html">Processors</a> and <a class="reference internal" href="../../../abstract/index.html#abstract"><span class="std std-ref">abstraction</span></a>.</p>
+<p>Step 0: You got a processor? Great, that is all you need! If you don’t have a
+processor, simply write a new pre/post/exception <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/aetest/processors.html">Processors</a>.</p>
+<p>Step 1: Add your processors information to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> as
+shown below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Verify_&lt;feature name&gt;</span><span class="p">:</span>
+    <span class="nt">source</span><span class="p">:</span>
+        <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie_libs.genie</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ops.ospf.ospf.Ospf&gt;</span>
+    <span class="nt">exclude</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;list of generic keys to ignore in the comparison&gt;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span>
+        <span class="nt">uut</span><span class="p">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="nt">iteration</span><span class="p">:</span>
+        <span class="nt">attempt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+        <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">processors</span><span class="p">:</span>
+        <span class="nt">pre</span><span class="p">:</span>
+            <span class="nt">&lt;your pre processor name&gt;</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your abstraction package, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie_libs&gt;</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sdk.libs.prepostprocessor.sleep_processor&gt;</span>
+                <span class="nt">parameters</span><span class="p">:</span>
+                    <span class="nt">&lt;your parameters variable name&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your parameters value&gt;</span>
+        <span class="nt">post</span><span class="p">:</span>
+            <span class="nt">&lt;your post processor name&gt;</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your abstraction package, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie_libs&gt;</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sdk.libs.prepostprocessor.sleep_processor&gt;</span>
+                <span class="nt">parameters</span><span class="p">:</span>
+                    <span class="nt">&lt;your parameters variable name&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your parameters value&gt;</span>
+        <span class="nt">exception</span><span class="p">:</span>
+            <span class="nt">&lt;your exception processor name&gt;</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your abstraction package, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie_libs&gt;</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sdk.libs.prepostprocessor.sleep_processor&gt;</span>
+                <span class="nt">parameters</span><span class="p">:</span>
+                    <span class="nt">&lt;your parameters variable name&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your parameters value&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If needed, abstraction can be added via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pkg</span></code> key.
+If needed, extra parameters can be added via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">parameters</span></code> key.</p>
+</div>
+<p>Step 3: Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">job</span></code> file is pointing to this verification
+file via <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> argument.</p>
+<p>Step 4: To execute your verification, run your job via easypy with the
+required arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only mandatory argument is the <a class="reference internal" href="../../../cookbooks/genie.html#book-setup-testbed"><span class="std std-ref">testbed file</span></a>.</p>
+</div>
+<p>Step 5: You have a processor which you think should be part of <code class="docutils literal notranslate"><span class="pre">Genie</span></code> master
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> ?  Feel free to send an email to <code class="xref py py-obj docutils literal notranslate"><span class="pre">asg-genie-dev</span></code> for
+review to add this processor to the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> Master <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="triggers.html" class="btn btn-neutral float-right" title="Triggers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Harness Developer Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

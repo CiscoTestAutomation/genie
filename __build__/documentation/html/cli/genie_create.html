@@ -1,0 +1,617 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyATS Create &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/asciinema-player.js"></script>
+        <script src="../_static/tracker.js"></script>
+        <script src="../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Genie Solutions" href="../solutions/index.html" />
+    <link rel="prev" title="Genie DNAC" href="genie_dnac.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Genie Command Line</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="genie_parse.html">Genie Parse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_learn.html">Genie Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_diff.html">Genie Diff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_run.html">Genie Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_shell.html">Genie Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_dnac.html">Genie DNAC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pyATS Create</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyats-create-testbed">pyATS Create Testbed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generate-from-csv-excel-file">Generate from csv/excel file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-from-multiple-csv-excel-files-under-a-directory">Generate from multiple csv/excel files under a directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-by-entering-device-data">Generate by entering device data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-csv-excel-template">Generate csv/excel template</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-from-ansible-inventory-file">Generate from Ansible inventory file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-from-netbox">Generate from Netbox</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#genie-create-parser">Genie Create Parser</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#genie-create-trigger">genie create trigger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Genie Command Line</a> &raquo;</li>
+        
+      <li>pyATS Create</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyats-create">
+<span id="cli-create"></span><h1>pyATS Create<a class="headerlink" href="#pyats-create" title="Permalink to this headline">¶</a></h1>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyats</span> <span class="pre">create</span></code> provide an easy way to create parsers, testbeds, and triggers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>pyats.contrib package needs to be installed for <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyats</span> <span class="pre">create</span></code> command. If not installed, please install by <code class="xref py py-obj docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pyats.contrib</span></code>
+pyats.contrib GitHub : <a class="reference external" href="https://github.com/CiscoTestAutomation/pyats.contrib">https://github.com/CiscoTestAutomation/pyats.contrib</a></p>
+</div>
+<p>To see what functionality <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyats</span> <span class="pre">create</span></code> offers, execute the following in your linux terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Usage:
+  pyats create &lt;subcommand&gt; <span class="o">[</span>options<span class="o">]</span>
+
+Description:
+  Creates script and library components automatically based on your input. These
+  are helper functions intended to make your development life easier/reducing
+  number of boilerplate to-dos.
+
+Subcommands:
+  parser              create a new Genie parser from template
+  project             create a new pyATS project from template
+  testbed             create a testbed file automatically
+  trigger             create a new Genie trigger from template
+
+General Options:
+  -h, --help            Show <span class="nb">help</span>
+  -v, --verbose         Give more output, additive up to <span class="m">3</span> times.
+  -q, --quiet           Give less output, additive up to <span class="m">3</span> times, corresponding to WARNING, ERROR,
+                        and CRITICAL logging levels
+</pre></div>
+</div>
+<div class="section" id="pyats-create-testbed">
+<span id="cli-create-testbed"></span><h2>pyATS Create Testbed<a class="headerlink" href="#pyats-create-testbed" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyats</span> <span class="pre">create</span> <span class="pre">testbed</span></code> provide an easy way to create a testbed yaml file. It gives the ability to convert some sources containing device data into a testbed yaml that can be loaded directly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Usage:
+  pyats create testbed <span class="o">[</span>source<span class="o">]</span> <span class="o">[</span>arguments<span class="o">]</span>
+
+Testbed Options:
+  <span class="o">[</span>source<span class="o">]</span>              Source of where to retrieve device data.
+  --output OUTPUT       File location to output the created testbed yaml.
+
+General Options:
+  -h, --help            Show <span class="nb">help</span>
+  -v, --verbose         Give more output, additive up to <span class="m">3</span> times.
+  -q, --quiet           Give less output, additive up to <span class="m">3</span> times, corresponding to WARNING, ERROR,
+                        and CRITICAL logging levels
+</pre></div>
+</div>
+<div class="section" id="generate-from-csv-excel-file">
+<h3>Generate from csv/excel file<a class="headerlink" href="#generate-from-csv-excel-file" title="Permalink to this headline">¶</a></h3>
+<p>Use the following columns header to create a testbed yaml file from Excel/csv file:</p>
+<ul class="simple">
+<li><p><strong>hostname</strong> : <em>the host name of the device</em></p></li>
+<li><p><strong>ip</strong> : <em>the ip address of the device, to specify a port, add the port number in the format of:</em> <code class="xref py py-obj docutils literal notranslate"><span class="pre">ip:port</span></code></p></li>
+<li><p><strong>username</strong> : <em>the username for logging into the device</em></p></li>
+<li><p><strong>password</strong> : <em>the default password for logging into the device, user can leave this field blank for security reason, and Genie will prompt you to enter the password when you connect to the device</em></p></li>
+<li><p><strong>protocol</strong> : <em>the protocol used to connected to the device i.e. ssh, telnet, etc..</em></p></li>
+<li><p><strong>os</strong> : <em>the operating system for the device i.e. iosxr, iosxe, nxos, linux, etc..</em></p></li>
+<li><p><strong>enable_password</strong> : <em>(Optional) to provide a different password for entering privileged EXEC mode with `enable` command</em></p></li>
+</ul>
+<p>All other columns not listed above will be added to the yaml as a <code class="xref py py-obj docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pair</p>
+<p><strong>Example</strong></p>
+<p>Here is an example excel file containing device data:</p>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="Sample Excel file" src="../_images/Excel.png" />
+</div>
+</div></blockquote>
+<p>we can turn it into a testbed yaml file by running the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>demo$ pyats create testbed file --path my_devices.xls --output yaml/my_testbed.yaml
+Testbed file generated:
+my_devices.xls -&gt; yaml/my_testbed.yaml
+</pre></div>
+</div>
+<p>This will give us the below yaml:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">devices</span><span class="p">:</span>
+  <span class="nt">R1</span><span class="p">:</span>
+    <span class="nt">connections</span><span class="p">:</span>
+      <span class="nt">cli</span><span class="p">:</span>
+      <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">172.25.192.101</span>
+      <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">17013</span>
+      <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ssh</span>
+    <span class="nt">credentials</span><span class="p">:</span>
+      <span class="nt">default</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cisco</span>
+        <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
+      <span class="nt">enable</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cisco123</span>
+    <span class="nt">os</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iosxe</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iosxe</span>
+  <span class="nt">R2</span><span class="p">:</span>
+    <span class="nt">connections</span><span class="p">:</span>
+      <span class="nt">cli</span><span class="p">:</span>
+        <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">172.25.192.102</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">17015</span>
+        <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ssh</span>
+    <span class="nt">credentials</span><span class="p">:</span>
+      <span class="nt">default</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cisco</span>
+        <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
+      <span class="nt">enable</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cisco123</span>
+    <span class="nt">os</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iosxr</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iosxr</span>
+  <span class="nt">R3</span><span class="p">:</span>
+    <span class="nt">connections</span><span class="p">:</span>
+      <span class="nt">cli</span><span class="p">:</span>
+        <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">172.25.192.103</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">17019</span>
+        <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ssh</span>
+    <span class="nt">credentials</span><span class="p">:</span>
+      <span class="nt">default</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cisco</span>
+        <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
+      <span class="nt">enable</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cisco</span>
+    <span class="nt">os</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nxos</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nxos</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--encode-password</span></code> option to hide the password in the yaml as a secret string.
+However this is only for the purpose of obfuscation, the password is not cryptographically secure. Please refer to <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/utilities/secret_strings.html#secret-strings">Secret String</a> for more detail.</p>
+</div>
+</div>
+<div class="section" id="generate-from-multiple-csv-excel-files-under-a-directory">
+<h3>Generate from multiple csv/excel files under a directory<a class="headerlink" href="#generate-from-multiple-csv-excel-files-under-a-directory" title="Permalink to this headline">¶</a></h3>
+<p>Having multiple csv/excel files? You can pass a directory as the input and another directory as the output, then it will create a testbed file for every excel in the provided directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>demo$ pyats create testbed file --path excels --output yamls -r
+Testbed file generated:
+excels/my_devices.xlsx -&gt; yamls/my_devices.yaml
+excels/my_devices_2.xlsx -&gt; yamls/my_devices_2.yaml
+excels/my_devices_test.csv -&gt; yamls/my_devices_test.yaml
+excels/sub1/my_devices_csv.csv -&gt; yamls/sub1/my_devices_csv.yaml
+excels/sub1/subsub1/my_devices_csv.csv -&gt; yamls/sub1/subsub1 my_devices_csv.yaml
+Errors:
+excels/my_devices_csv.csv has an error: Duplicate hostname <span class="s2">&quot;R2_xr&quot;</span> detected
+excels/my_devices_test_err.csv has an error: <span class="s1">&#39;Every device must have a hostname&#39;</span>
+excels/my_devices_test_err.xlsx has an error: Error -3 <span class="k">while</span> decompressing data: invalid code -- missing end-of-block
+Warnings:
+excels/not_excel.txt is not excel or csv
+excels/my_devices_csv.yaml is not excel or csv
+excels/sub1/not_sub_excel.txt is not excel or csv
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The added <code class="xref py py-obj docutils literal notranslate"><span class="pre">-r</span></code> option above will enable genie to look for excels in subdirectories.</p>
+</div>
+</div>
+<div class="section" id="generate-by-entering-device-data">
+<h3>Generate by entering device data<a class="headerlink" href="#generate-by-entering-device-data" title="Permalink to this headline">¶</a></h3>
+<p>Don’t have an excel sheet or a csv? Don’t worry we got you covered! You can manually input the device data without providing the csv/excel file.
+Just follow the prompt from the program to enter the data:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>demo$ pyats create testbed interactive --output yaml my_testbed.yaml --encode-password
+Start creating Testbed yaml file ...
+Do all of the devices have the same username? <span class="o">[</span>y/n<span class="o">]</span> y
+Common Username: admin
+Do all of the devices have the same default password? <span class="o">[</span>y/n<span class="o">]</span> y
+Common Default Password <span class="o">(</span>leave blank <span class="k">if</span> you want to enter on demand<span class="o">)</span>:
+Do all of the devices have the same <span class="nb">enable</span> password? <span class="o">[</span>y/n<span class="o">]</span> n
+Device hostname: R1
+    IP <span class="o">(</span>ip, or ip:port<span class="o">)</span>: <span class="m">172</span>.15.192.101:17001
+    Enable Password <span class="o">(</span>leave blank <span class="k">if</span> you want to enter on demand<span class="o">)</span>:
+    Protocol <span class="o">(</span>ssh, telnet, ...<span class="o">)</span>: ssh
+    OS <span class="o">(</span>iosxr, iosxe, ios, nxos, linux, ...<span class="o">)</span>: iosxe
+More devices to add ? <span class="o">[</span>y/n<span class="o">]</span> y
+Device hostname: R2
+    IP <span class="o">(</span>ip, or ip:port<span class="o">)</span>: <span class="m">172</span>.25.192.102:17002
+    Enable Password <span class="o">(</span>leave blank <span class="k">if</span> you want to enter on demand<span class="o">)</span>:
+    Protocol <span class="o">(</span>ssh, telnet, ...<span class="o">)</span>: ssh
+    OS <span class="o">(</span>iosxr, iosxe, ios, nxos, linux, ...<span class="o">)</span>: iosxr
+More devices to add ? <span class="o">[</span>y/n<span class="o">]</span> n
+Testbed file generated:
+yaml/my_testbed.yaml
+</pre></div>
+</div>
+<p>This will give us the below yaml (note the hidden password):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">devices</span><span class="p">:</span>
+  <span class="nt">R1</span><span class="p">:</span>
+    <span class="nt">connections</span><span class="p">:</span>
+      <span class="nt">cli</span><span class="p">:</span>
+        <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">172.15.192.101</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">17001</span>
+        <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ssh</span>
+    <span class="nt">credentials</span><span class="p">:</span>
+      <span class="nt">default</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ENC(w5PDosOUw5fDog==)</span>
+        <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
+      <span class="nt">enable</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ENC(w5PDosOUw5fDosK-w4nDk8OHw4PDocOR)</span>
+    <span class="nt">os</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iosxe</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iosxe</span>
+  <span class="nt">R2</span><span class="p">:</span>
+    <span class="nt">connections</span><span class="p">:</span>
+      <span class="nt">cli</span><span class="p">:</span>
+        <span class="nt">ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">172.25.192.102</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">17002</span>
+        <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ssh</span>
+    <span class="nt">credentials</span><span class="p">:</span>
+      <span class="nt">default</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ENC(w5PDosOUw5fDog==)</span>
+        <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
+      <span class="nt">enable</span><span class="p">:</span>
+        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ENC(w5PDosOUw5fDosK-w4nDk8OHw4PDocORw5PDl8Od)</span>
+    <span class="nt">os</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iosxr</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iosxr</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-csv-excel-template">
+<h3>Generate csv/excel template<a class="headerlink" href="#generate-csv-excel-template" title="Permalink to this headline">¶</a></h3>
+<p>Too much work? You know can also generate a excel file template to fill in yourself:</p>
+<p>Use the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--add-keys</span></code> option if you want to add more optional keys to your template.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>demo$ pyats create testbed template --output my_template.xlsx --add-keys <span class="nb">alias</span> <span class="nb">type</span>
+... Template file generated: my_template.xlsx
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-from-ansible-inventory-file">
+<h3>Generate from Ansible inventory file<a class="headerlink" href="#generate-from-ansible-inventory-file" title="Permalink to this headline">¶</a></h3>
+<p>Having Ansible inventory file already and want to leverage it even with pyATS?
+Yes! We offer the option to convert the Ansible inventory file to pyATS testbed yaml.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>demo$ pyats create testbed ansible --output testbed.yaml --inventory-name inventory.ini
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--encode-password</span></code> option to hide the password in the yaml as a secret string.
+However this is only for the purpose of obfuscation, the password is not cryptographically secure. Please refer to <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/utilities/secret_strings.html#secret-strings">Secret String</a> for more detail.</p>
+</div>
+</div>
+<div class="section" id="generate-from-netbox">
+<h3>Generate from Netbox<a class="headerlink" href="#generate-from-netbox" title="Permalink to this headline">¶</a></h3>
+<p>You are managing network devices on Netbox and want to generate pyATS testbed yaml from the source of truth? Of course, you can! <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyats</span> <span class="pre">create</span> <span class="pre">testbed</span> <span class="pre">netbox</span></code> command can access to Netbox via REST API and retrieves device data and convert to testbed file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>demo$ pyats create testbed netbox --output testbed.yaml --netbox-url<span class="o">=</span>&lt;netbox url&gt; --user-token<span class="o">=</span>&lt;token&gt;
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--encode-password</span></code> option to hide the password in the yaml as a secret string.
+However this is only for the purpose of obfuscation, the password is not cryptographically secure. Please refer to <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/utilities/secret_strings.html#secret-strings">Secret String</a> for more detail.</p>
+</div>
+</div>
+</div>
+<div class="section" id="genie-create-parser">
+<h2>Genie Create Parser<a class="headerlink" href="#genie-create-parser" title="Permalink to this headline">¶</a></h2>
+<p>This subcommand uses cookiecutter to generate a new Genie parser.
+The generated folder contains a parser template and a parser unittest template</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Usage:
+  genie create parser [options]
+
+Description:
+  create a Genie parser from cookiecutter template, located at:
+      https://github.com/CiscoTestAutomation/genie-parser-template
+
+Parser Options:
+  --parser_name PARSER_NAME
+                        name of parser to be generated
+  --os OS               Cisco OS for the parser
+
+General Options:
+  -h, --help            Show help
+  -v, --verbose         Give more output, additive up to 3 times.
+  -q, --quiet           Give less output, additive up to 3 times, corresponding to WARNING, ERROR, and CRITICAL logging levels
+</pre></div>
+</div>
+<p>By default, the command will prompt you for information it needs to generate
+the parser from template. These prompts can be automated if you provide the
+corresponding command line arguments.</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Example
+# -------
+#
+#   creating a parser by entering everything through the prompts
+
+bash$ genie create parser
+Checking if cookiecutter is installed...
+Parser Name: my_parser
+Cisco OS for the parser [IOSXE/IOSXR/NXOS]: IOSXE
+Generating your project...
+
+# this will create a new folder with your provided parser name, containing
+# the template files
+
+bash $ tree my_parser/
+my_parser/
+├── my_parser.py
+└── test_my_parser.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="genie-create-trigger">
+<h2>genie create trigger<a class="headerlink" href="#genie-create-trigger" title="Permalink to this headline">¶</a></h2>
+<p>Just like <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">create</span> <span class="pre">parser</span></code>, this subcommand uses cookiecutter to generate a new Genie trigger.
+The generated folder contains a trigger template and a trigger datafile template</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Usage:
+  genie create trigger [options]
+
+Description:
+  create a Genie trigger from cookiecutter template, located at:
+      https://github.com/CiscoTestAutomation/genie-trigger-template
+
+Trigger Options:
+  --trigger_name TRIGGER_NAME
+                        name of trigger to be generated
+  --action ACTION       action the trigger will perform
+  --undo_action UNDO_ACTION
+                        undo action the trigger will perform
+
+General Options:
+  -h, --help            Show help
+  -v, --verbose         Give more output, additive up to 3 times.
+  -q, --quiet           Give less output, additive up to 3 times, corresponding to WARNING, ERROR, and CRITICAL logging levels
+</pre></div>
+</div>
+<p>By default, the command will prompt you for information it needs to generate
+the trigger from template. These prompts can be automated if you provide the
+corresponding command line arguments.</p>
+<div class="section" id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Example
+# -------
+#
+#   creating a trigger by entering everything through the prompts
+
+bash$ pyats create trigger
+Checking if cookiecutter is installed...
+Trigger Name: my_trigger
+Action the trigger will perform (ex. Add): Shut
+Undo action the trigger will perform (ex. Remove): NoShut
+Generating your project...
+
+# this will create a new folder with your provided trigger name, containing
+# the template files
+
+bash $ tree my_trigger/
+my_trigger/
+├── my_trigger.py
+└── my_trigger_datafile.yaml
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../solutions/index.html" class="btn btn-neutral float-right" title="Genie Solutions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="genie_dnac.html" class="btn btn-neutral float-left" title="Genie DNAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

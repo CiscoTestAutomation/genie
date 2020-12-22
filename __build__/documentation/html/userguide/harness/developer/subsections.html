@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Subsections &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="RobotFramework Guide" href="../../robot/index.html" />
+    <link rel="prev" title="PTS" href="pts.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Harness Guide</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../user/index.html">Harness User Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Harness Developer Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="verifications.html">Verifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triggers.html">Triggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapping.html">Mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pts.html">PTS</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Subsections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">User Guide</a> &raquo;</li>
+        
+          <li><a href="../index.html">Harness Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Harness Developer Guide</a> &raquo;</li>
+        
+      <li>Subsections</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="subsections">
+<span id="id1"></span><h1>Subsections<a class="headerlink" href="#subsections" title="Permalink to this headline">¶</a></h1>
+<p>All <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/aetest/structure.html#subsections">Subsections</a> are executed in the common setup and the common cleanup and
+does not run between <code class="xref py py-obj docutils literal notranslate"><span class="pre">Triggers</span></code>. As it is run only in common setup or common
+cleanup, it allows <code class="docutils literal notranslate"><span class="pre">Genie</span></code> to perform certain tasks, such as take complete
+snapshot of all the features configured on the device, backup configuration to
+the cloud, restore configuration from the cloud, without impacting the execution
+time.</p>
+<p>More information can be found in the <a class="reference internal" href="#subsections"><span class="std std-ref">user guide</span></a>.</p>
+<div class="section" id="using-subsections">
+<h2>Using Subsections<a class="headerlink" href="#using-subsections" title="Permalink to this headline">¶</a></h2>
+<p>Now, let’s see how to create a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Subsection</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code>.</p>
+<p>Step 0: Write a new <code class="xref py py-obj docutils literal notranslate"><span class="pre">Subsection</span></code> method or update an existing <code class="xref py py-obj docutils literal notranslate"><span class="pre">Subsection</span></code>.</p>
+<p>Step 1: Add your Subsection information to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">subsection_datafile</span></code> as shown
+below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Create a subsection_datafile as per the below schema that extends
+from the master one as illustrated below.</p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">extends</span><span class="p">:</span> <span class="c1"># Use this field to extend an existing yaml subsection datafile,</span>
+         <span class="c1"># allowing you to create an inheritance hierarchy.</span>
+         <span class="c1"># Supports full path/names or name of file in the same dir.</span>
+         <span class="c1"># ``Genie`` provides a Master set of subsection datafile for you to</span>
+         <span class="c1"># extend from as a start. It is found at:</span>
+         <span class="c1"># &lt;$virtual_env&gt;/projects/genie_libs/sdk/yaml/subsection_datafile.yaml</span>
+
+<span class="nt">setup</span><span class="p">:</span>
+    <span class="nt">sections</span><span class="p">:</span>
+        <span class="c1"># define a subsection with additional parameters</span>
+        <span class="nt">&lt;subsection name&gt;</span><span class="p">:</span>
+            <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your method location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.subsection_1&gt;</span>
+            <span class="nt">parameters</span><span class="p">:</span>
+                 <span class="nt">&lt;key&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;value&gt;</span>
+        <span class="c1"># define a subsection without additional parameters</span>
+        <span class="nt">&lt;subsection name&gt;</span><span class="p">:</span>
+            <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your method location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.subsection_2&gt;</span>
+    <span class="nt">order</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;list of existing subsections in a desired order&gt;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">cleanup</span><span class="p">:</span>
+    <span class="nt">sections</span><span class="p">:</span>
+        <span class="c1"># define a subsection with additional parameters</span>
+        <span class="nt">&lt;subsection name&gt;</span><span class="p">:</span>
+            <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your method location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.subsection_1&gt;</span>
+            <span class="nt">parameters</span><span class="p">:</span>
+                 <span class="nt">&lt;key&gt;</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;value&gt;</span>
+        <span class="c1"># define a subsection without additional parameters</span>
+        <span class="nt">&lt;subsection name&gt;</span><span class="p">:</span>
+            <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your method location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.subsection_2&gt;</span>
+    <span class="nt">order</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;list of existing subsections in a desired order&gt;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to reuse some of the subsections, please define a unique
+subsection name, method with/without additional parameters.</p>
+<p>Defined subsection name will replace the subsection method name in the
+execution result/log.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only the section defined in the order will be executed</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Feel free to add more keys from the datafile schema.</p>
+</div>
+<p>Step 3: Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">job</span></code> file is pointing to this file via the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">subsection_datafile</span></code> argument.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection_datafile=&quot;&lt;path to your file created above&gt;&quot;
+</pre></div>
+</div>
+<p>Step 4: To run <code class="xref py py-obj docutils literal notranslate"><span class="pre">Subsections</span></code>, execute your job via easypy with the required
+arguments.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../robot/index.html" class="btn btn-neutral float-right" title="RobotFramework Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pts.html" class="btn btn-neutral float-left" title="PTS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

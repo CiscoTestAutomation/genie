@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyATS Health Check &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/asciinema-player.js"></script>
+        <script src="../_static/tracker.js"></script>
+        <script src="../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation" href="health_installation/installation.html" />
+    <link rel="prev" title="Base Clean Files" href="../clean/examples/base_clean_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyATS Health Check</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="health_installation/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_design/design.html">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_usage/usage.html">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>pyATS Health Check</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyats-health-check">
+<span id="health"></span><h1>pyATS Health Check<a class="headerlink" href="#pyats-health-check" title="Permalink to this headline">¶</a></h1>
+<p>Collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check is all yaml driven and it is based on <a class="reference external" href="https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html">Quick Trigger (Blitz)</a>. All Blitz functionalities are fully supported in health check.</p>
+<p>The health check is driven by a <code class="xref py py-obj docutils literal notranslate"><span class="pre">health_file</span></code> which is provided at run time. There is two different mechanism to run the checks:</p>
+<ol class="arabic simple">
+<li><p>Part of a pre/post processor of a section or testcase.</p></li>
+<li><p>Part of another process continuously (Coming up in September).</p></li>
+</ol>
+<p>pyATS Health Check leverages existing <a class="reference external" href="https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html">Quick Trigger (Blitz)</a> style YAML format and use same format and capabilities what Blitz has.
+The actions in pyATS Health Check yaml, those actions will be added to pyATS job’s each section as pre/post processors. Pre, Post or both processors can be specified in the yaml.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the detail of Quick Trigger (Blitz) <a class="reference external" href="https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html">Quick Trigger (Blitz)</a></p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quick start Guide!</span>
+<span class="c1"># ------------------</span>
+<span class="c1"># 1. Create the health yaml</span>
+<span class="c1"># 2. Add the arguments</span>
+<span class="c1"># 3. (Optional) Run it and hope no issue is found by the pyATS Health Check!</span>
+
+<span class="c1"># Integrated with pyATS jobs</span>
+pyats run job &lt;job file&gt; --testbed-file /path/to/testbed.yaml --health-file /path/to/health.yaml
+</pre></div>
+</div>
+<p>You can find examples in our <a class="reference external" href="https://github.com/CiscoTestAutomation/examples/tree/master/health">Github repo</a>. Any contributions for pyATS Health Check examples are encouraged!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Devices for pyATS Health Check need to be in testbed yaml for pyATS job</p>
+<p>The pyATS testbed object will be converted to Genie testbed object to have Genie functionalities.</p>
+</div>
+<hr class="docutils" />
+<div class="figure align-right">
+<a class="reference internal image-reference" href="../_images/health_run.png"><img alt="../_images/health_run.png" src="../_images/health_run.png" style="width: 350px;" /></a>
+</div>
+<p>Create health.yaml with knowledge about pyATS Quick Trigger (Blitz) and then just add argument <code class="xref py py-obj docutils literal notranslate"><span class="pre">--health-file</span></code> with the file. pyATS Health Check will add Blitz actions as processors to sections in pyATS job. And pyATS Health Check processors will run before and after each section to monitor/collect device status and etc.</p>
+<p>Even for development of health yaml, the health file makes developer’s life easier. It’s same format with Blitz format and the health file can run like Blitz triggers as well. So, develop and test as Blitz triggers first and just switch argument from <code class="xref py py-obj docutils literal notranslate"><span class="pre">--trigger-datafile</span></code> to <code class="xref py py-obj docutils literal notranslate"><span class="pre">--health-file</span></code> when health yaml is ready.</p>
+<p>pyATS Health Check comes with default checks; however it is fully open-sourced! You can add your own checks to be executed at any time! Any features or functions to monitor, those can be contributed and developed as Blitz actions or APIs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See all the available APIs for pyATS Health Check <a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available Apis</a></p>
+</div>
+<hr class="docutils" />
+<p>pyATS Health Check’s added processors can be easily found in pyATS Logviewer or XPRESSO. The added processors has <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyATS</span> <span class="pre">Health</span> <span class="pre">Check</span></code> and also icons for both <code class="xref py py-obj docutils literal notranslate"><span class="pre">Pre</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Post</span></code>.</p>
+<div class="figure align-center">
+<img alt="../_images/health_logviewer.png" src="../_images/health_logviewer.png" />
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="health_installation/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="health_installation/installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_installation/installation.html#installation-steps">Installation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="health_design/design.html">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="health_design/design.html#pyats-health-check-yaml">pyATS Health Check yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_design/design.html#processor-key-in-yaml">processor key in YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_design/design.html#reconnect-feature">reconnect feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_design/design.html#selecting-testcase-section">Selecting Testcase/Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_design/design.html#result-propagation">Result propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_design/design.html#supported-platforms-for-pyats-health-check">Supported Platforms for pyATS Health Check</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="health_usage/usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="health_usage/usage.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_usage/usage.html#integrated">Integrated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_usage/usage.html#standalone">Standalone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_usage/usage.html#pyats-health-check-yaml-validation">pyATS Health Check YAML Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health_usage/usage.html#pyats-health-check-examples">pyATS Health Check Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="health_installation/installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../clean/examples/base_clean_files.html" class="btn btn-neutral float-left" title="Base Clean Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

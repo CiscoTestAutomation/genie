@@ -1,0 +1,912 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Summary &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/asciinema-player.js"></script>
+        <script src="../_static/tracker.js"></script>
+        <script src="../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Summary" href="conf.html" />
+    <link rel="prev" title="1. Summary" href="parsers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#explore-genie">Explore Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-general">Genie - General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-command-line">Genie Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-libs-parsers">Genie.libs.parsers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#genie-ops">Genie.Ops</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#retrieve-a-snapshot-of-the-operation-state-of-your-device">2. Retrieve a snapshot of the Operation state of your device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-partial-state-of-a-feature-command-based">3. Get partial state of a feature - command based</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-partial-state-of-a-feature-attribute-based">4. Get partial state of a feature - Attribute based</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-ops-object-to-verify-state-is-as-expected">5. Use <code class="docutils literal notranslate"><span class="pre">Ops</span></code> object to verify state is as expected.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compare-two-feature-snapshots-diff-two-ops-object">6. Compare two feature snapshots - Diff two <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> object.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-snapshot-to-file-and-re-use-them-at-a-later-time">7. Save snapshot to file, and re-use them at a later time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connection-pool-with-ops-learn-faster">8. Connection pool with <code class="docutils literal notranslate"><span class="pre">Ops</span></code> - Learn Faster!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#one-script-across-all-platform-abstract-package">9. One script across all platform! - <code class="xref py py-obj docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">package</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#one-script-across-all-interface-management-cli-yang-xml">10. One script across all Interface management (Cli/Yang/Xml/…)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigate-ops-object-with-your-needs-the-find-object">11. Navigate <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> object with your needs - The <code class="xref py py-obj docutils literal notranslate"><span class="pre">Find</span></code> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where-are-the-object-models-located">12. Where are the object models located?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-contribute">13. How to contribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-exclude-keys-for-an-ops-object">14. Get exclude keys for an ops object</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-conf">Genie.Conf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-harness">Genie.Harness</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>1. Summary</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h2>Genie Operational Recipes</h2><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section assumes pyATS and Genie are <a class="reference internal" href="genie.html#book-genie"><span class="std std-ref">installed and ready to be
+used</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It also assumes you have a <a class="reference internal" href="genie.html#book-setup-testbed"><span class="std std-ref">testbed file ready</span></a> to
+be used with a device.</p>
+</div>
+<div class="section" id="summary">
+<span id="book-ops-summary"></span><h1>1. Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section gives a summary of what is an Ops object. Dig into the documentation for more information.</p>
+</div>
+<p>Genie Ops learns everything that can be learn about a feature operational
+state, and pack it into 1 structured object. This structure is common for all
+OS.</p>
+<p>Here are some use cases where these objects are useful:</p>
+<ol class="arabic simple">
+<li><p>Learn all interfaces on a device and their operation state</p></li>
+<li><p>Learn any protocol state - Bgp, Ospf, Acl, Dot1x, lldp, …</p></li>
+<li><p>Device state - Platforms, linecards, …</p></li>
+</ol>
+<p>The technology has also been used for a non-networking purpose such as:</p>
+<ol class="arabic simple" start="4">
+<li><p>Learn website information to work with Selenium</p></li>
+</ol>
+<p>All supported feature can be seen on our <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/models">models page</a>. Each
+object follows a structure which can also be seen on the same page. Take a look
+at the model page for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> structure.</p>
+<p>Here are some use cases where these objects can be used:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Learn a feature and retrieve some values out of the structure.</dt><dd><ol class="loweralpha simple">
+<li><p>Learn Interface object and check if a particular interface is up</p></li>
+<li><p>Learn Bgp object and check if the bgp has some peer policies</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Learn a feature and use the <a class="reference internal" href="#book-ops-find"><span class="std std-ref">Find</span></a> object to navigate it</dt><dd><ol class="loweralpha simple">
+<li><p>Learn Ospf object and check which instances have nsr activated</p></li>
+<li><p>Learn Ospf object and check which instances have nsr activated
+and is connected with a particular interface.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Take a snapshot of the object and compare it at a later time</dt><dd><ol class="loweralpha simple">
+<li><p>Take a snapshot of the Interface object. Do some modifications to some
+interface. Retake a snapshot and compare that the changes are as expected.</p></li>
+<li><p>Same idea as above, but make sure nothing has been modified.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>Take a snapshot and save it to a file. On another day, take the same
+snapshot and compare with the previous day snapshot. This provides assurance
+that your network has not changed over time.</p></li>
+</ol>
+</div>
+<div class="section" id="retrieve-a-snapshot-of-the-operation-state-of-your-device">
+<h1>2. Retrieve a snapshot of the Operation state of your device<a class="headerlink" href="#retrieve-a-snapshot-of-the-operation-state-of-your-device" title="Permalink to this headline">¶</a></h1>
+<p>Learning a device feature is now easier than ever. <code class="docutils literal notranslate"><span class="pre">Ops</span></code> object learns
+everything to know about the operation state of a device feature such as ospf,
+interface, etc.</p>
+<p>This sends multiple commands on the device and creates a structure for all the
+information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The OS choices are - nxos; iosxr; iosxe - For this example, we will be</span>
+<span class="c1"># using nxos</span>
+<span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="kn">from</span> <span class="nn">genie.libs.ops.interface.nxos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+
+<span class="c1"># Find the uut device. Either the alias or the hostname of the device can</span>
+<span class="c1"># be provided</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Instantiate the OPS object</span>
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="c1"># This will send many show command to learn the operational state</span>
+<span class="c1"># of interfaces for this device</span>
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">interface</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+
+<span class="c1"># The object is too big to print, here a snippet</span>
+<span class="c1"># {&#39;Ethernet2/1&#39;: {&#39;auto_negotiate&#39;: False,</span>
+<span class="c1">#                  &#39;bandwidth&#39;: 1000000,</span>
+<span class="c1">#                  &#39;counters&#39;: {&#39;in_broadcast_pkts&#39;: 0,</span>
+<span class="c1">#                               &#39;in_crc_errors&#39;: 0,</span>
+<span class="c1">#                               &#39;in_errors&#39;: 0,</span>
+<span class="c1">#                               &#39;in_mac_pause_frames&#39;: 0,</span>
+<span class="c1">#                               &#39;in_multicast_pkts&#39;: 0,</span>
+<span class="c1">#                               &#39;in_octets&#39;: 0,</span>
+<span class="c1">#                               &#39;in_pkts&#39;: 0,</span>
+<span class="c1">#                               &#39;in_unicast_pkts&#39;: 0,</span>
+<span class="c1">#                               &#39;in_unknown_protos&#39;: 0,</span>
+<span class="c1">#                               &#39;last_clear&#39;: &#39;never&#39;,</span>
+<span class="c1">#                               &#39;out_broadcast_pkts&#39;: 0,</span>
+<span class="c1">#                               &#39;out_discard&#39;: 0,</span>
+<span class="c1">#                               &#39;out_errors&#39;: 0,</span>
+<span class="c1">#                               &#39;out_mac_pause_frames&#39;: 0,</span>
+<span class="c1">#                               &#39;out_multicast_pkts&#39;: 0,</span>
+<span class="c1">#                               &#39;out_octets&#39;: 0,</span>
+<span class="c1">#                               &#39;out_pkts&#39;: 0,</span>
+<span class="c1">#                               &#39;out_unicast_pkts&#39;: 0,</span>
+<span class="c1">#                               &#39;rate&#39;: {&#39;in_rate&#39;: 0,</span>
+<span class="c1">#                                        &#39;in_rate_pkts&#39;: 0,</span>
+<span class="c1">#                                        &#39;load_interval&#39;: 0,</span>
+<span class="c1">#                                        &#39;out_rate&#39;: 0,</span>
+<span class="c1">#                                        &#39;out_rate_pkts&#39;: 0}},</span>
+<span class="c1">#                  &#39;delay&#39;: 10,</span>
+<span class="c1">#                  &#39;duplex_mode&#39;: &#39;full&#39;,</span>
+<span class="c1">#                  &#39;enabled&#39;: True,</span>
+<span class="c1">#                  &#39;encapsulation&#39;: {&#39;encapsulation&#39;: &#39;arpa&#39;},</span>
+<span class="c1">#                  &#39;flow_control&#39;: {&#39;receive&#39;: False, &#39;send&#39;: False},</span>
+<span class="c1">#                  &#39;ipv4&#39;: {&#39;10.0.1.2/24&#39;: {&#39;ip&#39;: &#39;10.0.1.2&#39;,</span>
+<span class="c1">#                                           &#39;prefix_length&#39;: &#39;24&#39;}},</span>
+<span class="c1">#                  &#39;mac_address&#39;: &#39;0000.0000.002f&#39;,</span>
+<span class="c1">#                  &#39;medium&#39;: &#39;broadcast&#39;,</span>
+<span class="c1">#                  &#39;mtu&#39;: 1500,</span>
+<span class="c1">#                  &#39;oper_status&#39;: &#39;up&#39;,</span>
+<span class="c1">#                  &#39;phys_address&#39;: &#39;fa16.3eb3.07f1&#39;,</span>
+<span class="c1">#                  &#39;port_channel&#39;: {&#39;port_channel_member&#39;: False},</span>
+<span class="c1">#                  &#39;port_speed&#39;: &#39;1000&#39;,</span>
+<span class="c1">#                  &#39;type&#39;: &#39;Ethernet&#39;,</span>
+<span class="c1">#                 &#39;vrf&#39;: &#39;default&#39;},</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>All supported feature can be seen on our <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/models">models page</a>.</p>
+<script src="https://asciinema.org/a/FXMwC7w5SswKCYt5AOZODXOGN.js" id="asciicast-FXMwC7w5SswKCYt5AOZODXOGN" async></script><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information can be found on the <a class="reference internal" href="../userguide/Ops/user/index.html#ops-user-guide"><span class="std std-ref">Ops page</span></a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>use <code class="docutils literal notranslate"><span class="pre">device.learn('all')</span></code> to learn all the supported features on the device, and the result will be returned in a dictionary
+format like: <code class="docutils literal notranslate"><span class="pre">{'interface'</span> <span class="pre">:</span> <span class="pre">&lt;Interface</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x7fcec85d8160&gt;}</span></code>. If an exception occurred while learning a particular feature, then <code class="docutils literal notranslate"><span class="pre">featureObject</span></code> will become the exception object.</p>
+</div>
+</div>
+<div class="section" id="get-partial-state-of-a-feature-command-based">
+<h1>3. Get partial state of a feature - command based<a class="headerlink" href="#get-partial-state-of-a-feature-command-based" title="Permalink to this headline">¶</a></h1>
+<p>The above recipe learns everything about this feature by sending many commands
+the device. To reduce execution time, we can dictate to only learn from
+specific commands.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The OS choices are - nxos; iosxr; iosxe - For this example we will be</span>
+<span class="c1"># using nxos</span>
+<span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="kn">from</span> <span class="nn">genie.libs.ops.interface.nxos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+<span class="kn">from</span> <span class="nn">genie.libs.parser.nxos.show_interface</span> <span class="kn">import</span> <span class="n">ShowVrfAllInterface</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Learn interface based only on 1 command</span>
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">,</span> <span class="n">commands</span><span class="o">=</span><span class="p">[</span><span class="n">ShowVrfAllInterface</span><span class="p">])</span>
+
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">interface</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+
+<span class="c1"># {&#39;Ethernet2/1&#39;: {&#39;vrf&#39;: &#39;default&#39;},</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>To know which command is used for this <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> object, the code is needed to be
+checked. All code is hosted in <a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse">git</a> in directories
+pkgs/ops-pkg/src/genie/libs/ops.</p>
+<script src="https://asciinema.org/a/qaGvB8rt1wSmNksYf8L1jiv4S.js" id="asciicast-qaGvB8rt1wSmNksYf8L1jiv4S" async></script></div>
+<div class="section" id="get-partial-state-of-a-feature-attribute-based">
+<h1>4. Get partial state of a feature - Attribute based<a class="headerlink" href="#get-partial-state-of-a-feature-attribute-based" title="Permalink to this headline">¶</a></h1>
+<p>Another way to save execution time is by providing the variables that you care
+about. Only the commands related to these keys will be sent and learnt.</p>
+<p>In this recipe, we only care about the variable <code class="xref py py-obj docutils literal notranslate"><span class="pre">duplex_mode</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The OS choices are - nxos; iosxr; iosxe - For this example, we will be</span>
+<span class="c1"># using nxos</span>
+<span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="kn">from</span> <span class="nn">genie.libs.ops.interface.nxos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Learn all interface which has duplex mode as a key</span>
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;info[(.*)][duplex_mode]&#39;</span><span class="p">])</span>
+
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">interface</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+
+<span class="c1"># {&#39;Ethernet2/1&#39;: {&#39;duplex_mode&#39;: &#39;full&#39;},</span>
+<span class="c1"># &#39;Ethernet2/2&#39;: {&#39;duplex_mode&#39;: &#39;full&#39;},</span>
+<span class="c1">#  &#39;mgmt0&#39;: {&#39;duplex_mode&#39;: &#39;full&#39;}}</span>
+</pre></div>
+</div>
+<p>In this case, only 2 commands out of 7 were sent to the device. This can be
+massive time saver.</p>
+<p>All supported feature and their variable structure can be seen on our
+<a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/models">models page</a>. All of them are to be used in the same way.</p>
+<script src="https://asciinema.org/a/laX0ltkJTrVsNVnfs5wteQk8a.js" id="asciicast-laX0ltkJTrVsNVnfs5wteQk8a" async></script><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information can be found on the <a class="reference internal" href="../userguide/Ops/user/ops.html#user-ops-extra-attributes"><span class="std std-ref">Ops page - Extra features</span></a>.</p>
+</div>
+</div>
+<div class="section" id="use-ops-object-to-verify-state-is-as-expected">
+<h1>5. Use <code class="docutils literal notranslate"><span class="pre">Ops</span></code> object to verify state is as expected.<a class="headerlink" href="#use-ops-object-to-verify-state-is-as-expected" title="Permalink to this headline">¶</a></h1>
+<p>A great feature of Ops is the built-in verify mode. Learn a feature and verify
+if it’s as expected. If it is not then sleep for sometime and try again. This
+is very useful after doing some actions on the device and expecting the device
+to take some time to stabilize.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The OS choices are - nxos; iosxr; iosxe - For this example, we will be</span>
+<span class="c1"># using nxos</span>
+<span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="kn">from</span> <span class="nn">genie.libs.ops.interface.nxos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">verify_interface_status</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="c1"># Interface object that was learnt</span>
+    <span class="c1"># Let&#39;s verify that at least one interface is up</span>
+    <span class="k">for</span> <span class="n">intf</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">info</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="n">intf</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oper_status&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span>\
+           <span class="n">obj</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="n">intf</span><span class="p">][</span><span class="s1">&#39;oper_status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span><span class="p">:</span>
+            <span class="k">return</span>
+    <span class="c1"># If no interface was found to have an up oper_status, then</span>
+    <span class="c1"># raise an exception</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not find any up interface&quot;</span><span class="p">)</span>
+
+<span class="c1"># Learn all interface which has duplex mode as a key</span>
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="c1"># Try to verify up to 6 times that at least one interface is up</span>
+<span class="c1"># with sleep of 5 seconds between each attempt</span>
+<span class="n">interface</span><span class="o">.</span><span class="n">learn_poll</span><span class="p">(</span><span class="n">verify</span><span class="o">=</span><span class="n">verify_interface_status</span><span class="p">,</span> <span class="n">sleep</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">attempt</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information can be found on the <a class="reference internal" href="../userguide/Ops/user/ops.html#user-ops-polling"><span class="std std-ref">Ops page - Polling</span></a>.</p>
+</div>
+</div>
+<div class="section" id="compare-two-feature-snapshots-diff-two-ops-object">
+<span id="book-ops-diff"></span><h1>6. Compare two feature snapshots - Diff two <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> object.<a class="headerlink" href="#compare-two-feature-snapshots-diff-two-ops-object" title="Permalink to this headline">¶</a></h1>
+<p>Want to know if the state of your network has changed over time? Take snapshots
+at a different time, and compare them!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The OS choices are - nxos; iosxr; iosxe - For this example, we will be</span>
+<span class="c1"># using nxos</span>
+<span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="kn">from</span> <span class="nn">genie.libs.ops.interface.nxos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Learn all interface</span>
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="c1"># Let&#39;s modify one of the interface, so we can demonstrate the comparison</span>
+<span class="c1"># Find an up interface</span>
+<span class="k">for</span> <span class="n">intf</span> <span class="ow">in</span> <span class="n">interface</span><span class="o">.</span><span class="n">info</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">interface</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="n">intf</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oper_status&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span>\
+       <span class="n">interface</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="n">intf</span><span class="p">][</span><span class="s1">&#39;oper_status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span><span class="p">:</span>
+       <span class="n">up_interface</span> <span class="o">=</span> <span class="n">intf</span>
+       <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># No up interface</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Could not find any up interface&quot;</span><span class="p">)</span>
+
+<span class="n">uut</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\\\</span>
+<span class="s1">interface </span><span class="si">{intf}</span><span class="s1"></span>
+<span class="s1"> shut&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">intf</span><span class="o">=</span><span class="n">up_interface</span><span class="p">))</span>
+
+<span class="c1"># let&#39;s take a new snapshot now and compare</span>
+<span class="n">interface_after</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="n">interface_after</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">interface</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">interface_after</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
+
+<span class="c1"># info:</span>
+<span class="c1">#  loopback1:</span>
+<span class="c1"># +  enabled: False</span>
+<span class="c1"># -  enabled: True</span>
+<span class="c1"># +  oper_status: down</span>
+<span class="c1"># -  oper_status: up</span>
+
+<span class="n">uut</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\\\</span>
+<span class="s1">interface </span><span class="si">{intf}</span><span class="s1"></span>
+<span class="s1"> no shut&#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">intf</span><span class="o">=</span><span class="n">up_interface</span><span class="p">))</span>
+</pre></div>
+</div>
+<script src="https://asciinema.org/a/fxXsA3uajzcH22ZYTFoXnM681.js" id="asciicast-fxXsA3uajzcH22ZYTFoXnM681" async></script><p>This opens up the possibility of Testing and Assurance to the next level!
+This allows the script to check at any point if any part of the operational state
+has changed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information can be found on the <a class="reference internal" href="../userguide/Ops/user/ops.html#user-ops-extra-diff"><span class="std std-ref">Ops page - Diff</span></a>.</p>
+</div>
+</div>
+<div class="section" id="save-snapshot-to-file-and-re-use-them-at-a-later-time">
+<h1>7. Save snapshot to file, and re-use them at a later time<a class="headerlink" href="#save-snapshot-to-file-and-re-use-them-at-a-later-time" title="Permalink to this headline">¶</a></h1>
+<p>The previous recipe is perfect for within script comparison. This recipe allows
+to save the object as a file, and compare it at a later date. Perfect for a weekly check of the operation state of your devices,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The OS choices are - nxos; iosxr; iosxe - For this example, we will be</span>
+<span class="c1"># using nxos</span>
+<span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="kn">from</span> <span class="nn">genie.libs.ops.interface.nxos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Learn all interface</span>
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">interface</span><span class="o">.</span><span class="n">pickle</span><span class="p">(</span><span class="n">interface</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Then at a later time, you can do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.ops.base</span> <span class="kn">import</span> <span class="n">Base</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">interface</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">unpickle</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Then once you get the object, you can do a normal comparison.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information can be found on the <a class="reference external" href="https://docs.python.org/3.5/library/pickle.html">official python</a>
+documentation.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information can be found on the <a class="reference internal" href="../userguide/Ops/user/ops.html#user-ops-extra-diff"><span class="std std-ref">Ops page -
+Diff</span></a>.</p>
+</div>
+</div>
+<div class="section" id="connection-pool-with-ops-learn-faster">
+<h1>8. Connection pool with <code class="docutils literal notranslate"><span class="pre">Ops</span></code> - Learn Faster!<a class="headerlink" href="#connection-pool-with-ops-learn-faster" title="Permalink to this headline">¶</a></h1>
+<p>Your time is valuable, hence Genie provides asynchronous execution methodology!
+With the new connection pool mechanism, learning a feature can be done much
+faster. Commands are sent in parallel to the device providing exceptional
+performance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The OS choices are - nxos; iosxr; iosxe - For this example, we will be</span>
+<span class="c1"># using nxos</span>
+<span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="kn">from</span> <span class="nn">genie.libs.ops.interface.nxos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+
+<span class="c1"># With connection pool, its important to provide an alias. More information</span>
+<span class="c1"># on this in the note below.</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">start_pool</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Learn all interface</span>
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To fully utilize this functionality, a management port should be used which can
+accept multiple connections.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>devices:
+  nx-osv-1:
+      alias: <span class="s1">&#39;uut&#39;</span>
+      type: <span class="s1">&#39;Nexus&#39;</span>
+      os: <span class="s1">&#39;nxos&#39;</span>
+      tacacs:
+          login_prompt: <span class="s2">&quot;login:&quot;</span>
+          password_prompt: <span class="s2">&quot;Password:&quot;</span>
+          username: <span class="s2">&quot;admin&quot;</span>
+      passwords:
+          tacacs: Cisc0123
+          enable: admin
+          line: admin
+      connections:
+          defaults:
+            class: <span class="s1">&#39;unicon.Unicon&#39;</span>
+          a:
+              protocol: telnet
+              ip: <span class="s2">&quot;172.25.192.90&quot;</span>
+              port: <span class="m">17052</span>
+          vty:
+              protocol: telnet
+              ip: <span class="s2">&quot;10.1.1.2&quot;</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">vty</span></code> connection has been added to connect to the management port of the
+device.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Same as earlier</span>
+<span class="c1"># ...</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">start_pool</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="s1">&#39;vty&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Learn all interface</span>
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Connection pool increases the performance of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> by using multiple
+connections to the device.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information can be found on the <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/connections/sharing.html#connection-pools">Connection
+pool</a> documentation.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information can be found on the <a class="reference internal" href="../userguide/Ops/user/connections.html#user-ops-connection-pool"><span class="std std-ref">Ops page - Pool connection</span></a>.</p>
+</div>
+</div>
+<div class="section" id="one-script-across-all-platform-abstract-package">
+<h1>9. One script across all platform! - <code class="xref py py-obj docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">package</span></code><a class="headerlink" href="#one-script-across-all-platform-abstract-package" title="Permalink to this headline">¶</a></h1>
+<p>In an earlier recipe, we’ve used this kind of import</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.libs.ops.interface.nxos.interface</span> <span class="kn">import</span> <span class="n">Interface</span>
+</pre></div>
+</div>
+<p>Why not have one script which works across all devices? Not a dream anymore!
+With <code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie.abstract</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie.ops</span></code> you write it <strong>once</strong> for all platforms.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="c1"># Import the main level of the library</span>
+<span class="kn">from</span> <span class="nn">genie.libs</span> <span class="kn">import</span> <span class="n">ops</span>
+<span class="c1"># Import Abstract library</span>
+<span class="kn">from</span> <span class="nn">genie.abstract</span> <span class="kn">import</span> <span class="n">Lookup</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">start_pool</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="s1">&#39;vty&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">lookup</span> <span class="o">=</span> <span class="n">Lookup</span><span class="o">.</span><span class="n">from_device</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+<span class="n">Interface</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">Interface</span>
+<span class="c1"># Interface is now -&gt; &lt;class &#39;genie.libs.ops.interface.nxos.interface.Interface&#39;&gt;</span>
+<span class="c1"># More information on this below</span>
+
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Abstract will look for the device os and find the corresponding library. As Ops
+structure are identical across all platforms, the same script can be used!</p>
+<p>Amazed enough?! Here is even better news!</p>
+<p>For <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> we can use the newly implemented <code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ops</span></code> API which returns the
+abstracted ops class without even calling Lookup as above.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import testbed and get_ops</span>
+<span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="kn">from</span> <span class="nn">genie.ops.utils</span> <span class="kn">import</span> <span class="n">get_ops</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Get the Ops objecet</span>
+<span class="n">Interface</span> <span class="o">=</span> <span class="n">get_ops</span><span class="p">(</span><span class="s1">&#39;interface&#39;</span><span class="p">,</span> <span class="n">uut</span><span class="p">)</span>
+
+<span class="c1"># Learn all interfaces</span>
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/abstract/latest/lookup_class.html#integration-with-topology">granular abstract</a> can be provided if
+needed.</p>
+</div>
+</div>
+<div class="section" id="one-script-across-all-interface-management-cli-yang-xml">
+<h1>10. One script across all Interface management (Cli/Yang/Xml/…)<a class="headerlink" href="#one-script-across-all-interface-management-cli-yang-xml" title="Permalink to this headline">¶</a></h1>
+<p>Following the same design as the previous recipe, the same concept is applied
+for different interface management.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="c1"># Import the main level of the library</span>
+<span class="kn">from</span> <span class="nn">genie.libs</span> <span class="kn">import</span> <span class="n">ops</span>
+<span class="c1"># Import Abstract library</span>
+<span class="kn">from</span> <span class="nn">genie.abstract</span> <span class="kn">import</span> <span class="n">Lookup</span>
+
+<span class="c1"># Load Genie testbed which contains a Xml connection</span>
+<span class="c1"># With xml added in the abstraction section</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="c1"># This is needed only when multiple interface management are used.</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="s1">&#39;cli&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;vty&#39;</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="s1">&#39;xml&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;vty&#39;</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">start_pool</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="s1">&#39;vty&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">lookup</span> <span class="o">=</span> <span class="n">Lookup</span><span class="o">.</span><span class="n">from_device</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+<span class="n">bgp</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">bgp</span><span class="o">.</span><span class="n">bgp</span><span class="o">.</span><span class="n">Bgp</span>
+<span class="c1"># Bgp is now -&gt; &lt;class &#39;genie.libs.ops.bgp.nxos.xml.bgp.bgp&#39;&gt;</span>
+
+<span class="n">bgp</span> <span class="o">=</span> <span class="n">Bgp</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+<span class="n">Bgp</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example of Testbed file with Xml Support. Same idea for all the context
+interface management.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">devices</span><span class="p">:</span>
+  <span class="nt">nx-osv-1</span><span class="p">:</span>
+      <span class="nt">alias</span><span class="p">:</span> <span class="s">&#39;uut&#39;</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="s">&#39;Nexus&#39;</span>
+      <span class="nt">os</span><span class="p">:</span> <span class="s">&#39;nxos&#39;</span>
+      <span class="nt">tacacs</span><span class="p">:</span>
+          <span class="nt">login_prompt</span><span class="p">:</span> <span class="s">&quot;login:&quot;</span>
+          <span class="nt">password_prompt</span><span class="p">:</span> <span class="s">&quot;Password:&quot;</span>
+          <span class="nt">username</span><span class="p">:</span> <span class="s">&quot;admin&quot;</span>
+      <span class="nt">passwords</span><span class="p">:</span>
+          <span class="nt">tacacs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Cisc0123</span>
+          <span class="nt">enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
+          <span class="nt">line</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
+      <span class="nt">connections</span><span class="p">:</span>
+          <span class="nt">defaults</span><span class="p">:</span>
+            <span class="nt">class</span><span class="p">:</span> <span class="s">&#39;unicon.Unicon&#39;</span>
+          <span class="nt">vty</span><span class="p">:</span>
+              <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">telnet</span>
+              <span class="nt">ip</span><span class="p">:</span> <span class="s">&quot;172.25.192.90&quot;</span>
+      <span class="nt">custom</span><span class="p">:</span>
+        <span class="nt">abstraction</span><span class="p">:</span>
+          <span class="nt">order</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">os</span><span class="p p-Indicator">,</span> <span class="nv">context</span><span class="p p-Indicator">]</span>
+          <span class="nt">context</span><span class="p">:</span> <span class="s">&#39;xml&#39;</span>
+</pre></div>
+</div>
+<p>This will send all the supported commands using XML, and the rest will be sent
+using Cli and merged together.</p>
+</div>
+<div class="section" id="navigate-ops-object-with-your-needs-the-find-object">
+<span id="book-ops-find"></span><h1>11. Navigate <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> object with your needs - The <code class="xref py py-obj docutils literal notranslate"><span class="pre">Find</span></code> object<a class="headerlink" href="#navigate-ops-object-with-your-needs-the-find-object" title="Permalink to this headline">¶</a></h1>
+<p>Tired of using many levels of <code class="xref py py-obj docutils literal notranslate"><span class="pre">for</span> <span class="pre">loops</span></code> to navigate large structure? Us too!
+Instead, let us know what you want, and we will find it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">testbed</span>
+<span class="c1"># Import the main level of the library</span>
+<span class="kn">from</span> <span class="nn">genie.libs</span> <span class="kn">import</span> <span class="n">ops</span>
+<span class="c1"># Import Abstract library</span>
+<span class="kn">from</span> <span class="nn">genie.abstract</span> <span class="kn">import</span> <span class="n">Lookup</span>
+
+<span class="c1"># Load Genie testbed</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">testbed</span><span class="o">=&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">testbed</span> <span class="n">file</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">uut</span> <span class="o">=</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;uut&#39;</span><span class="p">]</span>
+<span class="n">uut</span><span class="o">.</span><span class="n">start_pool</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">lookup</span> <span class="o">=</span> <span class="n">Lookup</span><span class="o">.</span><span class="n">from_device</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+<span class="n">Interface</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">interface</span><span class="o">.</span><span class="n">Interface</span>
+<span class="c1"># Interface is now -&gt; &lt;class &#39;genie.libs.ops.interface.nxos.interface.Interface&#39;&gt;</span>
+<span class="c1"># More information on this below</span>
+
+<span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">uut</span><span class="p">)</span>
+<span class="n">interface</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="c1"># Let&#39;s get all the up interfaces</span>
+<span class="kn">from</span> <span class="nn">pyats.utils.objects</span> <span class="kn">import</span> <span class="n">R</span><span class="p">,</span> <span class="n">find</span>
+<span class="n">req1</span> <span class="o">=</span> <span class="n">R</span><span class="p">([</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;oper_status&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">])</span>
+
+<span class="n">find</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">req1</span><span class="p">,</span> <span class="n">filter_</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># [(&#39;up&#39;, [&#39;info&#39;, &#39;loopback1&#39;, &#39;oper_status&#39;]),</span>
+<span class="c1">#  (&#39;up&#39;, [&#39;info&#39;, &#39;mgmt0&#39;, &#39;oper_status&#39;]),</span>
+<span class="c1">#  (&#39;up&#39;, [&#39;info&#39;, &#39;loopback0&#39;, &#39;oper_status&#39;]),</span>
+<span class="c1">#  (&#39;up&#39;, [&#39;info&#39;, &#39;Ethernet2/1&#39;, &#39;oper_status&#39;]),</span>
+<span class="c1">#  (&#39;up&#39;, [&#39;info&#39;, &#39;Ethernet2/2&#39;, &#39;oper_status&#39;])]</span>
+</pre></div>
+</div>
+<p>Find has taken the requirement, which is based on the structure of the object,
+and found what we were looking for; which were the interfaces name which were up.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">req2</span> <span class="o">=</span> <span class="n">R</span><span class="p">([</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;duplex_mode&#39;</span><span class="p">,</span> <span class="s1">&#39;full&#39;</span><span class="p">])</span>
+
+<span class="n">find</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">req2</span><span class="p">,</span> <span class="n">filter_</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># [(&#39;full&#39;, [&#39;info&#39;, &#39;Ethernet2/2&#39;, &#39;duplex_mode&#39;]),</span>
+<span class="c1">#  (&#39;full&#39;, [&#39;info&#39;, &#39;Ethernet2/1&#39;, &#39;duplex_mode&#39;]),</span>
+<span class="c1">#  (&#39;full&#39;, [&#39;info&#39;, &#39;mgmt0&#39;, &#39;duplex_mode&#39;])]</span>
+</pre></div>
+</div>
+<p>We can take these two requirements, and merge their result together.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">req3</span> <span class="o">=</span> <span class="p">[</span><span class="n">R</span><span class="p">([</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;(?P&lt;interface&gt;.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;oper_status&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">]),</span>
+        <span class="n">R</span><span class="p">([</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;(?P&lt;interface&gt;.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;duplex_mode&#39;</span><span class="p">,</span> <span class="s1">&#39;full&#39;</span><span class="p">])]</span>
+
+<span class="n">find</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="o">*</span><span class="n">req3</span><span class="p">,</span> <span class="n">filter_</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># [(&#39;up&#39;, [&#39;info&#39;, &#39;Ethernet2/2&#39;, &#39;oper_status&#39;]),</span>
+<span class="c1">#  (&#39;up&#39;, [&#39;info&#39;, &#39;Ethernet2/1&#39;, &#39;oper_status&#39;]),</span>
+<span class="c1">#  (&#39;up&#39;, [&#39;info&#39;, &#39;mgmt0&#39;, &#39;oper_status&#39;])]</span>
+
+<span class="c1"># Do the same thing but see results from both requirements</span>
+
+<span class="n">find</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="o">*</span><span class="n">req3</span><span class="p">,</span> <span class="n">filter_</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">all_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># [[(&#39;up&#39;, [&#39;info&#39;, &#39;Ethernet2/2&#39;, &#39;oper_status&#39;]),</span>
+<span class="c1">#   (&#39;up&#39;, [&#39;info&#39;, &#39;Ethernet2/1&#39;, &#39;oper_status&#39;]),</span>
+<span class="c1">#   (&#39;up&#39;, [&#39;info&#39;, &#39;mgmt0&#39;, &#39;oper_status&#39;])],</span>
+<span class="c1"># [(&#39;full&#39;, [&#39;info&#39;, &#39;Ethernet2/2&#39;, &#39;duplex_mode&#39;]),</span>
+<span class="c1"># (&#39;full&#39;, [&#39;info&#39;, &#39;Ethernet2/1&#39;, &#39;duplex_mode&#39;]),</span>
+<span class="c1"># (&#39;full&#39;, [&#39;info&#39;, &#39;mgmt0&#39;, &#39;duplex_mode&#39;])]]</span>
+</pre></div>
+</div>
+<p>Any amount of requirements can be provided; find will take care of merging
+the results together. There can be as many regexes as needed, and</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are using python Named groups <a class="reference external" href="https://docs.python.org/3.5/library/re.html">regex</a> concept, to know which key to merge together. As many named groups can be provided. Right now we only have 1.</p>
+</div>
+<script src="https://asciinema.org/a/iOGqjMAIJHeCAGbwfhaUy5v2p.js" id="asciicast-iOGqjMAIJHeCAGbwfhaUy5v2p" async></script><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Find works for all Ops objects and all dictionaries.</p>
+</div>
+</div>
+<div class="section" id="where-are-the-object-models-located">
+<h1>12. Where are the object models located?<a class="headerlink" href="#where-are-the-object-models-located" title="Permalink to this headline">¶</a></h1>
+<p>All the objects models are displayed on our <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/models">models page</a>.</p>
+</div>
+<div class="section" id="how-to-contribute">
+<h1>13. How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h1>
+<p>To contribute to the code of Genie, take a look at our <a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/COMMIT.md">commit</a>
+guideline!</p>
+<p>To contribute to the Ops object models, visit the <a class="reference external" href="Ops contributions://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/OPS.md">opsOps contribution</a> page.</p>
+</div>
+<div class="section" id="get-exclude-keys-for-an-ops-object">
+<h1>14. Get exclude keys for an ops object<a class="headerlink" href="#get-exclude-keys-for-an-ops-object" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.ops.utils</span> <span class="kn">import</span> <span class="n">get_ops_exclude</span>
+<span class="n">get_ops_exclude</span><span class="p">(</span><span class="s1">&#39;interface&#39;</span><span class="p">,</span> <span class="n">dev</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;in_discards&#39;</span><span class="p">,</span> <span class="s1">&#39;in_octets&#39;</span><span class="p">,</span> <span class="s1">&#39;in_pkts&#39;</span><span class="p">,</span> <span class="s1">&#39;last_clear&#39;</span><span class="p">,</span> <span class="s1">&#39;out_octets&#39;</span><span class="p">,</span> <span class="s1">&#39;out_pkts&#39;</span><span class="p">,</span> <span class="s1">&#39;in_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;out_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;in_errors&#39;</span><span class="p">,</span> <span class="s1">&#39;in_crc_errors&#39;</span><span class="p">,</span> <span class="s1">&#39;in_rate_pkts&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conf.html" class="btn btn-neutral float-right" title="1. Summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="parsers.html" class="btn btn-neutral float-left" title="1. Summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

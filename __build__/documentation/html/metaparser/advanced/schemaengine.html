@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Schema Engine &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Traceable Dictionary" href="traceabledictionary.html" />
+    <link rel="prev" title="Utility Class" href="util.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Metaparsers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#example">Example</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Advanced</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Advanced Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contribute.html">Contribute in parsers build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util.html">Utility Class</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Schema Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parser-schema">Parser schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schema-class">Schema class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-types-of-schema">Other types of schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#path-class">Path class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schema-exceptions">Schema exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="traceabledictionary.html">Traceable Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="detailedexample.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template.html">Template Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/index.html">API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Metaparsers</a> &raquo;</li>
+        
+          <li><a href="index.html">Advanced</a> &raquo;</li>
+        
+      <li>Schema Engine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="schema-engine">
+<span id="schemaengine-doc"></span><h1>Schema Engine<a class="headerlink" href="#schema-engine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">schemaengine</span></code> module located in <code class="docutils literal notranslate"><span class="pre">metaparser</span></code> package <code class="xref py py-obj docutils literal notranslate"><span class="pre">util</span></code> directory
+(metaparser.util), along with a few other utility modules like <code class="docutils literal notranslate"><span class="pre">util.py</span></code> and
+<code class="docutils literal notranslate"><span class="pre">exceptions.py</span></code>. This module defines all <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code> related classes and
+functions.</p>
+</div>
+<div class="section" id="parser-schema">
+<h2>Parser schema<a class="headerlink" href="#parser-schema" title="Permalink to this headline">¶</a></h2>
+<p>The term “schema” refers to the organization of data as a blueprint of how the
+parser output is constructed (dictionary or nested-dictionary structure).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Metaparser</span></code> uses the <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code> to control how and what the parsed
+information should be structured, which not only protects the existing scripts
+against unthoughtful parser API updates, but also empowers data-modeling
+agnostic testing by simply switching among different contexts within a same
+script.</p>
+<p>Each parsing mechanism (cli, xml, yang) implemented in a same parser class has
+to follow the same <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code> definition. The developer who defines the first
+parsing mechanism (e.g.: cli ()) in parser class will also define the schema
+for the output structure. At the end of the parsing process, parser engine
+(MetaParser) will do schema checking to make sure the parser always returns the
+output (nested dict) that has the same data structure across all supported
+parsing mechanisms.</p>
+</div>
+<div class="section" id="schema-class">
+<h2>Schema class<a class="headerlink" href="#schema-class" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Schema</span></code> class defines the schema (schematics/requirements) for input data,
+and subsequently validates whether the input data meets the requirements.</p>
+<blockquote>
+<div><dl>
+<dt><strong>class instance attributes</strong>:</dt><dd><ul>
+<li><p>schema: the schema to be validated against. It can be any valid Python
+data structures (eg.: dict) or callables.</p>
+<p>To instantiate the <code class="docutils literal notranslate"><span class="pre">Schema</span></code> class:</p>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.metaparser.util.schemaengine</span> <span class="kn">import</span> <span class="n">Schema</span>
+<span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;default&#39;</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>class functionalities</strong>:</dt><dd><ul>
+<li><p>apply_defaults: function takes the current data and applies default
+fields to wherever needed (e.g:, missing fields), and returns the
+input data augmented with default values.</p></li>
+<li><p>collect_defaults: function computes the ‘defaults’ based on the given
+schema, returns a new data structure representing the default state of
+this schema.</p></li>
+<li><p>validate: function validates the given data against the current schema,
+and returns the correct, validated data.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># validate simple &#39;str&#39; type of schema</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="s1">&#39;a string&#39;</span><span class="p">)</span>
+
+<span class="c1"># valide &#39;dict&#39; type of schema</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span><span class="o">.</span><span class="n">validate</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;some string&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="other-types-of-schema">
+<h2>Other types of schema<a class="headerlink" href="#other-types-of-schema" title="Permalink to this headline">¶</a></h2>
+<p>There are few more subclasses of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Schema</span></code> defined in the <code class="docutils literal notranslate"><span class="pre">schemaengine</span></code>
+module:</p>
+<ul class="simple">
+<li><p>Any: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code> schema indicates that the schema matches ‘anything’. It’s commonly
+been used in bigger and more complicated schemas to mark a section or a field
+of the schema to match with anything. This is effectively a wildcard (*)
+in schema data format.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.metaparser.util.schemaengine</span> <span class="kn">import</span> <span class="n">Schema</span><span class="p">,</span> <span class="n">Any</span>
+<span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cmp&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;module&#39;</span><span class="p">:</span> <span class="p">{</span>
+                         <span class="n">Any</span><span class="p">():</span> <span class="p">{</span>
+                                 <span class="s1">&#39;bios_compile_time&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                 <span class="s1">&#39;bios_version&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                 <span class="s1">&#39;image_compile_time&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                 <span class="s1">&#39;image_version&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                 <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},}},</span>
+       <span class="s1">&#39;hardware&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;bootflash&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                <span class="s1">&#39;chassis&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                <span class="s1">&#39;cpu&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                <span class="s1">&#39;device_name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                <span class="s1">&#39;memory&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                <span class="s1">&#39;processor_board_id&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                <span class="s1">&#39;slots&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                <span class="n">Any</span><span class="p">():</span> <span class="n">Any</span><span class="p">(),},}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul>
+<li><p>Default: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Default</span></code> class defines a schema with a ‘default’ which if the
+schema is not satisfied, the default fields will be added to the input data.</p></li>
+<li><p>And: <code class="xref py py-obj docutils literal notranslate"><span class="pre">And</span></code> class defines a schema of <code class="xref py py-obj docutils literal notranslate"><span class="pre">AND</span></code> relationship which the input data
+must pass the validation of all requirements of this schema.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># requires a string of &#39;left&#39; or &#39;right&#39;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">And</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Or: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Or</span></code> class defines a schema of ‘OR’ relationship, which the input data
+must pass the validation of one of the requirements of this schema.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># requires a string or an integer</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Or</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="path-class">
+<h2>Path class<a class="headerlink" href="#path-class" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Path</span></code> class defines a tuple-like object to be used mainly for pyATS ListDict
+objects comparison - nested dictionary key path comparison. The class
+extends a tuple’s native comparing ability to also support <code class="docutils literal notranslate"><span class="pre">Any</span></code> objects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">Path</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">Any</span><span class="p">(),</span> <span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="n">Path</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="schema-exceptions">
+<h2>Schema exceptions<a class="headerlink" href="#schema-exceptions" title="Permalink to this headline">¶</a></h2>
+<p>All errors related to the schema module have been defined in
+genie.metaparser.util.exceptions</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.metaparser.util.schemaengine</span> <span class="kn">import</span> <span class="n">SchemaValueError</span><span class="p">,</span>\
+                                               <span class="n">SchemaClassError</span><span class="p">,</span>\
+                                               <span class="n">SchemaTypeError</span><span class="p">,</span>\
+                                               <span class="n">SchemaMissingKeyError</span><span class="p">,</span>\
+                                               <span class="n">SchemaUnsupportedKeyError</span><span class="p">,</span> \
+                                               <span class="n">SchemaFallbackError</span><span class="p">,</span> \
+                                               <span class="n">SchemaFallbackLoopError</span><span class="p">,</span> \
+                                               <span class="n">SchemaEmptyParserError</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="traceabledictionary.html" class="btn btn-neutral float-right" title="Traceable Dictionary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="util.html" class="btn btn-neutral float-left" title="Utility Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PTS &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Subsections" href="subsections.html" />
+    <link rel="prev" title="Mapping" href="mapping.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Harness Guide</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../user/index.html">Harness User Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Harness Developer Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="verifications.html">Verifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triggers.html">Triggers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapping.html">Mapping</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsections.html">Subsections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">User Guide</a> &raquo;</li>
+        
+          <li><a href="../index.html">Harness Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Harness Developer Guide</a> &raquo;</li>
+        
+      <li>PTS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pts">
+<h1>PTS<a class="headerlink" href="#pts" title="Permalink to this headline">¶</a></h1>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> creates <code class="docutils literal notranslate"><span class="pre">Genie</span></code><a class="reference internal" href="../../Ops/index.html#ops-guide"><span class="std std-ref">Ops</span></a> objects to learn which configurations
+have been applied to a device. The ops objects are snapshots of the
+operational state of devices in the topology. <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> executes multiple commands
+(via cli/yang/xml) to collection a feature’s state and operational information.</p>
+<p>This concept may sound similar to a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Verification</span></code>, however, <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> is only
+executed in the common setup and the common cleanup; it does not run between
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Triggers</span></code>. As <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> runs only twice, it allows <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">harness</span></code> to take a
+complete snapshot of all the features configured on the device, without
+impacting the execution time.</p>
+<p>Another advantage of <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> is the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_golden_config</span></code> feature. This feature
+allows <code class="docutils literal notranslate"><span class="pre">Genie</span></code> to verify that the operational state of the configuration
+applied to the device, precisely matches a previously created verified
+snapshot. This ensures the same operational state for every run with the same
+configuration.  Users can find more information about <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_golden_config</span></code>
+feature in the <a class="reference internal" href="../user/gettingstarted.html#pts"><span class="std std-ref">user guide</span></a>.</p>
+<div class="section" id="using-ops">
+<h2>Using Ops<a class="headerlink" href="#using-ops" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> <a class="reference internal" href="../../Ops/index.html#ops-guide"><span class="std std-ref">Ops</span></a> objects are a snapshot of a particular
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> on a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> at a specific time. Hence <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code>  objects are  suited perfectly
+to be used as a comparable <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code>.</p>
+<p>Now, let’s see how to create a <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code>.</p>
+<p>Step 0: Check if the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> class exists for the feature you want to
+run <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> on. If so, go to Step 2.</p>
+<p>Step 1: Write a new <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> object or update an existing <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> object for the
+feature you would like to <code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code>. Once this is done, commit the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> object to
+<code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code>.</p>
+<p>Step 2: Add your PTS information to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_datafile</span></code> as shown below:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;feature_name&gt;</span><span class="p">:</span>
+    <span class="nt">source</span><span class="p">:</span>
+        <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie_libs.genie</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your location, for example</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ops.ospf.ospf.Ospf&gt;</span>
+    <span class="nt">exclude</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;list of generic keys to ignore in the comparison&gt;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span>
+        <span class="nt">uut</span><span class="p">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">None</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More keys from the datafile schema can be added</p>
+</div>
+<p>Step 3: Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">job</span></code> file is pointing to this file via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_datafile</span></code>
+argument.</p>
+<p>Step 4: To run <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code>, execute your job via easypy with the required arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only mandatory argument is the <a class="reference internal" href="../../../cookbooks/genie.html#book-setup-testbed"><span class="std std-ref">testbed file</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="subsections.html" class="btn btn-neutral float-right" title="Subsections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mapping.html" class="btn btn-neutral float-left" title="Mapping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+#!/bin/env python3
+from genie import parsergen as pg
+from pprint import pprint
+from copy import copy
+import re
+ 
+ 
+# Parse Non Tabular data 
+show_inv_marked_up_output = """\
+OS: IOSXR
+CMD: SHOW_INVENTORY
+SHOWCMD: show inventory
+PREFIX: show.inv
+ 
+ACTUAL:
+show inventory
+Wed Oct 10 08:30:22.714 UTC
+ 
+NAME: "Rack 0", DESCR: "Sherman 1RU Chassis with 24x400GE QSFP56-DD & 12x100G QSFP28"
+PID: Sherman           , VID: V00, SN: FOC2202R23L
+ 
+NAME: "0/RP0/CPU0", DESCR: "Sherman 1RU Chassis with 24x400GE QSFP56-DD & 12x100G QSFP28"
+PID: Sherman           , VID: V00, SN: FOC215213ZR
+ 
+NAME: "0/FT0", DESCR: "Sherman Fan Module Reverse Airflow / exhaust, BLUE"
+PID: Sherman-FAN-PE    , VID: V00, SN: DCH2143R0SM
+ 
+NAME: "0/FT2", DESCR: "Sherman Fan Module Reverse Airflow / exhaust, BLUE"
+PID: Sherman-FAN-PE    , VID: V00, SN: DCH2143R0T0
+ 
+NAME: "0/FT3", DESCR: "Sherman Fan Module Reverse Airflow / exhaust, BLUE"
+PID: Sherman-FAN-PE    , VID: V00, SN: DCH2143R0UU
+ 
+NAME: "0/FT4", DESCR: "Sherman Fan Module Reverse Airflow / exhaust, BLUE"
+PID: Sherman-FAN-PE    , VID: V00, SN: DCH2143R0UQ
+ 
+NAME: "0/PM0", DESCR: "PSU2KW_ACPI Power Module"
+PID: NC55-2KW-ACRV     , VID: V01, SN: POG2111JD45
+ 
+NAME: "0/PM1", DESCR: "PSU2KW_ACPI Power Module"
+PID: NC55-2KW-ACRV     , VID: V01, SN: POG2111JD3X
+ 
+ 
+ 
+MARKUP:
+NAME: "XQ<inv_name>XRack 0", DESCR: "XQ<desc>XSherman 1RU Chassis with 24x400GE QSFP56-DD 
+& 12x100G QSFP28"
+PID: XC<pid>XSherman           , VID: XC<vid>XV00, SN: XR<serialno>XFOC2202R23L
+"""
+ 
+
+actual_raw_output = """
+Wed Oct 10 08:30:22.714 UTC
+ 
+NAME: "Rack 0", DESCR: "Sherman 1RU Chassis with 24x400GE QSFP56-DD & 12x100G QSFP28"
+PID: Sherman           , VID: V00, SN: FOC2202R23L
+ 
+NAME: "0/RP0/CPU0", DESCR: "Sherman 1RU Chassis with 24x400GE QSFP56-DD & 12x100G QSFP28"
+PID: Sherman           , VID: V00, SN: FOC215213ZR
+ 
+NAME: "0/FT0", DESCR: "Sherman Fan Module Reverse Airflow / exhaust, BLUE"
+PID: Sherman-FAN-PE    , VID: V00, SN: DCH2143R0SM
+ 
+NAME: "0/FT2", DESCR: "Sherman Fan Module Reverse Airflow / exhaust, BLUE"
+PID: Sherman-FAN-PE    , VID: V00, SN: DCH2143R0T0
+ 
+NAME: "0/FT3", DESCR: "Sherman Fan Module Reverse Airflow / exhaust, BLUE"
+PID: Sherman-FAN-PE    , VID: V00, SN: DCH2143R0UU
+ 
+NAME: "0/FT4", DESCR: "Sherman Fan Module Reverse Airflow / exhaust, BLUE"
+PID: Sherman-FAN-PE    , VID: V00, SN: DCH2143R0UQ
+ 
+NAME: "0/PM0", DESCR: "PSU2KW_ACPI Power Module"
+PID: NC55-2KW-ACRV     , VID: V01, SN: POG2111JD45
+ 
+NAME: "0/PM1", DESCR: "PSU2KW_ACPI Power Module"
+PID: NC55-2KW-ACRV     , VID: V01, SN: POG2111JD3X
+"""
+ 
+ 
+def main():
+    pg.extend_markup(show_inv_marked_up_output)
+
+    name_pat = re.compile(r'^NAME:\s+"([0-9A-Za-z/]+[ 0-9A-Za-z/]*)",')
+
+    # First pass parse - identify all names in inventory output
+    name_list = []
+    for line in actual_raw_output.splitlines():
+        match = name_pat.match(line)
+        if match:
+            name_list.append(match.group(1))
+
+    parsed_output = {}
+    # Second pass parse - parse for each name individually
+    for inv_name in name_list:
+        attrValPairsToParse = [
+          ('show.inv.inv_name',   inv_name),
+        ]
+        pgfill = pg.oper_fill (
+            device_output = actual_raw_output,
+            attrvalpairs = attrValPairsToParse,
+            regex_tag_fill_pattern='show\.inv',
+            device_os = 'iosxr')
+
+        result = pgfill.parse()
+        if result:
+            parsed_output[inv_name] = copy(pg.ext_dictio)
+        else:
+            print("PARSING FAILED : {}".format(pgfill))
+
+    pprint(parsed_output)
+ 
+if __name__ == "__main__":
+    main()

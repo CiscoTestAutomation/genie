@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ops Use &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Connections" href="connections.html" />
+    <link rel="prev" title="Ops User Guide" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Ops Guide</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Ops User Guide</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Ops Use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="connections.html">Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html">Ops Developer Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../harness/index.html">Harness Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">User Guide</a> &raquo;</li>
+        
+          <li><a href="../index.html">Ops Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Ops User Guide</a> &raquo;</li>
+        
+      <li>Ops Use</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ops-use">
+<span id="user-ops"></span><h1>Ops Use<a class="headerlink" href="#ops-use" title="Permalink to this headline">¶</a></h1>
+<p>This section describes how <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> collects
+operational data from features already configured on the testbed.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> represents a device/feature’s operational state/data through Python
+object. Each <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> on each device is represented via a single <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> object
+instance, where state/status information is stored as an object attribute.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A feature can be any Protocol (L2/L3) and also any hardware (Linecard,…).</p>
+</div>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> objects are snapshots of a particular <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> on a particular <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code> at
+a specific time.</p>
+<p>A <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code>’s  state/operational information are gathered with the help of
+many commands, like Cli, Yang, and XML. This information is stored in
+one <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> object. Each command executed for collecting the required
+information in building the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> object are then parsed; specific
+information is collected and re-grouped into one common structure within
+the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> object, common to all operating systems.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> objects work across multiple operating systems and management protocols.
+We refer to the different management protocols as <code class="xref py py-obj docutils literal notranslate"><span class="pre">context</span></code>.  This is
+done with the <a class="reference internal" href="../../../abstract/index.html#abstract"><span class="std std-ref">abstract</span></a> package and the right <a class="reference internal" href="../developer/ops.html#structure"><span class="std std-ref">directory
+structure</span></a>.</p>
+<p>The application and use of <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> can be summed up in three steps:</p>
+<ol class="arabic simple">
+<li><p>Create an abstract object;</p></li>
+<li><p>Instantiate an <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> object with the specific <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>; and</p></li>
+<li><p>Learn the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code>.</p></li>
+</ol>
+<p>After the final step, you can generate an object which contains all the states and the status of
+the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> on this particular <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> for a particular os type, and
+management type.</p>
+<p>Let’s demonstrate this using an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s assume we have a device object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">device</span>
+<span class="o">&lt;</span><span class="n">Device</span> <span class="n">w</span> <span class="n">at</span> <span class="mh">0xf76a4fac</span><span class="o">&gt;</span>
+
+<span class="c1"># And a variable holding context, which can hold Cli, Yang, or XML.</span>
+<span class="c1"># The default value is Cli</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">device</span><span class="o">.</span><span class="n">context</span>
+<span class="s1">&#39;cli&#39;</span>
+
+<span class="c1"># Step 1 - Abstract</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">genie.abstract</span> <span class="kn">import</span> <span class="n">Lookup</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">genie.libs</span> <span class="kn">import</span> <span class="n">ops</span>
+
+<span class="c1"># Create the abstract object following device os, management protocol</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lookup</span> <span class="o">=</span> <span class="n">Lookup</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">os</span><span class="p">,</span> <span class="n">device</span><span class="o">.</span><span class="n">context</span><span class="p">)</span>
+
+<span class="c1"># Step 2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ospf</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Step 3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ospf</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="c1"># ... retrieve information from ospf</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ospf</span><span class="o">.</span><span class="n">name</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="polling-mechanism">
+<span id="user-ops-polling"></span><h2>Polling Mechanism<a class="headerlink" href="#polling-mechanism" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> also provides a polling mechanism to verify if the <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> is in
+the expected state. This can be useful when a <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> has been recently configured and is not
+yet stable. <code class="xref py py-obj docutils literal notranslate"><span class="pre">learn_poll</span></code> accepts a <code class="xref py py-obj docutils literal notranslate"><span class="pre">verify</span></code> function that verifies the state
+of the object.  <code class="xref py py-obj docutils literal notranslate"><span class="pre">learn_poll</span></code> works like this:</p>
+<ol class="arabic simple">
+<li><p>Learn the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code>;</p></li>
+<li><p>Call the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verify</span></code> function; and</p></li>
+<li><ol class="loweralpha simple">
+<li><p>If there is no exception, then the <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> has been learnt.</p></li>
+<li><p>If there is an exception at either step (1) or (2), then sleep for a
+period of time and try again.</p></li>
+</ol>
+</li>
+</ol>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">learn_poll</span></code> accepts the following arguments:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep</span></code> must be an <code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, representing the time to sleep between attempts,
+in seconds.</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">attempt</span></code> must be an <code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, representing how many attempts to do.</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">verify</span></code> must be a <code class="xref py py-obj docutils literal notranslate"><span class="pre">callable</span></code>. This <code class="xref py py-obj docutils literal notranslate"><span class="pre">callable</span></code> will receive the <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> as an
+argument. If no exception is raised, then it has passed. If any exception is
+raised, then it will try again.</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">kwargs</span></code> any extra argument will be sent as passthrough to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verify</span></code>
+function.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_function</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="c1"># Obj is the feature object which is being learnt</span>
+    <span class="c1"># &lt;Verify information about the obj&gt;</span>
+    <span class="c1"># Make sure the name was learnt</span>
+    <span class="k">assert</span> <span class="n">obj</span><span class="o">.</span><span class="n">name</span>
+
+<span class="c1"># Let&#39;s assume we have a device object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">device</span>
+<span class="o">&lt;</span><span class="n">Device</span> <span class="n">w</span> <span class="n">at</span> <span class="mh">0xf76a4fac</span><span class="o">&gt;</span>
+
+<span class="c1"># And a variable holding context, which can hold Cli, Yang, or XML.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">context</span>
+<span class="s1">&#39;cli&#39;</span>
+
+<span class="c1"># Step 1 - Abstract</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">genie.abstract</span> <span class="kn">import</span> <span class="n">Lookup</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">genie.libs</span> <span class="kn">import</span> <span class="n">ops</span>
+
+<span class="c1"># Create the abstract object following device os, management protocol</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lookup</span> <span class="o">=</span> <span class="n">Lookup</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">os</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+
+<span class="c1"># Step 2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ospf</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Step 3</span>
+<span class="c1"># Will learn ospf and verify if it was learnt correctly with</span>
+<span class="c1"># verify_function. It will try up to 5 times, and sleep 30 seconds between</span>
+<span class="c1"># each attempt.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ospf</span><span class="o">.</span><span class="n">learn_poll</span><span class="p">(</span><span class="n">verify</span><span class="o">=</span><span class="n">verify_function</span><span class="p">,</span> <span class="n">sleep</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">attempt</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                    <span class="n">arg1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># retrieve information from ospf</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ospf</span><span class="o">.</span><span class="n">name</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extra-features">
+<h2>Extra Features<a class="headerlink" href="#extra-features" title="Permalink to this headline">¶</a></h2>
+<p>There a few other features available for <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> objects.</p>
+<p id="user-ops-extra-diff"><strong>1. Comparing two ops objects</strong></p>
+<p>As the <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> objects are snapshots taken at a specific time, we can take a snapshot
+before doing an action, and another after the action. Then we can
+compare both snapshots to see if they are equal and what, if anything, has been
+modified.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> objects can be compared simply by using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">==</span></code> sign, the python
+equality operator.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pre_ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">pre_ospf</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+<span class="c1"># Do some action</span>
+<span class="n">post_ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">post_ospf</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="n">pre_ospf</span> <span class="o">==</span> <span class="n">post_ospf</span>
+<span class="c1"># True/False depending on the action</span>
+</pre></div>
+</div>
+<p>This returns <code class="xref py py-obj docutils literal notranslate"><span class="pre">True/False</span></code>.</p>
+<p>We are also providing a more complete <code class="xref py py-obj docutils literal notranslate"><span class="pre">diff</span></code> tool, to compare those objects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pre_ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">pre_ospf</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+<span class="c1"># Do some action</span>
+<span class="n">post_ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">pre_ospf</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">post_ospf</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
+<span class="c1"># It will show a diff between pre_ost and post_ospf following this syntax</span>
+<span class="c1">#   &lt;variables&gt;:</span>
+<span class="c1">#     [key]:</span>
+<span class="c1"># -     [more keys]:previous value</span>
+<span class="c1"># +     [more keys]:new value</span>
+
+<span class="c1"># For example</span>
+<span class="c1">#   process_id:</span>
+<span class="c1">#     1:</span>
+<span class="c1">#       vrf:</span>
+<span class="c1">#         blue:</span>
+<span class="c1"># -         age: 3</span>
+<span class="c1"># +         age: 5</span>
+
+<span class="c1"># And so on...</span>
+</pre></div>
+</div>
+<p>With <code class="xref py py-obj docutils literal notranslate"><span class="pre">diff</span></code> object, you can also retrieve a list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">diff</span> <span class="pre">items</span></code> which were
+added, modified or removed. These lists can be printed to return
+the strings which were modified.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pre_ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">pre_ospf</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+<span class="c1"># Do some action</span>
+<span class="n">post_ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">pre_ospf</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">post_ospf</span><span class="p">)</span>
+
+<span class="c1"># It will return a list of the diff items.</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">diffs</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="c1"># + process_id:</span>
+<span class="c1"># +   1:</span>
+<span class="c1"># +     vrf:</span>
+<span class="c1"># +       blue:</span>
+<span class="c1"># +         value: 5</span>
+</pre></div>
+</div>
+<p>For both cases, (using <code class="xref py py-obj docutils literal notranslate"><span class="pre">==</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">diff</span></code>), attribute <code class="xref py py-obj docutils literal notranslate"><span class="pre">diff_ignore</span></code> can
+restrict which keys to compare. It is a list where each item of the list is a
+string which has almost the same syntax as <code class="xref py py-obj docutils literal notranslate"><span class="pre">src</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">dest</span></code>. The only
+difference is the regex syntax is simplified, even though the most verbose one
+with group is still accepted.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pre_ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">pre_ospf</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+<span class="c1"># Do some action</span>
+<span class="n">post_ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">post_ospf</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+
+<span class="n">pre_ospf</span> <span class="o">==</span> <span class="n">post_ospf</span>
+<span class="c1"># Let&#39;s assume age is a dynamic value, which keep changing and shouldn&#39;t</span>
+<span class="c1"># be compared</span>
+
+<span class="n">pre_ospf</span><span class="o">.</span><span class="n">diff_ignore</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;name[process_id][(.*)][vrf][(.*)][age]&#39;</span><span class="p">)</span>
+<span class="n">post_ospf</span><span class="o">.</span><span class="n">diff_ignore</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;name[process_id][(.*)][vrf][(.*)][age]&#39;</span><span class="p">)</span>
+
+<span class="n">pre_ospf</span> <span class="o">==</span> <span class="n">post_ospf</span>
+<span class="c1"># True</span>
+</pre></div>
+</div>
+<p id="user-ops-extra-attributes"><strong>2. Restrict which attributes/keys of the object will be created</strong></p>
+<p>In some scenarios, we may not need to learn all the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code>
+attributes/keys, but only need specifics ones (as it takes execution time).
+When creating the <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> object, argument <code class="xref py py-obj docutils literal notranslate"><span class="pre">attributes</span></code> can be given to
+specify which attributes/keys we want to create. Only the
+commands(cli/Yang/Xml) related to the attribute(s)/key(s) will be sent to the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code>.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Attributes</span></code> is a list, where each item represents a specific location that
+we want to create in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">osp</span></code> object. The syntax is the same as
+dictionary lookup, where the quotes are removed, and the first
+word of the string represents the variable name. It also supports regexp
+syntax, so many matching keys can be built.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only build ospf.name</span>
+<span class="c1"># For all process id, all vrf, only interface.</span>
+<span class="n">ospf</span> <span class="o">=</span> <span class="n">Ospf</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+            <span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name[process_id][(.*)][vrf][(.*)][&#39;</span><span class="n">interface</span><span class="s1">&#39;])</span>
+<span class="n">ospf</span><span class="o">.</span><span class="n">learn</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ospf</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="p">{</span><span class="s1">&#39;process_id&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;vrf&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;blue&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;interface&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;eth3/1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;ip_address&#39;</span><span class="p">:</span> <span class="s1">&#39;1.1.1.1&#39;</span><span class="p">,</span>
+                                                                <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;up&#39;</span><span class="p">}}},</span>
+                              <span class="s1">&#39;orange&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;interface&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;eth3/2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;ip_address&#39;</span><span class="p">:</span> <span class="s1">&#39;1.1.1.2&#39;</span><span class="p">,</span>
+                                                                  <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;up&#39;</span><span class="p">}}}}},</span>
+                <span class="s1">&#39;2&#39;</span><span class="p">:{</span><span class="s1">&#39;vrf&#39;</span><span class="p">:{</span><span class="s1">&#39;orange&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+                                       <span class="s1">&#39;interface&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;eth3/5&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;ip_address&#39;</span><span class="p">:</span> <span class="s1">&#39;1.1.1.4&#39;</span><span class="p">,</span>
+                                                                <span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;up&#39;</span><span class="p">}},</span>
+                                       <span class="s1">&#39;router_id&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}}}}}</span>
+</pre></div>
+</div>
+<p>We can see all the information not related to interface has not been built.
+Only the commands related to interface has been sent to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code>.  The big
+advantage is to save execution time, when only specific values are desired.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="connections.html" class="btn btn-neutral float-right" title="Connections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Ops User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

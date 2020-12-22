@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced Usage &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Contribute in parsers build" href="contribute.html" />
+    <link rel="prev" title="Advanced" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Metaparsers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#example">Example</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Advanced</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Advanced Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#metaparser-class-instance-arguments">MetaParser class instance arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metaparser-class-variables">MetaParser class variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metaparser-key-usage-traceability">MetaParser Key Usage Traceability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metaparser-abstraction">MetaParser Abstraction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metaparser-usage-example">MetaParser Usage Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metaparser-fallback-mechanism">MetaParser Fallback Mechanism</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metaparser-general-mechanism">MetaParser General Mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contribute.html">Contribute in parsers build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="util.html">Utility Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="schemaengine.html">Schema Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traceabledictionary.html">Traceable Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="detailedexample.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="template.html">Template Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/index.html">API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Metaparsers</a> &raquo;</li>
+        
+          <li><a href="index.html">Advanced</a> &raquo;</li>
+        
+      <li>Advanced Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="advanced-usage">
+<span id="id1"></span><h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<p>MetaParser is the base class for all back-end parser objects. It is available
+in <code class="docutils literal notranslate"><span class="pre">genie.metaparser</span></code> package. MetaParser does not enforce the back-end parsing
+machineries, but provides a mechanism to ensure whatever the back-end parser is
+(cli, xml, yang), the front-end to the script is always the same.It offers a
+simple and straight-forward way for users to define, execute and debug subclass
+parser objects.</p>
+<p>All subclass parsers (e.g.: <code class="xref py py-obj docutils literal notranslate"><span class="pre">ShowVersion</span></code>) are inherited from MetaParser class.
+Each parser contains three parsing methods (cli(), xml(), yang()) to handle the
+specific parsing functionality. Subclass parsers follow community-driven development
+model contributing to Cisco <code class="xref py py-obj docutils literal notranslate"><span class="pre">parser</span></code> package.</p>
+<div class="figure align-center">
+<img alt="../../_images/class_relation.png" src="../../_images/class_relation.png" />
+</div>
+<div class="section" id="metaparser-class-instance-arguments">
+<h2>MetaParser class instance arguments<a class="headerlink" href="#metaparser-class-instance-arguments" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>device</strong>: device object which the parser function will be applied to.</p></li>
+<li><p><strong>context</strong>: a keyword-only argument, acting as a string format selector for
+user to choose which parsing mechanism will be used to current parsing task.
+Choices of: ‘cli’, ‘xml’, ‘yang’, default value is ‘cli’.</p></li>
+<li><p><strong>kwargs</strong>: argument dictionary provides the user ability to assign extra
+attributes while instantiating the parser object.</p></li>
+</ul>
+<p>Example to instantiate MetaParser object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assume subclass parser ShowVersion is inherits from MetaParser</span>
+
+<span class="kn">from</span> <span class="nn">genie.libs.parser.iosxe.show_platform</span> <span class="kn">import</span> <span class="n">ShowVersion</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">ShowVersion</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s1">&#39;yang&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metaparser-class-variables">
+<h2>MetaParser class variables<a class="headerlink" href="#metaparser-class-variables" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><strong>key_traceable</strong>: enable the parser output key usage tracing functionality.
+Visit <a class="reference internal" href="#metaparser-key-usage-traceability"><span class="std std-ref">MetaParser Key Usage Traceability</span></a> section for details on this
+feature.</p></li>
+<li><p><strong>CONTEXT_LIST</strong> - static variable defines valid contexts. Default value:
+<code class="docutils literal notranslate"><span class="pre">('cli',</span> <span class="pre">'xml',</span> <span class="pre">'yang')</span></code></p></li>
+<li><p><strong>schema</strong> - defines the common data structure among all types of device
+output (cli, xml, yang) the current parser class supports. Each parsing
+mechanism implemented in a same parser class has to follow the same <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code>
+definition to ensure that any management type (cli, xml, yang) used, will
+return the same results to the calling script”. For detail info about
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code>, please visit <a class="reference internal" href="schemaengine.html#schemaengine-doc"><span class="std std-ref">Schema Engine</span></a>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">MetaParser</span></code> base class, default value of <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code> is <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code> to allow
+subclass parser objects to overwrite. Here is an example:</p>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of schema (show version) - nested dict</span>
+<span class="c1"># ----------------------------------------------</span>
+<span class="kn">from</span> <span class="nn">genie.metaparser.util.schemaengine</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cmp&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;module&#39;</span><span class="p">:</span> <span class="p">{</span>
+                             <span class="n">Any</span><span class="p">():</span> <span class="p">{</span>
+                                     <span class="s1">&#39;bios_compile_time&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                     <span class="s1">&#39;bios_version&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                     <span class="s1">&#39;image_compile_time&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                     <span class="s1">&#39;image_version&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                     <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},}},</span>
+          <span class="s1">&#39;hardware&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;bootflash&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="s1">&#39;chassis&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="s1">&#39;cpu&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="s1">&#39;device_name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="s1">&#39;memory&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="s1">&#39;processor_board_id&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="s1">&#39;slots&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                    <span class="n">Any</span><span class="p">():</span> <span class="n">Any</span><span class="p">(),},}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any() in schema acting like a wildcard character in text. Any() is used
+to presenting the variable keys within the dictionary.</p>
+</div>
+</div>
+<div class="section" id="metaparser-key-usage-traceability">
+<span id="id2"></span><h2>MetaParser Key Usage Traceability<a class="headerlink" href="#metaparser-key-usage-traceability" title="Permalink to this headline">¶</a></h2>
+<p>With majority of parsers the output of the show command is parsed into a data
+structure (array, keylist, dictionary, etc..) returned to the script. Scripts
+using the parsers may refer to one/more of the attributes/keys in that parser.
+There is no mechanism to track what keys are used by each script, making it
+difficult to change/enhance/optimize the parser if needed.</p>
+<p>MetaParser key traceability feature, tracks every reference to the parser keys
+throughout the execution of the script. This feature allows parsers developers
+build accurate <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code> for the additional models (XML/CLI/YANG) based on tracked
+key usage from the existing one. Schema is the foundation for implementing
+various parsing mechanisms (cli, xml, yang) within a same parser object, or can
+be shared as a common structure to build a os/platform agnostic parser solution.</p>
+<p><strong>Enable Key-usage Traceability</strong></p>
+<p>By default, global key usage traceability feature is disabled in metaparser.
+Feature can be enabled in two way:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>globally within the user script by enabling the <em>key_traceable</em> flag</p></li>
+<li><p>dynamically through pyATS  pre/post processing functions</p></li>
+</ol>
+</div></blockquote>
+<p>Once feature is enabled, the parsing output data type is collected and available
+in <a class="reference internal" href="traceabledictionary.html#traceabledict"><span class="std std-ref">Traceable Dictionary</span></a>.</p>
+<p>Below example shows how to enable the key traceability and display the tracing
+information within the user’s script. The method provides parser developers a
+easy quick way to get key usage output for debugging or diagnosing purposes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import related modules</span>
+<span class="kn">from</span> <span class="nn">genie.libs.parser.nxos.show_platform</span> <span class="kn">import</span> <span class="n">ShowVersion</span>
+<span class="kn">from</span> <span class="nn">genie.metaparser</span> <span class="kn">import</span> <span class="n">MetaParser</span>
+
+<span class="c1"># enable global wise the key-traceability</span>
+<span class="n">MetaParser</span><span class="o">.</span><span class="n">key_traceable</span><span class="o">=</span><span class="kc">True</span>
+
+<span class="c1"># create subclass parser object</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">ShowVersion</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="c1"># parsing the output</span>
+<span class="c1"># now all keys/nestedkeys within &#39;output&#39; will be traced</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="c1"># accessing a key from the output</span>
+<span class="n">output</span><span class="p">[</span><span class="s1">&#39;hardware&#39;</span><span class="p">][</span><span class="s1">&#39;chassis&#39;</span><span class="p">]</span>
+
+<span class="c1"># display the key usage from the MetaParser class</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">MetaParser</span><span class="o">.</span><span class="n">tracer</span><span class="p">)</span>
+
+<span class="p">{</span><span class="s1">&#39;ShowVersion&#39;</span><span class="p">:</span> <span class="p">{(</span><span class="s1">&#39;hardware&#39;</span><span class="p">,</span> <span class="s1">&#39;chassis&#39;</span><span class="p">)}}</span>
+</pre></div>
+</div>
+<p>To avoid changing user script from run to run to enable and display the key
+usage tracing information, MetaParser also provides <a class="reference external" href="http://wwwin-pyats.cisco.com">pyATS</a>
+pre/post processor functions to dynamically enable the traceability in script
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">common_setup</span></code> section, and log the trace info in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">common_cleanup</span></code> section.
+The example below shows three steps to achieve this:</p>
+<div class="sidebar">
+<p class="sidebar-title">Helpful Reading</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://wwwin-pyats.cisco.com">pyATS</a></p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Step1</strong>: define the pre/post processor in pyats data yaml file.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">common_setup</span><span class="p">:</span>
+    <span class="n">processors</span><span class="p">:</span>
+        <span class="n">pre</span><span class="p">:</span>
+            <span class="n">genie</span><span class="o">.</span><span class="n">metaparser</span><span class="o">.</span><span class="n">enable_key_usage_trace</span>
+
+<span class="n">common_cleanup</span><span class="p">:</span>
+
+    <span class="n">processors</span><span class="p">:</span>
+        <span class="n">post</span><span class="p">:</span>
+            <span class="n">genie</span><span class="o">.</span><span class="n">metaparser</span><span class="o">.</span><span class="n">log_key_usage_trace</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Step2</strong> add the data yaml in script job file.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;path/to/your/data/file/data.yaml&#39;</span><span class="p">)</span>
+
+<span class="n">run</span><span class="p">(</span><span class="n">testscript</span><span class="o">=</span><span class="n">testscript</span><span class="p">,</span> <span class="n">uut_name</span><span class="o">=</span><span class="n">uut</span><span class="p">,</span> <span class="n">datafile</span> <span class="o">=</span> <span class="n">data_file</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Step3</strong>: view the key usage report which will be logged into
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">comon_cleanup</span></code> section of pyats logs.</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nostg-ott-lnx-3: : Running post-processor: &#39;log_key_usage_trace&#39;
+nostg-ott-lnx-3: : +------------------------------------------------------------------------------+
+nostg-ott-lnx-3: : |                             Metaparser Key Usage                             |
+nostg-ott-lnx-3: : +------------------------------------------------------------------------------+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="metaparser-abstraction">
+<h2>MetaParser Abstraction<a class="headerlink" href="#metaparser-abstraction" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="sidebar-title">Mandatory Reading</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../abstract/index.html#abstract"><span class="std std-ref">abstract</span></a></p></li>
+</ul>
+</div>
+<p>It is very easy to achieve the abstraction among MetaParser objects by
+leveraging the Genie extention package - <code class="docutils literal notranslate"><span class="pre">genie.abstract</span></code>. This package allows
+sub-parser developers to declare the parser abstraction package, register
+‘tokens’ (os, series, type, etc) for the parser modules. Therefore, user scripts
+have no need to hard-coded the specific parser object imports. The correct
+parser modules will be dynamically loaded during the script run-time.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Step1</strong>: declare the parser abstraction package.</p></li>
+</ul>
+<p>Include the below code in the parser package which you want to enable the
+abstraction. In our case, the location will be:
+<em>parser/__init__.py</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;abstract&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">declare_package</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Step2</strong>: declare the token within the abstraction enabled package.</p></li>
+</ul>
+<p>Put the below one liner in the parser modules which you want to register
+the abstraction token. In our case, the location will be:
+<em>parser/nxos/__init__.py</em>, <em>parser/iosxr/__init__.py</em>,
+<em>parser/iosxe/__init__.py</em>, or any new types of platforms in the
+future.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;abstract&#39;</span><span class="p">)</span><span class="o">.</span> <span class="n">declare_token</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Step3</strong>: use parser object in user script.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">abstract</span>
+
+<span class="c1"># correct parser object lookup</span>
+<span class="c1"># uut.os will be learned via yaml file.</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">abstract</span><span class="o">.</span><span class="n">Lookup</span><span class="p">(</span><span class="n">uut</span><span class="o">.</span><span class="n">os</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">genie</span><span class="o">.</span><span class="n">libs</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">show_interface</span><span class="o">.</span><span class="n">ShowInterfaces</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>For more detail abstraction info, refer cisco_shared <a class="reference internal" href="../../abstract/index.html#abstract"><span class="std std-ref">abstract</span></a>
+package.</p>
+</div>
+<div class="section" id="metaparser-usage-example">
+<h2>MetaParser Usage Example<a class="headerlink" href="#metaparser-usage-example" title="Permalink to this headline">¶</a></h2>
+<p>Each parser object is imported into Python using the standard <code class="docutils literal notranslate"><span class="pre">import</span></code>
+mechanism, or use <code class="docutils literal notranslate"><span class="pre">abstract</span></code> package dynamic import function described in
+previous section. To run, simply call <code class="docutils literal notranslate"><span class="pre">parse</span></code> function.</p>
+<dl>
+<dt>Execution flow of the parse function:</dt><dd><ol class="arabic">
+<li><p>Based on the “context” input (from job or from execution environment
+args), a specific management model parsing
+mechanism (cli/xml/yang) is called. The parsing mechanism defined in
+subclass parser does the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Get the output from the device</p></li>
+<li><p>Call back-end parsing API or run self implemented parser with the
+output</p></li>
+<li><p>Transform the output into ‘schema’ compatible dictionary
+and return. For detailed steps to implement parsing mechanism
+refers to <a class="reference internal" href="template.html#template-doc"><span class="std std-ref">Template Documentation</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Schema checking to ensure the returned data structure by the parsing
+mechanism meets the schema requirement.</p></li>
+<li><p>Apply user defined filter on output, then only selected key-value pairs
+will be returned as the original format from the output.</p></li>
+</ol>
+</dd>
+</dl>
+<p>The following example shows the usage of the MetaParser with the abstraction (
+typical scenario for pyats scripts):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># User Script Example</span>
+<span class="c1"># -------------------</span>
+
+<span class="kn">import</span> <span class="nn">abstract</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">abstract</span><span class="o">.</span><span class="n">Lookup</span><span class="p">(</span><span class="n">uut</span><span class="o">.</span><span class="n">os</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">genie</span><span class="o">.</span><span class="n">libs</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">show_version</span><span class="o">.</span><span class="n">ShowVersion</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="c1"># get the entire output</span>
+<span class="n">output_all</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="c1"># Get the output only contains specific keys selected by users.</span>
+<span class="c1"># Note: all keys in list have to be exist.</span>
+<span class="c1"># Here &#39;r&#39; in front of the key string indicates the &#39;raw string literal&#39;</span>
+<span class="c1"># used as the Python regexp pattern.</span>
+
+<span class="n">selected_keys</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;hardware&#39;</span><span class="p">,</span> <span class="s1">&#39;bootflash&#39;</span><span class="p">],</span>
+                 <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;.*&#39;</span><span class="p">,</span> <span class="s1">&#39;kickstart&#39;</span><span class="p">],</span>
+                 <span class="p">[</span><span class="s1">&#39;reason&#39;</span><span class="p">],</span>
+                 <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;^kernel&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;.*&#39;</span><span class="p">]]</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">selected_keys</span> <span class="o">=</span> <span class="n">selected_keys</span><span class="p">)</span>
+
+<span class="c1"># output</span>
+<span class="p">{</span><span class="s1">&#39;hardware&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;bootflash&#39;</span><span class="p">:</span> <span class="s1">&#39;2048256&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;kernel_uptime&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;days&#39;</span><span class="p">:</span> <span class="s1">&#39;113&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;hours&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;minutes&#39;</span><span class="p">:</span> <span class="s1">&#39;42&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;seconds&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;reason&#39;</span><span class="p">:</span> <span class="s1">&#39;Unknown&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;software&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;kickstart&#39;</span><span class="p">:</span> <span class="s1">&#39;version 6.2(6)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;kickstart_compile_time&#39;</span><span class="p">:</span> <span class="s1">&#39;12/5/2013&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;kickstart_image_file&#39;</span><span class="p">:</span> <span class="s1">&#39;bootflash:///kickstart.6.2.bin&#39;</span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>Below is an example to call MetaParser object without abstraction (applied when
+no abstraction needed or abstraction had been done in the upper caller layers,
+for example: Genie objects):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># User Script Example</span>
+<span class="c1"># -------------------</span>
+<span class="kn">from</span> <span class="nn">genie.libs.parser.nxos.show_platform</span> <span class="kn">import</span> <span class="n">ShowVersion</span>
+
+<span class="c1"># instantiate parser object</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">ShowVersion</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">)</span>
+
+<span class="c1"># get the entire output</span>
+<span class="n">output_all</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metaparser-fallback-mechanism">
+<h2>MetaParser Fallback Mechanism<a class="headerlink" href="#metaparser-fallback-mechanism" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>User can provide context in two forms:</dt><dd><ol class="arabic simple">
+<li><p>A string of the context. (EX: ‘cli’)</p></li>
+<li><p>A list of strings of contexts. (EX: <code class="docutils literal notranslate"><span class="pre">['cli',</span> <span class="pre">'yang',</span> <span class="pre">'xml']</span></code>)</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>Fallback mecahnism will only work when a list of contexts have been provided.</p></li>
+<li><p>The first item in the list is the main context and the subsequent ones
+are complemepantry. Means that if any key value in one of the subsequenet
+contexts is different than that of the main context, the key value of the
+main one will be the dominant one.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Metaparser</span></code> will parse using the first context in the list (
+in the above example ‘cli’). If the parsed output is missing any mandatory
+schema key (not optional <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code> key), <code class="docutils literal notranslate"><span class="pre">Metaparser</span></code> will go fetch the
+missing keys (via <code class="xref py py-obj docutils literal notranslate"><span class="pre">selected_keys</span></code>) using the following context in the list.</p></li>
+<li><dl class="simple">
+<dt>Fallback mecahnism will only stop in two cases:</dt><dd><ol class="arabic simple">
+<li><p>All the missing <code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code> keys have been successfully parsed.</p></li>
+<li><p>The context list last item has been reached.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p><strong>context</strong>: a keyword-only argument, acting as a string format selector for
+user to choose which parsing mechanism will be used to current parsing task.
+Choices of: ‘cli’, ‘xml’, ‘yang’, default value is ‘cli’.</p></li>
+<li><p><strong>kwargs</strong>: argument dictionary provides the user ability to assign extra
+attributes while instantiating the parser object.</p></li>
+</ul>
+<p>Example to pass multiple contexts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assume subclass parser ShowIpOspf inherits from MetaParser</span>
+<span class="c1"># Provide all the contexts available for that specific parser</span>
+<span class="n">context</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cli&#39;</span><span class="p">,</span><span class="s1">&#39;xml&#39;</span><span class="p">,</span><span class="s1">&#39;yang&#39;</span><span class="p">]</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">ShowIpOspfSchema</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">uut</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span>
+
+<span class="c1"># Parsing will start with &#39;cli&#39; then &#39;xml&#39; and lastly &#39;yang&#39; in case</span>
+<span class="c1"># &#39;cli&#39; &amp; &#39;xml&#39; did not cover all the mnadatory schema keys.</span>
+<span class="n">parsed_output</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metaparser-general-mechanism">
+<h2>MetaParser General Mechanism<a class="headerlink" href="#metaparser-general-mechanism" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The following mechanism have been added to Metaparser to make it more effective.
+Users can provide static device output to the parser class via variable <code class="xref py py-obj docutils literal notranslate"><span class="pre">output</span></code>.(This is useful for unitesting and reproducing failures)
+All show commands are supported <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli_command</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">xml_command</span></code> ,… as parser class variable.</p>
+<dl class="simple">
+<dt>Summary:</dt><dd><ul class="simple">
+<li><p>Parsers now have support to directly parse static output provided to the parser class, without interacting with the device</p></li>
+<li><p>All new parsers must contain class variable “cli_command” denoting the show command string and “xml_command” denoting the xml command string</p></li>
+<li><p>All dynamic keys which are provided as kwargs in that parser must have the same name as the one in <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli_command</span></code></p></li>
+<li><p>A list can be provided in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli_command</span></code> if the parser parses multiple commands</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Example to pass <code class="xref py py-obj docutils literal notranslate"><span class="pre">output</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli_command</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ShowIpPimRpMapping</span><span class="p">(</span><span class="n">ShowIpPimRpMappingSchema</span><span class="p">):</span>
+
+<span class="c1"># Passing cli_command as class variable and defining dynamic keys as {}</span>
+<span class="c1"># the dynamic key name must be the same as cli key name</span>
+<span class="n">cli_command</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;show ip pim vrf </span><span class="si">{vrf}</span><span class="s1"> rp mapping&#39;</span><span class="p">,</span> <span class="s1">&#39;show ip pim rp mapping&#39;</span><span class="p">]</span>
+
+<span class="c1"># Passing output as cli key</span>
+<span class="k">def</span> <span class="nf">cli</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vrf</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">output</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># set vrf infomation</span>
+        <span class="k">if</span> <span class="n">vrf</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cli_command</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vrf</span><span class="o">=</span><span class="n">vrf</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cli_command</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contribute.html" class="btn btn-neutral float-right" title="Contribute in parsers build" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Advanced" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

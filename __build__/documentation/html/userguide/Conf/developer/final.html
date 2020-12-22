@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Final Version &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="UML" href="uml.html" />
+    <link rel="prev" title="Abstraction" href="abstraction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Conf Guide</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../user/index.html">Conf User Guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Conf Developer Guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="basicfeature.html">First Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="attributeshelper.html">Attributes helper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="clibuilder.html">Cli Config Builder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="managedattribute.html">Managed Attribute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="abstraction.html">Abstraction</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Final Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uml.html">UML</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../harness/index.html">Harness Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">User Guide</a> &raquo;</li>
+        
+          <li><a href="../index.html">Conf Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Conf Developer Guide</a> &raquo;</li>
+        
+      <li>Final Version</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="final-version">
+<h1>Final Version<a class="headerlink" href="#final-version" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="final">
+<h2>Final<a class="headerlink" href="#final" title="Permalink to this headline">¶</a></h2>
+<p>Here you can find the final version of what we have seen. It is very similar to
+the one in <a class="reference internal" href="managedattribute.html#managedattribute"><span class="std std-ref">Managed Attribute</span></a>, but it contains <code class="xref py py-obj docutils literal notranslate"><span class="pre">build_unconfig</span></code> method and
+abstraction.</p>
+<p>It is highly recommended to use this as a template for your first <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code>
+development. The following steps will guide you through it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;pyats_root&gt;/genie_libs/conf
+mkdir Template
+<span class="nb">cd</span> Template
+touch __init__.py
+touch vrf.py
+</pre></div>
+</div>
+<p>Open this new file with your favourite editor. (Hopefully its vim). Let’s first
+create the structure of this Vrf <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Imports ####</span>
+<span class="kn">from</span> <span class="nn">genie.decorator</span> <span class="kn">import</span> <span class="n">managedattribute</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.config</span> <span class="kn">import</span> <span class="n">CliConfig</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.base</span> <span class="kn">import</span> <span class="n">DeviceFeature</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.attributes</span> <span class="kn">import</span> <span class="n">DeviceSubAttributes</span><span class="p">,</span>\
+                                       <span class="n">SubAttributesDict</span><span class="p">,</span>\
+                                       <span class="n">AttributesHelper</span>
+
+<span class="c1">#### Vrf class ####</span>
+<span class="k">class</span> <span class="nc">Vrf</span><span class="p">(</span><span class="n">DeviceFeature</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">DeviceAttributes</span><span class="p">(</span><span class="n">DeviceSubAttributes</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="c1"># Create the subAttributesDict for device_att</span>
+    <span class="c1"># We want it readonly, as the dict shouldn&#39;t never be changed,</span>
+    <span class="c1"># only the key/value.</span>
+    <span class="n">device_attr</span> <span class="o">=</span> <span class="n">managedattribute</span><span class="p">(</span>
+                      <span class="n">name</span><span class="o">=</span><span class="s1">&#39;device_attr&#39;</span><span class="p">,</span>
+                      <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">doc</span><span class="o">=</span><span class="n">DeviceAttributes</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+    <span class="c1"># When the variable is first created, it creates a subAttributesDict</span>
+    <span class="nd">@device_attr</span><span class="o">.</span><span class="n">initter</span>
+    <span class="k">def</span> <span class="nf">device_attr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">SubAttributesDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DeviceAttributes</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">managedattribute</span><span class="p">(</span>
+               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+               <span class="n">read_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Name of the Vrf&#39;</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">managedattribute</span><span class="p">(</span>
+                      <span class="n">name</span><span class="o">=</span><span class="s1">&#39;description&#39;</span><span class="p">,</span>
+                      <span class="nb">type</span><span class="o">=</span><span class="n">managedattribute</span><span class="o">.</span><span class="n">test_istype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span>
+                      <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Description of the Vrf&#39;</span><span class="p">)</span>
+    <span class="n">rd</span> <span class="o">=</span> <span class="n">managedattribute</span><span class="p">(</span>
+             <span class="n">name</span><span class="o">=</span><span class="s1">&#39;rd&#39;</span><span class="p">,</span>
+             <span class="nb">type</span><span class="o">=</span><span class="n">managedattribute</span><span class="o">.</span><span class="n">test_istype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span>
+             <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Rd of the Vrf&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="c1"># Adding a new build_config, to call</span>
+    <span class="k">def</span> <span class="nf">build_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">apply</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">cfgs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="n">AttributesHelper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">devices</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">devices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
+        <span class="c1"># Loop over all the items of &#39;self.device_attr&#39;, sort them,</span>
+        <span class="c1"># and only care about the keys which are in keys.</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">sub</span><span class="p">,</span> <span class="n">attributes2</span> <span class="ow">in</span> <span class="n">attributes</span><span class="o">.</span><span class="n">mapping_items</span><span class="p">(</span>
+                <span class="s1">&#39;device_attr&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="n">devices</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="c1"># For each, call their build_config with attributes as an argument.</span>
+            <span class="c1"># attributes2 is only the attributes related to this particular</span>
+            <span class="c1"># device, and its parent attributes. (To allow parent default</span>
+            <span class="c1"># values)</span>
+            <span class="n">cfgs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">build_config</span><span class="p">(</span><span class="n">apply</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                         <span class="n">attributes</span><span class="o">=</span><span class="n">attributes2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">apply</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">device_name</span><span class="p">,</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cfgs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">testbed</span><span class="o">.</span><span class="n">config_on_devices</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">fail_invalid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cfgs</span>
+    <span class="k">def</span> <span class="nf">build_unconfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">apply</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">cfgs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="n">AttributesHelper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">devices</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">devices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
+        <span class="c1"># Loop over all the items of &#39;self.device_attr&#39;, sort them,</span>
+        <span class="c1"># and only care about the keys which are in keys.</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">sub</span><span class="p">,</span> <span class="n">attributes2</span> <span class="ow">in</span> <span class="n">attributes</span><span class="o">.</span><span class="n">mapping_items</span><span class="p">(</span>
+                <span class="s1">&#39;device_attr&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="n">devices</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="c1"># For each, call their build_config with attributes as an argument.</span>
+            <span class="c1"># attributes2 is only the attributes related to this particular</span>
+            <span class="c1"># device, and its parent attributes. (To allow parent default</span>
+            <span class="c1"># values)</span>
+            <span class="n">cfgs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">build_unconfig</span><span class="p">(</span><span class="n">apply</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                         <span class="n">attributes</span><span class="o">=</span><span class="n">attributes2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">apply</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">device_name</span><span class="p">,</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cfgs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">testbed</span><span class="o">.</span><span class="n">config_on_devices</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">fail_invalid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cfgs</span>
+</pre></div>
+</div>
+<p>Alright,  let’s now create the configuration section of it. Please do those
+steps in your terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir nxos
+<span class="nb">cd</span> nxos
+touch __init__.py
+touch vrf.py
+</pre></div>
+</div>
+<p>For this example, <code class="xref py py-obj docutils literal notranslate"><span class="pre">nxos</span></code> is used, but it could be any other os. We first
+need to hook up <code class="xref py py-obj docutils literal notranslate"><span class="pre">nxos</span></code> as a token in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__.py</span></code> file. Open it and add
+the following lines.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable abstraction using this directory name as the abstraction token</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">genie</span> <span class="kn">import</span> <span class="n">abstract</span>
+    <span class="n">abstract</span><span class="o">.</span><span class="n">declare_token</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Could not declare abstraction token: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Once done, open the <code class="xref py py-obj docutils literal notranslate"><span class="pre">vrf.py</span></code> file inside the <code class="xref py py-obj docutils literal notranslate"><span class="pre">nxos</span></code> directory. This represent
+the configuration.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Imports ####</span>
+<span class="kn">from</span> <span class="nn">genie.decorator</span> <span class="kn">import</span> <span class="n">managedattribute</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.cli</span> <span class="kn">import</span> <span class="n">CliConfigBuilder</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.attributes</span> <span class="kn">import</span> <span class="n">AttributesHelper</span>
+
+<span class="c1">#### Vrf class ####</span>
+<span class="k">class</span> <span class="nc">Vrf</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">DeviceAttributes</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">build_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">apply</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                         <span class="n">unconfig</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">attributes</span> <span class="o">=</span> <span class="n">AttributesHelper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+            <span class="c1"># List containing configuration for this loop</span>
+            <span class="c1"># Instantiate configurations</span>
+            <span class="n">configurations</span> <span class="o">=</span> <span class="n">CliConfigBuilder</span><span class="p">(</span><span class="n">unconfig</span><span class="o">=</span><span class="n">unconfig</span><span class="p">)</span>
+            <span class="c1"># Create Vrf Submode context</span>
+            <span class="k">with</span> <span class="n">configurations</span><span class="o">.</span><span class="n">submode_context</span><span class="p">(</span>
+                                <span class="n">attributes</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;vrf </span><span class="si">{name}</span><span class="s1">&#39;</span><span class="p">,</span>
+                                                  <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">unconfig</span> <span class="ow">and</span> <span class="n">attributes</span><span class="o">.</span><span class="n">iswildcard</span><span class="p">:</span>
+                    <span class="n">configurations</span><span class="o">.</span><span class="n">submode_unconfig</span><span class="p">()</span>
+                <span class="n">configurations</span><span class="o">.</span><span class="n">append_line</span><span class="p">(</span><span class="n">attributes</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;description </span><span class="si">{description}</span><span class="s1">&#39;</span><span class="p">))</span>
+                <span class="n">configurations</span><span class="o">.</span><span class="n">append_line</span><span class="p">(</span><span class="n">attributes</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;rd </span><span class="si">{rd}</span><span class="s1">&#39;</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">CliConfig</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">unconfig</span><span class="o">=</span><span class="n">unconfig</span><span class="p">,</span>
+                             <span class="n">cli_config</span><span class="o">=</span><span class="n">configurations</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">build_unconfig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">apply</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_config</span><span class="p">(</span><span class="n">apply</span><span class="o">=</span><span class="n">apply</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">,</span>
+                                     <span class="n">unconfig</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All done,  let’s test it out now.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.conf</span> <span class="kn">import</span> <span class="n">Genie</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base</span> <span class="kn">import</span> <span class="n">Device</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base</span> <span class="kn">import</span> <span class="n">Testbed</span>
+<span class="kn">from</span> <span class="nn">genie_libs.conf.Template.vrf</span> <span class="kn">import</span> <span class="n">Vrf</span>
+<span class="c1"># Set Genie Tb</span>
+<span class="n">testbed</span> <span class="o">=</span> <span class="n">Testbed</span><span class="p">()</span>
+<span class="n">Genie</span><span class="o">.</span><span class="n">testbed</span> <span class="o">=</span> <span class="n">testbed</span>
+<span class="n">dev1</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;pe1&#39;</span><span class="p">,</span> <span class="n">testbed</span><span class="o">=</span><span class="n">testbed</span><span class="p">,</span> <span class="n">os</span><span class="o">=</span><span class="s1">&#39;nxos&#39;</span><span class="p">)</span>
+<span class="n">dev2</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;pe2&#39;</span><span class="p">,</span> <span class="n">testbed</span><span class="o">=</span><span class="n">testbed</span><span class="p">,</span> <span class="n">os</span><span class="o">=</span><span class="s1">&#39;nxos&#39;</span><span class="p">)</span>
+<span class="n">vrf1</span> <span class="o">=</span> <span class="n">Vrf</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s add a specific description for dev1 and a default one</span>
+<span class="n">vrf1</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="n">dev1</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Pe1 blue vrf&#39;</span>
+<span class="n">vrf1</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Default description&#39;</span>
+
+<span class="c1">#vrf1.device_attr[dev2].description = &#39;Pe2 super blue vrf&#39;</span>
+<span class="c1"># And same RD for both, we can set it at the parent level as we want it</span>
+<span class="c1"># to be of the same value</span>
+<span class="n">vrf1</span><span class="o">.</span><span class="n">rd</span> <span class="o">=</span> <span class="s1">&#39;800:1&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vrf1</span><span class="o">.</span><span class="n">build_config</span><span class="p">(</span><span class="n">devices</span><span class="o">=</span><span class="p">[</span><span class="n">dev1</span><span class="p">,</span> <span class="n">dev2</span><span class="p">],</span> <span class="n">apply</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="c1"># {&#39;pe2&#39;: &#39;vrf blue\n description Pe2 super blue vrf\n rd 800:1\n exit&#39;,</span>
+<span class="c1">#  &#39;pe1&#39;: &#39;vrf blue\n description Pe1 blue vrf\n rd 800:1\n exit&#39;}</span>
+
+<span class="c1"># And for unconfiguring</span>
+<span class="n">vrf1</span><span class="o">.</span><span class="n">build_unconfig</span><span class="p">(</span><span class="n">devices</span><span class="o">=</span><span class="p">[</span><span class="n">dev1</span><span class="p">,</span> <span class="n">dev2</span><span class="p">],</span> <span class="n">apply</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># {&#39;pe2&#39;: &#39;no vrf blue&#39;, &#39;pe1&#39;: &#39;no vrf blue&#39;}</span>
+
+<span class="c1"># Let&#39;s do it for only a few specific attributes</span>
+<span class="n">vrf1</span><span class="o">.</span><span class="n">build_config</span><span class="p">(</span><span class="n">devices</span><span class="o">=</span><span class="p">[</span><span class="n">dev1</span><span class="p">,</span> <span class="n">dev2</span><span class="p">],</span> <span class="n">apply</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;device_attr&#39;</span><span class="p">:{</span><span class="s1">&#39;*&#39;</span><span class="p">:{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">}}})</span>
+<span class="c1"># {&#39;pe1&#39;: &#39;vrf blue\n description Pe1 blue vrf\n exit&#39;,</span>
+<span class="c1">#  &#39;pe2&#39;: &#39;vrf blue\n description Default description\n exit&#39;}</span>
+<span class="c1"># And now unconfig</span>
+<span class="n">vrf1</span><span class="o">.</span><span class="n">build_unconfig</span><span class="p">(</span><span class="n">devices</span><span class="o">=</span><span class="p">[</span><span class="n">dev1</span><span class="p">,</span> <span class="n">dev2</span><span class="p">],</span> <span class="n">apply</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;device_attr&#39;</span><span class="p">:{</span><span class="s1">&#39;*&#39;</span><span class="p">:{</span><span class="s1">&#39;description&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">}}})</span>
+<span class="c1"># {&#39;pe1&#39;: &#39;vrf blue\n no description Pe1 blue vrf\n exit&#39;,</span>
+<span class="c1">#  &#39;pe2&#39;: &#39;vrf blue\n no description Default description\n exit&#39;}</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">Vrf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With this, you are on your way to create your own <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code>. Always keep an eye
+in <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie_libs</span></code> repository to see what the community is cooking up!</p>
+</div>
+<div class="section" id="yang">
+<h2>Yang<a class="headerlink" href="#yang" title="Permalink to this headline">¶</a></h2>
+<p>The previous sections demonstrated the coding style which <code class="docutils literal notranslate"><span class="pre">Genie</span></code> encourages.
+The same concepts applies for any other configuration method, for example
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Yang</span></code>.</p>
+<p>For any <code class="xref py py-obj docutils literal notranslate"><span class="pre">Yang</span></code> development we are encouraging to use <a class="reference external" href="http://github.com/CiscoDevNet/ydk-gen/">ydk</a>. It is a Cisco tool,
+which allows to configure and read operational data with objects. You can find
+example on how to develop it under :
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">genie_libs/conf/vrf/iosxe/yang/vrf.py</span></code></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="uml.html" class="btn btn-neutral float-right" title="UML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="abstraction.html" class="btn btn-neutral float-left" title="Abstraction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

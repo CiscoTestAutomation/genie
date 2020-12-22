@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SubAttributes &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>SubAttributes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="subattributes">
+<span id="id1"></span><h1>SubAttributes<a class="headerlink" href="#subattributes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This section focuses on <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributesDict</span></code> and the concept of
+attributes propagation.</p>
+</div>
+<div class="section" id="the-whys">
+<span id="the-why"></span><h2>The Whys<a class="headerlink" href="#the-whys" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> allows the user to configure a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> via object attributes.
+However, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> in a device are configured with a certain level of
+hierarchy, and requires the attributes to also be this way. A hierarchy of
+attributes is needed. Some configurations are only available when certain
+configurations are already present on the device. For example, <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span> <span class="pre">ospf</span></code> on
+nxos. Secondly, some configurations are only availably when inside other
+configuration. For example :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>router rip1
+ address-family ipv4 unicast
+  default-metric 1
+</pre></div>
+</div>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">address-family</span> <span class="pre">ipv4</span> <span class="pre">unicast</span></code> is only available inside <code class="xref py py-obj docutils literal notranslate"><span class="pre">router</span> <span class="pre">rip1</span></code>.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default-metric</span> <span class="pre">1</span></code> is only available inside <code class="xref py py-obj docutils literal notranslate"><span class="pre">address-family</span> <span class="pre">ipv4</span> <span class="pre">unicast</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> object attributes need to respect the same logic and structure. This
+same concept of hierarchy also brings the point of, some configuration can be
+repeated, but for different values. For example, <code class="xref py py-obj docutils literal notranslate"><span class="pre">default-metric</span></code> can be part
+of both address family, ipv4 and ipv6.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>router rip 1
+ no shutdown
+ address-family ipv4 unicast
+  default-metric 1
+  exit
+ address-family ipv6 unicast
+  default-metric 3
+  exit
+</pre></div>
+</div>
+<p>Let’s evaluate line by line and see how we rationalize this configuration
+and convert it into <code class="docutils literal notranslate"><span class="pre">Genie</span></code> object.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">router</span> <span class="pre">rip</span> <span class="pre">1</span></code> is the feature.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">no</span> <span class="pre">shutdown</span></code> is an attribute into the feature.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">address-family</span> <span class="pre">ipv4</span> <span class="pre">unicast</span></code> is a <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code></p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default-metric</span> <span class="pre">1</span></code> is an attribute for ipv4 address family <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code></p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">address-family</span> <span class="pre">ipv6</span> <span class="pre">unicast</span></code> is another <code class="xref py py-obj docutils literal notranslate"><span class="pre">Subattributes</span></code></p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default-metric</span> <span class="pre">3</span></code> is an attribute for ipv6 address family <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code></p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Address-family</span></code> came back twice with different values (ipv4, ipv6).
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">default-metric</span></code>, but with different values. The value 1 for <code class="xref py py-obj docutils literal notranslate"><span class="pre">ipv4</span></code> and 3 for
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">ipv6</span></code>.</p>
+<p>This is a small scale example, but a mechanism to handle this scenario is
+needed.</p>
+<p>Another scenario is to group attributes for each device. Some values for
+device <code class="xref py py-obj docutils literal notranslate"><span class="pre">PE1</span></code> and others for <code class="xref py py-obj docutils literal notranslate"><span class="pre">P1</span></code> might/will need to be different.</p>
+</div>
+<div class="section" id="id2">
+<h2>SubAttributes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> hold a subset of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> configuration specified by a
+certain context. This context can be <code class="xref py py-obj docutils literal notranslate"><span class="pre">per</span> <span class="pre">device</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">per</span> <span class="pre">address</span> <span class="pre">family</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">per</span>
+<span class="pre">vrf</span></code> and so on. A <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> can also be subdivided into smaller
+subsets.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Subattributes</span></code> has 2 main responsabilities.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Allows you to create a hierarchy inside a <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code>. It subdivides
+configurable attributes into smaller and into re-usable subgroups.</p></li>
+<li><p>Allow re-usable subgroups divided by specific keys to be stored into
+<a class="reference internal" href="#subattributesdict">subattributesdict</a>.</p></li>
+</ol>
+</div></blockquote>
+<p>In more technical terms, <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> is a class , inside a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> class
+that holds attributes. This class has its own functions to build the device
+configuration.  Many of <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> can be chained together, for as many
+levels as needed.  Many objects of this class can be instantiated, to create
+similiar subgroup, but with different keys to ensure each <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> may
+be individually accessed in <a class="reference internal" href="#subattributesdict">subattributesdict</a>.</p>
+<p>Let’s see an example :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.conf.base</span> <span class="kn">import</span> <span class="n">Feature</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.attributes</span> <span class="kn">import</span> <span class="n">SubAttributes</span>
+
+<span class="k">class</span> <span class="nc">MyFeature</span><span class="p">(</span><span class="n">Feature</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">PerDeviceAttr</span><span class="p">(</span><span class="n">SubAttributes</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maximum_hop</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">PerDeviceAttr</span></code> is a <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code>, where it can be further subdivided into
+attributes based on each device.  This concent, and <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubattributesDict</span></code> will
+allow to have different value for each device.</p>
+</div>
+<div class="section" id="subattributesdict">
+<span id="id3"></span><h2>SubAttributesDict<a class="headerlink" href="#subattributesdict" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> wouldn’t work, without an attribute inside <code class="xref py py-obj docutils literal notranslate"><span class="pre">MyFeature</span></code> to glue
+it all together.  <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributesDict</span></code> ties multiple <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> together
+and the object containing them.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributesDict</span></code> is a dictionary that inherits from <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.defaultdict">defaultdict</a>  and
+<a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.OrderedDict">ordereddict</a>. It is instantiates by passing a <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> class.  when a
+key is requested, it verifies if the key exists. If it does, it returns the
+object associated with the key. If it does not, it instantiate an object of the
+given <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> class that was given, stores it in the dictionary and
+returns it. This is a bit complex, but, no need to fully understand it
+to use it</p>
+<p>Let’s work it out on an example :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.conf.base</span> <span class="kn">import</span> <span class="n">Feature</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.attributes</span> <span class="kn">import</span> <span class="n">SubAttributes</span>
+
+<span class="k">class</span> <span class="nc">MyFeature</span><span class="p">(</span><span class="n">Feature</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">PerDeviceAttr</span><span class="p">(</span><span class="n">SubAttributes</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maximum_hop</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We have our <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> class inside <code class="xref py py-obj docutils literal notranslate"><span class="pre">MyFeature</span></code>, though no way to access
+it still.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.conf.base</span> <span class="kn">import</span> <span class="n">Feature</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.attributes</span> <span class="kn">import</span> <span class="n">SubAttributes</span><span class="p">,</span> <span class="n">SubAttributesDict</span>
+
+<span class="k">class</span> <span class="nc">MyFeature</span><span class="p">(</span><span class="n">Feature</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">PerDeviceAttr</span><span class="p">(</span><span class="n">SubAttributes</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maximum_hop</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_attr</span> <span class="o">=</span> <span class="n">SubAttributesDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PerDeviceAttr</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example, SubAttributesDict is added, and stored into an attributes
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">self.device_attr</span></code>. Following on with the same example :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myfeature</span> <span class="o">=</span> <span class="n">MyFeature</span><span class="p">()</span>
+
+<span class="go"># device_attr is a SubAttributesDict, and key &#39;PE1&#39; was requested. The key</span>
+<span class="go"># PE1 does not exists, so an instance of PerDeviceAttr is created.</span>
+<span class="go"># This can be done with the create api</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span>
+<span class="go">&lt;__main__.MyFeature.PerDeviceAttr object at 0x10c5bdb38&gt;</span>
+
+<span class="go"># The object is now created</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;P1&#39;</span><span class="p">]</span>
+<span class="go">&lt;__main__.MyFeature.PerDeviceAttr object at 0x10c5c6080&gt;</span>
+
+<span class="go"># A new object was created for P1. This means attributes set for one object</span>
+<span class="go"># is not set for the other.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;P1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span>
+<span class="go">AttributeError: &#39;MyFeature&#39; object has no attribute &#39;speed&#39;</span>
+
+<span class="go"># Lastly, no need to create it first,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>The last line of the previous example demonstrate that there is no need
+to instantiate a <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code> first, attributes inside can be declared right
+away and the object will be instantiated on the go.</p>
+<p>However, calling a dictionary that does not exist should raise a KeyError
+exception.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard dictionary</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mydict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mydict</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;PE1&#39;</span>
+
+<span class="c1"># Genie dictionary</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyFeature</span><span class="o">.</span><span class="n">PerDeviceAttr</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10c5bdb38</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>This works as <code class="docutils literal notranslate"><span class="pre">Genie</span></code> dicitonary inherits from <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.defaultdict">defaultdict</a> with some
+modification on top of it. However, to make the code easier to read,
+a function was added <code class="xref py py-obj docutils literal notranslate"><span class="pre">create</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># With new create function</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+<span class="c1"># Does exactly the same as</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span>
+<span class="c1"># But looks better and is easier to create.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes-propagation">
+<span id="id4"></span><h2>Attributes propagation<a class="headerlink" href="#attributes-propagation" title="Permalink to this headline">¶</a></h2>
+<p>This sections focuses on tying together all those concepts, to create a
+mechanism to propagate attributes to other <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code>.</p>
+<p>The benefit of attributes progation is that you can set default values, and
+all subAttributes under this object will use those as default values. If those
+subAttributes set their own attributes with the same name, then it overwrites
+the default values.</p>
+<p>Let’s work it out on an example, using the same as earlier.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.conf.base</span> <span class="kn">import</span> <span class="n">Feature</span>
+<span class="kn">from</span> <span class="nn">genie.conf.base.attributes</span> <span class="kn">import</span> <span class="n">SubAttributes</span><span class="p">,</span> <span class="n">SubAttributesDict</span>
+
+<span class="k">class</span> <span class="nc">MyFeature</span><span class="p">(</span><span class="n">Feature</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">PerDeviceAttr</span><span class="p">(</span><span class="n">SubAttributes</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maximum_hop</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_attr</span> <span class="o">=</span> <span class="n">SubAttributesDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PerDeviceAttr</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span> <span class="o">=</span> <span class="n">MyFeature</span><span class="p">()</span>
+<span class="c1"># Set the default for this feature speed to be 5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">speed</span>
+<span class="mi">5</span>
+<span class="c1"># Verify it was propagated to the device_attr</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span>
+<span class="mi">5</span>
+<span class="c1"># Though it can be changed</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;PE1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span>
+<span class="mi">8</span>
+<span class="c1"># As it wasn&#39;t changed for P1, still use the default</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">myfeature</span><span class="o">.</span><span class="n">device_attr</span><span class="p">[</span><span class="s1">&#39;P1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">speed</span>
+<span class="mi">5</span>
+</pre></div>
+</div>
+<p>This concept also can be chained, if there are many level of <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributes</span></code>.</p>
+<p>One last detail, is the <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> at the end of <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributesDict</span></code> declaration.
+It dictates the propagation relationship. It can be read like this :</p>
+<p>Create a <code class="xref py py-obj docutils literal notranslate"><span class="pre">SubAttributesDict</span></code> that contains class <code class="xref py py-obj docutils literal notranslate"><span class="pre">PerDeviceAttr</span></code>, and when
+requesting an unknown attribute in those class, verify if <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>
+knowns about it.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

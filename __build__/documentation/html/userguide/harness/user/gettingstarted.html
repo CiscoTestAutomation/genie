@@ -1,0 +1,757 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting You Started &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Arguments" href="reference.html" />
+    <link rel="prev" title="Harness User Guide" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Harness Guide</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Harness User Guide</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Getting You Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reference.html">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyats.html">Genie within pyATS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="datafile.html">Datafiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="traffic.html">Traffic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="custom.html">Trigger Cluster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html">Harness Developer Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">User Guide</a> &raquo;</li>
+        
+          <li><a href="../index.html">Harness Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Harness User Guide</a> &raquo;</li>
+        
+      <li>Getting You Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-you-started">
+<span id="getting-genie"></span><h1>Getting You Started<a class="headerlink" href="#getting-you-started" title="Permalink to this headline">¶</a></h1>
+<p>This section provides an overview for users about how to begin using the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> harness.
+We recommend reading this section in order, to help users understand the fundamental
+building blocks to begin using <code class="docutils literal notranslate"><span class="pre">Genie</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The examples below are runnable. The only additional requirement is for users to have
+a pyATS testbed file with at least one device.</p>
+</div>
+<div class="section" id="set-up">
+<h2>Set-up<a class="headerlink" href="#set-up" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to create a job file for executing the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">harness</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Genie run</span>
+<span class="kn">from</span> <span class="nn">genie.harness.main</span> <span class="kn">import</span> <span class="n">gRun</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="c1"># Set job file path to current directory</span>
+    <span class="n">test_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+
+    <span class="n">gRun</span><span class="p">(</span><span class="n">mapping_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;mapping.yaml&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>A pyATS script is derived from the information provided to the Genie Harness
+with <code class="xref py py-obj docutils literal notranslate"><span class="pre">gRun</span></code>.</p>
+<p>An example of the mapping datafile contains:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">devices</span><span class="p">:</span>
+    <span class="nt">PE1</span><span class="p">:</span>
+     <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cli</span>
+     <span class="nt">label</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">uut</span>
+     <span class="nt">mapping</span><span class="p">:</span>
+        <span class="nt">cli</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vty</span>
+        <span class="nt">yang</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">netconf</span>
+</pre></div>
+</div>
+<p>The pyATS YAML <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/topology/index.html">testbed</a> file describes the testbed topology and the testbed’s devices.
+Any given device in the testbed topology can be configured to support various connection types such
+as: Console, Network Mangement VTY, NETCONF(YANG), and more in the future.</p>
+<p>Each of those connections names are not standardize, so <code class="docutils literal notranslate"><span class="pre">Genie</span></code> cannot know
+which one to use for which context. The mapping file allows this mapping.  It
+also allows to specify the context (cli, yang, etc) to be specified per device.
+In the above example, we are mapping the <code class="xref py py-obj docutils literal notranslate"><span class="pre">vty</span></code> connection to be used for <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli</span></code>, and
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">netconf</span></code> connection for <code class="xref py py-obj docutils literal notranslate"><span class="pre">yang</span></code>. The device name can either be the hostname of the device
+defined in the testbed file,  or the device alias. They must be unique for each
+device.</p>
+<p>Available mapping are : <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">yang</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">rest</span></code>. More will be added in the future.</p>
+<p>As <code class="docutils literal notranslate"><span class="pre">Genie</span></code> is event driven, the triggers are performed on a given device,
+which is known as the <code class="xref py py-obj docutils literal notranslate"><span class="pre">uut</span></code> (Unit Under Test) for <code class="docutils literal notranslate"><span class="pre">Genie</span></code>.   The <code class="xref py py-obj docutils literal notranslate"><span class="pre">uut</span></code> is
+identified via the <code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span></code> field.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">context</span></code> drives the management interface that will be used to connect to
+devices during execution.</p>
+<p>To run the example above, create the <code class="xref py py-obj docutils literal notranslate"><span class="pre">mapping.yaml</span></code> file in the same directory
+as the job file. Copy the code from example above and modify it to fit the
+requirement of your testbed, alias, and the context.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the mapping file, the key <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli</span></code> is mandatory and <code class="xref py py-obj docutils literal notranslate"><span class="pre">yang</span></code> is optional.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To have standardized mapping files between users, the first key under
+devices can either be the device hostname or the device alias given in the
+testbed file.</p>
+</div>
+<p>We can now execute the example with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>easypy job.py -testbed_file &lt;pyats testbed location&gt;
+</pre></div>
+</div>
+<p>This job does the following:</p>
+<ul class="simple">
+<li><p>Runs common setup</p></li>
+<li><p>Connects to a device</p></li>
+<li><p>Executes ‘show running-config’</p></li>
+<li><p>No testcase to run yet</p></li>
+<li><p>Runs common cleanup</p></li>
+<li><p>Executes ‘show running-config’</p></li>
+</ul>
+<p>The first ‘show’ command in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">common</span> <span class="pre">setup</span></code> takes a snapshot of the
+configuration. The second ‘show’ command in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">common</span> <span class="pre">cleanup</span></code> takes another
+snapshot and compares them together to ensure the configuration remained the
+same.</p>
+</div>
+<div class="section" id="configuration">
+<span id="harness-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Genie supports multiple ways to apply configuration on the devices.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Manually applied on the devices before the run starts (Done by user)</p></li>
+</ol>
+</div></blockquote>
+<p>The user can connect manually to the devices and apply any configuration wanted.</p>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>Automatically applied on the devices in the Common Setup with Tftp/Ftp/Scp</p></li>
+</ol>
+</div></blockquote>
+<p>With the <code class="xref py py-obj docutils literal notranslate"><span class="pre">config_datafile</span></code> argument, a <code class="xref py py-obj docutils literal notranslate"><span class="pre">config.yaml</span></code> is provided. This file
+contains what configuration to apply on which device.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gRun<span class="o">(</span><span class="nv">mapping_datafile</span><span class="o">=</span>os.path.join<span class="o">(</span>test_path, <span class="s1">&#39;mapping.yaml&#39;</span><span class="o">)</span>,
+     <span class="nv">runtime</span><span class="o">=</span>runtime, <span class="nv">config_datafile</span><span class="o">=</span>os.path.join<span class="o">(</span><span class="s1">&#39;configs.yaml&#39;</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">configs.yaml</span></code> datafile lists all of the configurations files.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">devices</span><span class="p">:</span>
+    <span class="nt">uut</span><span class="p">:</span>
+        <span class="nt">1</span><span class="p">:</span>
+          <span class="nt">config</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/to/my/configuration</span>
+          <span class="nt">sleep</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+          <span class="nt">invalid</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;overlaps&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;(.*inval.*)&#39;</span><span class="p p-Indicator">]</span>
+        <span class="nt">2</span><span class="p">:</span>
+          <span class="nt">config</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;full path&gt;</span>
+          <span class="nt">sleep</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+          <span class="nt">invalid</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;some</span><span class="nv"> </span><span class="s">words&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The configuration is applied in the numerical sequence specified in the
+YAML file, (1,2,..), as shown above.</p>
+</div>
+<p>The configuration file is a typical <code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span> <span class="pre">running</span></code> style. After each
+configuration applied, a wait period is recommended to allow the configuration
+to stabilize; this is achieved with the key <code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep</span></code>, specified in seconds.</p>
+<p>When applying configurations, we may see some error or warning messages which
+may or may not be safe to ignore. Any error or warning patterns specified in
+the <code class="xref py py-obj docutils literal notranslate"><span class="pre">invalid</span></code> key will cause the <code class="xref py py-obj docutils literal notranslate"><span class="pre">configure</span></code> subsection to fail if matched.
+The <code class="xref py py-obj docutils literal notranslate"><span class="pre">invalid</span></code> key supports regex.</p>
+<p>A server must be added to copy the configuration on the devices, the
+<a class="reference internal" href="#file-transfer-protocol">file_transfer_protocol</a> sections explain what to add to the testbed datafile.</p>
+<p>As an example, let’s create a sample device configuration file, named
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">uut_config1</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interface Ethernet0/1
+    no shutdown
+
+interface Ethernet0/2
+    no switchport
+</pre></div>
+</div>
+<p>And modify the previously created <code class="xref py py-obj docutils literal notranslate"><span class="pre">configs.yaml</span></code> file as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">devices</span><span class="p">:</span>
+    <span class="n">uut</span><span class="p">:</span>
+        <span class="mi">1</span><span class="p">:</span>
+          <span class="n">config</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">full</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">uut_config1</span><span class="o">&gt;</span>
+          <span class="n">sleep</span><span class="p">:</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case you need multiple configuration files, the number provide
+the sequence of the configuration.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The configuration section is optional, as it can be prefered to manually
+configured the devices before the run is started.</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Custom subsection to apply configuration on the device in any way</p></li>
+</ol>
+<p>The <a class="reference internal" href="../developer/subsections.html#subsections"><span class="std std-ref">subsections section</span></a> explains how to add your own subsection and performs any
+action.</p>
+</div>
+<div class="section" id="check-config">
+<span id="id1"></span><h2>check_config<a class="headerlink" href="#check-config" title="Permalink to this headline">¶</a></h2>
+<p>Once the devices are configured, <code class="docutils literal notranslate"><span class="pre">Genie</span></code> learns the configured
+state of the topology via <code class="xref py py-obj docutils literal notranslate"><span class="pre">check_config</span></code>. The <code class="xref py py-obj docutils literal notranslate"><span class="pre">check_config</span></code> subsection runs twice:
+first, during the common setup and then, during common cleanup.</p>
+<p>In the common setup, <code class="xref py py-obj docutils literal notranslate"><span class="pre">check_config</span></code> executes the <code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span> <span class="pre">running</span></code> command on all of the
+devices in the topology to create a snapshot of the configured state of the topology.
+If devices are specified in subsection yaml file, it will only perform check on these devices.
+example on sepecifying device for check_config in subsection yaml file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setup</span><span class="p">:</span>
+    <span class="nt">sections</span><span class="p">:</span>
+      <span class="nt">check_config</span><span class="p">:</span>
+        <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.harness.commons.check_config</span>
+        <span class="nt">parameters</span><span class="p">:</span>
+            <span class="nt">devices</span><span class="p">:</span>
+              <span class="nt">uut</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+</pre></div>
+</div>
+<p>In the common cleanup, <code class="xref py py-obj docutils literal notranslate"><span class="pre">check_config</span></code> executes the <code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span> <span class="pre">running</span></code> command on
+all devices in the topology once again to create a second snapshot of the
+configured state of the topology. Afterwards, it compares the two snapshots to
+ensure that the configuration of the devices remained intact during the
+execution of the job.</p>
+<p>Certain values, such as uptime, age, etc., collected in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">check_config</span></code> snapshots can dynamically change
+during the execution of the job. Users can add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">exclude_config_check</span></code> argument to the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">configs.yaml</span></code> file to ignore comparisons of certain configurations.
+This argument accepts a <code class="xref py py-obj docutils literal notranslate"><span class="pre">String</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">Regular</span> <span class="pre">expression</span></code> expression as an input and
+then skips comparison of any configuration matching the expression.</p>
+<p>Let’s see an example of how to add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">exclude_config_check</span></code> argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">devices</span><span class="p">:</span>
+    <span class="n">uut</span><span class="p">:</span>
+        <span class="mi">1</span><span class="p">:</span>
+            <span class="n">config</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">full</span> <span class="n">path</span> <span class="n">to</span> <span class="n">config</span> <span class="n">file</span><span class="o">&gt;</span>
+            <span class="n">sleep</span><span class="p">:</span> <span class="mi">5</span>
+            <span class="n">invalid</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;(.*ERROR.*)&#39;</span><span class="p">]</span>
+<span class="n">exclude_config_check</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;(.*description.*)&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pts">
+<span id="id2"></span><h2>PTS<a class="headerlink" href="#pts" title="Permalink to this headline">¶</a></h2>
+<p>As a recap, in the previous two sections we connected to our devices and then applied
+various configurations. We also confirmed that the configurations were applied
+without error.</p>
+<p>Once the devices contain configurations, <code class="docutils literal notranslate"><span class="pre">Genie</span></code> can learn the state
+of the topology via <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code>. A first round of <code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code> snapshots of each feature
+are taken during the <code class="xref py py-obj docutils literal notranslate"><span class="pre">common</span> <span class="pre">setup</span></code> and then a second round of <code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code>
+snapshots are taken during the <code class="xref py py-obj docutils literal notranslate"><span class="pre">common</span> <span class="pre">cleanup</span></code>. These snapshots are compared
+to those saved in the common setup to confirm that operational states did not
+change during the job’s execution.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> learns the configurations applied to a device by creating <code class="docutils literal notranslate"><span class="pre">Genie</span></code>
+<a class="reference internal" href="../../Ops/index.html#ops-guide"><span class="std std-ref">Ops</span></a> objects or parsed dictionary. These objects are
+snapshots of the operational state of the devices in the topology. Multiple
+commands (sent by cli/yang/xml) are executed to collect a feature’s
+state/operational information.</p>
+<p>The user can specify which configured features <code class="docutils literal notranslate"><span class="pre">Genie</span></code> should learn
+using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_features</span></code> argument. Each learned feature will create a subsection
+in the common setup with prefix <code class="xref py py-obj docutils literal notranslate"><span class="pre">profile_&lt;feature_name&gt;</span></code>.</p>
+<p>Let’s add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_features</span></code> argument to <code class="xref py py-obj docutils literal notranslate"><span class="pre">gRun</span></code> in our job file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">mapping_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;mapping.yaml&#39;</span><span class="p">),</span>
+     <span class="n">runtime</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span> <span class="n">config_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;configs.yaml&#39;</span><span class="p">),</span>
+     <span class="n">pts_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ospf&#39;</span><span class="p">,</span> <span class="s1">&#39;hsrp&#39;</span><span class="p">,</span> <span class="s1">&#39;show ip ospf interface&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;show ip ospf interface vrf default&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>By default PTS will only run on the <code class="xref py py-obj docutils literal notranslate"><span class="pre">uut</span></code>. It can be modified in the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_datafile.yaml</span></code> file that maps devices to the features listed in the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_datafile</span></code> argument as shown below.</p>
+<p>Please copy the following code into a new file called <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_datafile.yaml</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your python version may vary</span>
+<span class="nt">extends</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$VIRTUAL_ENV/lib/python3.6/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml</span>
+
+<span class="nt">ospf</span><span class="p">:</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uut&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;helper&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">exclude</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">age</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">uptime</span>
+
+<span class="nt">hsrp</span><span class="p">:</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uut&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;helper&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices_attributes</span><span class="p">:</span>
+        <span class="nt">uut</span><span class="p">:</span>
+            <span class="nt">exclude</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">next_hello_time</span>
+        <span class="nt">helper</span><span class="p">:</span>
+            <span class="nt">exclude</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">next_hello_time</span>
+    <span class="nt">exclude</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">date</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure to provide devices to each PTS that you would like to execute.
+If no devices are provided, PTS will not run</p>
+</div>
+<p>Certain values taken in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">profile</span></code> snapshot for each feature can dynamically
+change during execution of the script, such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">uptime</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">age</span></code> etc. The user
+can choose to exclude comparisons of these values by specifying them with the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">exclude</span></code> key, as shown above. Each value can be excluded at the device level
+or the feature level.</p>
+<p>Let’s add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_datafile</span></code> argument to <code class="xref py py-obj docutils literal notranslate"><span class="pre">gRun</span></code> in our job file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">mapping_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;mapping.yaml&#39;</span><span class="p">),</span>
+     <span class="n">runtime</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span> <span class="n">config_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;configs.yaml&#39;</span><span class="p">),</span>
+     <span class="n">pts_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ospf&#39;</span><span class="p">,</span> <span class="s1">&#39;hsrp&#39;</span><span class="p">],</span>
+     <span class="n">pts_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;pts_datafile&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition note" id="golden">
+<p class="admonition-title">Note</p>
+<p>Show command does not need to be added to the PTS file to run. By default
+they will use the same exclude keys as their Verification datafile
+corespondance.</p>
+</div>
+</div>
+<div class="section" id="golden-config">
+<h2>Golden Config<a class="headerlink" href="#golden-config" title="Permalink to this headline">¶</a></h2>
+<p>In the previous sections, we configured our devices and learned the state of the
+topology. However, how can we be certain that the state of the topology is
+precisely the one we expected?</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_golden_config</span></code> compares the <code class="xref py py-obj docutils literal notranslate"><span class="pre">profiles</span></code> learned by PTS
+in the current run to a profile that has been verified to be
+a <code class="xref py py-obj docutils literal notranslate"><span class="pre">golden</span></code> snapshot by your team. After each run, a file named <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts</span></code> is
+generated and saved to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyATS</span></code> archive directory. This file can then be
+saved to a fixed location. This file can then be provided as an argument to the
+job file via <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_golden_config</span></code>  argument as shown below.</p>
+<p>Let’s add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">pts_golden_config</span></code> argument to <code class="xref py py-obj docutils literal notranslate"><span class="pre">gRun</span></code> in our job file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">mapping_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;mapping.yaml&#39;</span><span class="p">),</span>
+     <span class="n">runtime</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span> <span class="n">config_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;configs.yaml&#39;</span><span class="p">),</span>
+     <span class="n">pts_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ospf&#39;</span><span class="p">,</span> <span class="s1">&#39;hsrp&#39;</span><span class="p">],</span>
+     <span class="n">pts_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;pts_datafile&#39;</span><span class="p">),</span>
+     <span class="n">pts_golden_config</span><span class="o">=</span><span class="s1">&#39;&lt;path&gt;/golden_pts&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verifications">
+<span id="getting-verification"></span><h2>Verifications<a class="headerlink" href="#verifications" title="Permalink to this headline">¶</a></h2>
+<p>A verification is the execution of a command to retrieve the current state of a
+device. The state can be retrieved by using <code class="xref py py-obj docutils literal notranslate"><span class="pre">cli</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">yang</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">xml</span></code> and so on or a
+mix of them.</p>
+<p>There are two types of verifications: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Global</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Local</span></code>.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Global</span></code> verifications are run immediately after the <code class="xref py py-obj docutils literal notranslate"><span class="pre">common</span> <span class="pre">setup</span></code>. At this
+stage, the information retrieved is saved as a snapshots.  After each subsequent
+trigger, the same set of verifications are executed again and their state is
+compared to the previous snapshot.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Local</span></code> verifications are independent of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Global</span></code> verifications. They are
+run as subsections of a trigger. A first set of snapshots are taken before
+performing the trigger action. A second set of snapshots are taken after the
+trigger action and then compared to the first set of snapshots.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> specifies which verifications <code class="docutils literal notranslate"><span class="pre">Genie</span></code> should run.
+Let’s create a  <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile.</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">extends</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">verifications.yaml</span>
+
+<span class="nt">Verify_Ospf</span><span class="p">:</span>
+    <span class="nt">groups</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;L3&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uut&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">iteration</span><span class="p">:</span>
+        <span class="nt">attempt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+        <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+    <span class="nt">exclude</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uptime&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">processors</span><span class="p">:</span>
+        <span class="c1"># verification with pre processor</span>
+        <span class="nt">pre</span><span class="p">:</span>
+            <span class="nt">extra_sleep</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.sdk</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">libs.prepostprocessor.sleep_processor</span>
+        <span class="c1"># verification with post processor</span>
+        <span class="nt">post</span><span class="p">:</span>
+            <span class="nt">extra_sleep</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.sdk</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">libs.prepostprocessor.sleep_processor</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure to provide a device for each verification that you want to execute.
+If no device is specified, the verification will not run</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> libs contains available ready to use processors, For more
+information on how to use them, go to
+<span class="xref std std-ref">harness developer</span>.</p>
+</div>
+<p>Certain values taken in the verification snapshot can dynamically change during
+execution of the script, such as uptime, age etc. The user can choose to
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">exclude</span></code> comparison of these values by specifying them with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">exclude</span></code> key
+as shown in the example above.</p>
+<p>At times, configurations on the device require some time to reach a stable
+state.  The <code class="xref py py-obj docutils literal notranslate"><span class="pre">iteration</span></code> key tells <code class="docutils literal notranslate"><span class="pre">Genie</span></code> to rerun the verification for the
+number of <code class="xref py py-obj docutils literal notranslate"><span class="pre">attempt</span></code> specified while waiting for  <code class="xref py py-obj docutils literal notranslate"><span class="pre">interval</span></code> seconds between each
+attempt.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Verification failure handling: Whenever a verifications fails due to mismatched
+key values when comparing snapshots, it will mark the section as a failure. At
+this stage, <code class="docutils literal notranslate"><span class="pre">Genie</span></code> saves this new snapshot as the <code class="xref py py-obj docutils literal notranslate"><span class="pre">latest</span></code> snapshot
+containing the updated key values. It then uses this new snapshot to compare
+verifications snapshots generated after the failure. This reduces
+the number of failing verifications in a run.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDK</span></code> is a community driven library containing verifications
+which can be used by <code class="docutils literal notranslate"><span class="pre">Genie</span></code>.</p>
+<p>Let’s add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verification_datafile</span></code> argument to <code class="xref py py-obj docutils literal notranslate"><span class="pre">gRun</span></code> in our job file in
+order to execute Global verifications:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">mapping_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;mapping.yaml&#39;</span><span class="p">),</span>
+     <span class="n">runtime</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span> <span class="n">config_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;configs.yaml&#39;</span><span class="p">),</span>
+     <span class="n">pts_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ospf&#39;</span><span class="p">,</span> <span class="s1">&#39;hsrp&#39;</span><span class="p">],</span>
+     <span class="n">pts_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;pts_datafile&#39;</span><span class="p">),</span>
+     <span class="n">pts_golden_config</span><span class="o">=</span><span class="s1">&#39;&lt;path&gt;/pts&#39;</span><span class="p">,</span>
+     <span class="n">verification_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;verification_datafile&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More information on verification in the developer guide.</p>
+</div>
+</div>
+<div class="section" id="triggers">
+<span id="getting-trigger"></span><h2>Triggers<a class="headerlink" href="#triggers" title="Permalink to this headline">¶</a></h2>
+<p>A trigger is a set of actions and verifications that collectively constitute a
+testcase. These actions can include removal/addition of configuration, flapping
+protocols/interfaces, perform HA events, and any other actions that users may
+want to apply to test their devices. Triggers can also include verifications that
+check whether the above actions were performed correctly on the devices. We call these
+triggers,  <code class="xref py py-obj docutils literal notranslate"><span class="pre">local</span> <span class="pre">verifications</span></code>.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">trigger_datafile</span></code> specifies which triggers <code class="docutils literal notranslate"><span class="pre">Genie</span></code> should run. Let’s
+create a  <code class="xref py py-obj docutils literal notranslate"><span class="pre">trigger_datafile</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">extends</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;$virtual_env&gt;/lib/python3.4/site-packages/genie/infra/trigger_datafile.yaml</span>
+
+<span class="c1"># Simple trigger which will run on the uut and part of the L3 group</span>
+<span class="nt">TriggerShutNoShutOspf</span><span class="p">:</span>
+    <span class="nt">groups</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;L3&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uut&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">processors</span><span class="p">:</span>
+        <span class="c1"># trigger with pre processor</span>
+        <span class="nt">pre</span><span class="p">:</span>
+            <span class="nt">extra_sleep</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.sdk</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">libs.prepostprocessor.sleep_processor</span>
+
+<span class="c1"># A trigger with a local verification</span>
+<span class="nt">TriggerClearOspf</span><span class="p">:</span>
+    <span class="nt">groups</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;L3&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uut&#39;</span><span class="p p-Indicator">]</span>
+    <span class="nt">verifications</span><span class="p">:</span>
+      <span class="nt">Verify_Ospf</span><span class="p">:</span>
+        <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uut&#39;</span><span class="p p-Indicator">]</span>
+        <span class="nt">devices_attributes</span><span class="p">:</span>
+          <span class="nt">uut</span><span class="p">:</span>
+            <span class="nt">iteration</span><span class="p">:</span>
+              <span class="nt">attempt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+              <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+        <span class="nt">parameters</span><span class="p">:</span>
+            <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+    <span class="nt">processors</span><span class="p">:</span>
+        <span class="c1"># trigger with post processor</span>
+        <span class="nt">post</span><span class="p">:</span>
+            <span class="nt">extra_sleep</span><span class="p">:</span>
+                <span class="nt">pkg</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.sdk</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">libs.prepostprocessor.sleep_processor</span>
+<span class="nt">order</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;TriggerClearOspf&#39;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure sure you specify a device for each trigger you would like to execute.
+If no device is specified, the trigger will not run</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> libs contains available ready to use processors, For more
+information on how to use them, go to
+<span class="xref std std-ref">harness developer</span>.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">SDK</span></code> is a community driven library containing triggers which can
+be used by <code class="docutils literal notranslate"><span class="pre">Genie</span></code>.</p>
+<p>Let’s add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">trigger_datafile</span></code> argument to <code class="xref py py-obj docutils literal notranslate"><span class="pre">gRun</span></code> in our job file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">mapping_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;mapping.yaml&#39;</span><span class="p">),</span>
+     <span class="n">runtime</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span> <span class="n">config_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;configs.yaml&#39;</span><span class="p">),</span>
+     <span class="n">pts_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ospf&#39;</span><span class="p">,</span> <span class="s1">&#39;hsrp&#39;</span><span class="p">],</span>
+     <span class="n">pts_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;pts_datafile&#39;</span><span class="p">),</span>
+     <span class="n">pts_golden_config</span><span class="o">=</span><span class="s1">&#39;&lt;path&gt;/pts&#39;</span><span class="p">,</span>
+     <span class="n">verification_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;verification_datafile&#39;</span><span class="p">),</span>
+     <span class="n">trigger_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;trigger_datafile&#39;</span><span class="p">),</span>
+     <span class="n">trigger_uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TriggerShutNoShutOspf&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerClearOspf&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-transfer-protocol">
+<span id="id3"></span><h2>File Transfer Protocol<a class="headerlink" href="#file-transfer-protocol" title="Permalink to this headline">¶</a></h2>
+<p>The file transfer protocol to be used during common setup copy configuration
+section or during copy cores/crashdumps in later stages in the run can be set
+by the user in the job file.</p>
+<p>It is an optional argument, if user didn’t provide it in the job file. The
+protocol will be extracted from the testbed yaml file as shown below.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">testbed</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;testbed name&gt;</span>
+  <span class="nt">servers</span><span class="p">:</span>
+      <span class="nt">&lt;File Transfer Protocol&gt;</span><span class="p">:</span>
+          <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;tftp server ip address&gt;</span>
+          <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;tftpboot location&gt;</span>
+</pre></div>
+</div>
+<p>The valid transfer protocols are ‘tftp’, ‘ftp’ and ‘scp’.</p>
+<p>Let’s add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">filetransfer_protocol</span></code> argument to <code class="xref py py-obj docutils literal notranslate"><span class="pre">gRun</span></code> in our job file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">mapping_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;mapping.yaml&#39;</span><span class="p">),</span>
+     <span class="n">runtime</span><span class="o">=</span><span class="n">runtime</span><span class="p">,</span> <span class="n">config_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;configs.yaml&#39;</span><span class="p">),</span>
+     <span class="n">pts_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ospf&#39;</span><span class="p">,</span> <span class="s1">&#39;hsrp&#39;</span><span class="p">],</span>
+     <span class="n">pts_datafile</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">test_path</span><span class="p">,</span> <span class="s1">&#39;pts_datafile&#39;</span><span class="p">),</span>
+     <span class="n">pts_golden_config</span><span class="o">=</span><span class="s1">&#39;&lt;path&gt;/pts&#39;</span><span class="p">,</span>
+     <span class="n">filetransfer_protocol</span><span class="o">=</span><span class="s1">&#39;tftp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connection-pool">
+<span id="harness-pool"></span><h2>Connection Pool<a class="headerlink" href="#connection-pool" title="Permalink to this headline">¶</a></h2>
+<p>Performance! Speed! With a connection pool commands on the same devices are not
+send one after the other,  but in parallel!  User can provide <code class="xref py py-obj docutils literal notranslate"><span class="pre">pool_size</span></code>
+argument in the <a class="reference internal" href="datafile.html#mapping-datafile"><span class="std std-ref">Mapping datafile</span></a> and will be able to start a pool of
+connections during the genie script run.  Refer to pyATS
+<a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/connections/sharing.html#connection-pools">connection-pool</a> for more details about connection
+sharing.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reference.html" class="btn btn-neutral float-right" title="Arguments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Harness User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

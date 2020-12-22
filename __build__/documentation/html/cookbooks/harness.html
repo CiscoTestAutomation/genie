@@ -1,0 +1,1000 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Summary &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/asciinema-player.js"></script>
+        <script src="../_static/tracker.js"></script>
+        <script src="../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guide" href="../userguide/index.html" />
+    <link rel="prev" title="1. Summary" href="conf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#explore-genie">Explore Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-general">Genie - General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-command-line">Genie Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-libs-parsers">Genie.libs.parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-ops">Genie.Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-conf">Genie.Conf</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#genie-harness">Genie.Harness</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-the-flow-of-genie-harness">2. What’s the flow of Genie Harness</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#common-setup">Common Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#triggers-and-verifications">Triggers and Verifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-cleanup">Common Cleanup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started-with-the-harness">3. Getting started with the Harness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-of-each-datafile">4. Summary of each datafile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#testbed-datafile-mandatory">Testbed Datafile (Mandatory)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-datafile-optional">Mapping Datafile (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification-datafile-optional">Verification Datafile (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trigger-datafile-optional">Trigger Datafile (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subsection-datafile-optional">Subsection Datafile (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-datafile-optional">Configuration Datafile (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pts-datafile-optional">PTS Datafile (Optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-connect-to-your-devices-with-the-harness">5. How to connect to your devices with the Harness?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connection-pool-with-the-harness">6. Connection pool with the harness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-apply-the-configuration-to-your-devices">7. How to apply the configuration to your devices?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-does-the-configuration-snapshot-and-verify-configuration-snapshot-sections-do">8. What does the <code class="xref py py-obj docutils literal notranslate"><span class="pre">configuration_snapshot</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">verify_configuration_snapshot</span></code> sections do ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-the-purpose-of-profiling-in-common-setup-and-common-cleanup">9. What is the purpose of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Profiling</span></code> in <code class="xref py py-obj docutils literal notranslate"><span class="pre">Common</span> <span class="pre">Setup</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Common</span> <span class="pre">Cleanup</span></code> ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-add-traffic-generator-to-genie-harness-and-how-do-they-help-to-test">10. How to add Traffic Generator to Genie Harness and how do they help to test?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where-can-i-see-all-the-arguments-which-genie-harness-supports">11. Where can I see all the arguments which Genie harness supports?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-datafile-schema">12. What is a datafile schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-does-the-extends-field-work-for-datafiles">13. How does the <code class="xref py py-obj docutils literal notranslate"><span class="pre">extends</span></code> field work for Datafiles?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-which-verifications-to-execute">14. Select which verifications to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modify-existing-verification-arguments">15. Modify existing Verification arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-a-new-verification">16. Write a new verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-which-trigger-to-execute">17. Select which trigger to execute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modify-existing-triggers-arguments">18. Modify existing triggers arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-a-new-trigger">19. Write a new trigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apply-configuration-to-your-devices">20. Apply configuration to your devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profile-the-system">21. Profile the system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golden-pts">22. Golden PTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-can-you-do-with-the-mapping-datafile">23. What can you do with the mapping datafile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-remove-subsections">24. Add/Remove subsections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processors">25. Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-re-use-existing-triggers-verifications-within-an-existing-pyats-script">26. How to re-use existing Triggers/Verifications within an existing pyATS Script.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-kind-of-examples-is-there-for-genie-harness">27. What kind of examples is there for Genie Harness?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-verification-snapshots">28. Update verification snapshots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#randomize-triggers">29. Randomize Triggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trigger-containing-multiple-triggers-and-verifications">30. Trigger containing multiple Triggers and Verifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loop-a-trigger">31. Loop a Trigger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>1. Summary</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h2>Genie Harness Recipes</h2><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section assumes pyATS and Genie are <a class="reference internal" href="genie.html#book-genie"><span class="std std-ref">installed and ready to be
+used</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It also assumes you have a <a class="reference internal" href="genie.html#book-setup-testbed"><span class="std std-ref">testbed file ready</span></a> to
+be used with a device.</p>
+</div>
+<div class="section" id="summary">
+<h1>1. Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section gives a summary of what is Genie Harness. Dig into the documentation for more information.</p>
+</div>
+<p>Writing a future-proof automation script is a complex topic. It seems simple
+at first, but then as the devices update, things changes, there are new
+requirement and it all become spaghetti; and the whole process restarts again.</p>
+<p>With Genie harness, we’ve taken this complex topic and made it simple. We’ve
+taken a divide and conquer approach to this problem. Multiple packages and
+libraries were created with Genie harness being the last piece to create a
+resilient and future-proof automation solution. In short, we’ve made lasagna
+with many modules stacked on top of each other.</p>
+<p>Genie harness provides comprehensive common tools so that users can focus on
+writing tests without having to reinvent the wheel!</p>
+<p>Once the tests are written, the harness is then driven by <a class="reference internal" href="../userguide/harness/user/datafile.html#datafile"><span class="std std-ref">yaml
+datafiles</span></a>. The files control the whole flow of the execution:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#book-harness-connect"><span class="std std-ref">connect to all the devices</span></a></p></li>
+<li><p><a class="reference internal" href="#book-harness-configure"><span class="std std-ref">configure the devices</span></a></p></li>
+<li><p><a class="reference internal" href="#book-harness-golden"><span class="std std-ref">Verify the configuration was applied correctly</span></a></p></li>
+<li><p><a class="reference internal" href="#book-harness-configuration"><span class="std std-ref">snapshot of the configuration</span></a> and compared at the end of the run</p></li>
+<li><p><span class="xref std std-ref">snapshot of the operation state</span> of your devices to be compared at the end of the run</p></li>
+<li><p><a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/triggers">pool of available tests</a> (triggers and verifications, over 500) which works across
+multiple Operating systems</p></li>
+<li><p><a class="reference internal" href="#book-harness-pool"><span class="std std-ref">connections pool</span></a> - Learn and send commands to the device in parallel</p></li>
+<li><p><a class="reference internal" href="#book-harness-traffic"><span class="std std-ref">traffic Generator</span></a></p></li>
+<li><p>much more</p></li>
+</ul>
+<p>Genie Harness is fully modular; everything can be customized; modified for your
+automation need.</p>
+<ul class="simple">
+<li><p>New subsections can be added and removed</p></li>
+<li><p>Decide which triggers and verifications to execute and in which order</p></li>
+<li><p>Create your own triggers and verifications</p></li>
+<li><p>Add local verifications to any trigger</p></li>
+<li><p>Add processor anywhere</p></li>
+<li><p>Static information for each trigger</p></li>
+<li><p>Much more!</p></li>
+</ul>
+</div>
+<div class="section" id="what-s-the-flow-of-genie-harness">
+<h1>2. What’s the flow of Genie Harness<a class="headerlink" href="#what-s-the-flow-of-genie-harness" title="Permalink to this headline">¶</a></h1>
+<p>The flow of Genie Harness is divided into 3 main sections.</p>
+<div class="section" id="common-setup">
+<h2>Common Setup<a class="headerlink" href="#common-setup" title="Permalink to this headline">¶</a></h2>
+<p>Get the devices ready and collect some information:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Connect to your devices</p></li>
+<li><p>Configure your device (optional)</p></li>
+<li><p>Setup Traffic Generator if needed</p></li>
+<li><p>Take a snapshot of the system</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="triggers-and-verifications">
+<h2>Triggers and Verifications<a class="headerlink" href="#triggers-and-verifications" title="Permalink to this headline">¶</a></h2>
+<p>Execute triggers and verification to perform tests on your devices.</p>
+</div>
+<div class="section" id="common-cleanup">
+<h2>Common Cleanup<a class="headerlink" href="#common-cleanup" title="Permalink to this headline">¶</a></h2>
+<p>Make sure the state of the devices are the same as in common Setup</p>
+<blockquote>
+<div><p>a. Take a new snapshot and compare with the original snapshots from Common
+Setup
+b. Stop traffic</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can add your own <a class="reference internal" href="#book-harness-subsection"><span class="std std-ref">subsections</span></a> within the
+common setup and cleanup.</p>
+</div>
+<p>The triggers and verifications are where the action is happening! Let’s first
+define trigger and verification.</p>
+<p><strong>Trigger</strong>: Perform actions on the device to test it. In most case the the
+state of the device is reverted to what it was before the trigger started.</p>
+<p><strong>Verifications</strong>: The first time a verification is run, it takes a snapshot of
+some commands; the next time, the same command is executed and compare with
+this initial snapshot to make sure the state has not changed.</p>
+<p><strong>Global Verification</strong>: A Global verifications are run between each trigger.
+(Optional)</p>
+<p><strong>Local Verification</strong>: Independent of the Global verifications, only run
+within a trigger with a new snapshot taken at the beginning of the trigger.
+(Optional)</p>
+<p>The first time a Global or a Local verification is executed, a snapshot is
+taken and subsequent verifications then compare with this snapshot.</p>
+<div class="figure align-default">
+<img alt="../_images/flow.png" src="../_images/flow.png" />
+</div>
+<p>Within the Common Setup, features can also be profiled. The profile takes an
+<a class="reference internal" href="ops.html#book-ops-summary"><span class="std std-ref">ops</span></a> snapshot, which is then compared in the Common
+Cleanup. This is very powerful to find any unexpected side effect to some
+feature.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A verification can also be <a class="reference internal" href="../userguide/harness/developer/verifications.html#harness-user-callable"><span class="std std-ref">callable</span></a>, where
+you decide what should pass and fail.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is the typical Harness flow, however, everything can be customized</p>
+</div>
+</div>
+</div>
+<div class="section" id="getting-started-with-the-harness">
+<span id="book-harness-started"></span><h1>3. Getting started with the Harness<a class="headerlink" href="#getting-started-with-the-harness" title="Permalink to this headline">¶</a></h1>
+<p>To execute your first Genie you need the following three items.</p>
+<ol class="arabic">
+<li><p>testbed file</p>
+<blockquote>
+<div><p>Follow the <a class="reference internal" href="genie.html#book-setup-testbed"><span class="std std-ref">testbed file ready</span></a>.</p>
+</div></blockquote>
+</li>
+<li><p>job file</p>
+<blockquote>
+<div><p>A job file starts the execution of Genie.</p>
+</div></blockquote>
+</li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">pyats.datastructures.logic</span> <span class="kn">import</span> <span class="n">And</span><span class="p">,</span> <span class="n">Not</span><span class="p">,</span> <span class="n">Or</span>
+<span class="kn">from</span> <span class="nn">genie.harness.main</span> <span class="kn">import</span> <span class="n">gRun</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="c1"># trigger_uids limit which test to execute</span>
+    <span class="c1"># verification_uids limit which test to execute</span>
+    <span class="n">gRun</span><span class="p">(</span><span class="n">trigger_uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TriggerSleep&#39;</span><span class="p">],</span>
+         <span class="n">verification_uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Verify_InterfaceBrief&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyats run &lt;job file&gt;.py --testbed-file &lt;path to testbed file&gt;
+</pre></div>
+</div>
+<p>This will run <code class="docutils literal notranslate"><span class="pre">Genie</span></code> with 1 trigger and 1 verification.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is very similar to the first Genie <a class="reference internal" href="../userguide/examples/example.html#example"><span class="std std-ref">Examples</span></a>.</p>
+</div>
+<script src="https://asciinema.org/a/uOIn78NjF5KysZQuWiEIQOz89.js" id="asciicast-uOIn78NjF5KysZQuWiEIQOz89" async></script><a href="../_static/TaskLog.html">logs</a>
+<p></div>
+<div class="section" id="summary-of-each-datafile">
+<span id="book-harness-connect"></span><h1>4. Summary of each datafile<a class="headerlink" href="#summary-of-each-datafile" title="Permalink to this headline">¶</a></h1>
+<p>Genie uses at most 7 datafiles.</p>
+<div class="section" id="testbed-datafile-mandatory">
+<h2>Testbed Datafile (Mandatory)<a class="headerlink" href="#testbed-datafile-mandatory" title="Permalink to this headline">¶</a></h2>
+<p>The testbed datafile describes the testbed information. Available devices, how
+to connect to them,  server, interfaces, etc.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="genie.html#book-genie"><span class="std std-ref">Quick guide on setting up testbed datafile</span></a></p></li>
+<li><p><a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/topology/index.html">pyATS Documentation on testbed datafile</a></p></li>
+</ul>
+</div>
+<div class="section" id="mapping-datafile-optional">
+<h2>Mapping Datafile (Optional)<a class="headerlink" href="#mapping-datafile-optional" title="Permalink to this headline">¶</a></h2>
+<p>The mapping datafile create the relation between the testbed datafile and Genie,
+it is only needed if user wants to connect to multiple devices controling the
+connection type for each device. Otherwise, <code class="docutils literal notranslate"><span class="pre">Genie</span></code> will only connect to <code class="xref py py-obj docutils literal notranslate"><span class="pre">uut</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#book-harness-mapping"><span class="std std-ref">All the information on how to use the mapping datafile</span></a></p></li>
+<li><p><a class="reference internal" href="../userguide/harness/user/datafile.html#pts-datafile"><span class="std std-ref">Mapping datafile schema</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="verification-datafile-optional">
+<h2>Verification Datafile (Optional)<a class="headerlink" href="#verification-datafile-optional" title="Permalink to this headline">¶</a></h2>
+<p>The verification datafile contains all the information on the verifications.
+If no verification datafile is provided, the default datafile
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/&lt;uut</span> <span class="pre">os&gt;/verification_datafile.yaml</span></code> is then used.</p>
+<p>It is only needed to provide a new verification datafile if you want to modify
+the default file; otherwise the default one is all you need.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#book-harness-verification-execute"><span class="std std-ref">Select which verifications to execute</span></a></p></li>
+<li><p><a class="reference internal" href="#book-harness-verification-argument"><span class="std std-ref">Modify existing verifications</span></a></p></li>
+<li><p><a class="reference internal" href="#book-harness-verification-new"><span class="std std-ref">Create a new verification</span></a></p></li>
+<li><p><a class="reference internal" href="../userguide/harness/user/datafile.html#verification-datafile"><span class="std std-ref">Verification datafile schema</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For example &lt;uut os&gt; can be nxos</p>
+</div>
+</div>
+<div class="section" id="trigger-datafile-optional">
+<h2>Trigger Datafile (Optional)<a class="headerlink" href="#trigger-datafile-optional" title="Permalink to this headline">¶</a></h2>
+<p>The trigger datafile contains all the information on the triggers.
+If no trigger datafile is provided, the default datafile
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/&lt;uut</span> <span class="pre">os&gt;/trigger_datafile.yaml</span></code> is then used.</p>
+<p>It is only needed to provide a new trigger datafile if you want to modify the
+default file; otherwise the default one is all you need.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#book-harness-trigger-execute"><span class="std std-ref">Select which triggers to execute</span></a></p></li>
+<li><p><a class="reference internal" href="#book-harness-trigger-argument"><span class="std std-ref">Modify existing triggers</span></a></p></li>
+<li><p><a class="reference internal" href="#book-harness-trigger-new"><span class="std std-ref">Create a new trigger</span></a></p></li>
+<li><p><a class="reference internal" href="../userguide/harness/user/datafile.html#trigger-datafile"><span class="std std-ref">Trigger datafile schema</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For example &lt;uut os&gt; can be nxos</p>
+</div>
+</div>
+<div class="section" id="subsection-datafile-optional">
+<h2>Subsection Datafile (Optional)<a class="headerlink" href="#subsection-datafile-optional" title="Permalink to this headline">¶</a></h2>
+<p>The subsection datafile contains all the information on the subsection.
+If no subsection datafile is provided, the default datafile
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/subsection_datafile.yaml</span></code> is then used.</p>
+<p>It is only needed to provide a new subsection datafile if you want to modify the
+default file; otherwise the default one is all you need.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#book-harness-subsection"><span class="std std-ref">Create a new subsection</span></a></p></li>
+<li><p><a class="reference internal" href="../userguide/harness/user/datafile.html#subsection-datafile"><span class="std std-ref">Subsection datafile schema</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A subsection is a section of Common setup or Common cleanup.</p>
+</div>
+</div>
+<div class="section" id="configuration-datafile-optional">
+<h2>Configuration Datafile (Optional)<a class="headerlink" href="#configuration-datafile-optional" title="Permalink to this headline">¶</a></h2>
+<p>The configuration datafile contains all the information on how to configure the
+device. If no subsection datafile is provided, then the devices are not configured.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#book-harness-subsection"><span class="std std-ref">Create a new subsection</span></a></p></li>
+<li><p><a class="reference internal" href="../userguide/harness/user/datafile.html#config-datafile"><span class="std std-ref">Configuration datafile schema</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="pts-datafile-optional">
+<h2>PTS Datafile (Optional)<a class="headerlink" href="#pts-datafile-optional" title="Permalink to this headline">¶</a></h2>
+<p>The PTS datafile contains all the information on what to profile in the common
+setup and cleanup. If no PTS datafile is provided, the default datafile
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/pts_datafile.yaml</span></code> is then used.</p>
+<p>It is only needed to provide a new profile datafile if you want to modify the
+default file; otherwise the default one is all you need.</p>
+<ul class="simple">
+<li><p><span class="xref std std-ref">Profile the system</span></p></li>
+<li><p><a class="reference internal" href="../userguide/harness/user/datafile.html#pts-datafile"><span class="std std-ref">PTS datafile schema</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PTS stands for Profile The System</p>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-connect-to-your-devices-with-the-harness">
+<h1>5. How to connect to your devices with the Harness?<a class="headerlink" href="#how-to-connect-to-your-devices-with-the-harness" title="Permalink to this headline">¶</a></h1>
+<p>Each device must be defined in the Testbed file and in the Mapping datafile
+either by name or device alias like in the above recipe.</p>
+</div>
+<div class="section" id="connection-pool-with-the-harness">
+<span id="book-harness-pool"></span><h1>6. Connection pool with the harness<a class="headerlink" href="#connection-pool-with-the-harness" title="Permalink to this headline">¶</a></h1>
+<p>Using a <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/connections/sharing.html#connection-pools">connection pool</a> is a huge performance boost!
+Instead of sending all the commands one after the other, they are sent in
+parallel!</p>
+<p>As long as your device can accept multiple connections on the same port, then
+its ready to be used, for example, the management port.</p>
+<p>The mapping datafile must be modified to add the pool size.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">devices</span><span class="p">:</span>
+    <span class="n">uut</span><span class="p">:</span>
+       <span class="n">pool_size</span><span class="p">:</span> <span class="mi">2</span>
+       <span class="n">context</span><span class="p">:</span> <span class="n">cli</span>
+       <span class="n">mapping</span><span class="p">:</span>
+         <span class="c1"># Associate cli with connection a</span>
+         <span class="n">cli</span><span class="p">:</span> <span class="n">vty</span>
+</pre></div>
+</div>
+<p>This will initialize 2 connections to the uut and the cli commands will go up
+to twice as fast! This number can scale up to what your device can support.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure the device can support multiple connection. Take a look at the
+<a class="reference internal" href="genie.html#book-genie-extra-connection"><span class="std std-ref">vty connection</span></a>.</p>
+</div>
+</div>
+<div class="section" id="how-to-apply-the-configuration-to-your-devices">
+<span id="book-harness-configure"></span><h1>7. How to apply the configuration to your devices?<a class="headerlink" href="#how-to-apply-the-configuration-to-your-devices" title="Permalink to this headline">¶</a></h1>
+<p>There are 3 ways to apply configuration on your devices.</p>
+<ol class="arabic">
+<li><p>Configure the devices before the run gets started.</p>
+<blockquote>
+<div><p>Just telnet to each device and configure them manually.</p>
+</div></blockquote>
+</li>
+<li><p>Apply the configuration in the common setup on the devices with
+tftp/scp/ssh.</p>
+<p>This is done by passing information in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">configuration</span> <span class="pre">datafile</span></code>.</p>
+</li>
+<li><p>Create a new subsection and configure the devices.</p></li>
+</ol>
+<p>More information on the <a class="reference internal" href="../userguide/harness/user/gettingstarted.html#harness-configuration"><span class="std std-ref">getting started -
+configuration</span></a> documentation.</p>
+</div>
+<div class="section" id="what-does-the-configuration-snapshot-and-verify-configuration-snapshot-sections-do">
+<span id="book-harness-configuration"></span><h1>8. What does the <code class="xref py py-obj docutils literal notranslate"><span class="pre">configuration_snapshot</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">verify_configuration_snapshot</span></code> sections do ?<a class="headerlink" href="#what-does-the-configuration-snapshot-and-verify-configuration-snapshot-sections-do" title="Permalink to this headline">¶</a></h1>
+<p>In a typical Genie run, the triggers do not modify the configuration of the
+device. Each action is either nondestructive or reverts the configuration.</p>
+<p>These two sections verify that the configuration has not changed. The
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">configuration_snapshot</span></code> take a snapshot of the configuration and
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">verify_configuration_snapshot</span></code> verify it hasn’t changed.</p>
+<p>Some configuration might want to be ignored as there might have dynamic values.
+In the <a class="reference internal" href="../userguide/harness/user/gettingstarted.html#harness-configuration"><span class="std std-ref">configuration datafile</span></a> add to the key
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">exclude_config_check</span></code> a list of value to exclude.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">exclude_config_check</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;some</span><span class="nv"> </span><span class="s">configuration&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;(certificate</span><span class="nv"> </span><span class="s">self-signed.*&#39;</span><span class="nv">)</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>regex expression is supported when the string is surrounded with
+parentheses</p>
+</div>
+</div>
+<div class="section" id="what-is-the-purpose-of-profiling-in-common-setup-and-common-cleanup">
+<span id="book-harness-profile"></span><h1>9. What is the purpose of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Profiling</span></code> in <code class="xref py py-obj docutils literal notranslate"><span class="pre">Common</span> <span class="pre">Setup</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Common</span> <span class="pre">Cleanup</span></code> ?<a class="headerlink" href="#what-is-the-purpose-of-profiling-in-common-setup-and-common-cleanup" title="Permalink to this headline">¶</a></h1>
+<p>The above recipe verifies that the configuration has not changed; this section
+deals with the operation state.  Re-using our <a class="reference internal" href="ops.html#book-ops"><span class="std std-ref">Ops object</span></a> we
+take a snapshot at the beginning of the run and one at the end and we compare
+the state using our <a class="reference internal" href="ops.html#book-ops-diff"><span class="std std-ref">diff object</span></a>.</p>
+<p>If any trigger changed the operational state of a feature, this last check will
+flag it up.</p>
+</div>
+<div class="section" id="how-to-add-traffic-generator-to-genie-harness-and-how-do-they-help-to-test">
+<span id="book-harness-traffic"></span><h1>10. How to add Traffic Generator to Genie Harness and how do they help to test?<a class="headerlink" href="#how-to-add-traffic-generator-to-genie-harness-and-how-do-they-help-to-test" title="Permalink to this headline">¶</a></h1>
+<p>For Traffic generator - take a look at the <span class="xref std std-ref">traffic documentation</span></p>
+</div>
+<div class="section" id="where-can-i-see-all-the-arguments-which-genie-harness-supports">
+<h1>11. Where can I see all the arguments which Genie harness supports?<a class="headerlink" href="#where-can-i-see-all-the-arguments-which-genie-harness-supports" title="Permalink to this headline">¶</a></h1>
+<p>All the arguments are documented right <a class="reference internal" href="../userguide/harness/user/reference.html#harness-arguments"><span class="std std-ref">here</span></a>!</p>
+</div>
+<div class="section" id="what-is-a-datafile-schema">
+<h1>12. What is a datafile schema<a class="headerlink" href="#what-is-a-datafile-schema" title="Permalink to this headline">¶</a></h1>
+<p>The schema datafiles define the expected format of the file and provide all
+the capabilities which are supported. The schemas must be respected for all
+datafile in pyATS and Genie.</p>
+<p>All Genie schemas can be found on the <a class="reference internal" href="../userguide/harness/user/datafile.html#datafile"><span class="std std-ref">datafile</span></a> page.</p>
+</div>
+<div class="section" id="how-does-the-extends-field-work-for-datafiles">
+<span id="book-harness-extends"></span><h1>13. How does the <code class="xref py py-obj docutils literal notranslate"><span class="pre">extends</span></code> field work for Datafiles?<a class="headerlink" href="#how-does-the-extends-field-work-for-datafiles" title="Permalink to this headline">¶</a></h1>
+<p>Use this field to extend an existing yaml testbed file, allowing you to create
+an inheritance hierarchy.  Supports full path/names or a name of a file in the same dir.  The content of the last file on the list forms the base and is
+updated with the preceding file, and so on until the existing file content is
+updated last. Using extends is optional; but very useful to modify existing
+datafiles.</p>
+</div>
+<div class="section" id="select-which-verifications-to-execute">
+<span id="book-harness-verification-execute"></span><h1>14. Select which verifications to execute<a class="headerlink" href="#select-which-verifications-to-execute" title="Permalink to this headline">¶</a></h1>
+<p>Within the job file or as an easypy <a class="reference internal" href="../userguide/harness/user/reference.html#harness-arguments"><span class="std std-ref">argument</span></a> you can
+use <code class="xref py py-obj docutils literal notranslate"><span class="pre">-verification_uids</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">-verification_groups</span></code> argument to select which
+verifications to execute.</p>
+<p>The <a class="reference internal" href="../userguide/harness/user/datafile.html#verification-datafile"><span class="std std-ref">verification datafile schema</span></a> explains all the
+capabilities that the verifications support.</p>
+<p>Visit our documentation to view the list of all available
+<a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/verifications">verification</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>groups are added in the verification datafile</p>
+</div>
+</div>
+<div class="section" id="modify-existing-verification-arguments">
+<span id="book-harness-verification-argument"></span><h1>15. Modify existing Verification arguments<a class="headerlink" href="#modify-existing-verification-arguments" title="Permalink to this headline">¶</a></h1>
+<p>All verifications are defined in the verification yaml datafile which defines
+how to load each verification, arguments to provide and on which device to
+execute. The default datafiles can be found at
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/verification_datafile.yaml</span></code> and
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/&lt;uut</span> <span class="pre">os&gt;/verification_datafile.yaml</span></code>.</p>
+<p>To modify any of the value for the verification you have to</p>
+<ol class="arabic simple">
+<li><p>create a new yaml datafile which extends from the main one.</p></li>
+<li><p>Modify the value</p></li>
+</ol>
+<p>Now refer to this datafile when launching Genie with the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">-verification_datafile</span></code> argument.</p>
+</div>
+<div class="section" id="write-a-new-verification">
+<span id="book-harness-verification-new"></span><h1>16. Write a new verification<a class="headerlink" href="#write-a-new-verification" title="Permalink to this headline">¶</a></h1>
+<p>A verification can be of three types.</p>
+<ol class="arabic simple">
+<li><p>Command bases verification - A parser is called and the structure is compared</p></li>
+<li><p>Ops based verification - An Ops object is called and the structure is compared</p></li>
+<li><p>Callable based verification - Do as you wish</p></li>
+</ol>
+<p>Visit the <a class="reference internal" href="../userguide/harness/developer/verifications.html#harness-verification"><span class="std std-ref">developer guide on verification</span></a> for more
+detail.</p>
+</div>
+<div class="section" id="select-which-trigger-to-execute">
+<span id="book-harness-trigger-execute"></span><h1>17. Select which trigger to execute<a class="headerlink" href="#select-which-trigger-to-execute" title="Permalink to this headline">¶</a></h1>
+<p>Within the job file or as an easypy <a class="reference internal" href="../userguide/harness/user/reference.html#harness-arguments"><span class="std std-ref">argument</span></a> you can
+use <code class="xref py py-obj docutils literal notranslate"><span class="pre">--trigger-uids</span></code> and/or <code class="xref py py-obj docutils literal notranslate"><span class="pre">--trigger-groups</span></code> argument to select which
+triggers to execute.</p>
+<p>When both ‘–trigger-uids’ and ‘–trigger-groups’ are provided, both will be
+used to elect triggers from trigger datafile.</p>
+<p>The <a class="reference internal" href="../userguide/harness/user/datafile.html#trigger-datafile"><span class="std std-ref">trigger datafile schema</span></a> explains all the
+capabilities that the triggers support.</p>
+<p>Visit our documentation to view the list of all available <a href="#id1"><span class="problematic" id="id2">:trigger:`triggers
+&lt;http&gt;`</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">trigger_uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TriggerUnconfigConfigBgp&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerShutNoShutEthernetInterface&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerUnconfigConfigBgp&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>groups are added in the trigger datafile</p>
+</div>
+</div>
+<div class="section" id="modify-existing-triggers-arguments">
+<span id="book-harness-trigger-argument"></span><h1>18. Modify existing triggers arguments<a class="headerlink" href="#modify-existing-triggers-arguments" title="Permalink to this headline">¶</a></h1>
+<p>All triggers are defined in the trigger yaml datafile which defines
+how to load each trigger, arguments to provide and on which device to
+execute. The default datafiles can be found at
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/trigger_datafile.yaml</span></code> and
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/&lt;uut</span> <span class="pre">os&gt;/trigger_datafile.yaml</span></code>.</p>
+<p>To modify any of the value for the trigger you have to:</p>
+<ol class="arabic simple">
+<li><p>create a new yaml datafile which extends from the main one.</p></li>
+<li><p>Modify the value</p></li>
+</ol>
+<p>Now refer to this datafile when launching Genie with the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">-trigger_datafile</span></code> argument.</p>
+<p>To modify the actual code and not only the arguments, please visit our
+<a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/COMMIT.md">commit</a> guideline.</p>
+</div>
+<div class="section" id="write-a-new-trigger">
+<span id="book-harness-trigger-new"></span><h1>19. Write a new trigger<a class="headerlink" href="#write-a-new-trigger" title="Permalink to this headline">¶</a></h1>
+<p>A trigger is a set of actions and verifications that, together, constitute a
+testcase.</p>
+<p>Visit the <a class="reference internal" href="../userguide/harness/developer/triggers.html#harness-trigger"><span class="std std-ref">developer guide on trigger</span></a> for more
+detail.</p>
+</div>
+<div class="section" id="apply-configuration-to-your-devices">
+<h1>20. Apply configuration to your devices<a class="headerlink" href="#apply-configuration-to-your-devices" title="Permalink to this headline">¶</a></h1>
+<p>Genie provides the possibility to apply full configuration on the device in the
+Common Setup. The configurations file are copied on the device and then applied.
+The configuration yaml datafile is provided with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">config_datafile</span></code> argument.</p>
+<p>Here is an example of the configuration yaml file. Provide the location of the
+configuration, any sleep time if it takes times to stabilize on the device.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">devices</span><span class="p">:</span>
+    <span class="n">uut</span><span class="p">:</span>
+        <span class="mi">1</span><span class="p">:</span>
+          <span class="n">config</span><span class="p">:</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">configuration</span>
+          <span class="n">sleep</span><span class="p">:</span> <span class="mi">3</span>
+          <span class="n">invalid</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;overlaps&#39;</span><span class="p">,</span> <span class="s1">&#39;(.*inval.*)&#39;</span><span class="p">]</span>
+        <span class="mi">2</span><span class="p">:</span>
+          <span class="n">config</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">full</span> <span class="n">path</span><span class="o">&gt;</span>
+          <span class="n">sleep</span><span class="p">:</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>It also requires a valid <a class="reference internal" href="../userguide/harness/user/gettingstarted.html#file-transfer-protocol"><span class="std std-ref">server</span></a> to transfer the
+files to the devices.</p>
+<p>Take a look at the <a class="reference internal" href="../userguide/harness/user/gettingstarted.html#harness-configuration"><span class="std std-ref">full documentation</span></a> for more
+information.</p>
+</div>
+<div class="section" id="profile-the-system">
+<span id="id3"></span><h1>21. Profile the system<a class="headerlink" href="#profile-the-system" title="Permalink to this headline">¶</a></h1>
+<p>Profiling the system allow to take snapshot at the begining of the run, and
+compare with the same feature at the end of the run. This is useful to make
+sure no feature was altered in an non expected way.</p>
+<p>All <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/parsers">available device command</a> and all <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/models">Ops features</a> can be profiled.</p>
+<p>Here how to profile a feature:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gRun(pts_features=[&#39;platform&#39;, &#39;show ip route vrf default&#39;,
+                   &#39;show ip ospf interface&#39;,
+                   &#39;show ip ospf interface vrf default&#39;,
+                   &#39;show ip ospf vrf default&#39;, &#39;show vrf detail&#39;])
+</pre></div>
+</div>
+<p>All feature to be profiled are defined in the PTS (profile the system) yaml
+file which defines which keys to <strong>exclude</strong>, arguments to provide and on which
+device to execute. The default datafiles can be found at
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/pts_datafile.yaml</span></code>. All parsers does not need to be
+added to this file, and will exclude all eys defined in the Verification
+datafile.</p>
+<p>More information in the <a class="reference internal" href="../userguide/harness/user/gettingstarted.html#pts"><span class="std std-ref">PTS</span></a> getting started page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section complement the above section on profiling <span class="xref std std-ref">Profiling</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To reduce execution time, PTS is designed with concurrent execution in
+profiling.</p>
+</div>
+</div>
+<div class="section" id="golden-pts">
+<span id="book-harness-golden"></span><h1>22. Golden PTS<a class="headerlink" href="#golden-pts" title="Permalink to this headline">¶</a></h1>
+<p>After applying the configuration on the device in the Common Setup; we are
+waiting for some time for the system to stabilize. However, how to know if it
+has stabilized as expected?</p>
+<p>The Golden PTS is a snapshot from a previous run to compare the PTS objects with.
+If there are differences, the section will fail and the run will not continue.</p>
+</div>
+<div class="section" id="what-can-you-do-with-the-mapping-datafile">
+<span id="book-harness-mapping"></span><h1>23. What can you do with the mapping datafile<a class="headerlink" href="#what-can-you-do-with-the-mapping-datafile" title="Permalink to this headline">¶</a></h1>
+<p>The mapping datafile create the relation between the testbed datafile and
+Genie. By concept, the testbed datafile describes the testbed in general for any
+script that wants to use this testbed. For Genie, we need to know more
+information such as:</p>
+<ol class="arabic simple">
+<li><p>What connection to use for Cli action, for Yang action, Xml, etc</p></li>
+<li><p>Provide connection pool information per device</p></li>
+<li><p>Overwrite devices alias</p></li>
+<li><p>Which connection type to prioritize for the run</p></li>
+</ol>
+<p>It is optional to have a mapping datafile. <code class="docutils literal notranslate"><span class="pre">Genie</span></code> will connect to all devices
+(defined in testbed yaml file) only if no mapping datafile is provided.</p>
+<p>An example can be found in the <a class="reference internal" href="#book-harness-started"><span class="std std-ref">getting started</span></a>.
+The <a class="reference internal" href="../userguide/harness/user/datafile.html#pts-datafile"><span class="std std-ref">datafile schema</span></a> contains the syntax on how to set the
+datafile.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">devices</span><span class="p">:</span>
+    <span class="nt">uut</span><span class="p">:</span>
+       <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cli</span>
+       <span class="nt">pool_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+       <span class="nt">mapping</span><span class="p">:</span>
+         <span class="c1"># Associate cli with connection vty</span>
+         <span class="nt">cli</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vty</span>
+         <span class="nt">yang</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yang</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-remove-subsections">
+<span id="book-harness-subsection"></span><h1>24. Add/Remove subsections<a class="headerlink" href="#add-remove-subsections" title="Permalink to this headline">¶</a></h1>
+<p>With the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Subsection</span> <span class="pre">datafile,</span></code> all sections in Genie can be customized. You can
+add, remove and even modify subsections. You can also change the execution
+order. The default datafile can be found at
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/genie_yamls/subsection_datafile.yaml</span></code>.</p>
+<p>Here are the steps on how to create a new subsection.</p>
+<ol class="arabic simple">
+<li><p>Create a new subsection</p></li>
+<li><p>Create a new subsection datafile which extends from the main one</p></li>
+<li><p>Add the new subsection to the subsection datafile</p></li>
+<li><p>Give it an order</p></li>
+</ol>
+<p>Good to go!</p>
+<p>To remove a subsection; just remove it from the order list. A subsection which
+is not in the order list will not be executed.</p>
+<ol class="arabic simple">
+<li><p>Create a new subsection datafile which extends from the main one</p></li>
+<li><p>Remove the subsection from the order.</p></li>
+</ol>
+</div>
+<div class="section" id="processors">
+<h1>25. Processors<a class="headerlink" href="#processors" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/aetest/processors.html">Processors</a> are functions which are scheduled to run
+immediately before and after any sections.</p>
+<p>Processors can be added before and after common setup, Common cleanup, any
+subsection, trigger, trigger section, and verification.</p>
+<p>Within their corresponding <a class="reference internal" href="../userguide/harness/user/datafile.html#datafile"><span class="std std-ref">datafile</span></a> processor can be added for
+these sections.</p>
+<p>Let’s write a processor to run after a trigger to verify that the devices are
+still alive.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">are_device_alive</span><span class="p">(</span><span class="n">section</span><span class="p">):</span>
+    <span class="c1"># Find uut device</span>
+    <span class="n">testbed</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;testbed&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">dev</span> <span class="ow">in</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now let’s add it to one of our trigger. We are picking nxos for now, you can
+pick the os desired. To add a processor; we need to add it to the trigger
+datafile.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">extends</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$VIRTUAL_ENV/genie_yamls/nxos/trigger_datafile_nxos.yaml</span>
+<span class="nt">TriggerSleep</span><span class="p">:</span>
+    <span class="nt">processor</span><span class="p">:</span>
+        <span class="nt">post</span><span class="p">:</span>
+            <span class="nt">AreDeviceAlive</span><span class="p">:</span>
+                <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">processor.are_device_alive</span>
+</pre></div>
+</div>
+<p>It’s now time to execute this trigger.</p>
+</div>
+<div class="section" id="how-to-re-use-existing-triggers-verifications-within-an-existing-pyats-script">
+<h1>26. How to re-use existing Triggers/Verifications within an existing pyATS Script.<a class="headerlink" href="#how-to-re-use-existing-triggers-verifications-within-an-existing-pyats-script" title="Permalink to this headline">¶</a></h1>
+<p>All triggers and verifications can be re-used within pyATS. They can be either
+run as a Testcase, or within a testcase depending of the need.</p>
+<p>More information on <a class="reference internal" href="../userguide/harness/user/pyats.html#pyats-harness"><span class="std std-ref">Genie within pyATS</span></a> documentation.</p>
+</div>
+<div class="section" id="what-kind-of-examples-is-there-for-genie-harness">
+<h1>27. What kind of examples is there for Genie Harness?<a class="headerlink" href="#what-kind-of-examples-is-there-for-genie-harness" title="Permalink to this headline">¶</a></h1>
+<p>All the examples can be found in the <a class="reference internal" href="../userguide/examples/example.html#example"><span class="std std-ref">example</span></a> page.</p>
+</div>
+<div class="section" id="update-verification-snapshots">
+<h1>28. Update verification snapshots<a class="headerlink" href="#update-verification-snapshots" title="Permalink to this headline">¶</a></h1>
+<p>Within a trigger or a processor; one of the verification snapshots might need to
+be re-taken.</p>
+<p>The snapshots are stored at the testscript level in a dictionary named verf;
+then indexed by devices. By deleting the snapshot, a new one will be
+automatically taken the next time the verification is executed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">re_take_snapshot</span><span class="p">(</span><span class="n">section</span><span class="p">):</span>
+    <span class="c1"># Find uut device</span>
+    <span class="n">testbed</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;testbed&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">dev</span> <span class="ow">in</span> <span class="n">testbed</span><span class="o">.</span><span class="n">devices</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="k">del</span> <span class="n">section</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">verf</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;Verify_Interface&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="randomize-triggers">
+<h1>29. Randomize Triggers<a class="headerlink" href="#randomize-triggers" title="Permalink to this headline">¶</a></h1>
+<p>By default triggers are always run following their order in the list. By adding –random then
+the triggers will run in a random order.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">pts_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">,</span> <span class="s1">&#39;bgp&#39;</span><span class="p">,</span> <span class="s1">&#39;interface&#39;</span><span class="p">],</span>
+     <span class="n">verification_uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Verify_IpInterfaceBrief&#39;</span><span class="p">,</span> <span class="s1">&#39;Verify_IpRoute_vrf_all&#39;</span><span class="p">],</span>
+     <span class="n">trigger_uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TriggerUnconfigConfigBgp.uut&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerShutNoShutBgpNeighbors&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerModifyLoopbackInterfaceIp.uut&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerShutNoShutEthernetInterface&#39;</span><span class="p">],</span>
+     <span class="n">random</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Randomization seed integer can be used to fix the randomizer and re-generate
+the same testcase sequence, useful for debugging purposes. The seed can be
+found in the log <code class="xref py py-obj docutils literal notranslate"><span class="pre">Testcase</span> <span class="pre">randomization</span> <span class="pre">is</span> <span class="pre">enabled,</span> <span class="pre">seed:</span> <span class="pre">1868797651672894108</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gRun</span><span class="p">(</span><span class="n">pts_features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">,</span> <span class="s1">&#39;bgp&#39;</span><span class="p">,</span> <span class="s1">&#39;interface&#39;</span><span class="p">],</span>
+     <span class="n">verification_uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Verify_IpInterfaceBrief&#39;</span><span class="p">,</span> <span class="s1">&#39;Verify_IpRoute_vrf_all&#39;</span><span class="p">],</span>
+     <span class="n">trigger_uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TriggerUnconfigConfigBgp.uut&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerShutNoShutBgpNeighbors&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerModifyLoopbackInterfaceIp.uut&#39;</span><span class="p">,</span> <span class="s1">&#39;TriggerShutNoShutEthernetInterface&#39;</span><span class="p">],</span>
+     <span class="n">random</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">randomize_seed</span><span class="o">=</span><span class="mi">1868797651672894108</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="trigger-containing-multiple-triggers-and-verifications">
+<span id="book-harness-cluster"></span><h1>30. Trigger containing multiple Triggers and Verifications<a class="headerlink" href="#trigger-containing-multiple-triggers-and-verifications" title="Permalink to this headline">¶</a></h1>
+<p>Multiple triggers and verificaiton can be executed within a single Trigger.</p>
+<p>In the Trigger datafile:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TriggerCluster:
+    sub_verifications: [&#39;Verify_BgpVrfAllAll&#39;]
+    sub_triggers: [ &#39;TriggerSleep&#39;, &#39;TriggerShutNoShutBgp&#39;]
+    sub_order: [&#39;TriggerSleep&#39;, &#39;Verify_BgpVrfAllAll&#39;, &#39;TriggerSleep&#39;, &#39;TriggerShutNoShutBgp&#39;, &#39;Verify_BgpVrfAllAll&#39;]
+    devices: [&#39;uut&#39;]
+</pre></div>
+</div>
+<p>Which will provide this</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-- TriggerCluster.uut                                                    PASSED
+   |-- TriggerSleep_sleep.1                                              PASSED
+   |-- TestcaseVerificationOps_verify.2                                  PASSED
+   |-- TriggerSleep_sleep.3                                              PASSED
+   |-- TriggerShutNoShutBgp_verify_prerequisite.4                        PASSED
+   |   |-- Step 1: Learning &#39;Bgp&#39; Ops                                    PASSED
+   |   |-- Step 2: Verifying requirements                                PASSED
+   |   |-- Step 3: Merge requirements                                    PASSED
+   |-- TriggerShutNoShutBgp_shut.5                                       PASSED
+   |   |-- Step 1: Configuring &#39;Bgp&#39;                                     PASSED
+   |-- TriggerShutNoShutBgp_verify_shut.6                                PASSED
+   |   |-- Step 1: Verifying &#39;Bgp&#39; state with ops.bgp.bgp.Bgp            PASSED
+   |-- TriggerShutNoShutBgp_unshut.7                                     PASSED
+   |   |-- Step 1: Unconfiguring &#39;Bgp&#39;                                   PASSED
+   |-- TriggerShutNoShutBgp_verify_initial_state.8                       PASSED
+   |   |-- Step 1: Verifying ops &#39;Bgp&#39; is back to original state         PASSED
+   |-- TestcaseVerificationOps_verify.9                                  PASSED
+</pre></div>
+</div>
+<p>This allow you to create ANY combination of triggers and verification into 1
+trigger; a cluster trigger.</p>
+<p><a class="reference internal" href="../userguide/harness/user/custom.html#genie-harness-cluster"><span class="std std-ref">More details</span></a></p>
+</div>
+<div class="section" id="loop-a-trigger">
+<h1>31. Loop a Trigger<a class="headerlink" href="#loop-a-trigger" title="Permalink to this headline">¶</a></h1>
+<p>It is possible to loop over a trigger multiple times using the <code class="xref py py-obj docutils literal notranslate"><span class="pre">loop</span></code> feature of <code class="xref py py-obj docutils literal notranslate"><span class="pre">aetest</span></code>.
+This is useful for cutting down on unnecessary repetition in a testcase and improving efficiency.
+Read more on it here: <a class="reference external" href="https://pubhub.devnetcloud.com/media/pyats/docs/aetest/loop.html">AETest Loop</a></p>
+<p>A simple example of this is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyats</span> <span class="kn">import</span> <span class="n">aetest</span>
+<span class="kn">from</span> <span class="nn">genie.harness.base</span> <span class="kn">import</span> <span class="n">Trigger</span>
+
+<span class="nd">@aetest</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">uids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Test1&#39;</span><span class="p">,</span> <span class="s1">&#39;Test2&#39;</span><span class="p">,</span> <span class="s1">&#39;Test3&#39;</span><span class="p">])</span>
+<span class="k">class</span> <span class="nc">TriggerAetestLoop</span><span class="p">(</span><span class="n">Trigger</span><span class="p">):</span>
+    <span class="nd">@aetest</span><span class="o">.</span><span class="n">test</span>
+    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">testbed</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will run the trigger three times, with each trigger having and
+printing the uids ‘Test1’, ‘Test2’, ‘Test3’</p>
+<p>Loops can be extended by using a loop generator</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyats</span> <span class="kn">import</span> <span class="n">aetest</span>
+<span class="kn">from</span> <span class="nn">pyats</span> <span class="kn">import</span> <span class="n">easypy</span>
+<span class="kn">from</span> <span class="nn">pyats.aetest.loop</span> <span class="kn">import</span> <span class="n">Iteration</span>
+
+<span class="k">class</span> <span class="nc">TestCaseGenerator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loopee</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">loopee</span><span class="o">.</span><span class="n">uid</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">Iteration</span><span class="p">(</span>
+                <span class="n">uid</span> <span class="o">=</span> <span class="s1">&#39;Test&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span>
+            <span class="p">)</span>
+
+<span class="nd">@aetest</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">generator</span><span class="o">=</span><span class="n">TestCaseGenerator</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">TriggerAetestLoop</span><span class="p">(</span><span class="n">Trigger</span><span class="p">):</span>
+    <span class="nd">@aetest</span><span class="o">.</span><span class="n">test</span>
+    <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">testbed</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Using a loop generator allows for each iteration of the trigger to be more uniquely defined.
+In the above example, we are yielding three <code class="xref py py-obj docutils literal notranslate"><span class="pre">Iteration</span></code> that sets the <code class="xref py py-obj docutils literal notranslate"><span class="pre">uid</span></code> to the strings
+‘Test1’, ‘Test2’, ‘Test3’. We are also able to pass it a dictionary of parameters, in this
+case it’s a single parameter of <code class="xref py py-obj docutils literal notranslate"><span class="pre">num</span></code> which will be the numbers 1 through 3.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../userguide/index.html" class="btn btn-neutral float-right" title="User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conf.html" class="btn btn-neutral float-left" title="1. Summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Tabular Parser &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Non-Tabular parsing" href="../nontabular/index.html" />
+    <link rel="prev" title="Tabular parsing" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">CLI Auto-Parser</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../README.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Tabular parsing</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The Tabular Parser</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#column-based-results">Column Based Results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parse-using-device-output">Parse using device output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nontabular/index.html">Non-Tabular parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/index.html">API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">CLI Auto-Parser</a> &raquo;</li>
+        
+          <li><a href="index.html">Tabular parsing</a> &raquo;</li>
+        
+      <li>The Tabular Parser</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-tabular-parser">
+<span id="oper-fill-tabular"></span><h1>The Tabular Parser<a class="headerlink" href="#the-tabular-parser" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">parsergen</span></code> is a generic parser for show commands. The goal is to make
+it simple to create a parser for any given show command one time, and then
+reuse this parser to create tests for any values found within the output.</p>
+<p>The main functions of <code class="docutils literal notranslate"><span class="pre">parsergen</span></code> are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Find and verify expected values in show command output.</p></li>
+<li><p>Provide an OS agnostic common interface to OS specific show commands.</p></li>
+<li><p>Create once (per command), use many times (throughout all of your pyATS
+test suites).</p></li>
+<li><p>Maintain a per command cache for fast processing.</p></li>
+<li><p>Only parse the parts of the output that the user is interested in, thus
+avoiding wasting precious real-time.</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="column-based-results">
+<h2>Column Based Results<a class="headerlink" href="#column-based-results" title="Permalink to this headline">¶</a></h2>
+<p>For column based table results one should use the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">oper_fill_tabular</span></code> class. To illustrate it’s use we’ll examine some standard
+table results.</p>
+<div class="section" id="full-show-arp-example">
+<h3>Full <strong class="command">show arp</strong> example<a class="headerlink" href="#full-show-arp-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RP</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">CPU0</span><span class="p">:</span><span class="n">one</span><span class="c1">#show arp</span>
+<span class="n">Fri</span> <span class="n">Jan</span> <span class="mi">22</span> <span class="mi">15</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mf">49.731</span> <span class="n">EST</span>
+
+<span class="o">-------------------------------------------------------------------------------</span>
+<span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">CPU0</span>
+<span class="o">-------------------------------------------------------------------------------</span>
+<span class="n">Address</span>         <span class="n">Age</span>        <span class="n">Hardware</span> <span class="n">Addr</span>   <span class="n">State</span>      <span class="n">Type</span>  <span class="n">Interface</span>
+<span class="mf">11.11</span><span class="o">.</span><span class="mf">11.1</span>      <span class="o">-</span>          <span class="mf">0292.77</span><span class="n">d4</span><span class="o">.</span><span class="n">d5ee</span>  <span class="n">Interface</span>  <span class="n">ARPA</span>  <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+<span class="mf">10.10</span><span class="o">.</span><span class="mf">10.1</span>      <span class="o">-</span>          <span class="mi">02</span><span class="n">b7</span><span class="o">.</span><span class="n">a23a</span><span class="o">.</span><span class="n">e076</span>  <span class="n">Interface</span>  <span class="n">ARPA</span>  <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span>
+<span class="mf">11.11</span><span class="o">.</span><span class="mf">11.2</span>      <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">35</span>   <span class="mf">02e9</span><span class="o">.</span><span class="mf">4522.5326</span>  <span class="n">Dynamic</span>    <span class="n">ARPA</span>  <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+<span class="mf">10.10</span><span class="o">.</span><span class="mf">10.2</span>      <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">35</span>   <span class="mi">02</span><span class="n">db</span><span class="o">.</span><span class="n">ebba</span><span class="o">.</span><span class="n">ecc4</span>  <span class="n">Dynamic</span>    <span class="n">ARPA</span>  <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span>
+<span class="n">RP</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">CPU0</span><span class="p">:</span><span class="n">one</span><span class="c1">#</span>
+</pre></div>
+</div>
+<p>We need to identify a few things in order to parse this output. First if there
+are multiple tables we must identify what the title of each table is. In this
+case the title is a card reference. Next we must identify the headers that
+define the columns. For show arp the headers are <code class="docutils literal notranslate"><span class="pre">Address</span></code>, <code class="docutils literal notranslate"><span class="pre">Age</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Hardware</span> <span class="pre">Addr</span></code>, <code class="docutils literal notranslate"><span class="pre">State</span></code>, <code class="docutils literal notranslate"><span class="pre">Type</span></code>, and <code class="docutils literal notranslate"><span class="pre">Interface</span></code>. Finally we need to
+determine how to uniquely identify entries from the table. These are the
+<code class="docutils literal notranslate"><span class="pre">index</span></code> fields. For <strong class="command">show arp</strong> these would be the <code class="docutils literal notranslate"><span class="pre">Address</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Interface</span></code> fields or columns 0 and 5. For this command that is all we need.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_log_arp_results_1</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parsergen</span><span class="o">.</span><span class="n">oper_fill_tabular</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device1</span><span class="p">,</span>
+                                      <span class="n">show_command</span><span class="o">=</span><span class="s2">&quot;show arp&quot;</span><span class="p">,</span>
+                                      <span class="n">header_fields</span><span class="o">=</span>
+                                          <span class="p">[</span> <span class="s2">&quot;Address&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;Age&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;Hardware Addr&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;State&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+                                            <span class="s2">&quot;Interface&quot;</span> <span class="p">],</span>
+                                      <span class="n">index</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span> <span class="p">],</span>
+                                      <span class="n">table_title_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^(\d+/\d+/CPU\d+)&quot;</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Tabular parse result:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">entries</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Now when we execute the test the following output is logged:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Results</span><span class="p">:</span>
+<span class="p">{</span><span class="s1">&#39;0/0/CPU0&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;10.10.10.1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;GigabitEthernet0/0/0/1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;10.10.10.1&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Hardware Addr&#39;</span><span class="p">:</span> <span class="s1">&#39;02b7.a23a.e076&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0/0/1&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;Interface&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;ARPA&#39;</span><span class="p">}},</span>
+              <span class="s1">&#39;10.10.10.2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;GigabitEthernet0/0/0/1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;10.10.10.2&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;00:00:14&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Hardware Addr&#39;</span><span class="p">:</span> <span class="s1">&#39;02db.ebba.ecc4&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0/0/1&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;Dynamic&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;ARPA&#39;</span><span class="p">}},</span>
+              <span class="s1">&#39;11.11.11.1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;GigabitEthernet0/0/0/0&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;11.11.11.1&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Hardware Addr&#39;</span><span class="p">:</span> <span class="s1">&#39;0292.77d4.d5ee&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0/0/0&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;Interface&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;ARPA&#39;</span><span class="p">}},</span>
+              <span class="s1">&#39;11.11.11.2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;GigabitEthernet0/0/0/0&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;11.11.11.2&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;00:00:14&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Hardware Addr&#39;</span><span class="p">:</span> <span class="s1">&#39;02e9.4522.5326&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0/0/0&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;Dynamic&#39;</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;ARPA&#39;</span><span class="p">}}}}</span>
+</pre></div>
+</div>
+<p>For multi-table results the n-level dictionary in self.entries is first indexed
+by the match groups from the table_title_pattern, in this case that is the card
+location. The rest of the indices are given by the values from the columns
+identified in the index arg. Once all these indices are specified the result is
+the actual entry dictionary. This dictionary is indexed by the header name of
+the value you want.</p>
+<p>So for example if we want to see the ARP entry’s MAC address for the IP
+<code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> on one’s <code class="docutils literal notranslate"><span class="pre">GigabitEthernet0/0/0/1</span></code> interface we would take the
+above results and use the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addr</span> <span class="o">=</span> <span class="s1">&#39;10.10.10.2&#39;</span>
+<span class="n">intf</span> <span class="o">=</span> <span class="s1">&#39;GigabitEthernet0/0/0/1&#39;</span>
+<span class="n">card</span> <span class="o">=</span> <span class="s1">&#39;0/0/CPU0&#39;</span>
+<span class="n">macaddr</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">card</span><span class="p">][</span><span class="n">addr</span><span class="p">][</span><span class="n">intf</span><span class="p">][</span><span class="s1">&#39;Hardware Addr&#39;</span><span class="p">]</span>
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="n">addr</span> <span class="o">+</span> <span class="s2">&quot; on 0/0/CPU0 &quot;</span> <span class="o">+</span> <span class="n">intf</span> <span class="o">+</span> <span class="s2">&quot; has MAC &quot;</span> <span class="o">+</span> <span class="n">macaddr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The following output is produced:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.2</span> <span class="n">on</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span> <span class="n">has</span> <span class="n">MAC</span> <span class="mi">02</span><span class="n">db</span><span class="o">.</span><span class="n">ebba</span><span class="o">.</span><span class="n">ecc4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-simpler-show-arp-example">
+<h3>A Simpler <strong class="command">show arp</strong> Example<a class="headerlink" href="#a-simpler-show-arp-example" title="Permalink to this headline">¶</a></h3>
+<p>It’s worth recognizing that in most cases the IP address alone is enough to
+uniquely identify an entry. Let’s use that knowledge and additionally specify a
+card location in our show command, as that will greatly simply the returned
+results.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RP</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">CPU0</span><span class="p">:</span><span class="n">one</span><span class="c1">#show arp location 0/0/CPU0</span>
+<span class="n">Thu</span> <span class="n">May</span> <span class="mi">13</span> <span class="mi">11</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mf">18.909</span> <span class="n">EDT</span>
+
+<span class="n">Address</span>         <span class="n">Age</span>        <span class="n">Hardware</span> <span class="n">Addr</span>   <span class="n">State</span>      <span class="n">Type</span>  <span class="n">Interface</span>
+<span class="mf">10.10</span><span class="o">.</span><span class="mf">10.1</span>      <span class="o">-</span>          <span class="mi">02</span><span class="n">b7</span><span class="o">.</span><span class="n">a23a</span><span class="o">.</span><span class="n">e076</span>  <span class="n">Interface</span>  <span class="n">ARPA</span>  <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span>
+<span class="mf">11.11</span><span class="o">.</span><span class="mf">11.1</span>      <span class="o">-</span>          <span class="mf">0292.77</span><span class="n">d4</span><span class="o">.</span><span class="n">d5ee</span>  <span class="n">Interface</span>  <span class="n">ARPA</span>  <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+<span class="mf">10.10</span><span class="o">.</span><span class="mf">10.2</span>      <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">31</span>   <span class="mi">02</span><span class="n">db</span><span class="o">.</span><span class="n">ebba</span><span class="o">.</span><span class="n">ecc4</span>  <span class="n">Dynamic</span>    <span class="n">ARPA</span>  <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span>
+<span class="mf">11.11</span><span class="o">.</span><span class="mf">11.2</span>      <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">31</span>   <span class="mf">02e9</span><span class="o">.</span><span class="mf">4522.5326</span>  <span class="n">Dynamic</span>    <span class="n">ARPA</span>  <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">RP</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">CPU0</span><span class="p">:</span><span class="n">one</span><span class="c1">#</span>
+</pre></div>
+</div>
+<p>Now for the test code.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_log_arp_results_2</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parsergen</span><span class="o">.</span><span class="n">oper_fill_tabular</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device1</span><span class="p">,</span>
+                                  <span class="n">show_command</span><span class="o">=</span><span class="s2">&quot;show arp location 0/0/CPU0&quot;</span><span class="p">,</span>
+                                  <span class="n">header_fields</span> <span class="o">=</span>
+                                    <span class="p">[</span> <span class="s2">&quot;Address&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;Age&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;Hardware Addr&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;State&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+                                      <span class="s2">&quot;Interface&quot;</span> <span class="p">])</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Results:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">entries</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Notice we eliminate the index arg (by default column zero is considered the
+index column), as well as the table_title_pattern argument. Below we show the
+logged output from the above code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Results</span><span class="p">:</span>
+<span class="p">{</span><span class="s1">&#39;12.12.12.1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;12.12.12.1&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Hardware Addr&#39;</span><span class="p">:</span> <span class="s1">&#39;0292.77d4.d5ee&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0/0/0&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;Interface&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;ARPA&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;12.12.12.2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;12.12.12.2&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;00:47:27&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Hardware Addr&#39;</span><span class="p">:</span> <span class="s1">&#39;02e9.4522.5326&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0/0/0&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;Dynamic&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;ARPA&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;13.13.13.1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;13.13.13.1&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Hardware Addr&#39;</span><span class="p">:</span> <span class="s1">&#39;02b7.a23a.e076&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0/0/1&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;Interface&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;ARPA&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;13.13.13.2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Address&#39;</span><span class="p">:</span> <span class="s1">&#39;13.13.13.2&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;00:47:27&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Hardware Addr&#39;</span><span class="p">:</span> <span class="s1">&#39;02db.ebba.ecc4&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0/0/1&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="s1">&#39;Dynamic&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;ARPA&#39;</span><span class="p">}}</span>
+<span class="n">TEST</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">22</span> <span class="mi">16</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span><span class="mi">113</span><span class="p">:</span> <span class="n">PASS</span><span class="p">:</span> <span class="n">example_suite_t</span><span class="o">.</span><span class="n">test_log_arp_results_2</span>
+</pre></div>
+</div>
+<p>As you can see now we simply have to index using the IP to get at the actual
+entry dictionary. So to view the MAC address and interface for IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code>
+we use the following code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addr</span> <span class="o">=</span> <span class="s1">&#39;10.10.10.2&#39;</span>
+<span class="n">macaddr</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">addr</span><span class="p">][</span><span class="s1">&#39;Hardware Addr&#39;</span><span class="p">]</span>
+<span class="n">intf</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">addr</span><span class="p">][</span><span class="s1">&#39;Interface&#39;</span><span class="p">]</span>
+<span class="n">exec_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">twoaddr</span> <span class="o">+</span> <span class="s2">&quot; on &quot;</span> <span class="o">+</span> <span class="n">intf</span> <span class="o">+</span> <span class="s2">&quot; has MAC addr &quot;</span> <span class="o">+</span> <span class="n">macaddr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Resulting in the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.2</span> <span class="n">on</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span> <span class="n">has</span> <span class="n">MAC</span> <span class="n">addr</span> <span class="mi">02</span><span class="n">db</span><span class="o">.</span><span class="n">ebba</span><span class="o">.</span><span class="n">ecc4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tabular-parsing-support-for-delimited-multi-line-header-tables">
+<h3>Tabular parsing support for delimited Multi-line header tables<a class="headerlink" href="#tabular-parsing-support-for-delimited-multi-line-header-tables" title="Permalink to this headline">¶</a></h3>
+<p>Paresergen supports parisng delimited tables with multi-line headers as
+illustrated in the below example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sysadmin-vm:0_RP0# show controller sfe driver rack 0
+Sun Apr  23 21:24:51.773 UTC-07:00
+
+=========================================================================
+SFE Driver information
+=========================================================================
+
+Driver Version: 1   (1.1)
+
+Functional role: Active,   ISSU role: NA
+Rack: 0/RP0, Type: lcc, Number: 0, IP Address: 192.1.0.1
+Startup time       : 2017 Apr 15 04:04:32.117
+Availability Masks :
+     Card: 0x1       Asic: 0xF       Exp Asic: 0xF
+Unicast/Multicast (ratio) : 0
++----------------------------------------------------------------+
+|Process  | Connection | Registration| Connection | DLL          |
+|/Lib     | status     | status      | requests   | registration |
++----------------------------------------------------------------+
+| PM      |  Active    |  n/a        |           1|  n/a         |
+| PL-LOCAL|  Active    |  Active     |           1|  n/a         |
+| FSDB    |  Active    |  Active     |           1|  n/a         |
+| FGID    |  Active    |  Active     |           1|  n/a         |
+| CM      |  Active    |  Active     |           1|  n/a         |
+| CCC     |  Active    |  n/a        |           1|  n/a         |
+| GASPP   |  n/a       |  n/a        |         n/a|  n/a         |
+| CIH     |  n/a       |  n/a        |         n/a|  Yes         |
++----------------------------------------------------------------+
+
+Asics :
+HP - HotPlug event,  PON - Power ON reset,     WB - Warm Boot,  A - All
+HR - Hard Reset,     DC  - Disconnect signal,  DL - DownLoad
++-----------------------------------------------------------------------------------+
+| Asic inst.|card|HP|Asic| Asic  | Admin|plane| Fgid| Asic State |DC| Last  |PON|HR |
+|  (R/S/A)  |pwrd|  |type| class | /Oper|/grp | DL  |            |  | init  |(#)|(#)|
++-----------------------------------------------------------------------------------+
+| 0/FC0/0   | UP | 1| s13|  FE1600| UP/UP| 0/0 | DONE| NRML       | 0| PON   |  1|  0|
+| 0/FC0/1   | UP | 1| s13|  FE1600| UP/UP| 0/1 | DONE| NRML       | 0| PON   |  1|  0|
+| 0/FC0/2   | UP | 1| s13|  FE1600| UP/UP| 0/2 | DONE| NRML       | 0| PON   |  1|  0|
+| 0/FC0/3   | UP | 1| s13|  FE1600| UP/UP| 0/3 | DONE| NRML       | 0| PON   |  1|  0|
++-----------------------------------------------------------------------------------+
+</pre></div>
+</div>
+<p>We will parse the second table. We only need to pass the delimiter so
+parsergen will be able to identify the table columns borders.</p>
+<p>Now for the test code.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_tabular_parser_12</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">oper_fill_tabular</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device1</span><span class="p">,</span>
+                                <span class="n">show_command</span><span class="o">=</span><span class="s2">&quot;show controller sfe driver rack 0&quot;</span><span class="p">,</span>
+                                <span class="n">refresh_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">header_fields</span><span class="o">=</span>
+                                <span class="p">[[</span><span class="s1">&#39;Asic inst\.&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;card&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;HP&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;Asic&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;Asic&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;Admin&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;plane&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;Fgid&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;Asic State&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;DC&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;Last&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;PON&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;HR&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;\(R/S/A\)&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;pwrd&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;type&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;class&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;/Oper&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;/grp&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;DL&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;init&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;\(#\)&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;\(#\)&#39;</span><span class="p">]],</span>
+                                <span class="n">label_fields</span><span class="o">=</span>
+                                <span class="p">[</span> <span class="s2">&quot;Asic inst. (R/S/A) &quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;card pwrd&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;HP&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Asic type&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Asic class&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Admin /Oper&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;plane /grp&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Fgid DL&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Asic State&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;DC&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;Last init&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;PON State (#)&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;HR (#)&quot;</span> <span class="p">],</span>
+                                <span class="n">index</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span> <span class="p">],</span>
+                                <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Results:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">entries</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Below we show the parsed output from the above code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Results</span><span class="p">:</span>
+<span class="p">{</span><span class="s1">&#39;0/FC0/0&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Admin /Oper&#39;</span><span class="p">:</span> <span class="s1">&#39;UP/UP&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic State&#39;</span><span class="p">:</span> <span class="s1">&#39;NRML&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic class&#39;</span><span class="p">:</span> <span class="s1">&#39;FE1600&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic inst. (R/S/A) &#39;</span><span class="p">:</span> <span class="s1">&#39;0/FC0/0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic type&#39;</span><span class="p">:</span> <span class="s1">&#39;s13&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;DC&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Fgid DL&#39;</span><span class="p">:</span> <span class="s1">&#39;DONE&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;HP&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;HR (#)&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Last init&#39;</span><span class="p">:</span> <span class="s1">&#39;PON&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;PON State (#)&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;card pwrd&#39;</span><span class="p">:</span> <span class="s1">&#39;UP&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;plane /grp&#39;</span><span class="p">:</span> <span class="s1">&#39;0/0&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;0/FC0/1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Admin /Oper&#39;</span><span class="p">:</span> <span class="s1">&#39;UP/UP&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic State&#39;</span><span class="p">:</span> <span class="s1">&#39;NRML&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic class&#39;</span><span class="p">:</span> <span class="s1">&#39;FE1600&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic inst. (R/S/A) &#39;</span><span class="p">:</span> <span class="s1">&#39;0/FC0/1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic type&#39;</span><span class="p">:</span> <span class="s1">&#39;s13&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;DC&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Fgid DL&#39;</span><span class="p">:</span> <span class="s1">&#39;DONE&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;HP&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;HR (#)&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Last init&#39;</span><span class="p">:</span> <span class="s1">&#39;PON&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;PON State (#)&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;card pwrd&#39;</span><span class="p">:</span> <span class="s1">&#39;UP&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;plane /grp&#39;</span><span class="p">:</span> <span class="s1">&#39;0/1&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;0/FC0/2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Admin /Oper&#39;</span><span class="p">:</span> <span class="s1">&#39;UP/UP&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic State&#39;</span><span class="p">:</span> <span class="s1">&#39;NRML&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic class&#39;</span><span class="p">:</span> <span class="s1">&#39;FE1600&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic inst. (R/S/A) &#39;</span><span class="p">:</span> <span class="s1">&#39;0/FC0/2&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic type&#39;</span><span class="p">:</span> <span class="s1">&#39;s13&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;DC&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Fgid DL&#39;</span><span class="p">:</span> <span class="s1">&#39;DONE&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;HP&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;HR (#)&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Last init&#39;</span><span class="p">:</span> <span class="s1">&#39;PON&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;PON State (#)&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;card pwrd&#39;</span><span class="p">:</span> <span class="s1">&#39;UP&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;plane /grp&#39;</span><span class="p">:</span> <span class="s1">&#39;0/2&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;0/FC0/3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Admin /Oper&#39;</span><span class="p">:</span> <span class="s1">&#39;UP/UP&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic State&#39;</span><span class="p">:</span> <span class="s1">&#39;NRML&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic class&#39;</span><span class="p">:</span> <span class="s1">&#39;FE1600&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic inst. (R/S/A) &#39;</span><span class="p">:</span> <span class="s1">&#39;0/FC0/3&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Asic type&#39;</span><span class="p">:</span> <span class="s1">&#39;s13&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;DC&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Fgid DL&#39;</span><span class="p">:</span> <span class="s1">&#39;DONE&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;HP&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;HR (#)&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;Last init&#39;</span><span class="p">:</span> <span class="s1">&#39;PON&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;PON State (#)&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;card pwrd&#39;</span><span class="p">:</span> <span class="s1">&#39;UP&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;plane /grp&#39;</span><span class="p">:</span> <span class="s1">&#39;0/3&#39;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="parse-using-device-output">
+<h2>Parse using device output<a class="headerlink" href="#parse-using-device-output" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Parsergen</span></code> now supports working without passing the device as an argument,
+user can pass the device output (as a string) along with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">OS</span></code> (for
+abstraction purpose) instead.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_non_tabular_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test non tabular parser when passing a device output</span>
+<span class="sd">        and device os only and compare against selected tags.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pure_cli</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">showCommandOutput1</span><span class="p">)</span>
+
+    <span class="n">attrValPairsToCheck</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;show.intf.if_name&#39;</span><span class="p">,</span>                       <span class="s1">&#39;MgmtEth0/0/CPU0/0&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;show.intf.line_protocol&#39;</span><span class="p">,</span>                 <span class="s1">&#39;up&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;show.intf.ip_address&#39;</span><span class="p">,</span>                    <span class="s1">&#39;10.30.108.132&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;show.intf.mtu&#39;</span><span class="p">,</span>                           <span class="mi">1514</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;show.intf.admin_state&#39;</span><span class="p">,</span>                   <span class="s1">&#39;up&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">device_os</span> <span class="o">=</span> <span class="s1">&#39;iosxr&#39;</span>
+
+    <span class="n">pgcheck</span> <span class="o">=</span> <span class="n">oper_check</span> <span class="p">(</span>
+                <span class="n">attrvalpairs</span> <span class="o">=</span> <span class="n">attrValPairsToCheck</span><span class="p">,</span>
+                <span class="n">show_command</span> <span class="o">=</span> \
+                    <span class="p">(</span><span class="s1">&#39;show_interface_&lt;WORD&gt;&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">{</span><span class="s1">&#39;ifname&#39;</span><span class="p">:</span><span class="s1">&#39;MgmtEth0/0/CPU0/0&#39;</span><span class="p">}),</span>
+                <span class="n">refresh_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">device_output</span> <span class="o">=</span> <span class="n">pure_cli</span><span class="p">,</span>
+                <span class="n">device_os</span> <span class="o">=</span> <span class="n">device_os</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pgcheck</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">parsergen</span><span class="o">.</span><span class="n">ext_dictio</span><span class="p">[</span><span class="s1">&#39;device_name&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputDict2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_tabular_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Test tabular parser when passing a device output</span>
+<span class="sd">        and device os only.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">pure_cli</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        Interface              IP-Address      OK? Method Status                Protocol</span>
+<span class="s1">        GigabitEthernet0/0     10.1.10.20      YES NVRAM  up                    up</span>
+<span class="s1">        GigabitEthernet1/0/1   unassigned      YES unset  up                    up</span>
+<span class="s1">        GigabitEthernet1/0/10  unassigned      YES unset  down                  down</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">device_os</span> <span class="o">=</span> <span class="s1">&#39;iosxe&#39;</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">parsergen</span><span class="o">.</span><span class="n">oper_fill_tabular</span><span class="p">(</span><span class="n">header_fields</span><span class="o">=</span>
+                                        <span class="p">[</span> <span class="s2">&quot;Interface&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;IP-Address&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;OK\?&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;Method&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;Protocol&quot;</span> <span class="p">],</span>
+                                      <span class="n">label_fields</span><span class="o">=</span>
+                                        <span class="p">[</span> <span class="s2">&quot;Interface&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;IP-Address&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;OK?&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;Method&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+                                          <span class="s2">&quot;Protocol&quot;</span> <span class="p">],</span>
+                                      <span class="n">index</span><span class="o">=</span><span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span> <span class="p">],</span>
+                                      <span class="n">device_output</span> <span class="o">=</span> <span class="n">pure_cli</span><span class="p">,</span>
+                                      <span class="n">device_os</span> <span class="o">=</span> <span class="n">device_os</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">entries</span><span class="p">,</span> <span class="n">outputDict4</span><span class="p">)</span>
+
+    <span class="n">outputDict4</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;GigabitEthernet0/0&#39;</span><span class="p">:</span>
+            <span class="p">{</span><span class="s1">&#39;up&#39;</span><span class="p">:</span>
+                <span class="p">{</span><span class="s1">&#39;IP-Address&#39;</span><span class="p">:</span> <span class="s1">&#39;10.1.10.20&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet0/0&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Method&#39;</span><span class="p">:</span> <span class="s1">&#39;NVRAM&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;OK?&#39;</span><span class="p">:</span> <span class="s1">&#39;YES&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Protocol&#39;</span><span class="p">:</span> <span class="s1">&#39;up&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="s1">&#39;up&#39;</span><span class="p">}},</span>
+        <span class="s1">&#39;GigabitEthernet1/0/1&#39;</span><span class="p">:</span>
+            <span class="p">{</span><span class="s1">&#39;up&#39;</span><span class="p">:</span>
+                <span class="p">{</span><span class="s1">&#39;IP-Address&#39;</span><span class="p">:</span> <span class="s1">&#39;unassigned&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet1/0/1&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Method&#39;</span><span class="p">:</span> <span class="s1">&#39;unset&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;OK?&#39;</span><span class="p">:</span> <span class="s1">&#39;YES&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Protocol&#39;</span><span class="p">:</span> <span class="s1">&#39;up&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="s1">&#39;up&#39;</span><span class="p">}},</span>
+        <span class="s1">&#39;GigabitEthernet1/0/10&#39;</span><span class="p">:</span>
+            <span class="p">{</span><span class="s1">&#39;down&#39;</span><span class="p">:</span>
+                <span class="p">{</span><span class="s1">&#39;IP-Address&#39;</span><span class="p">:</span> <span class="s1">&#39;unassigned&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Interface&#39;</span><span class="p">:</span> <span class="s1">&#39;GigabitEthernet1/0/10&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Method&#39;</span><span class="p">:</span> <span class="s1">&#39;unset&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;OK?&#39;</span><span class="p">:</span> <span class="s1">&#39;YES&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Protocol&#39;</span><span class="p">:</span> <span class="s1">&#39;down&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="s1">&#39;down&#39;</span><span class="p">}}}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is the list of the supported OSes:
+[ ‘ios’, ‘iosxr’, ‘iosxe’, ‘nxos’, ‘calvados’, ‘iox’,</p>
+<blockquote>
+<div><p>‘pix’, ‘asa’, ‘sanos’, ‘dcos’, ‘aireos’, ‘linux’ ]</p>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../nontabular/index.html" class="btn btn-neutral float-right" title="Non-Tabular parsing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Tabular parsing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

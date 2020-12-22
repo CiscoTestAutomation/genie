@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Harness Guide &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Harness User Guide" href="user/index.html" />
+    <link rel="prev" title="Abstraction" href="../Ops/developer/abstraction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Harness Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user/index.html">Harness User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/index.html">Harness Developer Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">User Guide</a> &raquo;</li>
+        
+      <li>Harness Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="harness-guide">
+<span id="harness-overview"></span><h1>Harness Guide<a class="headerlink" href="#harness-guide" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> is the highly anticipated Python implementation of <a class="reference external" href="http://wwwin-best.cisco.com/">BEST</a> that Cisco
+engineers have been waiting for!</p>
+<p>With the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> test harness, the concept of event driven testing is
+introduced into the pyATS framework. With event driven testing, script and
+testcases are derived dynamically based on selected <strong>triggers</strong> and
+<strong>verification</strong> from the <code class="docutils literal notranslate"><span class="pre">Genie</span> <span class="pre">SDK</span></code> pool.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> test harness, automation becomes focused primarily on developping targeted test
+scenarios where the action is handled in the <strong>trigger</strong> and what needs to be verified
+before and after the <strong>trigger</strong> in  <strong>verification</strong>.</p>
+<p>The following sections provide more details about how <code class="docutils literal notranslate"><span class="pre">Genie</span></code> test harness may be used by
+engineers.</p>
+<p>The user section explains how to use the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> harness.
+The developer section explains how to contribute new triggers and
+verifications.</p>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user/index.html">Harness User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user/gettingstarted.html">Getting You Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#set-up">Set-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#check-config">check_config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#pts">PTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#golden-config">Golden Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#verifications">Verifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#triggers">Triggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#file-transfer-protocol">File Transfer Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/gettingstarted.html#connection-pool">Connection Pool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user/reference.html">Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user/reference.html#id1">Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user/pyats.html">Genie within pyATS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/datafile.html">Datafiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user/datafile.html#markup-in-datafiles">Markup in Datafiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/datafile.html#verification-datafile">Verification Datafile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/datafile.html#trigger-datafile">Trigger Datafile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/datafile.html#configuration-datafile">Configuration Datafile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/datafile.html#pts-datafile">PTS Datafile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/datafile.html#mapping-datafile">Mapping Datafile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user/datafile.html#subsection-datafile">Subsection datafile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user/traffic.html">Traffic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/custom.html">Trigger Cluster</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Harness Developer Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer/verifications.html">Verifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer/verifications.html#using-ops">Using Ops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/verifications.html#using-template">Using Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/verifications.html#using-callable">Using Callable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/verifications.html#using-parameters">Using Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/verifications.html#using-processors">Using Processors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer/triggers.html">Triggers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer/triggers.html#your-first-trigger">Your First Trigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/triggers.html#guidelines">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/triggers.html#using-processors">Using Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/triggers.html#using-filetransferutils">Using FileTransferUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/triggers.html#available-restore-methods">Available Restore methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer/mapping.html">Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer/pts.html">PTS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer/pts.html#using-ops">Using Ops</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer/subsections.html">Subsections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer/subsections.html#using-subsections">Using Subsections</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user/index.html" class="btn btn-neutral float-right" title="Harness User Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Ops/developer/abstraction.html" class="btn btn-neutral float-left" title="Abstraction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

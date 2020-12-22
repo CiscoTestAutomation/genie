@@ -1,0 +1,759 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Useful Libraries &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pyATS Clean" href="../../clean/index.html" />
+    <link rel="prev" title="API Guidelines and good practices" href="../apis/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harness/index.html">Harness Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Useful Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dq">Dq</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#contains">contains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#not-contains">not_contains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-values">get_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contains-key-value">contains_key_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#not-contains-key-value">not_contains_key_value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#value-operator">value_operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#count">count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raw">raw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reconstruct">reconstruct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#query-validator">query_validator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#str-to-dq-query">str_to_dq_query</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#timeout">Timeout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tempresult">TempResult</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diff">Diff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#config">Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#find">Find</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">User Guide</a> &raquo;</li>
+        
+      <li>Useful Libraries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="useful-libraries">
+<span id="utils-overview"></span><h1>Useful Libraries<a class="headerlink" href="#useful-libraries" title="Permalink to this headline">¶</a></h1>
+<p>This section contains many useful apis to help with the development of Genie
+Triggers or pyATS testscripts.</p>
+<div class="section" id="dq">
+<h2>Dq<a class="headerlink" href="#dq" title="Permalink to this headline">¶</a></h2>
+<p>Dictionary query allow to question Python dictionary in a very
+intuitive syntax.</p>
+<p>Find all the bgp neighbors which are <code class="xref py py-obj docutils literal notranslate"><span class="pre">Established</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find all the bgp neighbors which are Established</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show bgp neighbors&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Established&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;neighbor&#39;</span><span class="p">)</span>
+
+<span class="c1"># effectively, device.parse() API returns a modified parsed dictionary</span>
+<span class="c1"># enabling you to make quick accesses to the Dq object without having to be</span>
+<span class="c1"># explicit. This is equivalent to:</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">genie.utils</span> <span class="kn">import</span> <span class="n">Dq</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show bgp neighbors&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Dq</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Established&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;neighbor&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;10.2.2.2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This navigate the dictionary nested structure, find all the keys and value
+which contains the <code class="xref py py-obj docutils literal notranslate"><span class="pre">established</span></code>, return a list of neighbor.</p>
+<p>Find all the routes which are <code class="xref py py-obj docutils literal notranslate"><span class="pre">connected</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show ip route&#39;</span><span class="p">)</span>
+<span class="go"># Find all the routes which are Connected</span>
+<span class="go">output.q.contains(&#39;connected&#39;).get_values(&#39;routes&#39;)</span>
+<span class="go">[&#39;10.0.1.0/24&#39;, &#39;10.1.1.1/32&#39;, &#39;10.11.11.11/32&#39;, &#39;172.16.21.0/24&#39;]</span>
+</pre></div>
+</div>
+<p>Find all the <code class="xref py py-obj docutils literal notranslate"><span class="pre">ospf</span></code> routes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find all the routes for Ospf</span>
+<span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;ospf&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;routes&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;10.0.2.0/24&#39;</span><span class="p">,</span> <span class="s1">&#39;10.2.2.2/32&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Typically to do the same, you would need for loops, if statement, and so on. Dq
+simplify the whole process!</strong></p>
+<p>Last but not least Dq supports regex (regular expression).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if the module in line card #4 contains a status</span>
+<span class="c1"># and its value is ok or active</span>
+<span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;lc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">contains_key_value</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;ok|active&#39;</span><span class="p">,</span> <span class="n">value_regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;lc&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;NX-OSv Ethernet Module&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;ok&#39;</span><span class="p">}}}})</span>
+</pre></div>
+</div>
+<p>Dq support multiple Api, where each chain with each other. Dq builds its own
+datastructure, which is a <a class="reference external" href="http://wwwin-pyats.cisco.com">ListDict</a>, you can reconstruct it as a real
+dictionary with the matching requirements with the api <code class="xref py py-obj docutils literal notranslate"><span class="pre">reconstruct</span></code>.</p>
+<p>Dq supports the following chain’d action.</p>
+<div class="section" id="contains">
+<h3>contains<a class="headerlink" href="#contains" title="Permalink to this headline">¶</a></h3>
+<p>Filters down the dictionary and only keep the paths which contains the provided
+value. It will not keep anything else.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;lc&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;lc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To make contains work with a regex input all you have to do is to set the regex
+variable to <code class="docutils literal notranslate"><span class="pre">True</span></code> within the contains api arguments, as shown in examples below</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;[1,2]&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;.*ware&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By giving <code class="xref py py-obj docutils literal notranslate"><span class="pre">level</span></code>, grab information from upper/lower level. In case of <code class="xref py py-obj docutils literal notranslate"><span class="pre">level=-1</span></code>, it means information from 1 above level will be collected.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;.*ware&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="not-contains">
+<h3>not_contains<a class="headerlink" href="#not-contains" title="Permalink to this headline">¶</a></h3>
+<p>Only keep the paths which does not contains the provided value. Very useful to
+remove unwanted path, and have a dictionary which only have the desired
+keys/paths.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="go"># Remove all linecard information from the parsed output</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">not_contains</span><span class="p">(</span><span class="s1">&#39;lc&#39;</span><span class="p">)</span>
+<span class="go"># Remove all linecard number 4 information from the parsed output</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;lc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">not_contains</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+<span class="go"># Remove all linecard number 4information from the parsed output and save as</span>
+<span class="go"># a new dictionary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;lc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">not_contains</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Again, you can exclude the unwanted paths, with entering a regular expression
+input.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="go"># Remove all the keywrods that has address or number in them</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">not_contains</span><span class="p">(</span><span class="s1">&#39;.*(address|number).*&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go"># Remove all the linecards and router processor that has the id 1 or 4</span>
+<span class="go"># As well as remove all the keywords that ends with phrase ware.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">not_contains</span><span class="p">(</span><span class="s1">&#39;1|4&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">not_contains</span><span class="p">(</span><span class="s1">&#39;.*ware&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As same as <code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">level</span></code> argument can be passed to <code class="xref py py-obj docutils literal notranslate"><span class="pre">not_contains</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">level</span></code> argument is supported only for <code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">not_contains</span></code></p>
+</div>
+</div>
+<div class="section" id="get-values">
+<h3>get_values<a class="headerlink" href="#get-values" title="Permalink to this headline">¶</a></h3>
+<p>Return a list of the values of the key.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;ok&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;lc&#39;</span><span class="p">)</span>
+<span class="go">[&#39;2&#39;, &#39;3&#39;, &#39;4&#39;]</span>
+</pre></div>
+</div>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_values</span></code> is very powerful, as it allows to collect all the values of a
+specific key. It also supports the nested index.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show interface&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;[0]&#39;</span><span class="p">)</span>
+<span class="go">[&#39;mgmt0&#39;, &#39;Ethernet2/1&#39;, &#39;Ethernet2/2&#39;, &#39;Ethernet2/3&#39;, &#39;Ethernet2/4&#39;, &#39;Ethernet2/5&#39;]</span>
+</pre></div>
+</div>
+<p>Only one value can be collected by using <code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code> and it returns without list.
+And slicing in <code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code> is also possible. Slicing is exact same with what we can
+do with list in Python.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show interface&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;[0]&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">&#39;mgmt0&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show interface&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;[0]&#39;</span><span class="p">,</span> <span class="s1">&#39;[0:2]&#39;</span><span class="p">)</span>
+<span class="go">[&#39;mgmt0&#39;, &#39;Ethernet2/1&#39;]</span>
+</pre></div>
+</div>
+<p>get_value does not return a Dq object, considered a “Final” api.</p>
+</div>
+<div class="section" id="contains-key-value">
+<h3>contains_key_value<a class="headerlink" href="#contains-key-value" title="Permalink to this headline">¶</a></h3>
+<p>Similar to <code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code> except instead of only the expected value the parent key is also
+provided. <code class="xref py py-obj docutils literal notranslate"><span class="pre">contains_key_value</span></code> accept two arguments. One is the parent key, and
+the key. Both must be following each other. The difference with <code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code> is
+that the value can be anywhere in the nested dictionary.</p>
+<p>It is very useful for common value, which can be present at multiple location
+in the dictionary.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="go"># Filter down on the first rp.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains_key_value</span><span class="p">(</span><span class="s1">&#39;rp&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show interface&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains_key_value</span><span class="p">(</span><span class="s1">&#39;enabled&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;[0]&#39;</span><span class="p">)</span>
+<span class="go">[&#39;mgmt0&#39;, &#39;Ethernet2/1&#39;, &#39;Ethernet2/2&#39;, &#39;loopback0&#39;, &#39;loopback1&#39;]</span>
+</pre></div>
+</div>
+<p>To input regular expression values, if looking for keys with a regex pattern you need to set
+<code class="docutils literal notranslate"><span class="pre">key_regex</span></code> to True. For applying regex pattern on values, you need to set <code class="docutils literal notranslate"><span class="pre">value_regex</span></code> variable
+to True. Examples below elaborate this functionality</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="go"># If only searching for a value with regex</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains_key_value</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;N7K.*&#39;</span><span class="p">,</span> <span class="n">value_regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go"># If only searching for a key with regex</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains_key_value</span><span class="p">(</span><span class="s1">&#39;[1,2,3]&#39;</span><span class="p">,</span> <span class="s1">&#39;NX-OSv Ethernet Module&#39;</span><span class="p">,</span> <span class="n">key_regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go"># If searching for both key and value using regex</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains_key_value</span><span class="p">(</span><span class="s1">&#39;slot/world_wide_name|mac.*|model&#39;</span><span class="p">,</span> <span class="s1">&#39;[a-zA-Z0-9\-\s]+&#39;</span><span class="p">,</span> <span class="n">key_regex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">value_regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="not-contains-key-value">
+<h3>not_contains_key_value<a class="headerlink" href="#not-contains-key-value" title="Permalink to this headline">¶</a></h3>
+<p>The opposite of contains_key_value. Only keep the path which does not contains
+the provided value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="go"># Filter down on all the other module than rp 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">not_contains_key_value</span><span class="p">(</span><span class="s1">&#39;rp&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similar rules for regex is applied as what was already explained for contains_key_value
+api.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show module&#39;</span><span class="p">)</span>
+<span class="go"># if applying regex only for value set value_regex=True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">not_contains_key_value</span><span class="p">(</span><span class="s1">&#39;lc&#39;</span><span class="p">,</span> <span class="s1">&#39;(3|4)&#39;</span><span class="p">,</span> <span class="n">value_regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="value-operator">
+<h3>value_operator<a class="headerlink" href="#value-operator" title="Permalink to this headline">¶</a></h3>
+<p>Filter down based on the value of a certain key with {==, !=,  &gt;=, &lt;=, &gt;, &lt;}</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all path which has crc_error greater than 100</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show interfaces&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">value_operator</span><span class="p">(</span><span class="s1">&#39;in_crc_errors&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;[0]&#39;</span><span class="p">)</span>
+<span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="count">
+<h3>count<a class="headerlink" href="#count" title="Permalink to this headline">¶</a></h3>
+<p>Count how many element match the requirement.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show interfaces&#39;</span><span class="p">)</span>
+<span class="go"># Count how many interfaces which has in_crc_error greater than 100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">value_operator</span><span class="p">(</span><span class="s1">&#39;in_crc_errors&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>Does not return a Dq object, considered a “Final” api.</p>
+</div>
+<div class="section" id="raw">
+<h3>raw<a class="headerlink" href="#raw" title="Permalink to this headline">¶</a></h3>
+<p>Straight dictionary access.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mod</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="s1">&#39;[slot][rp][1][NX-OSv Supervisor Module][model]&#39;</span><span class="p">)</span>
+<span class="go">&#39;N7K-SUP1&#39;</span>
+</pre></div>
+</div>
+<p>Does not return a Dq object, considered a “Final” api.</p>
+</div>
+<div class="section" id="reconstruct">
+<h3>reconstruct<a class="headerlink" href="#reconstruct" title="Permalink to this headline">¶</a></h3>
+<p>Rebuilds a dictionary from a Dq object once filtered down.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show interfaces&#39;</span><span class="p">)</span>
+<span class="go"># Count how many interfaces which has in_crc_error greater than 100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">value_operator</span><span class="p">(</span><span class="s1">&#39;in_crc_errors&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Variable <code class="xref py py-obj docutils literal notranslate"><span class="pre">new_dict</span></code> is now a dictionary which contains all the interfaces which
+have an in_crc_error greater than 100.</p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Here is an examples on how to use it</p>
+<ol class="arabic simple">
+<li><p>Get ntp associated server</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get testbed file</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">genie.testbed</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tb</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s1">&#39;testbed.yaml&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dev</span> <span class="o">=</span> <span class="n">tb</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;nx-osv-1&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dev</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">parsed_output</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;show ntp associations&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">parsed_output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;peer&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;192.168.1.10&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Get all interfaces which have in_crc_errors</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_dict</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">value_operator</span><span class="p">(</span><span class="s1">&#39;in_crc_errors&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;[0]&#39;</span><span class="p">)</span>
+<span class="go">[&#39;Ethernet2/1&#39;]</span>
+</pre></div>
+</div>
+<p>It is very easy to verify any keys like this with Dq.</p>
+</div>
+<div class="section" id="query-validator">
+<h3>query_validator<a class="headerlink" href="#query-validator" title="Permalink to this headline">¶</a></h3>
+<p>Dq accepts query strings (Method <code class="docutils literal notranslate"><span class="pre">str_to_dq_query</span></code>) and can be verified with query_validator.
+If it is valid it will return True, otherwise False. It is a staticmethod, hence it can be used without instantiate Dq.</p>
+</div>
+<div class="section" id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">genie.utils</span> <span class="kn">import</span> <span class="n">Dq</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;contains_key_value(&#39;a&#39;, &#39;b&#39;)&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Dq</span><span class="o">.</span><span class="n">query_validator</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;dont_exists(&#39;a&#39;, &#39;b&#39;)&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Dq</span><span class="o">.</span><span class="n">query_validator</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="str-to-dq-query">
+<h3>str_to_dq_query<a class="headerlink" href="#str-to-dq-query" title="Permalink to this headline">¶</a></h3>
+<p>This function accepts a string and convert it to the proper DQ query,
+create a Dq object, create the query and call the functions, and returns the output.
+It is a staticmethod, hence it can be used without instantiate Dq.</p>
+</div>
+<div class="section" id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mod is a valid dictionary object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Dq</span><span class="o">.</span><span class="n">str_to_dq_query</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="s2">&quot;contains(&#39;rp&#39;)&quot;</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;rp&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;NX-OSv Supervisor Module&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;ports&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="s1">&#39;N7K-SUP1&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;software&#39;</span><span class="p">:</span> <span class="s1">&#39;7.3(0)D1(1)&#39;</span><span class="p">,</span>
+<span class="s1">&#39;hardware&#39;</span><span class="p">:</span> <span class="s1">&#39;0.0&#39;</span><span class="p">,</span> <span class="s1">&#39;slot/world_wide_name&#39;</span><span class="p">:</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;mac_address&#39;</span><span class="p">:</span> <span class="s1">&#39;5e-00-40-01-00-00 to 5e-00-40-01-07-ff&#39;</span><span class="p">,</span>
+<span class="s1">&#39;serial_number&#39;</span><span class="p">:</span> <span class="s1">&#39;TM40010000B&#39;</span><span class="p">}}}}</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mod is a valid dictionary object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Dq</span><span class="o">.</span><span class="n">str_to_dq_query</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="s2">&quot;contains(&#39;lc&#39;).not_contains(&#39;2&#39;).get_values(&#39;slot/world_wide_name&#39;)&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="timeout">
+<h2>Timeout<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h2>
+<p>In any kind of automation, there is a need of polling. Try to do a
+check/action, verify if expected result is there, otherwise, sleep for a defined time
+and repeat up to a defined maximum time.</p>
+<p>Class <code class="xref py py-obj docutils literal notranslate"><span class="pre">Timeout</span></code> was made to do this.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.utils.timeout</span> <span class="kn">import</span> <span class="n">Timeout</span>
+<span class="c1"># Try up to 60 seconds, and between interval wait 10 seconds, display timeout logs</span>
+<span class="n">timeout</span> <span class="o">=</span> <span class="n">Timeout</span><span class="p">(</span><span class="n">max_time</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="n">interval</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">disable_log</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">timeout</span><span class="o">.</span><span class="n">iterate</span><span class="p">():</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">do_something</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="c1"># Didn&#39;t get expected result, keep trying</span>
+    <span class="n">timeout</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>When the maximum time is reached, an <code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeoutError</span></code> is raised. Timeout can be
+used to time limit a trigger, to time limit a specific action.</p>
+<p>This api is very useful for any kind of polling.</p>
+</div>
+<div class="section" id="tempresult">
+<h2>TempResult<a class="headerlink" href="#tempresult" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TempResult</span></code> stores a temporary result. This is useful to keep in memory the
+result, without committing it to the testcase yet. <code class="xref py py-obj docutils literal notranslate"><span class="pre">TempResult</span></code> follows the
+<a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/results/rollup.html">pyATS Rollup</a> concept. Once ready, the result can
+be applied on the container, either to a section or to a step.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Starts with no result, let&#39;s assume we are within a step container is a</span>
+<span class="c1"># step, however it also work at a section level.</span>
+<span class="kn">from</span> <span class="nn">genie.utils.timeout</span> <span class="kn">import</span> <span class="n">TempResult</span>
+
+<span class="k">with</span> <span class="n">steps</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;the first step&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">step</span><span class="p">:</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">TempResult</span><span class="p">(</span><span class="n">container</span><span class="o">=</span><span class="n">step</span><span class="p">)</span>
+
+    <span class="c1"># Set result to be passed. If we did temp.result() the step result would be</span>
+    <span class="c1"># passed</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">passed</span><span class="p">(</span><span class="s1">&#39;Some pass message&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Set result to be errored. If we did temp.result() the step result would be</span>
+    <span class="c1"># errored</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">errored</span><span class="p">(</span><span class="s1">&#39;Some error message&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Errored + passed = Error, so temp result is still errored</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">passed</span><span class="p">(</span><span class="s1">&#39;Some pass message&#39;</span><span class="p">)</span>
+
+    <span class="c1"># The step has final result of errored.</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>container can also be a section, in this case just pass container=self</p>
+</div>
+</div>
+<div class="section" id="diff">
+<h2>Diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h2>
+<p>Genie comes with a very useful <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code> diff tool. Provided two
+dictionaries, or object, it will go through every branch and compare all the
+keys. At the end, it provides a Linux look-a-like diff.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">genie.utils.diff</span> <span class="kn">import</span> <span class="n">Diff</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:{</span><span class="s1">&#39;ca&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;cb&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:{</span><span class="s1">&#39;ca&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;cb&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">}}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="o">.</span><span class="n">findDiff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="go">+f: 7</span>
+<span class="go">-b: 7</span>
+</pre></div>
+</div>
+<p>It also supports an exclude key, for the keys that shouldn’t be compared.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">genie.utils.diff</span> <span class="kn">import</span> <span class="n">Diff</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:{</span><span class="s1">&#39;ca&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:{</span><span class="s1">&#39;ca&#39;</span><span class="p">:{</span><span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">}}}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="o">.</span><span class="n">findDiff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="go">-b: 2</span>
+<span class="go">+a: 2</span>
+<span class="go">-a: 1</span>
+<span class="go">c:</span>
+<span class="go">+ ca:</span>
+<span class="go">+  d: 9</span>
+<span class="go">- ca: 9</span>
+</pre></div>
+</div>
+<p>You can also only see which one were added</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="o">.</span><span class="n">findDiff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="go">+d: 7</span>
+</pre></div>
+</div>
+<p>Or Removed</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;remove&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="o">.</span><span class="n">findDiff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="go">-b: 2</span>
+</pre></div>
+</div>
+<p>Or modified, which mean it existed, but the value was modified</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;modified&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="o">.</span><span class="n">findDiff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="go">+a: 2</span>
+<span class="go">-a: 1</span>
+<span class="go">c:</span>
+<span class="go">+ ca:</span>
+<span class="go">+  d: 9</span>
+<span class="go">- ca: 9</span>
+</pre></div>
+</div>
+<p>If you need a string representation of added items without diff labeling, you can do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}}}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="o">.</span><span class="n">findDiff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">diff_string</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">))</span>
+<span class="go">b 2</span>
+<span class="go">c</span>
+<span class="go"> d</span>
+<span class="go">  e</span>
+<span class="go">   f 2</span>
+<span class="go">   g 5</span>
+</pre></div>
+</div>
+<p>Similarly, you can get a string for the removed items</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="o">.</span><span class="n">findDiff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">diff_string</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">))</span>
+<span class="go">a 1</span>
+<span class="go">p</span>
+<span class="go"> q</span>
+<span class="go">  a 6</span>
+<span class="go">w 5</span>
+</pre></div>
+</div>
+<p>To print unchanged entries in a list or tuple, you can specify the <code class="xref py py-obj docutils literal notranslate"><span class="pre">verbose</span></code>
+option like so</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span> <span class="o">=</span> <span class="n">Diff</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dd</span><span class="o">.</span><span class="n">findDiff</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="go">key:</span>
+<span class="go"> value:</span>
+<span class="go">  index[0]: 1</span>
+<span class="go">- index[1]: 2</span>
+<span class="go">+ index[1]: 3</span>
+<span class="go">  index[2]: 3</span>
+<span class="go">  index[3]: 4</span>
+</pre></div>
+</div>
+<p>Diff is used everywhere within Genie, for the <code class="xref py py-obj docutils literal notranslate"><span class="pre">PTS</span></code> comparison, ops comparison,
+within Triggers. It is another important key component of Genie.</p>
+<p>The same can be done with objects. Currently it supports <code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie.conf</span></code> and
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie.ops</span></code> objects.</p>
+</div>
+<div class="section" id="config">
+<h2>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Config</span></code> object store device <code class="xref py py-obj docutils literal notranslate"><span class="pre">show-running</span></code> outputs into structure data. This
+structure data can then be used to compare show-running over time.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.utils.config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
+<span class="s1">service unsupported-transceiver</span>
+<span class="s1">hostname PE1</span>
+<span class="s1">clock timezone PDT -7</span>
+<span class="s1">exception pakmem on</span>
+<span class="s1">exception sparse off</span>
+<span class="s1">exception kdebugger enable</span>
+<span class="s1">logging buffered 120000000</span>
+<span class="s1">telnet vrf default ipv4 server max-servers 10</span>
+<span class="s1">cdp</span>
+<span class="s1">line template vty</span>
+<span class="s1"> timestamp disable</span>
+<span class="s1"> exec-timeout 0 0&#39;&#39;&#39;</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">tree</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;cdp&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;clock timezone PDT -7&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;exception kdebugger enable&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;exception pakmem on&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;exception sparse off&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;hostname PE1&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;line template vty&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39; exec-timeout 0 0&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39; timestamp disable&#39;</span><span class="p">:</span> <span class="p">{}},</span>
+ <span class="s1">&#39;logging buffered 120000000&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;service unsupported-transceiver&#39;</span><span class="p">:</span> <span class="p">{},</span>
+ <span class="s1">&#39;telnet vrf default ipv4 server max-servers 10&#39;</span><span class="p">:</span> <span class="p">{}}</span>
+</pre></div>
+</div>
+<p>This dictionary can then be used with the diff tool to compare two configuration.</p>
+</div>
+<div class="section" id="find">
+<h2>Find<a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">Find</span></code> api is the a very important of Genie. It’s such a great tool, that
+it was provided to pyATS. Read on it on the <a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/utilities/helper_functions.html#find">pyATS website</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../clean/index.html" class="btn btn-neutral float-right" title="pyATS Clean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../apis/index.html" class="btn btn-neutral float-left" title="API Guidelines and good practices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

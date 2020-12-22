@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Summary &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/asciinema-player.js"></script>
+        <script src="../_static/tracker.js"></script>
+        <script src="../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Summary" href="parsers.html" />
+    <link rel="prev" title="1. How to install Genie" href="genie.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#explore-genie">Explore Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-general">Genie - General</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#genie-command-line">Genie Command Line</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1. Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parse-device-output">2. Parse device output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#learn-device-feature">3. Learn device feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#snapshots-and-then-compare-before-and-after">4. Snapshots and then compare before and after</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collect-device-output-without-parsing-it">5. Collect device output - without parsing it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-libs-parsers">Genie.libs.parsers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-ops">Genie.Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-conf">Genie.Conf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#genie-harness">Genie.Harness</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>1. Summary</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h2>Genie Cli recipes</h2><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section assumes pyATS and Genie are <a class="reference internal" href="genie.html#book-genie"><span class="std std-ref">installed and ready to be
+used</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It also assumes you have a <a class="reference internal" href="genie.html#book-setup-testbed"><span class="std std-ref">testbed file ready</span></a> to
+be used with a device.</p>
+</div>
+<div class="section" id="summary">
+<h1>1. Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<p>Genie CLI is the easiest way to start with Genie. No need any automation or
+Python knowledge. As long as Genie is installed, you can interact with the
+Genie libraries with a Linux command.</p>
+<p>Here’s what you can do:</p>
+<ol class="arabic simple">
+<li><p>Parse show command into structured output</p></li>
+<li><p>Learn whole device feature into structured outpu</p></li>
+<li><p>Compare structured output taken at different time</p></li>
+<li><p>Genie shell to load the testbed file and/or pickle file.</p></li>
+<li><p>Run Genie Harness without any jobfile</p></li>
+</ol>
+<p><a class="reference internal" href="../cli/index.html#genie-cli"><span class="std std-ref">More detailed documentation on Genie CLI</span></a></p>
+</div>
+<div class="section" id="parse-device-output">
+<h1>2. Parse device output<a class="headerlink" href="#parse-device-output" title="Permalink to this headline">¶</a></h1>
+<p>Any of the <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/parsers">available parsers</a> can be called directly called
+with Genie cli.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie parse <span class="s2">&quot;show bgp vrf all all&quot;</span> --testbed-file tb.yaml --output output --devices nx-osv-1
++<span class="o">==============================================================================</span>+
+<span class="p">|</span> Genie Parse Summary <span class="k">for</span> nx-osv-1                                             <span class="p">|</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span>  Connected to nx-osv-1                                                       <span class="p">|</span>
+<span class="p">|</span>  -  Log: x/connection_nx-osv-1.txt                                           <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Parsed <span class="nb">command</span> <span class="s1">&#39;show bgp vrf all all&#39;</span>                                       <span class="p">|</span>
+<span class="p">|</span>  -  Parsed structure: x/nx-osv-1_show-bgp-vrf-all-all_parsed.txt             <span class="p">|</span>
+<span class="p">|</span>  -  Device Console:   x/nx-osv-1_show-bgp-vrf-all-all_console.txt            <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+</pre></div>
+</div>
+<p>Execute on all the devices in the testbed file</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie parse <span class="s2">&quot;show bgp vrf all all&quot;</span> <span class="s2">&quot;show ip ospf&quot;</span> --testbed-file tb.yaml --output <span class="nv">x</span>
+<span class="o">+==============================================================================</span>+
+<span class="p">|</span> Genie Parse Summary <span class="k">for</span> csr1000v-1                                           <span class="p">|</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span>  Connected to csr1000v-1                                                     <span class="p">|</span>
+<span class="p">|</span>  -  Log: x/connection_csr1000v-1.txt                                         <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not parse <span class="s1">&#39;show bgp vrf all all&#39;</span>                                      <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      x/csr1000v-1_show-bgp-vrf-all-all_exception.txt          <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: x/csr1000v-1_show-bgp-vrf-all-all_console.txt            <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Parsed <span class="nb">command</span> <span class="s1">&#39;show ip ospf&#39;</span>                                               <span class="p">|</span>
+<span class="p">|</span>  -  Parsed structure: x/csr1000v-1_show-ip-ospf_parsed.txt                   <span class="p">|</span>
+<span class="p">|</span>  -  Device Console:   x/csr1000v-1_show-ip-ospf_console.txt                  <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span> Genie Parse Summary <span class="k">for</span> nx-osv-1                                             <span class="p">|</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span>  Connected to nx-osv-1                                                       <span class="p">|</span>
+<span class="p">|</span>  -  Log: x/connection_nx-osv-1.txt                                           <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Parsed <span class="nb">command</span> <span class="s1">&#39;show bgp vrf all all&#39;</span>                                       <span class="p">|</span>
+<span class="p">|</span>  -  Parsed structure: x/nx-osv-1_show-bgp-vrf-all-all_parsed.txt             <span class="p">|</span>
+<span class="p">|</span>  -  Device Console:   x/nx-osv-1_show-bgp-vrf-all-all_console.txt            <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Parsed <span class="nb">command</span> <span class="s1">&#39;show ip ospf&#39;</span>                                               <span class="p">|</span>
+<span class="p">|</span>  -  Parsed structure: x/nx-osv-1_show-ip-ospf_parsed.txt                     <span class="p">|</span>
+<span class="p">|</span>  -  Device Console:   x/nx-osv-1_show-ip-ospf_console.txt                    <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+</pre></div>
+</div>
+<p>Parser all commands for all devices</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie parse all --testbed-file tb.yaml --output <span class="nv">all</span>
+<span class="o">+==============================================================================</span>+
+<span class="p">|</span> Genie Parse Summary <span class="k">for</span> csr1000v-1                                           <span class="p">|</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span>  Connected to csr1000v-1                                                     <span class="p">|</span>
+<span class="p">|</span>  -  Log: all/connection_csr1000v-1.txt                                       <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Parsed <span class="nb">command</span> <span class="s1">&#39;show bgp all cluster-ids&#39;</span>                                   <span class="p">|</span>
+<span class="p">|</span>  -  Parsed structure: all/csr1000v-1_show-bgp-all-cluster-ids_parsed.txt     <span class="p">|</span>
+<span class="p">|</span>  -  Device Console:   all/csr1000v-1_show-bgp-all-cluster-ids_console.txt    <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Parsed <span class="nb">command</span> <span class="s1">&#39;show stack-power&#39;</span> but it returned empty                     <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: all/csr1000v-1_show-stack-power_console.txt
+.... <span class="o">(</span>more than <span class="m">300</span> parsers were executed!<span class="o">)</span>
+</pre></div>
+</div>
+<p>For each show command, 2 files are created.</p>
+<ul class="simple">
+<li><p>One containing the device log (_console file).</p></li>
+<li><p>One containing the parser output in Json structure (_parsed file)</p></li>
+</ul>
+</div>
+<div class="section" id="learn-device-feature">
+<h1>3. Learn device feature<a class="headerlink" href="#learn-device-feature" title="Permalink to this headline">¶</a></h1>
+<p>Same idea as above, however it will learn whole feature and return an OS
+Agnostic structure (Same structure for all OS).</p>
+<p>Any of the <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/models">available Ops object</a> can be called directly called
+with Genie cli.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie learn <span class="s2">&quot;ospf&quot;</span> --testbed-file tb.yaml --output output
+Learning <span class="s1">&#39;[&#39;</span>ospf<span class="s1">&#39;]&#39;</span> on devices <span class="s1">&#39;[&#39;</span>csr1000v-1<span class="s1">&#39;, &#39;</span>nx-osv-1<span class="s1">&#39;]&#39;</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span> Genie Learn Summary <span class="k">for</span> device csr1000v-1                                    <span class="p">|</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span>  Connected to csr1000v-1                                                     <span class="p">|</span>
+<span class="p">|</span>  -   Log: ./connection_csr1000v-1.txt                                        <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;ospf&#39;</span>                                                       <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  ./output/ospf_iosxe_csr1000v-1_ops.txt                   <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: ./output/ospf_iosxe_csr1000v-1_console.txt               <span class="p">|</span>
+<span class="p">|</span><span class="o">==============================================================================</span><span class="p">|</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="snapshots-and-then-compare-before-and-after">
+<h1>4. Snapshots and then compare before and after<a class="headerlink" href="#snapshots-and-then-compare-before-and-after" title="Permalink to this headline">¶</a></h1>
+<p>With the two previous recipes, it is now easy to take snapshots, save them to a
+directory, update the configuration of your device and retake a new snapshot to
+compare.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie learn <span class="s2">&quot;bgp&quot;</span> --testbed-file tb.yaml --output output1
+</pre></div>
+</div>
+<p>Update device configuration</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie learn <span class="s2">&quot;bgp&quot;</span> --testbed-file tb.yaml --output output2
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie diff output output2
+</pre></div>
+</div>
+<p>genie diff lets you know which fields has been modified.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>more output/diff_bgp_nxos_nxos-osv-1_ops.txt
+--- output1/bgp_nxos_nxos-osv-1_ops.txt
++++ output2/bgp_nxos_nxos-osv-1_ops.txt
+info:
+ instance:
+  default:
+   vrf:
+    default:
+     neighbor:
+      50.1.1.101:
+       address_family:
+        ipv4 multicast:
++         session_state: active
+-         session_state: idle
+        ipv4 unicast:
++         session_state: active
+-         session_state: idle
+</pre></div>
+</div>
+<p>The same idea can also be used as a monitor, to check if anything changes
+overtime. Everyday takes a new snapshot and compare.</p>
+</div>
+<div class="section" id="collect-device-output-without-parsing-it">
+<h1>5. Collect device output - without parsing it<a class="headerlink" href="#collect-device-output-without-parsing-it" title="Permalink to this headline">¶</a></h1>
+<p>Genie cli can be used to collect straight device output.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie parse <span class="s2">&quot;show version&quot;</span> --testbed-file tb.yaml --output output --raw
++<span class="o">==============================================================================</span>+
+<span class="p">|</span> Genie Execute Summary <span class="k">for</span> csr1000v-1                                         <span class="p">|</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span>  Connected to csr1000v-1                                                     <span class="p">|</span>
+<span class="p">|</span>  -  Log: bla/connection_csr1000v-1.txt                                       <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Executed <span class="nb">command</span> <span class="s1">&#39;show version&#39;</span>                                             <span class="p">|</span>
+<span class="p">|</span>  -  Device Console:   bla/csr1000v-1_show-version_console.txt                <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="parsers.html" class="btn btn-neutral float-right" title="1. Summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="genie.html" class="btn btn-neutral float-left" title="1. How to install Genie" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

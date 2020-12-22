@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Stories &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fundamental" href="design.html" />
+    <link rel="prev" title="Introduction" href="../introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../introduction.html">Introduction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#the-motivation-behind-genie">The Motivation behind Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#package-overview">Package overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#high-level-features">High-Level Features</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../introduction.html#design-overview">Design Overview</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Stories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-lonely-script">The Lonely Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arthur-the-sandwich-lover">Arthur: The Sandwich Lover</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="design.html">Fundamental</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../introduction.html">Introduction</a> &raquo;</li>
+        
+      <li>Stories</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stories">
+<span id="story"></span><h1>Stories<a class="headerlink" href="#stories" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-lonely-script">
+<h2>The Lonely Script<a class="headerlink" href="#the-lonely-script" title="Permalink to this headline">¶</a></h2>
+<p>This section tells the story of a lonely script in its object oriented world
+of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Conf</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> objects.</p>
+<p>Once upon a time, there was a script. This script was lonely and invited a
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code> to join in.</p>
+<div class="figure align-center">
+<img alt="A lonely testbed" src="../../_images/testbed.png" />
+</div>
+<p>This <code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code> was charming, popular, and naturally, devices wanted to befriend
+him. Eventually, two <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> (PE1 and P1) decided to join the testbed.</p>
+<div class="figure align-center">
+<img alt="Help them talk!" src="../../_images/testbed_devices.png" />
+</div>
+<p>Each <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> had a few of its own <a href="#id1"><span class="problematic" id="id2">`</span></a>Interface`s.</p>
+<p>These two <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> wanted to communicate with one another, but, sadly, they
+could not reach each other. They needed some sort of <code class="xref py py-obj docutils literal notranslate"><span class="pre">Link</span></code> to
+communicate, though neither of them were capable of creating this <code class="xref py py-obj docutils literal notranslate"><span class="pre">link</span></code>, as it
+was outside of their responsibilities.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code> became determined to help the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> objects communicate.
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code> worked quickly to create a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Link</span></code> to unite each <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code>.
+With the <code class="xref py py-obj docutils literal notranslate"><span class="pre">link</span></code> and an <code class="xref py py-obj docutils literal notranslate"><span class="pre">Interface</span></code> from each <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code>, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Devices</span></code> could
+finally communicate with each other.</p>
+<div class="figure align-center">
+<img alt="They can talk" src="../../_images/testbed_devices_link.png" />
+</div>
+<p>Content that each <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> could now communicate with the other,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code> thought it would be even better to create traffic. “Does anyone have
+any ideas about how we could create some more traffic?”, it said. “You need
+me!”, a bold, smart-sounding voice bellowed from the crowd. “I am a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code>,
+put me each <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> and I will create traffic.”</p>
+<div class="figure align-center">
+<img alt="New feature" src="../../_images/device_feature.png" />
+</div>
+<p>As time passed, a new <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> approached <code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code>, with a new, novel idea!
+“Testbed?”, it said. “I want to be applied to a Link.” <code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code> agreed, “What
+an excellent idea!” So <code class="xref py py-obj docutils literal notranslate"><span class="pre">Feature</span></code> applied itself to a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Link</span></code> knowing that the
+moment it would, all <code class="xref py py-obj docutils literal notranslate"><span class="pre">Interface</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code> within that <code class="xref py py-obj docutils literal notranslate"><span class="pre">Link</span></code> that would be
+able to clearly communicate.</p>
+<div class="figure align-center">
+<img alt="New feature" src="../../_images/device_feature_link.png" />
+</div>
+<p>Even though the ‘Device’s could communicate with one another, the script was
+still lonely, as he could not undersand what they were saying. Almost as if
+reading the script’s thoughts, another voice, from the crowd, excitedly said,
+“I can translate! I don’t want to brag, but, I’m actually a genius.” “Really?”
+The script asked, hesitant to believe that someone could, finally, help it.
+“You can help me?” “Of course I can”, the voice from the crowd answered. “I’m
+an <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> object, after all. I have the power to learn absolutely everything
+there is to know about a particular feature and convert it into a
+understandable structure. Once I do this, you will be able to undestand what
+each device is saying.”</p>
+<p>Quickly, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code> object got to work and within no time, the script could
+understand each ‘Device’. “Finally”, the script thought, “I’m not lonely
+anymore.”</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>As a part of the <a class="reference internal" href="../../abstract/index.html#abstract"><span class="std std-ref">abstraction</span></a> package, all of Genie’s objects,</dt><dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Testbed</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Interface</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Link</span></code> ,`Feature` and <code class="xref py py-obj docutils literal notranslate"><span class="pre">ops</span></code>, work
+internally, enabling the agnostic infrastructure based.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="arthur-the-sandwich-lover">
+<h2>Arthur: The Sandwich Lover<a class="headerlink" href="#arthur-the-sandwich-lover" title="Permalink to this headline">¶</a></h2>
+<p>Arthur, a simple man, leading a simple life, had a unique love for all types of
+sandwiches. To satisfy this love, Arthur began farming his own vegetables so
+that he could enjoy the freshest, most delicious, vegetables on his sandwiches.</p>
+<p>Each day, Arthur would work in his farm and he would harvest his vegetables so
+that he could make his sandwich.</p>
+<p>As time passed, Arthur discovered that the neighboring farms were growing
+vegetables too. Some of their vegetables were different from the vegetables
+Arthur grew. “Wouldn’t it be nice to add eggplant to my sandwich?” Arthur,
+thought. “But I can’t possibly farm anymore vegetables, it would be far too
+much work.”</p>
+<p>Arthur had an idea! He approached his farmer friend John; together, they
+devised a plan where John would open a restaurant that would only make
+sandwiches from the local farmers. All of the local farmers, including John,
+would bring their harvested vegetables to John’s restaurant at the end of each
+day. John would then make all different sorts of delicious sandwiches using the
+fresh vegetables from this pool of produce, and in return for their hard work,
+serve the farmers.</p>
+<p>Eventually, the farmers realized this model reduced their workload, increased
+production and variation of vegetables, and reduced duplication of vegetables
+between neighbors. Most importantly, the farmers were able to have more
+varieties of vegetables in their daily sandwich!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The moral of this story, is that the restaurant represents the <code class="docutils literal notranslate"><span class="pre">Genie</span></code>
+harness, the framework that brings various triggers and verifications to
+create a testscript.  When everyone contributes to this pool of
+triggers/verifications, larger selections of triggers/verifications will be
+available for the testing community.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="design.html" class="btn btn-neutral float-right" title="Fundamental" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

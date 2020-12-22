@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Core documentation &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API Documentation" href="../apidoc/index.html" />
+    <link rel="prev" title="Limitations" href="limitations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">CLI Auto-Parser</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../README.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tabular/index.html">Tabular parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nontabular/index.html">Non-Tabular parsing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Advanced</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="device.html">Parse using device output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mix.html">Parsing Both Tabular and Non-Tabular Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mix.html#putting-it-all-together">Putting It All Together</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mix.html#standalone-parsing">Standalone Parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="limitations.html">Limitations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Core documentation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#markup-syntax">Markup Syntax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../apidoc/index.html">API Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">CLI Auto-Parser</a> &raquo;</li>
+        
+          <li><a href="index.html">Advanced</a> &raquo;</li>
+        
+      <li>Core documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="core-documentation">
+<span id="core-markup"></span><h1>Core documentation<a class="headerlink" href="#core-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="markup-syntax">
+<h2>Markup Syntax<a class="headerlink" href="#markup-syntax" title="Permalink to this headline">¶</a></h2>
+<p>CLI output parsing rules may be specified using a marked-up text input that is
+divided into <code class="docutils literal notranslate"><span class="pre">OS</span></code> sections and then further subdivided into 3-5 sub-sections.
+By default, the supported <code class="docutils literal notranslate"><span class="pre">OS</span></code> values are :
+<code class="docutils literal notranslate"><span class="pre">IOX</span></code>, <code class="docutils literal notranslate"><span class="pre">IOS</span></code>, <code class="docutils literal notranslate"><span class="pre">NXOS</span></code> and <code class="docutils literal notranslate"><span class="pre">LINUX</span></code>.
+The supported sub-subsections are <code class="docutils literal notranslate"><span class="pre">CMD</span></code>, <code class="docutils literal notranslate"><span class="pre">SHOWCMD</span></code>, <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code>, <code class="docutils literal notranslate"><span class="pre">ACTUAL</span></code>
+and <code class="docutils literal notranslate"><span class="pre">MARKUP</span></code>. The <code class="docutils literal notranslate"><span class="pre">ACTUAL</span></code> subsection is optional and is used to simply
+store the unmarked up raw show output.</p>
+<p>An example of a simple marked-up file is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OS</span><span class="p">:</span> <span class="n">NXOS</span>
+<span class="n">CMD</span><span class="p">:</span> <span class="n">SHOW_MRIB_ROUTE</span>
+<span class="n">SHOWCMD</span><span class="p">:</span> <span class="n">show</span> <span class="n">ip</span> <span class="n">mroute</span>
+<span class="n">PREFIX</span><span class="p">:</span> <span class="n">mrib</span><span class="o">-</span><span class="n">route</span>
+<span class="n">ACTUAL</span><span class="p">:</span>
+
+<span class="p">(</span><span class="mf">13.13</span><span class="o">.</span><span class="mf">13.4</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="mf">232.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">32</span><span class="p">),</span> <span class="n">uptime</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span> <span class="n">igmp</span> <span class="n">pim</span> <span class="n">ip</span>
+  <span class="n">Incoming</span> <span class="n">interface</span><span class="p">:</span> <span class="n">Ethernet2</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="n">RPF</span> <span class="n">nbr</span><span class="p">:</span> <span class="mf">11.11</span><span class="o">.</span><span class="mf">11.2</span><span class="o">^</span><span class="n">M</span>
+  <span class="n">Outgoing</span> <span class="n">interface</span> <span class="nb">list</span><span class="p">:</span> <span class="p">(</span><span class="n">count</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="n">M</span>
+    <span class="n">Ethernet2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">uptime</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span> <span class="n">igmp</span><span class="o">^</span><span class="n">M</span>
+
+<span class="n">MARKUP</span><span class="p">:</span>
+<span class="p">(</span><span class="n">XP</span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="n">X13</span><span class="o">.</span><span class="mf">13.13</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="n">XP</span><span class="o">&lt;</span><span class="n">group</span><span class="o">&gt;</span><span class="n">X232</span><span class="o">.</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="mi">32</span><span class="p">),</span> <span class="n">uptime</span><span class="p">:</span> <span class="n">XT</span><span class="o">&lt;</span><span class="n">uptime</span><span class="o">&gt;</span><span class="n">X00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span>
+  <span class="n">XR</span><span class="o">&lt;</span><span class="n">protos</span><span class="o">&gt;</span><span class="n">Xigmp</span> <span class="n">pim</span> <span class="n">ip</span>
+  <span class="n">Incoming</span> <span class="n">interface</span><span class="p">:</span> <span class="n">XI</span><span class="o">&lt;</span><span class="n">ingress</span><span class="o">-</span><span class="n">intf</span><span class="o">&gt;</span><span class="n">XEthernet2</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="n">RPF</span> <span class="n">nbr</span><span class="p">:</span> <span class="n">XA</span><span class="o">&lt;</span><span class="n">rpf</span><span class="o">&gt;</span><span class="n">X11</span><span class="o">.</span><span class="mf">11.11</span><span class="o">.</span><span class="mi">2</span>
+  <span class="n">Outgoing</span> <span class="n">interface</span> <span class="nb">list</span><span class="p">:</span> <span class="p">(</span><span class="n">count</span><span class="p">:</span> <span class="n">XN</span><span class="o">&lt;</span><span class="n">egress</span><span class="o">-</span><span class="n">count</span><span class="o">&gt;</span><span class="n">X1</span><span class="p">)</span>
+    <span class="n">XI</span><span class="o">&lt;</span><span class="n">egress</span><span class="o">-</span><span class="n">intf</span><span class="o">&gt;</span><span class="n">XEthernet2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">uptime</span><span class="p">:</span> <span class="n">XT</span><span class="o">&lt;</span><span class="n">egress</span><span class="o">-</span><span class="n">uptime</span><span class="o">&gt;</span><span class="n">X00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span> <span class="n">XR</span><span class="o">&lt;</span><span class="n">egress</span><span class="o">-</span><span class="n">protos</span><span class="o">&gt;</span><span class="n">Xigmp</span>
+</pre></div>
+</div>
+<p>The above is used to tell <code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code> the details of how to go
+about parsing the <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">ip</span> <span class="pre">mroute</span></code> command on a NXOS router.</p>
+<div class="section" id="the-os-section">
+<span id="markup-os-section-index"></span><h3>The <code class="docutils literal notranslate"><span class="pre">OS</span></code> Section<a class="headerlink" href="#the-os-section" title="Permalink to this headline">¶</a></h3>
+<p>Multiple OS architectures are supported. The <code class="docutils literal notranslate"><span class="pre">OS</span></code> section tells
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code> which OS the following show commands (and their
+resulting <code class="xref py py-obj docutils literal notranslate"><span class="pre">regular</span> <span class="pre">expressions</span></code>) are for. The currently supported operating
+systems are <code class="docutils literal notranslate"><span class="pre">IOS</span></code>, <code class="docutils literal notranslate"><span class="pre">IOX</span></code>, <code class="docutils literal notranslate"><span class="pre">NXOS</span></code> and <code class="docutils literal notranslate"><span class="pre">LINUX</span></code>.</p>
+</div>
+<div class="section" id="the-cmd-sub-section">
+<span id="markup-cmd-section-index"></span><h3>The <code class="docutils literal notranslate"><span class="pre">CMD</span></code> Sub-Section<a class="headerlink" href="#the-cmd-sub-section" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">CMD</span></code> section is a single line that records the symbolic name for the
+show command, this name is passed to <code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code> so that it can
+look up the correct actual show command for the given <code class="docutils literal notranslate"><span class="pre">OS</span></code>. If this section
+is not specified then it will be created by uppercasing the <code class="docutils literal notranslate"><span class="pre">SHOWCMD</span></code> value
+and converting spaces and dashes to underscores.</p>
+</div>
+<div class="section" id="the-showcmd-sub-section">
+<span id="markup-showcmd-section-index"></span><h3>The <code class="docutils literal notranslate"><span class="pre">SHOWCMD</span></code> Sub-Section<a class="headerlink" href="#the-showcmd-sub-section" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">SHOWCMD</span></code> section is a single line that records the show command that
+generated the output that will follow.</p>
+</div>
+<div class="section" id="the-prefix-sub-section">
+<span id="markup-prefix-section-index"></span><h3>The <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> Sub-Section<a class="headerlink" href="#the-prefix-sub-section" title="Permalink to this headline">¶</a></h3>
+<p>The prefix section indicates the prefix that should be used to identify all
+regular expressions when accessing <code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code> parsing classes.</p>
+</div>
+<div class="section" id="the-actual-sub-section">
+<span id="markup-actual-section-index"></span><h3>The <code class="docutils literal notranslate"><span class="pre">ACTUAL</span></code> Sub-Section<a class="headerlink" href="#the-actual-sub-section" title="Permalink to this headline">¶</a></h3>
+<p>One typically copies and pastes the output from a show command into the
+<code class="docutils literal notranslate"><span class="pre">ACTUAL</span></code> section, which is simply a place to keep an unmodified copy of the
+show command output.</p>
+</div>
+<div class="section" id="the-markup-sub-section">
+<span id="markup-markup-section-index"></span><h3>The <code class="docutils literal notranslate"><span class="pre">MARKUP</span></code> Sub-Section<a class="headerlink" href="#the-markup-sub-section" title="Permalink to this headline">¶</a></h3>
+<p>One typically copies the <code class="docutils literal notranslate"><span class="pre">ACTUAL</span></code> output into the <code class="docutils literal notranslate"><span class="pre">MARKUP</span></code> section and then
+uses an <code class="docutils literal notranslate"><span class="pre">XxX</span></code> or <code class="docutils literal notranslate"><span class="pre">Xx&lt;name&gt;X</span></code> notation to tell <code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code> what type
+of value follows.  The markup notation allows for instructing
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code> what to name the value as well. If the name is omitted then
+<code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code> takes a guess as to the name by using text immediately before or after the value.  A warning is generated if duplicate names are detected.</p>
+<p>The following are the available values for <code class="docutils literal notranslate"><span class="pre">x</span></code> in the <code class="docutils literal notranslate"><span class="pre">XxX</span></code> notation:</p>
+<ul class="simple">
+<li><p>A - IPv4 or IPv6 address.</p></li>
+<li><p>B - Value terminated with a close brace, bracket, or parenthesis.</p></li>
+<li><p>C - Value terminated with a comma.</p></li>
+<li><p>F - Floating point number.</p></li>
+<li><p>H - Hexidecimal number.</p></li>
+<li><p>I - Interface name.</p></li>
+<li><p>M - Mac address.</p></li>
+<li><p>N - Decimal number.</p></li>
+<li><p>R - everything else to the newline.</p></li>
+<li><p>P - IPv4 or IPv6 prefix.</p></li>
+<li><p>Q - Value terminated by a double quote.</p></li>
+<li><p>S - Non-space value.</p></li>
+<li><p>T - Time (00:00:00)</p></li>
+<li><p>W - A word.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Additionally if one uses lower case rather than upper case for <code class="docutils literal notranslate"><span class="pre">x</span></code>
+then the value is matched with a regular expression but no tag is
+created.  This allows for specifying a single line multiple times in order
+to omit various values that may only optionally be present.</p>
+</div>
+<p>For example consider if the <code class="docutils literal notranslate"><span class="pre">uptime</span></code> and <code class="docutils literal notranslate"><span class="pre">protos</span></code> values were optional in
+the output from <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">ip</span> <span class="pre">mroute</span></code> on <code class="docutils literal notranslate"><span class="pre">NXOS</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">XP</span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="n">X13</span><span class="o">.</span><span class="mf">13.13</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="n">XP</span><span class="o">&lt;</span><span class="n">group</span><span class="o">&gt;</span><span class="n">X232</span><span class="o">.</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="mi">32</span><span class="p">)</span>
+<span class="p">(</span><span class="n">Xp</span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="n">X13</span><span class="o">.</span><span class="mf">13.13</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="n">Xp</span><span class="o">&lt;</span><span class="n">group</span><span class="o">&gt;</span><span class="n">X232</span><span class="o">.</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="mi">32</span><span class="p">),</span> <span class="n">uptime</span><span class="p">:</span> <span class="n">XT</span><span class="o">&lt;</span><span class="n">uptime</span><span class="o">&gt;</span><span class="n">X00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">43</span>
+<span class="p">(</span><span class="n">Xp</span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="n">X13</span><span class="o">.</span><span class="mf">13.13</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="n">Xp</span><span class="o">&lt;</span><span class="n">group</span><span class="o">&gt;</span><span class="n">X232</span><span class="o">.</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span><span class="o">/</span><span class="mi">32</span><span class="p">),</span> <span class="n">uptime</span><span class="p">:</span> <span class="n">Xt</span><span class="o">&lt;</span><span class="n">uptime</span><span class="o">&gt;</span><span class="n">X00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span>
+<span class="n">XR</span><span class="o">&lt;</span><span class="n">protos</span><span class="o">&gt;</span><span class="n">Xigmp</span> <span class="n">pim</span> <span class="n">ip</span>
+</pre></div>
+</div>
+<p>This generates the following dictionary output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;mrib-route.source&#39;</span><span class="p">:</span> <span class="s1">&#39;\(([A-Fa-f0-9/:\.]+),\s+[A-Fa-f0-9/:\.]+\)&#39;</span><span class="p">,</span>
+<span class="s1">&#39;mrib-route.group&#39;</span> <span class="p">:</span> <span class="s1">&#39;\([A-Fa-f0-9/:\.]+,\s+([A-Fa-f0-9/:\.]+)\)&#39;</span><span class="p">,</span>
+<span class="s1">&#39;mrib-route.uptime&#39;</span><span class="p">:</span> <span class="s1">&#39;\([A-Fa-f0-9/:\.]+,\s+[A-Fa-f0-9/:\.]+\),</span>
+  <span class="n">uptime</span><span class="p">:</span>\<span class="n">s</span><span class="o">+</span><span class="p">(</span>\<span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">}:</span>\<span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">}:</span>\<span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">})</span><span class="s1">&#39;,</span>
+<span class="s1">&#39;mrib-route.protos&#39;</span><span class="p">:</span> <span class="s1">&#39;\([A-Fa-f0-9/:\.]+,\s+[A-Fa-f0-9/:\.]+\),</span>
+  <span class="n">uptime</span><span class="p">:</span>\<span class="n">s</span><span class="o">+</span>\<span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">}:</span>\<span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">}:</span>\<span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span>\<span class="n">s</span><span class="o">+</span><span class="p">([</span><span class="o">^</span>\<span class="n">r</span>\<span class="n">n</span><span class="p">]</span><span class="o">+</span><span class="p">)</span><span class="s1">&#39;,</span>
+</pre></div>
+</div>
+<p>You can see above that <code class="docutils literal notranslate"><span class="pre">uptime</span></code> and <code class="docutils literal notranslate"><span class="pre">protos</span></code> are not present on the first
+and second lines because they do not need to be present for <code class="docutils literal notranslate"><span class="pre">source</span></code> or
+<code class="docutils literal notranslate"><span class="pre">group</span></code> to match.</p>
+<p>A second markup notation which allows for specifying the exact regex to parse
+the value is allowed for cases where none of the above predefined value types
+works. This notation takes the form <code class="docutils literal notranslate"><span class="pre">XXX&lt;regex&gt;XXX</span></code> or
+<code class="docutils literal notranslate"><span class="pre">XXX&lt;regex&gt;&lt;name&gt;XXX</span></code>. So using this notation in place of XSX would look like
+this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">XXX</span><span class="o">&lt;</span>\<span class="n">S</span><span class="o">+&gt;</span><span class="n">XXXsome</span><span class="o">-</span><span class="n">non</span><span class="o">-</span><span class="n">space</span><span class="o">-</span><span class="n">value</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">parse</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Manual regex specification via <code class="docutils literal notranslate"><span class="pre">XXX</span></code> does not support the use of the
+repetition operators {m} and {m, n}.</p>
+</div>
+<div class="section" id="parsing-example">
+<span id="core-example"></span><h4>Parsing Example<a class="headerlink" href="#parsing-example" title="Permalink to this headline">¶</a></h4>
+<p>The following example shows how a user can specify marked-up text, and then
+use <code class="xref py py-mod docutils literal notranslate"><span class="pre">core</span></code> to parse both tabular and non-tabular elements in
+a piece of show command output:</p>
+</div>
+</div>
+<div class="section" id="sample-parsing-script">
+<h3>Sample Parsing Script<a class="headerlink" href="#sample-parsing-script" title="Permalink to this headline">¶</a></h3>
+<p>The following script illustrates the parsing of show command output that
+contains both tabular and non-tabular content.  It also shows the automatic
+validation of non-tabular content.  Notice the use of a tuple in the
+<strong>values</strong> field to indicate multiple acceptable matches.  Notice also that
+in the cases where the user does not specify the field name, a name is
+automatically chosen based on surrounding text(<code class="docutils literal notranslate"><span class="pre">table-id</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bgp_summ_actual_output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">BGP router identifier 192.168.0.12, local AS number 100</span>
+<span class="s2">BGP generic scan interval 60 secs</span>
+<span class="s2">BGP table state: Active</span>
+<span class="s2">Table ID: 0xe0000000   RD version: 8</span>
+<span class="s2">BGP main routing table version 8</span>
+<span class="s2">BGP scan interval 60 secs</span>
+
+<span class="s2">BGP is operating in STANDALONE mode.</span>
+
+<span class="s2">Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer</span>
+<span class="s2">Speaker               8          8          8          8           8           8</span>
+
+<span class="s2">Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd</span>
+<span class="s2">50.1.0.2          0   100      63      55        8    0    0 00:51:24        100</span>
+<span class="s2">50.1.0.3          0   200      63      55        8    0    0 00:40:16        200</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">bgp_summ_marked_up_output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">OS: IOX</span>
+<span class="s2">CMD: BGP_SUMMARY</span>
+<span class="s2">SHOWCMD: show bgp summary</span>
+<span class="s2">PREFIX: bgp</span>
+
+<span class="s2">MARKUP:</span>
+
+<span class="s2">BGP router identifier XA&lt;router-id&gt;X192.168.0.12, local AS number XN&lt;local-as&gt;X100</span>
+<span class="s2">BGP generic scan interval XN&lt;gen-scan-interval&gt;X60 secs</span>
+<span class="s2">BGP table state: XW&lt;table-state&gt;XActive</span>
+<span class="s2">Table ID: XHX0xe0000000   RD version: 8</span>
+<span class="s2">BGP main routing table version 8</span>
+<span class="s2">BGP scan interval XN&lt;scan-interval&gt;X60 secs</span>
+
+<span class="s2">BGP is operating in XW&lt;oper-mode&gt;XSTANDALONE mode.</span>
+
+<span class="s2">Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer</span>
+<span class="s2">Speaker               8          8          8          8           8           8</span>
+
+<span class="s2">Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd</span>
+<span class="s2">50.1.0.2          0   100      63      55        8    0    0 00:51:24        100</span>
+<span class="s2">50.1.0.3          0   200      63      55        8    0    0 00:40:16        200</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1">#</span>
+<span class="c1"># Parse non-tabular data</span>
+<span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">genie.parsergen.core</span> <span class="kn">import</span> <span class="n">extend_markup</span>
+<span class="n">extend_markup</span><span class="p">(</span><span class="n">bgp_summ_marked_up_output</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">genie.parsergen.core</span> <span class="kn">import</span> <span class="n">_parser_gen_t</span>
+<span class="kn">from</span> <span class="nn">genie.parsergen</span> <span class="kn">import</span> <span class="n">core</span>
+<span class="n">parse_key</span> <span class="o">=</span> <span class="s1">&#39;rtr1&#39;</span>
+<span class="n">parsergen</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">text_to_parse</span><span class="p">[</span><span class="n">parse_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">bgp_summ_actual_output</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Parsing CLI show command output: ...&quot;</span><span class="p">)</span>
+<span class="n">tags_to_parse</span> <span class="o">=</span>     <span class="p">[</span>
+                     <span class="s1">&#39;bgp.local-as&#39;</span><span class="p">,</span>             <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span>
+                     <span class="s1">&#39;bgp.router-id&#39;</span><span class="p">,</span>            <span class="kc">None</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.gen-scan-interval&#39;</span><span class="p">,</span>    <span class="kc">None</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.table-state&#39;</span><span class="p">,</span>          <span class="kc">None</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.table-id&#39;</span><span class="p">,</span>             <span class="kc">None</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.scan-interval&#39;</span><span class="p">,</span>        <span class="kc">None</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.oper-mode&#39;</span><span class="p">,</span>            <span class="kc">None</span><span class="p">]</span>
+<span class="n">pg</span> <span class="o">=</span> <span class="n">_parser_gen_t</span><span class="p">(</span><span class="s1">&#39;IOX&#39;</span><span class="p">,</span> <span class="n">tags_to_parse</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">tags_to_parse</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">fill</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                   <span class="n">parse_key</span><span class="o">=</span><span class="n">parse_key</span><span class="p">)</span>
+<span class="p">(</span><span class="n">validate</span><span class="p">,</span> <span class="n">dictio</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">_parser_validate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;     Parser&#39;s fill report :</span><span class="se">\n</span><span class="s2">          validate=</span><span class="si">{}</span><span class="s2">,&quot;</span> <span class="o">+</span>
+      <span class="s2">&quot; </span><span class="se">\n</span><span class="s2">          dictio=</span><span class="si">{}</span><span class="s2">, </span><span class="se">\n</span><span class="s2">          msg=</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span>
+    <span class="nb">format</span><span class="p">(</span><span class="n">validate</span><span class="p">,</span> <span class="n">dictio</span><span class="p">,</span> <span class="n">msg</span><span class="p">))</span>
+<span class="n">parsed_output</span> <span class="o">=</span> <span class="n">parsergen</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ext_dictio</span><span class="p">[</span><span class="n">parse_key</span><span class="p">]</span>
+
+<span class="c1">#</span>
+<span class="c1"># Parse tabular data</span>
+<span class="c1">#</span>
+<span class="kn">from</span> <span class="nn">genie.parsergen.core</span> <span class="kn">import</span> <span class="n">column_table_result_core_t</span>
+<span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Neighbor&#39;</span><span class="p">,</span> <span class="s1">&#39;Spk&#39;</span><span class="p">,</span> <span class="s1">&#39;AS&#39;</span><span class="p">,</span> <span class="s1">&#39;MsgRcvd&#39;</span><span class="p">,</span> <span class="s1">&#39;MsgSent&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;TblVer&#39;</span><span class="p">,</span> <span class="s1">&#39;InQ&#39;</span><span class="p">,</span> <span class="s1">&#39;OutQ&#39;</span><span class="p">,</span> <span class="s1">&#39;Up/Down&#39;</span><span class="p">,</span> <span class="s1">&#39;St/PfxRcd&#39;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;neighbor&#39;</span><span class="p">,</span> <span class="s1">&#39;spk&#39;</span><span class="p">,</span> <span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;msg_rcvd&#39;</span><span class="p">,</span> <span class="s1">&#39;msg_sent&#39;</span> <span class="p">,</span>
+          <span class="s1">&#39;tbl_ver&#39;</span><span class="p">,</span> <span class="s1">&#39;in_q&#39;</span><span class="p">,</span> <span class="s1">&#39;out_q&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;prefixes&#39;</span><span class="p">]</span>
+<span class="n">tabular_parse_result</span> <span class="o">=</span> <span class="n">column_table_result_core_t</span><span class="p">(</span>
+                            <span class="n">header</span><span class="p">,</span> <span class="n">label_fields</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+                            <span class="n">right_justified</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parse_key</span><span class="o">=</span><span class="n">parse_key</span><span class="p">);</span>
+<span class="n">parsed_output</span><span class="p">[</span><span class="s1">&#39;bgp.neighbor-table&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabular_parse_result</span><span class="o">.</span><span class="n">entries</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;CLI parse results for combination tabular/non-tabular data:&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">parsed_output</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Testing COMPARE mode for non-tabular data: ...&quot;</span><span class="p">)</span>
+
+<span class="n">tags_to_parse</span> <span class="o">=</span>     <span class="p">[</span>
+                     <span class="s1">&#39;bgp.local-as&#39;</span><span class="p">,</span>             <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">),</span>
+                     <span class="s1">&#39;bgp.router-id&#39;</span><span class="p">,</span>            <span class="s1">&#39;192.168.0.12&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.gen-scan-interval&#39;</span><span class="p">,</span>    <span class="mi">60</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.table-state&#39;</span><span class="p">,</span>          <span class="s1">&#39;Active&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.table-id&#39;</span><span class="p">,</span>             <span class="s1">&#39;0xe0000000&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.scan-interval&#39;</span><span class="p">,</span>        <span class="mi">60</span><span class="p">,</span>
+                     <span class="s1">&#39;bgp.oper-mode&#39;</span><span class="p">,</span>            <span class="s1">&#39;STANDALONE&#39;</span><span class="p">]</span>
+<span class="n">pg</span> <span class="o">=</span> <span class="n">_parser_gen_t</span><span class="p">(</span><span class="s1">&#39;IOX&#39;</span><span class="p">,</span> <span class="n">tags_to_parse</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">tags_to_parse</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span>
+        <span class="n">fill</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">parse_key</span><span class="o">=</span><span class="n">parse_key</span><span class="p">)</span>
+<span class="p">(</span><span class="n">validate</span><span class="p">,</span> <span class="n">dictio</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">_parser_validate</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;     Expected parser output     :</span><span class="se">\n</span><span class="s2">      </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tags_to_parse</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;     Actual parser output       :</span><span class="se">\n</span><span class="s2">      </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">parsergen</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">ext_dictio</span><span class="p">[</span><span class="n">parse_key</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;     Parser&#39;s comparison report :</span><span class="se">\n</span><span class="s2">      validate=</span><span class="si">{}</span><span class="s2">,&quot;</span> <span class="o">+</span>
+    <span class="s2">&quot; </span><span class="se">\n</span><span class="s2">          dictio=</span><span class="si">{}</span><span class="s2">, </span><span class="se">\n</span><span class="s2">          msg=</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span>
+    <span class="nb">format</span><span class="p">(</span><span class="n">validate</span><span class="p">,</span> <span class="n">dictio</span><span class="p">,</span> <span class="n">msg</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-of-subclassing-with-the-tabular-parser">
+<span id="core-non-tabular-parser-subclass-example"></span><h3>Use of Subclassing with the Tabular Parser<a class="headerlink" href="#use-of-subclassing-with-the-tabular-parser" title="Permalink to this headline">¶</a></h3>
+<p>A subclass can define a class dictionary variable <code class="docutils literal notranslate"><span class="pre">field_mapping</span></code>
+whose keys are field names and whose value is the type of that
+field. When the results are parsed the value is cast to the given
+type.  Values can also take the form of a generic mapping function.</p>
+<p>A subclass can define a class list variable <code class="docutils literal notranslate"><span class="pre">table_title_mapping</span></code>
+which is a list of mapping functions for table title value keys.
+If specified, this list has an entry for each matching group present in
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">table_title_pattern</span></code>.</p>
+<p>A subclass can also override the function <code class="docutils literal notranslate"><span class="pre">cleanup_entry_field</span></code> to
+cleanup a field value prior to it being stored. This is called prior
+to the mapping being done.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sub-class</span> <span class="pre">Example</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.parsergen</span> <span class="kn">import</span> <span class="n">core</span>
+<span class="n">parse_key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">core</span><span class="o">.</span><span class="n">text_to_parse</span><span class="p">[</span><span class="n">parse_key</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">RP/0/0/CPU0:iox#show isis database</span>
+<span class="s1">Wed Dec 16 09:48:55.017 EST</span>
+
+<span class="s1">IS-IS ring (Level-1) Link State Database</span>
+<span class="s1">LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime  ATT/P/OL</span>
+<span class="s1">iox.00-00           * 0x00000008   0xf9fd        1003            0/0/0</span>
+<span class="s1">ioxbfd.00-00          0x00000004   0x8f36        862             0/0/0</span>
+
+<span class="s1">Total Level-1 LSP count: 4     Local Level-1 LSP count: 1</span>
+
+<span class="s1">IS-IS ring (Level-2) Link State Database</span>
+<span class="s1">LSPID                 LSP Seq Num  LSP Checksum  LSP Holdtime  ATT/P/OL</span>
+<span class="s1">iox.00-00           * 0x00000009   0x351a        1003            0/0/0</span>
+<span class="s1">iox.01-00             0x00000002   0x0ead        922             0/0/0</span>
+
+<span class="s1">Total Level-2 LSP count: 4     Local Level-2 LSP count: 1</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="k">def</span> <span class="nf">_hexint</span> <span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">cleanupLspId</span> <span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">field</span>
+
+<span class="kn">from</span> <span class="nn">core</span> <span class="kn">import</span> <span class="n">column_table_result_core_t</span>
+
+<span class="k">class</span> <span class="nc">my_isis_database_column_parser_t</span> <span class="p">(</span><span class="n">column_table_result_core_t</span><span class="p">):</span>
+    <span class="n">field_mapping</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;LSPID&#39;</span>       <span class="p">:</span>   <span class="nb">str</span><span class="p">,</span>
+        <span class="s1">&#39;LSP Seq Num&#39;</span> <span class="p">:</span>   <span class="n">_hexint</span><span class="p">,</span>
+        <span class="s1">&#39;LSP Checksum&#39;</span><span class="p">:</span>   <span class="n">_hexint</span><span class="p">,</span>
+        <span class="s1">&#39;LSP Holdtime&#39;</span><span class="p">:</span>   <span class="kc">None</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="n">table_title_mapping</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">int</span> <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;LSPID&quot;</span><span class="p">,</span> <span class="s2">&quot;LSP Seq Num&quot;</span><span class="p">,</span> <span class="s2">&quot;LSP Checksum&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LSP Holdtime&quot;</span><span class="p">,</span>  <span class="s2">&quot;ATT/P/OL&quot;</span><span class="p">]</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">headers</span>
+
+        <span class="n">column_table_result_core_t</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+         <span class="bp">self</span><span class="p">,</span>
+         <span class="n">headers</span><span class="p">,</span>
+         <span class="s2">&quot;Total Level-[12] LSP count:&quot;</span><span class="p">,</span>
+         <span class="n">table_title_pattern</span> <span class="o">=</span>
+         <span class="sa">r</span><span class="s2">&quot;IS-IS (?:[-\w]+ )?\(?Level-([12])\)? Link State Database:?&quot;</span><span class="p">,</span>
+         <span class="n">label_fields</span> <span class="o">=</span> <span class="n">labels</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">cleanup_entry_field</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">header</span> <span class="o">==</span> <span class="s2">&quot;LSPID&quot;</span><span class="p">:</span>
+            <span class="c1"># Strip the &quot;*&quot; off the LSPID for the router&#39;s own LSPID.</span>
+            <span class="k">return</span> <span class="n">cleanupLspId</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">field</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">my_isis_database_column_parser_t</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">&#39;iox.01-00&#39;</span><span class="p">][</span><span class="s1">&#39;LSP Holdtime&#39;</span><span class="p">])</span>
+<span class="mi">922</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../apidoc/index.html" class="btn btn-neutral float-right" title="API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="limitations.html" class="btn btn-neutral float-left" title="Limitations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

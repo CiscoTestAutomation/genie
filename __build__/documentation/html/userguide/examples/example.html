@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="VIRL" href="virl.html" />
+    <link rel="prev" title="Examples" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harness/index.html">Harness Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apis/index.html">API Guidelines and good practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">User Guide</a> &raquo;</li>
+        
+          <li><a href="index.html">Examples</a> &raquo;</li>
+        
+      <li>Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examples">
+<span id="example"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>The below 11 examples demonstrate the flow of <code class="docutils literal notranslate"><span class="pre">Genie</span></code> and how it can be used
+in testing different features and frameworks.</p>
+<p>Examples can be <a href="#id1"><span class="problematic" id="id2">cloned_</span></a> from: <code class="xref py py-obj docutils literal notranslate"><span class="pre">https://github.com/CiscoTestAutomation/examples/tree/master/libraries</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>If you are running examples as a devnet user, add the argument <code class="xref py py-obj docutils literal notranslate"><span class="pre">--html-logs</span></code>
+at the end of the run command and this will generate an HTML formatted,
+user-friendly run log file inside the job results folder.</p></li>
+<li><p>All Genie examples now don’t require real devices to run, thanks to the
+playback feature recently added by Genie team under Unicon.</p></li>
+<li><p>Each examples contains README.md file, which explain how to use the
+playback feature</p></li>
+</ul>
+</div>
+<p><strong>How to bring up Virtual testbed</strong></p>
+<p>All the below examples can be run on virtual devices. We will refer to the
+already brought up VIRL topology as <code class="xref py py-obj docutils literal notranslate"><span class="pre">virl.yaml</span></code>.</p>
+<p>You can bring up a virtual topology by following one of the below two options;</p>
+<p>1- Use Cisco DevNet Sandbox Remote labs;</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/CiscoDevNet/pyats-labs/blob/master/labs/intro-to-genie/1.md#prerequisites">Reserve a Multi-IOS Cisco Test Network Sandbox</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/CiscoDevNet/pyats-labs/blob/master/labs/intro-to-genie/2.md#step-2-launch-genie-virl-simulation">Launch Genie VIRL simulation</a>.</p></li>
+</ul>
+</div></blockquote>
+<p>2- Refer to <a class="reference internal" href="virl.html#virl"><span class="std std-ref">VIRL</span></a> for detailed steps to bring up VIRL topology.</p>
+<p><strong>Example 1</strong></p>
+<p>This example is an introduction to <code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie</span></code>.</p>
+<p>It does the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Connect to the devices defined in the testbed file.</p></li>
+<li><p>Execute a Sleep Trigger. Will sleep for 5 seconds.</p></li>
+<li><p>Terminate the run</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/harness_simple/
+
+pyats run job demo1_harness_simple_job.py --testbed-file virl.yaml
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full log can be accessed from here <a class="reference download internal" download="" href="../../_downloads/42479d3fbc0dd309f53aba1133fed358/TaskLog_demo1.html"><code class="xref download docutils literal notranslate"><span class="pre">TaskLog_demo1.html</span></code></a>.</p>
+</div>
+</div></blockquote>
+<p><strong>Example 2</strong></p>
+<p>This script demonstrates the Triggers and Verifications concept in Genie.
+Triggers and verifications are plug and play Testcase to create any combination
+of tests. It does the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Connect to the devices defined in the testbed file.</p></li>
+<li><p>Execute the first round of <code class="xref py py-obj docutils literal notranslate"><span class="pre">verifications</span></code>. These verifications take a snapshot
+of the state of these commands. Future round of verifications is compared with
+these initial snapshot.</p></li>
+<li><p>Execute the first trigger <code class="xref py py-obj docutils literal notranslate"><span class="pre">TriggerClearCountersInterfaceAll</span></code>.</p></li>
+<li><p>Execute the second round of verifications. Those are compared with the first round.</p></li>
+<li><p>Execute the second trigger <code class="xref py py-obj docutils literal notranslate"><span class="pre">TriggerShutNoShutBgpNeighbors</span></code>.</p></li>
+<li><p>Repeat until all triggers are executed.</p></li>
+<li><p>Terminate the run</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/harness_triggers/
+
+pyats run job demo2_harness_triggers_job.py --testbed-file virl.yaml
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full log can be accessed from here <a class="reference download internal" download="" href="../../_downloads/dc5f09450e4748d9d0a04d1007201b1a/TaskLog_demo2.html"><code class="xref download docutils literal notranslate"><span class="pre">TaskLog_demo2.html</span></code></a>.</p>
+</div>
+</div></blockquote>
+<p><strong>Example 3</strong></p>
+<p>This script demonstrates the Triggers and Verifications with Healthcheck.
+The Healthcheck is called <code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie</span> <span class="pre">Telemetry</span></code>. It allows to collect any kind of
+information in the execution, act on it and create a report at
+the end of the run. For example, verify if any core was created
+after each trigger, verify cpu usage, traceback, etc.</p>
+<p>It does the following:</p>
+<blockquote>
+<div><p>The execution flow will be the same as demo2_harness_triggers, with the
+following addition:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>At the end of CommonSetup, all Triggers and at the begining of CommonCleanup,
+it is verified if there is any core on the device and any traceback.</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/harness_telemetry/
+
+pyats run job demo3_harness_telemetry_job.py --testbed-file virl.yaml --genietelemetry telemetry.yaml
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full log can be accessed from here <a class="reference download internal" download="" href="../../_downloads/77473c727b18e75deb578aa22524eade/TaskLog_demo3.html"><code class="xref download docutils literal notranslate"><span class="pre">TaskLog_demo3.html</span></code></a>.</p>
+</div>
+</div></blockquote>
+<p><strong>Example 4</strong></p>
+<p>This script demonstrates how to add your own <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code> to execute with existing
+triggers. A trigger is a pyATS testcase which tests some specific action. Look
+inside the file <code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/examples/libraries/harness_custom_trigger/trigger.py</span></code>. Once created, the python path of the trigger must be added to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">$VIRTUAL_ENV/examples/libraries/harness_custom_trigger/trigger_datafile_demo.yaml</span></code>.  Lastly, the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">demo4_harness_custom_trigger_job.py</span></code> was modified to add the new trigger to the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">trigger_uids</span></code>.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/harness_custom_trigger/
+
+pyats run job demo4_harness_custom_trigger_job.py --testbed-file virl.yaml
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full log can be accessed from here <a class="reference download internal" download="" href="../../_downloads/b40a44b1bba830279919962d161e86cc/TaskLog_demo4.html"><code class="xref download docutils literal notranslate"><span class="pre">TaskLog_demo4.html</span></code></a>.</p>
+</div>
+</div></blockquote>
+<p><strong>Example 5</strong></p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">RobotFramework</span></code> is an opensource test automation framework which provides automation,
+without having to write code. It is <code class="xref py py-obj docutils literal notranslate"><span class="pre">Keyword</span></code> driven. Libraries provide
+Keywords to interact. <code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyATS</span></code> provide keywords, to execute
+Triggers and Testcases, parse commands, learn device features and many more. It also uses
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Operational</span></code> object, to verify if we have a right amount of Routes, up
+interfaces, etc.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>Make sure you have robotframework installed.</p></li>
+<li><p>Open the $VIRTUAL_ENV/examples/libraries/robot/demo5.robot file, and
+modify the testbed variable to point to your testbed file.</p></li>
+</ol>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/robot/
+
+robot demo5.robot
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Example 6</strong></p>
+<p>Genie uses Configuration and Operational objects to drive its configuration and
+operation state. The configuraiton object, <code class="xref py py-obj docutils literal notranslate"><span class="pre">conf</span></code>, are object that once some
+variable are set,  configuration is build and apply on the device. Those objects
+follow Models (IETF, OpenConfig, Cisco Native Models) to make them OS agnostic.</p>
+<p>It does the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Connect to a list of devices</p></li>
+<li><p>Retrieve the operational state for each device</p></li>
+<li><p>Apply Ospf configuration</p></li>
+<li><p>Retrieve the operational state for each device and compare with step 2</p></li>
+<li><p>Unconfig Ospf configuration</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/config_ops/
+
+python demo6_config_ops.py -testbed_file virl.yaml
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Example 7</strong></p>
+<p>This script demonstrates how to include any <code class="xref py py-obj docutils literal notranslate"><span class="pre">Genie</span></code> Triggers and Verifications
+within any existing <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyATS</span></code> script. Triggers and verifications are pyATS
+Testcase.</p>
+<p><a class="reference internal" href="../harness/user/pyats.html#pyats-harness"><span class="std std-ref">More details</span></a></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/trigger_within_pyats/
+
+pyats run job job/demo7_trigger_within_pyats_job.py --testbed-file virl.yaml
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full log can be accessed from here <a class="reference download internal" download="" href="../../_downloads/b27dcaf91e7a6b05a837143ebcaebe37/TaskLog_demo7.html"><code class="xref download docutils literal notranslate"><span class="pre">TaskLog_demo7.html</span></code></a>.</p>
+</div>
+</div></blockquote>
+<p><strong>Example 8</strong></p>
+<p>This script carries the knowledge of demo6. This time, it is uses within a
+pyATS script. This script is a pyATS scripts, which uses those objects to
+configuration and make sure the devices are configured correctly. This script
+works on all platform.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This scripts requires the device to not be configured, as the configuration
+is done by the script. Make sure you are using the unconfigured virl devices
+here <a class="reference download internal" download="" href="../../_downloads/8253d3189fb006680e25599ffbea652f/example_testbed_empty.virl"><code class="xref download docutils literal notranslate"><span class="pre">example_testbed_empty.virl</span></code></a>.</p>
+</div>
+</div></blockquote>
+<p>Here’s how to add them to any pyATS script:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Import the Trigger/Verification</p></li>
+<li><p>Create a class which inherits from this Triggers/Verification</p></li>
+<li><p>Add the decorator</p></li>
+<li><p>If its a verification, add an uid which is not used yet, and child variable like in the example.</p></li>
+<li><p>Add to the datafile information about this trigger. This information can be found in the Trigger datafile
+($VIRTUAL_ENV/genie_yamls/sdk/yaml/&lt;os&gt;/trigger_datafile_&lt;os&gt;.yaml)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/pyats_conf_ops/
+
+pyats run job job/demo8_pyats_conf_ops_job.py --testbed-file virl.yaml --datafile datafile.yaml
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Example 9</strong></p>
+<p>This script demonstrates how to compare show commands information between two
+contexts (cli/xml). It first sends a show command with cli, then do the same
+with xml, and compares the fields to make sure they are equal.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This scripts requires the device to not be configured, as the configuration
+is done by the script. Make sure you are using the unconfigured virl devices.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/context_comparator/
+
+pyats run job job/demo9_context_comparator_job.py --testbed-file virl.yaml
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Converting pyats objects to Genie objects should always happen before connection.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>convert</dt><dd><p>from genie import testbed
+testbed = testbed.load(testbed)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Get the device (below assumes device alias in yaml is uut)</dt><dd><p>uut = testbed.devices[‘uut’]</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Now connect</dt><dd><p>uut.connect()</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Overwrite the testbed parameters</dt><dd><p>self.parameters[‘testbed’] = testbed</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>The device under testing must have an alias <code class="xref py py-obj docutils literal notranslate"><span class="pre">uut</span></code> in the testbed yaml file.</p>
+<dl class="simple">
+<dt><em>Example*</em>:</dt><dd><dl class="simple">
+<dt>devices:</dt><dd><dl class="simple">
+<dt>R1:</dt><dd><p>alias: ‘uut’</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full log can be accessed from here <a class="reference download internal" download="" href="../../_downloads/8821552e71f54cef4ec217f6ba45e90c/TaskLog_demo9.html"><code class="xref download docutils literal notranslate"><span class="pre">TaskLog_demo9.html</span></code></a>.</p>
+</div>
+</div>
+<p><strong>Example 10</strong></p>
+<p>Example to demonstrates more Advanced functionality of Robot.</p>
+<p id="example-11"><strong>Example 11</strong></p>
+<p>This script demonstrate how to run multiple triggers and verifications within 1
+trigger; a Cluster trigger.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$VIRTUAL_ENV</span>/examples/libraries/harness_cluster/
+
+pyats run job demo11_harness_cluster_job.py --testbed-file virl.yaml --replay mock_device
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full log can be accessed from here <a class="reference download internal" download="" href="../../_downloads/00a89132834c87cc5faf9ef0f3021929/TaskLog_demo11.html"><code class="xref download docutils literal notranslate"><span class="pre">TaskLog_demo11.html</span></code></a>.</p>
+</div>
+</div></blockquote>
+<p><a class="reference internal" href="../harness/user/custom.html#genie-harness-cluster"><span class="std std-ref">More details</span></a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="virl.html" class="btn btn-neutral float-right" title="VIRL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Genie Learn &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/asciinema-player.js"></script>
+        <script src="../_static/tracker.js"></script>
+        <script src="../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Genie Diff" href="genie_diff.html" />
+    <link rel="prev" title="Genie Parse" href="genie_parse.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Genie Command Line</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="genie_parse.html">Genie Parse</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Genie Learn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#single-feature">Single Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-features">Multiple Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#all-features">All Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="genie_diff.html">Genie Diff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_run.html">Genie Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_shell.html">Genie Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_dnac.html">Genie DNAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_create.html">pyATS Create</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Genie Command Line</a> &raquo;</li>
+        
+      <li>Genie Learn</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="genie-learn">
+<span id="cli-learn"></span><h1>Genie Learn<a class="headerlink" href="#genie-learn" title="Permalink to this headline">¶</a></h1>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> is a powerful tool that can be extensively used to accomplish
+stateful network validation across multiple devices, with one linux command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> is used to represent the operational state of a <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> using
+Python datastructures. <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> works by to “learning” a <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code>
+configured on a <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code> by executing <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> directly from a linux
+terminal.</p>
+<p>For each <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code>, the operational information is collected by executing
+multiple show-commands, after which that output is parsed and stored into a
+Python datastructure.</p>
+<p>To see what functionality <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> offers, execute the following in your
+linux terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>genie<span class="o">)</span> bash-4.1$ genie learn --help
+Usage:
+  genie learn <span class="o">[</span>commands<span class="o">]</span> <span class="o">[</span>options<span class="o">]</span>
+
+Example
+-------
+  genie learn ospf --testbed-file /path/to/testbed.yaml
+  genie learn ospf --testbed-file /path/to/testbed.yaml --output features_snapshots/ --devices nxos-osv-1
+  genie learn ospf interface bgp platform --testbed-file /path/to/testbed.yaml --output features_snapshots/
+
+Description:
+  Learn device feature and parse into Python datastructures
+
+      List of available features: https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models
+
+Learn Options:
+  ops                   List of Feature to learn, comma separated, ospf,bgp
+  --testbed-file        TESTBED_FILE
+                        specify testbed_file yaml
+  --devices             DEVICE_1 DEVICE_2
+                        space separated, <span class="k">if</span> not provided it will learn on all
+                        devices <span class="o">(</span>Optional<span class="o">)</span>
+  --output OUTPUT       Which directory to store logs, by default it will be current directory
+                        <span class="o">(</span>Optional<span class="o">)</span>
+  --single-process      Learn one device at the <span class="nb">time</span> instead of in parallel <span class="o">(</span>Optional<span class="o">)</span>
+  --via <span class="o">[</span>VIA <span class="o">[</span>VIA ...<span class="o">]]</span>
+                        List of connection to use per device <span class="s2">&quot;nxos-1:ssh&quot;</span>
+
+General Options:
+  -h, --help            Show <span class="nb">help</span>
+  -v, --verbose         Give more output, additive up to <span class="m">3</span> times.
+  -q, --quiet           Give less output, additive up to <span class="m">3</span> times, corresponding to WARNING, ERROR,
+                        and CRITICAL logging levels
+</pre></div>
+</div>
+<p>The following is a complete list of of <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code>’s available to learn using
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code>: <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/models">Genie Models</a>. It also provides details on the
+Python datastructure that will be built with <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> for each feature.</p>
+<p>Refer to <span class="xref std std-ref">Genie Ops</span> for more information on how <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> works.</p>
+<div class="section" id="single-feature">
+<h2>Single Feature<a class="headerlink" href="#single-feature" title="Permalink to this headline">¶</a></h2>
+<p>The following is an example of how to learn one <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> (BGP) on the <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">uut</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>genie<span class="o">)</span> bash-4.1$ genie learn bgp --testbed-file /path/to/testbed.yaml --devices nx-osv-1
+
+Learning <span class="s1">&#39;[&#39;</span>bgp<span class="s1">&#39;]&#39;</span> on devices <span class="s1">&#39;[&#39;</span>uut<span class="s1">&#39;]&#39;</span>
+<span class="m">100</span>%<span class="p">|</span><span class="c1">############################################################| 1/1 [00:11&lt;00:00, 11.04s/it]</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span> Genie Learn Summary <span class="k">for</span> device nx-osv-1                                      <span class="p">|</span>
++<span class="o">==============================================================================</span>+
+<span class="p">|</span>  Connected to nx-osv-1                                                       <span class="p">|</span>
+<span class="p">|</span>  -   Log: ./connection_uut.txt                                               <span class="p">|</span>
+<span class="p">|</span>------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;bgp&#39;</span>                                                        <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  ./bgp_nxos_nx-osv-1_ops.txt                              <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: ./bgp_nxos_nx-osv-1_console.txt                          <span class="p">|</span>
+<span class="p">|</span><span class="o">==============================================================================</span><span class="p">|</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Default behaviour:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> will save all the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> objects that are built, into files</dt><dd><p>within the current directory of execution; unless argument ‘–output’
+specifying the directory is provided.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> will execute on all <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>’s within the <code class="xref py py-obj docutils literal notranslate"><span class="pre">testbed</span></code> YAML in</dt><dd><p><em>parallel</em>; unless argument ‘–single-process’ is provided. This will cause
+<code class="docutils literal notranslate"><span class="pre">Genie</span></code> to execute <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> <em>sequentially</em> on each <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<p>Similar to the <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">parse</span></code> mechanism, <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> generates 3 files:</p>
+<ol class="arabic simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon</span></code> telnet connection log</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code> console output (for all show commands executed in <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code>)</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> Python datastructure in JSON.</p></li>
+</ol>
+<p>The following is a snippet of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> Python datastructure (in JSON format)
+created by <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> for <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> BGP:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>genie<span class="o">)</span> bash-4.1$ more ./bgp_nxos_nx-osv-1_ops.txt
+<span class="o">{</span>
+  <span class="s2">&quot;attributes&quot;</span>: null,
+  <span class="s2">&quot;commands&quot;</span>: null,
+  <span class="s2">&quot;connections&quot;</span>: null,
+  <span class="s2">&quot;context_manager&quot;</span>: <span class="o">{}</span>,
+  <span class="s2">&quot;info&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;instance&quot;</span>: <span class="o">{</span>
+      <span class="s2">&quot;default&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;bgp_id&quot;</span>: <span class="m">100</span>,
+        <span class="s2">&quot;peer_policy&quot;</span>: <span class="o">{</span>
+          <span class="s2">&quot;PP-1&quot;</span>: <span class="o">{</span>
+            <span class="s2">&quot;send_community&quot;</span>: true,
+            <span class="s2">&quot;soft_reconfiguration&quot;</span>: <span class="nb">true</span>
+          <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="s2">&quot;peer_session&quot;</span>: <span class="o">{</span>
+          <span class="s2">&quot;PS-1&quot;</span>: <span class="o">{</span>
+            <span class="s2">&quot;disable_connected_check&quot;</span>: <span class="nb">true</span>
+          <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="s2">&quot;protocol_state&quot;</span>: <span class="s2">&quot;running&quot;</span>,
+        <span class="s2">&quot;vrf&quot;</span>: <span class="o">{</span>
+          <span class="s2">&quot;VRF1&quot;</span>: <span class="o">{</span>
+            <span class="s2">&quot;address_family&quot;</span>: <span class="o">{</span>
+              <span class="s2">&quot;ipv4 unicast&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;label_allocation_mode&quot;</span>: <span class="s2">&quot;per-vrf&quot;</span>,
+                <span class="s2">&quot;nexthop_trigger_delay_critical&quot;</span>: <span class="m">3000</span>,
+                <span class="s2">&quot;nexthop_trigger_delay_non_critical&quot;</span>: <span class="m">10000</span>,
+                <span class="s2">&quot;nexthop_trigger_enable&quot;</span>: <span class="nb">true</span>
+              <span class="o">}</span>,
+              <span class="s2">&quot;ipv6 unicast&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;label_allocation_mode&quot;</span>: <span class="s2">&quot;per-vrf&quot;</span>,
+                <span class="s2">&quot;nexthop_trigger_delay_critical&quot;</span>: <span class="m">3000</span>,
+                <span class="s2">&quot;nexthop_trigger_delay_non_critical&quot;</span>: <span class="m">10000</span>,
+                <span class="s2">&quot;nexthop_trigger_enable&quot;</span>: <span class="nb">true</span>
+              <span class="o">}</span>
+            <span class="o">}</span>,
+            <span class="s2">&quot;cluster_id&quot;</span>: <span class="s2">&quot;0.0.0.0&quot;</span>,
+            <span class="s2">&quot;confederation_identifier&quot;</span>: <span class="m">0</span>,
+            <span class="s2">&quot;neighbor&quot;</span>: <span class="o">{</span>
+              <span class="s2">&quot;55.1.1.101&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;address_family&quot;</span>: <span class="o">{</span>
+                  <span class="s2">&quot;ipv4 unicast&quot;</span>: <span class="o">{</span>
+                    <span class="s2">&quot;as_override&quot;</span>: true,
+                    <span class="s2">&quot;bgp_table_version&quot;</span>: <span class="m">2</span>,
+                    <span class="s2">&quot;session_state&quot;</span>: <span class="s2">&quot;idle&quot;</span>
+                  <span class="o">}</span>
+                <span class="o">}</span>,
+        ...
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> datastructure contains extensive information on the operational
+state of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code> on the <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>. Using <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> facilitates and
+expedites stateful network validation of all <code class="xref py py-obj docutils literal notranslate"><span class="pre">features</span></code> configured on all
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>’s in a network.</p>
+</div>
+<div class="section" id="multiple-features">
+<h2>Multiple Features<a class="headerlink" href="#multiple-features" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> also supports learning multiple <code class="xref py py-obj docutils literal notranslate"><span class="pre">features</span></code> on a multiple <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>’s
+in a <code class="xref py py-obj docutils literal notranslate"><span class="pre">testbed</span></code> as shown in the example below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>(genie) bash-4.1$ genie learn bgp ospf --testbed-file /path/to/testbed.yaml --output genie_learn
+
+Learning &#39;[&#39;bgp&#39;, &#39;ospf&#39;]&#39; on devices &#39;[&#39;nx-osv-1&#39;, &#39;csr1000v-1&#39;]
+100%|############################################################| 1/1 [00:27&lt;00:00, 27.60s/it]
+
++==============================================================================+
+| Genie Learn Summary for device nx-osv-1                                      |
++==============================================================================+
+|  Connected to nx-osv-1                                                       |
+|  -   Log: genie_learn/connection_nx-osv-1.txt                                |
+|------------------------------------------------------------------------------|
+|  Learnt feature &#39;bgp&#39;                                                        |
+|  -  Ops structure:  genie_learn/bgp_nxos_nx-osv-1_ops.txt                    |
+|  -  Device Console: genie_learn/bgp_nxos_nx-osv-1_console.txt                |
+|------------------------------------------------------------------------------|
+|  Learnt feature &#39;ospf&#39;                                                       |
+|  -  Ops structure:  genie_learn/ospf_nxos_nx-osv-1_ops.txt                   |
+|  -  Device Console: genie_learn/ospf_nxos_nx-osv-1_console.txt               |
+|==============================================================================|
+
++==============================================================================+
+| Genie Learn Summary for device csr1000v-1                                    |
++==============================================================================+
+|  Connected to csr1000v-1                                                     |
+|  -   Log: genie_learn/connection_csr1000v-1.txt                              |
+|------------------------------------------------------------------------------|
+|  Could not learn feature &#39;bgp&#39;                                               |
+|  -  Exception:      genie_learn/bgp_nxos_csr1000v-1_exception.txt            |
+|  -  Ops structure:  genie_learn/bgp_nxos_csr1000v-1_ops.txt                  |
+|  -  Device Console: genie_learn/bgp_nxos_csr1000v-1_console.txt              |
+|------------------------------------------------------------------------------|
+|  Learnt feature &#39;ospf&#39;                                                       |
+|  -  Ops structure:  genie_learn/ospf_nxos_csr1000v-1_ops.txt                 |
+|  -  Device Console: genie_learn/ospf_nxos_csr1000v-1_console.txt             |
+|==============================================================================|
+</pre></div>
+</div>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> creates a new directory with the name specified within ‘–output’
+argument. Within this directory, it creates the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> output for each <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code>
+on each <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>.</p>
+</div>
+<div class="section" id="all-features">
+<h2>All Features<a class="headerlink" href="#all-features" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> can also be used to learn <em>all</em> the features available within
+<code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code>.</p>
+<p>The following is a complete list of of <code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code>’s available to learn using
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code>: <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/models">Genie Models</a>. It also provides details on the
+Python datastructure that will be built with <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> for each feature.</p>
+<p>Here is an example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>genie<span class="o">)</span> bash-4.1$ genie learn all --testbed-file /path/to/testbed.yaml --devices nx-osv-1 --output genie_learn_all
+
+Learning <span class="s1">&#39;[&#39;</span>acl<span class="s1">&#39;, &#39;</span>bgp<span class="s1">&#39;, &#39;</span>dot1x<span class="s1">&#39;, &#39;</span>fdb<span class="s1">&#39;, &#39;</span>hsrp<span class="s1">&#39;, &#39;</span>igmp<span class="s1">&#39;, &#39;</span>interface<span class="s1">&#39;, &#39;</span>lag<span class="s1">&#39;, &#39;</span>lisp<span class="s1">&#39;, &#39;</span>lldp<span class="s1">&#39;, &#39;</span>mcast<span class="s1">&#39;, &#39;</span>mld<span class="s1">&#39;, &#39;</span>msdp<span class="s1">&#39;, &#39;</span>nd<span class="s1">&#39;, &#39;</span>ntp<span class="s1">&#39;, &#39;</span>ospf<span class="s1">&#39;, &#39;</span>pim<span class="s1">&#39;, &#39;</span>platform<span class="s1">&#39;, &#39;</span>prefix_list<span class="s1">&#39;, &#39;</span>route_policy<span class="s1">&#39;, &#39;</span>routing<span class="s1">&#39;, &#39;</span>static_routing<span class="s1">&#39;, &#39;</span>stp<span class="s1">&#39;, &#39;</span>vlan<span class="s1">&#39;, &#39;</span>vrf<span class="s1">&#39;, &#39;</span>vxlan<span class="s1">&#39;, &#39;</span>arp<span class="s1">&#39;]&#39;</span> on devices <span class="s1">&#39;[&#39;</span>uut<span class="s1">&#39;]&#39;</span>
+<span class="m">100</span>%<span class="p">|</span><span class="c1">##########################################################| 27/27 [01:49&lt;00:00,  3.94s/it]</span>
+
++<span class="o">=================================================================================</span>+
+<span class="p">|</span> Genie Learn Summary <span class="k">for</span> device nx-osv-1                                         <span class="p">|</span>
++<span class="o">=================================================================================</span>+
+<span class="p">|</span>  Connected to nx-osv-1                                                          <span class="p">|</span>
+<span class="p">|</span>  -   Log: genie_learn_all/connection_uut.txt                                    <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;acl&#39;</span>                                                  <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/acl_nxos_nx-osv-1_exception.txt             <span class="p">|</span>
+<span class="p">|</span>  -  Feature not yet developed <span class="k">for</span> this os                                       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;bgp&#39;</span>                                                           <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/bgp_nxos_nx-osv-1_ops.txt                   <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/bgp_nxos_nx-osv-1_console.txt               <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;dot1x&#39;</span>                                                <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/dot1x_nxos_nx-osv-1_exception.txt           <span class="p">|</span>
+<span class="p">|</span>  -  Feature not yet developed <span class="k">for</span> this os                                       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;fdb&#39;</span>                                                  <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/fdb_nxos_nx-osv-1_exception.txt             <span class="p">|</span>
+<span class="p">|</span>  -  Feature not yet developed <span class="k">for</span> this os                                       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;hsrp&#39;</span>                                                          <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/hsrp_nxos_nx-osv-1_ops.txt                  <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/hsrp_nxos_nx-osv-1_console.txt              <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;igmp&#39;</span>                                                          <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/igmp_nxos_nx-osv-1_ops.txt                  <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/igmp_nxos_nx-osv-1_console.txt              <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;interface&#39;</span>                                                     <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/interface_nxos_nx-osv-1_ops.txt             <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/interface_nxos_nx-osv-1_console.txt         <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;lag&#39;</span>                                                  <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/lag_nxos_nx-osv-1_exception.txt             <span class="p">|</span>
+<span class="p">|</span>  -  Feature not yet developed <span class="k">for</span> this os                                       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;lisp&#39;</span>                                                 <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/lisp_nxos_nx-osv-1_exception.txt            <span class="p">|</span>
+<span class="p">|</span>  -  Feature not yet developed <span class="k">for</span> this os                                       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;lldp&#39;</span>                                                 <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/lldp_nxos_nx-osv-1_exception.txt            <span class="p">|</span>
+<span class="p">|</span>  -  Feature not yet developed <span class="k">for</span> this os                                       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;mcast&#39;</span>                                                         <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/mcast_nxos_nx-osv-1_ops.txt                 <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/mcast_nxos_nx-osv-1_console.txt             <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;mld&#39;</span>                                                           <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/mld_nxos_nx-osv-1_ops.txt                   <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/mld_nxos_nx-osv-1_console.txt               <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;msdp&#39;</span>                                                          <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/msdp_nxos_nx-osv-1_ops.txt                  <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/msdp_nxos_nx-osv-1_console.txt              <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;nd&#39;</span>                                                            <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/nd_nxos_nx-osv-1_ops.txt                    <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/nd_nxos_nx-osv-1_console.txt                <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;ntp&#39;</span>                                                           <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/ntp_nxos_nx-osv-1_ops.txt                   <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/ntp_nxos_nx-osv-1_console.txt               <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;ospf&#39;</span>                                                          <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/ospf_nxos_nx-osv-1_ops.txt                  <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/ospf_nxos_nx-osv-1_console.txt              <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;pim&#39;</span>                                                           <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/pim_nxos_nx-osv-1_ops.txt                   <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/pim_nxos_nx-osv-1_console.txt               <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;platform&#39;</span>                                                      <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/platform_nxos_nx-osv-1_ops.txt              <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/platform_nxos_nx-osv-1_console.txt          <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;prefix_list&#39;</span>                                                   <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/prefix_list_nxos_nx-osv-1_ops.txt           <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/prefix_list_nxos_nx-osv-1_console.txt       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;route_policy&#39;</span>                                                  <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/route_policy_nxos_nx-osv-1_ops.txt          <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/route_policy_nxos_nx-osv-1_console.txt      <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;routing&#39;</span>                                                       <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/routing_nxos_nx-osv-1_ops.txt               <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/routing_nxos_nx-osv-1_console.txt           <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;static_routing&#39;</span>                                       <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/static_routing_nxos_nx-osv-1_exception.txt  <span class="p">|</span>
+<span class="p">|</span>  -  Feature not yet developed <span class="k">for</span> this os                                       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;stp&#39;</span>                                                  <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/stp_nxos_nx-osv-1_exception.txt             <span class="p">|</span>
+<span class="p">|</span>  -  Feature not yet developed <span class="k">for</span> this os                                       <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;vlan&#39;</span>                                                          <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/vlan_nxos_nx-osv-1_ops.txt                  <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/vlan_nxos_nx-osv-1_console.txt              <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;vrf&#39;</span>                                                           <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/vrf_nxos_nx-osv-1_ops.txt                   <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/vrf_nxos_nx-osv-1_console.txt               <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Could not learn feature <span class="s1">&#39;vxlan&#39;</span>                                                <span class="p">|</span>
+<span class="p">|</span>  -  Exception:      genie_learn_all/vxlan_nxos_nx-osv-1_exception.txt           <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/vxlan_nxos_nx-osv-1_ops.txt                 <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/vxlan_nxos_nx-osv-1_console.txt             <span class="p">|</span>
+<span class="p">|</span>---------------------------------------------------------------------------------<span class="p">|</span>
+<span class="p">|</span>  Learnt feature <span class="s1">&#39;arp&#39;</span>                                                           <span class="p">|</span>
+<span class="p">|</span>  -  Ops structure:  genie_learn_all/arp_nxos_nx-osv-1_ops.txt                   <span class="p">|</span>
+<span class="p">|</span>  -  Device Console: genie_learn_all/arp_nxos_nx-osv-1_console.txt               <span class="p">|</span>
+<span class="p">|</span><span class="o">=================================================================================</span><span class="p">|</span>
+</pre></div>
+</div>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> is well equipped with efficient error handling. In the event that
+the <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Ops</span></code> has not been developed for a certain <code class="xref py py-obj docutils literal notranslate"><span class="pre">OS</span></code> on a certain
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">feature</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> will print a proper error message displaying this to the
+user as seen in the exampe above:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|------------------------------------------------------------------------------|
+|  Could not learn feature &#39;lisp&#39;                                              |
+|  -  Exception:      genie_learn_all/lisp_nxos_nx-osv-1_exception.txt         |
+|  -  Feature not yet developed for this os                                    |
+|------------------------------------------------------------------------------|
+</pre></div>
+</div>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> is a powerful tool that can be extensively used for accomplish
+stateful network validation in a few simple steps</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="genie_diff.html" class="btn btn-neutral float-right" title="Genie Diff" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="genie_parse.html" class="btn btn-neutral float-left" title="Genie Parse" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

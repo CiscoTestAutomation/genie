@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Guidelines and good practices &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Useful Libraries" href="../utils/index.html" />
+    <link rel="prev" title="GenieTelemetry Guide" href="../genietelemetry/integration.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Conf/index.html">Conf Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ops/index.html">Ops Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../harness/index.html">Harness Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../robot/index.html">RobotFramework Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genietelemetry/integration.html">GenieTelemetry Guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API Guidelines and good practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-functions">Get functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-functions">Verify functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-functions">Configure functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arguments-good-practices">Arguments good practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docstring">Docstring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-and-configure-commands">Show and configure commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-timeout">Using timeout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-dictionaries">Accessing dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avoiding-name-conflicts">Avoiding name conflicts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calling-other-apis">Calling other APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../utils/index.html">Useful Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">User Guide</a> &raquo;</li>
+        
+      <li>API Guidelines and good practices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-guidelines-and-good-practices">
+<h1>API Guidelines and good practices<a class="headerlink" href="#api-guidelines-and-good-practices" title="Permalink to this headline">¶</a></h1>
+<p>Genie Apis comes with a guideline. This guideline is there to make the apis
+easy to use and consistent.</p>
+<p><a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/apis">Website with all existing apis</a></p>
+<p>All these apis are open-source. Ready for you to contribute!</p>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions are really useful when you need to do a task over and over. For
+example, if you want to get the Ip address of different interfaces in a
+device, you can create a function that does that for you:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_address</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;show ip interface brief </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;interface&#39;</span><span class="p">][</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>There you go, now every time you need the ip address of an interface you
+can re-use this function whenever you want. It would be nice if everyone
+could use this function when developing network automation and although you who
+created this function know what is its purpose, other Genie users may not.
+That’s why we should always write good self-explanatory names for
+functions. For example, a nice name for below function would be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_interface_ip_address</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;show ip interface brief </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;interface&#39;</span><span class="p">][</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Way better right</strong>? Now only reading the function name I have an idea what
+is the function purpose. Here are some recommendations when writing function
+names for Genie. In Genie we have three types of functions, get, verify
+and configure.</p>
+</div>
+<div class="section" id="get-functions">
+<h2>Get functions<a class="headerlink" href="#get-functions" title="Permalink to this headline">¶</a></h2>
+<p>A get function always returns values. These values may be a number, a
+string, or even a list. A get function starts with <code class="xref py py-obj docutils literal notranslate"><span class="pre">get_</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_netmask</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">get_mac</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>But those are bad ‘get’ function names because they don’t say anything
+about the function purpose. <strong>Good names</strong> would be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_interface_netmask</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">get_interface_mac_address</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verify-functions">
+<h2>Verify functions<a class="headerlink" href="#verify-functions" title="Permalink to this headline">¶</a></h2>
+<p>This function verifies a value on a configuration and returns True or
+False. A verify function starts with <code class="xref py py-obj docutils literal notranslate"><span class="pre">verify_</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">is_</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_in_running_config</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">verify_in_show_interfaces</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>But again, those are not nice names for functions because we don’t know
+exactly what they are doing. <strong>Good names</strong> for those would be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_interface_present_running_config</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">verify_interface_description_in_show_interfaces</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Also we can write functions to check if an output is as expected. For
+example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">verify_interface_status_in_state</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="c1"># Here we use keyword &#39;state&#39;</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">get_interface_status</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span>
+    <span class="c1"># State could be &#39;up&#39; or &#39;down&#39;</span>
+    <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">def</span> <span class="nf">verify_address_family_of_interface</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="n">expected_address_family</span><span class="p">):</span>
+    <span class="c1"># In this case we use keyword &#39;expected_&#39; for the address_family we are expecting</span>
+    <span class="n">address_family</span> <span class="o">=</span> <span class="n">get_address_family_of_interface</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">address_family</span> <span class="o">==</span> <span class="n">expected_address_family</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-functions">
+<h2>Configure functions<a class="headerlink" href="#configure-functions" title="Permalink to this headline">¶</a></h2>
+<p>A configure function applies a configuration to a device. Method name
+should describe what it is configuring. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">shutdown_interface</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">configure_vrf_on_interface</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<p>We’ve discussed on how to write meaningful function names and now every Genie
+user is using your functions. We also need consistent argument name; otherwise
+using different functions will get confusing.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_interface_ip_address</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;show ip interface brief </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;interface&#39;</span><span class="p">][</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>There you go, everytime Genie users want to use that function, they will
+know exactly which arguments to pass. When choosing arguments names,
+it’s a good practice to write names that everyone will know what is the
+purpose of an argument. Here are some suggestions for common argument
+names used in Genie:</p>
+<ul class="simple">
+<li><p>device: Device object. Always the first argument</p></li>
+<li><p>interface: Name of an interface. Ex: GigabitEthernet.1</p></li>
+<li><p>neighbor_interface: Neighbor interface name (in case function needs
+both interface and neighbor_interface)</p></li>
+<li><p>bgp_as: AS router number</p></li>
+<li><p>neighbor_as: AS router number of a neighbor (in case function needs
+both bgp_as and neighbor_as)</p></li>
+<li><p>uut_address: Address of unit under test</p></li>
+<li><p>neighbor_address: Address of a neighbor</p></li>
+<li><p>vrf: Name of a VRF</p></li>
+<li><p>vrf_neighbor: Name of a VRF of a neighbor (in case function needs both
+vrf and vrf_neighbor)</p></li>
+<li><p>address_family: Address family, such as ipv4 or ipv6</p></li>
+<li><p>address_family_neighbor: Address family of a neighbor(in case function
+needs both address_family and address_family_neighbor)</p></li>
+<li><p>ip_address: Any ip address, such as an interface address</p></li>
+<li><p>netmask: Netmask address</p></li>
+<li><p>mac_address: MAC address</p></li>
+<li><p>state: When checking is an output is in a state</p></li>
+<li><p>expected_ : For verify functions when we need to check if an output is
+as expected. Examples: (expected_vrf, expected_address_family)</p></li>
+</ul>
+</div>
+<div class="section" id="arguments-good-practices">
+<h2>Arguments good practices<a class="headerlink" href="#arguments-good-practices" title="Permalink to this headline">¶</a></h2>
+<p>It’s not a good practice and it’s not recommended to set default values
+like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">interfaces_list</span><span class="o">=</span><span class="p">[],</span> <span class="n">interfaces_dict</span><span class="o">=</span><span class="p">{})</span>
+</pre></div>
+</div>
+<p>Intead, we can default values as None and then check in function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">interfaces_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interfaces_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">interfaces_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">interfaces_list</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">interfaces_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">interfaces_dict</span><span class="o">=</span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>The reason is a new list/dict is created once when the function is
+defined, and the same list is used in each successive call, which can
+break everything.</p>
+</div>
+<div class="section" id="docstring">
+<h2>Docstring<a class="headerlink" href="#docstring" title="Permalink to this headline">¶</a></h2>
+<p>Now we know how to create nice names for functions and arguments. But what
+if I need to add an argument that is not in that list? How can we make
+use everyone will know what exactly value we should pass? The answer is
+docstring. <strong>A docstring describes the function and arguments purpose, what
+the function returns and exception it may raise</strong>. Docstring recommendation
+for Genis APIs follows the following structure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">...</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; What does this function do?</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            arg1 (&#39;type?&#39;): What is this argument for?</span>
+<span class="sd">            arg2 (&#39;type?&#39;): What about this one?</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Does it return a list? A number? A string?</span>
+<span class="sd">            list: What is this list?</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            Does this function raise an exception?</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p>That been said, let’s improve our ‘get_interface_ip_address’ to support
+docstring:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_interface_ip_address</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Get Ip address of an interface</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            device (&#39;obj&#39;): Device object</span>
+<span class="sd">            interface (&#39;str&#39;): Interface name</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Address of interface</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            N/A</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;show ip interface brief </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;interface&#39;</span><span class="p">][</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Beautiful right? Now it’s even easier to understand the purpose of our
+function and everyone can re-use your beautiful function.</p>
+<p>General good practices and recommendations</p>
+<p>When writing a new API it is recommended following these good practices
+for every function</p>
+</div>
+<div class="section" id="show-and-configure-commands">
+<h2>Show and configure commands<a class="headerlink" href="#show-and-configure-commands" title="Permalink to this headline">¶</a></h2>
+<p>It is highly encouraged to use keys and Python .format() for commands.
+Such as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;show ip interface brief </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+
+<span class="n">device</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;interface </span><span class="si">{interface}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                 <span class="s2">&quot;shutdown&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>When writing multi-lines commands, it is more readable if we break in
+multiple lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;command 1</span><span class="se">\n</span><span class="s1">command 2</span><span class="se">\n</span><span class="s1"> command 3&#39;</span><span class="p">)</span>
+
+<span class="n">device</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;command 1</span><span class="se">\n</span><span class="s1">&#39;</span>
+                 <span class="s1">&#39;command 2</span><span class="se">\n</span><span class="s1">&#39;</span>
+                 <span class="s1">&#39;command 3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Log messages We encourage the user to write log messages describing what
+is going on your function. That is useful when we need to check errors.
+You can use python ‘logging’ module. Let’s improve our function to use
+logs</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_interface_ip_address</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Get Ip address of an interface</span>
+<span class="sd">        Args:</span>
+<span class="sd">            device (&#39;obj&#39;): Device object</span>
+<span class="sd">            interface (&#39;str&#39;): Interface name</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Address of interface</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            N/A</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Getting ip address of interface </span><span class="si">{interface}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;show ip interface brief </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="n">ip_address</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;interface&#39;</span><span class="p">][</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Found IP address </span><span class="si">{ip_address}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ip_address</span><span class="o">=</span><span class="n">ip_address</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;interface&#39;</span><span class="p">][</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<p>Sometime our function will break and most of the time that happens because
+of exceptions. An exception is an error that happens during the
+execution of a program. When that error occurs, Python generates an
+exception that can be handled, which avoids your program to crash.</p>
+<p>When we are executing a parser command, most of the times it will raise
+SchemaEmptyParserError, so we need to ‘capture’ it and handle it. Let’s
+improve our function to handle exceptions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.metaparser.util.exceptions</span> <span class="kn">import</span> <span class="n">SchemaEmptyParserError</span>
+
+<span class="k">def</span> <span class="nf">get_interface_ip_address</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+<span class="sd">&#39;&#39;&#39; Get Ip address of an interface</span>
+<span class="sd">    Args:</span>
+<span class="sd">        device (&#39;obj&#39;): Device object</span>
+<span class="sd">        interface (&#39;str&#39;): Interface name</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Address of interface</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        N/A</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Getting ip address of interface </span><span class="si">{interface}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;show ip interface brief </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+<span class="k">except</span> <span class="n">SchemaEmptyParserError</span><span class="p">:</span>
+    <span class="c1"># If not output from the device, then its all good.</span>
+    <span class="c1"># No ip address</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Could not find IP address&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+<span class="n">ip_address</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;interface&#39;</span><span class="p">][</span><span class="n">interface</span><span class="p">][</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span>
+
+<span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Found IP address </span><span class="si">{ip_address}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ip_address</span><span class="o">=</span><span class="n">ip_address</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In ‘get_’ functions, when SchemaEmptyParserError is raised, we capture it
+and return a value. So for example, if the function was supposed to return
+a list, we return an empty list. If it was supposed to return a python
+dictionary, we return an empty dictionary and so forth so on.</p>
+<p>For configuring commands in ‘config’ functions it will usually raise a
+SubCommandFailure. In this case, we capture it and raise a
+SubCommandFailure with a message describing what happened. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicon.core.errors</span> <span class="kn">import</span> <span class="n">SubCommandFailure</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">device</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;interface </span><span class="si">{interface}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                      <span class="s2">&quot;shutdown&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+<span class="k">except</span> <span class="n">SubCommandFailure</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">SubCommandFailure</span><span class="p">(</span><span class="s1">&#39;Could not shutdown interface </span><span class="si">{interface}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>For verify functions, we can capture exceptions and return True/False. For
+example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicon.core.errors</span> <span class="kn">import</span> <span class="n">SubCommandFailure</span>
+
+<span class="k">def</span> <span class="nf">verify_interface_config_is_rejected</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">device</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;int </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="k">except</span> <span class="n">SubCommandFailure</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-timeout">
+<h2>Using timeout<a class="headerlink" href="#using-timeout" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes after a configure command, we want to check if the result is
+as expected, but these changes can take a couple of seconds or even
+minutes to happen. In this case, we suggest using genie Timeout class.
+Here is how we use it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.utils.timeout</span> <span class="kn">import</span> <span class="n">Timeout</span>
+
+<span class="c1"># Using function right after interface shutdown</span>
+<span class="k">def</span> <span class="nf">is_interface_down_state</span><span class="p">(</span><span class="n">interace</span><span class="p">,</span> <span class="n">max_time</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">check_interval</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">Timeout</span><span class="p">(</span><span class="n">max_time</span><span class="p">,</span> <span class="n">check_interval</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">timeout</span><span class="o">.</span><span class="n">iterate</span><span class="p">():</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">get_interface_state</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="n">timeout</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Here function will check every 15 seconds (check_interval) for 60 seconds
+(max_time) the state of the interface. It’s recommended to set default
+values for max_time and check_interval.</p>
+</div>
+<div class="section" id="accessing-dictionaries">
+<h2>Accessing dictionaries<a class="headerlink" href="#accessing-dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>It’s highly encouraged to use dict function ‘.get()’ when accessing python
+dictionaries fields. This avoids your function to break when a key is
+missing in the dictionary. Here is an example improving our
+get_interface_ip_address function”</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">genie.metaparser.util.exceptions</span> <span class="kn">import</span> <span class="n">SchemaEmptyParserError</span>
+
+<span class="k">def</span> <span class="nf">get_interface_ip_address</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">interface</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Get Ip address of an interface</span>
+<span class="sd">        Args:</span>
+<span class="sd">            device (&#39;obj&#39;): Device object</span>
+<span class="sd">            interface (&#39;str&#39;): Interface name</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Address of interface</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            N/A</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Getting ip address of interface </span><span class="si">{interface}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">dev</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;show ip interface brief </span><span class="si">{interface}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="n">interface</span><span class="p">))</span>
+    <span class="k">except</span> <span class="n">SchemaEmptyParserError</span><span class="p">:</span>
+        <span class="c1"># If not output from the device, then its all good.</span>
+        <span class="c1"># No ip address</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Could not find IP address&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="c1"># Here .get will get interface key. If dictionary does not have interface, it will return a empty dictionary</span>
+    <span class="n">ip_address</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;interface&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">interface</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ip_address&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Found IP address </span><span class="si">{ip_address}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ip_address</span><span class="o">=</span><span class="n">ip_address</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="avoiding-name-conflicts">
+<h2>Avoiding name conflicts<a class="headerlink" href="#avoiding-name-conflicts" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes when writing a function with a beautiful name, it is recommended
+to check if there is another function with that same name, even in other
+libs. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Conflict</span>
+<span class="kn">from</span> <span class="nn">vrf.retrieve</span> <span class="kn">import</span> <span class="n">get_something</span>
+<span class="kn">from</span> <span class="nn">bgp.retrieve</span> <span class="kn">import</span> <span class="n">get_something</span>
+</pre></div>
+</div>
+<p>By keeping your function name specific, this should not happen.</p>
+</div>
+<div class="section" id="calling-other-apis">
+<h2>Calling other APIs<a class="headerlink" href="#calling-other-apis" title="Permalink to this headline">¶</a></h2>
+<p>If you need to use another API within one you are writing it is
+highly encouraged to use only keyword arguments due to OS abstraction.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../utils/index.html" class="btn btn-neutral float-right" title="Useful Libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../genietelemetry/integration.html" class="btn btn-neutral float-left" title="GenieTelemetry Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

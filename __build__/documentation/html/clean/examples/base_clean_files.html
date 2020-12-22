@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Base Clean Files &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pyATS Health Check" href="../../health/index.html" />
+    <link rel="prev" title="Usage" href="../usage/usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">pyATS Clean</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/design.html">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage/usage.html">Usage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Base Clean Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sanity">Sanity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#developer">Developer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-user">External User</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">pyATS Clean</a> &raquo;</li>
+        
+      <li>Base Clean Files</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="base-clean-files">
+<span id="id1"></span><h1>Base Clean Files<a class="headerlink" href="#base-clean-files" title="Permalink to this headline">¶</a></h1>
+<p>Provided on the page are Base clean files for different
+scenarios that can be used and modified.</p>
+<p>Now that we know the basics, below are some base clean files that can be
+used and modified to your specifications. They are meant as the base
+building block.</p>
+<hr class="docutils" />
+<div class="section" id="sanity">
+<h2>Sanity<a class="headerlink" href="#sanity" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">Sanity</span></code> base clean file will:</p>
+<ol class="arabic simple">
+<li><p>Connect to the devices</p></li>
+<li><p>Copy image onto the device</p></li>
+<li><p>Set the boot variables to the new image</p></li>
+<li><p>Erase the NVRAM</p></li>
+<li><p>Reload the device</p></li>
+<li><p>Apply provided configuration</p></li>
+<li><p>Verify the running image</p></li>
+</ol>
+<p>All these steps are done in parallel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Users will have to replace ‘&lt;device&gt;’ and ‘&lt;image&gt;’ with their own information</p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cleaners</span><span class="p">:</span>
+  <span class="nt">DeviceClean</span><span class="p">:</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.clean</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;device&gt;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">devices</span><span class="p">:</span>
+  <span class="nt">&lt;device&gt;</span><span class="p">:</span>
+    <span class="nt">images</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;image&gt;</span>
+      <span class="c1"># Example:</span>
+      <span class="c1"># - /auto/my_image.bin</span>
+
+    <span class="nt">device_recovery</span><span class="p">:</span>
+      <span class="nt">break_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+      <span class="nt">console_activity_pattern</span><span class="p">:</span> <span class="s">&quot;\\.\\.\\.\\.&quot;</span>
+      <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
+      <span class="nt">recovery_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;pass&gt;</span>
+      <span class="nt">golden_image</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bootflash:/golden_image.bin</span>
+
+    <span class="nt">connect</span><span class="p">:</span>
+
+    <span class="nt">copy_to_linux</span><span class="p">:</span>
+      <span class="nt">destination</span><span class="p">:</span>
+        <span class="nt">directory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/temp/images</span>
+
+    <span class="nt">copy_to_device</span><span class="p">:</span>
+      <span class="nt">origin</span><span class="p">:</span>
+        <span class="nt">hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tftp</span>
+      <span class="nt">destination</span><span class="p">:</span>
+        <span class="nt">directory</span><span class="p">:</span> <span class="s">&#39;flash:/&#39;</span>
+      <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mgmt-vrf</span>
+      <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tftp</span>
+      <span class="nt">check_file_stability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+      <span class="nt">min_free_space_percent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+      <span class="nt">overwrite</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+
+    <span class="nt">change_boot_variable</span><span class="p">:</span>
+
+    <span class="nt">write_erase</span><span class="p">:</span>
+
+    <span class="nt">reload</span><span class="p">:</span>
+
+    <span class="nt">apply_configuration</span><span class="p">:</span>
+      <span class="nt">configuration</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">hostname router1</span>
+
+    <span class="nt">verify_running_image</span><span class="p">:</span>
+
+    <span class="nt">order</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;connect&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;copy_to_device&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;change_boot_variable&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;write_erase&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;reload&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;apply_configuration&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;verify_running_image&#39;</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="developer">
+<h2>Developer<a class="headerlink" href="#developer" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">Developer</span></code> base clean file will:</p>
+<ol class="arabic simple">
+<li><p>Connect to the device</p></li>
+<li><p>Copy an image to the device</p></li>
+<li><p>Set the boot variables to the new image</p></li>
+<li><p>Reload the device</p></li>
+<li><p>Verify the running image</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Users will have to replace ‘&lt;device&gt;’ and ‘&lt;image&gt;’ with their own information</p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cleaners</span><span class="p">:</span>
+  <span class="nt">DeviceClean</span><span class="p">:</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.clean</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;device&gt;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">devices</span><span class="p">:</span>
+  <span class="nt">&lt;device&gt;</span><span class="p">:</span>
+    <span class="nt">images</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;image&gt;</span>
+      <span class="c1"># Example:</span>
+      <span class="c1"># - /auto/my_image.bin</span>
+
+    <span class="nt">connect</span><span class="p">:</span>
+
+    <span class="nt">copy_to_device</span><span class="p">:</span>
+      <span class="nt">origin</span><span class="p">:</span>
+        <span class="nt">hostname</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tftp</span>
+      <span class="nt">destination</span><span class="p">:</span>
+        <span class="nt">directory</span><span class="p">:</span> <span class="s">&#39;flash:/&#39;</span>
+      <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Mgmt-vrf</span>
+      <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tftp</span>
+      <span class="nt">check_file_stability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+      <span class="nt">min_free_space_percent</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+      <span class="nt">overwrite</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+
+    <span class="nt">change_boot_variable</span><span class="p">:</span>
+
+    <span class="nt">reload</span><span class="p">:</span>
+
+    <span class="nt">verify_running_image</span><span class="p">:</span>
+
+    <span class="nt">order</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;connect&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;copy_to_device&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;change_boot_variable&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;reload&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;verify_running_image&#39;</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="external-user">
+<h2>External User<a class="headerlink" href="#external-user" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">External</span> <span class="pre">User</span></code> base clean file will:</p>
+<ol class="arabic simple">
+<li><p>Connect to the device</p></li>
+<li><p>Erase the NVRAM</p></li>
+<li><p>Apply provided configuration</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Users will have to replace ‘&lt;device&gt;’ and ‘&lt;image&gt;’ with their own information</p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cleaners</span><span class="p">:</span>
+  <span class="nt">DeviceClean</span><span class="p">:</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">genie.libs.clean</span>
+    <span class="nt">devices</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">&lt;device&gt;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">devices</span><span class="p">:</span>
+  <span class="nt">&lt;device&gt;</span><span class="p">:</span>
+    <span class="nt">images</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;image&gt;</span>
+      <span class="c1"># Example:</span>
+      <span class="c1"># - /auto/my_image.bin</span>
+
+    <span class="nt">connect</span><span class="p">:</span>
+
+    <span class="nt">write_erase</span><span class="p">:</span>
+
+    <span class="nt">apply_configuration</span><span class="p">:</span>
+      <span class="nt">configuration</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">hostname router1</span>
+
+    <span class="nt">order</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;connect&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;write_erase&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;apply_configuration&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../health/index.html" class="btn btn-neutral float-right" title="pyATS Health Check" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../usage/usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

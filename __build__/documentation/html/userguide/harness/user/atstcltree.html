@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Cisco ATS TCL Tree &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/asciinema-player.js"></script>
+        <script src="../../../_static/tracker.js"></script>
+        <script src="../../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installing Cisco ATS TCL Tree</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-cisco-ats-tcl-tree">
+<span id="atstcltree"></span><h1>Installing Cisco ATS TCL Tree<a class="headerlink" href="#installing-cisco-ats-tcl-tree" title="Permalink to this headline">¶</a></h1>
+<p>1. Follow the steps listed on this <a class="reference external" href="http://wwwin-ats.cisco.com/release_notes/5.3.0/ATS5.3.0.htm">wiki page</a> for installing
+a Cisco ATS TCL tree from scratch.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Follow steps for “TAR Ball Installation Steps”</p></li>
+<li><p>Under Tarball, follow steps for “Standalone Installation”</p></li>
+</ul>
+</div>
+<p>2. Follow the steps listed on this <a class="reference external" href="https://wiki.cisco.com/display/ATS/ATS-5.3.0-Component-Release-C3#ATS-5.3.0-Component-Release-C3-TarBallTreeUpgradeProcess">wiki page</a> for upgrading your
+newly installed Cisco ATS TCL tree to the C3 patch.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Follow steps for “Tar Ball Tree Upgrade Process”</p></li>
+</ul>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create symbolic links for the following:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$AUTOTEST</span>
+ln -s install/atsc.csh atsc.csh
+ln -s install/atsc.sh atsc.sh
+ln -s install/env.csh env.csh
+ln -s install/env.sh env.sh
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Get xBU-shared libraries:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$AUTOTEST</span>/lib
+cvs -d /auto/autons/CVSROOT co xBU-shared/pkgIndex.tcl
+cvs -d /auto/autons/CVSROOT co xBU-shared/caas-libs
+cvs -d /auto/autons/CVSROOT co xBU-shared/caas-pkgs
+cvs -d /auto/autons/CVSROOT co xBU-shared/ats-shared
+cvs -d /auto/autons/CVSROOT co xBU-shared/libs
+<span class="nb">cd</span> xBU-shared
+git clone asg-git-best@asg-git-host:/git/psat-ng.git
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Get cisco-shared libraries:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$AUTOTEST</span>
+cvs -d /auto/autons/CVSROOT co cisco-shared/
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Get ena-tests libraries:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$AUTOTEST</span>
+cvs -d /auto/autons/CVSROOT co  ena-tests/psat/psat_db_lib.tcl
+cvs -d /auto/autons/CVSROOT co  ena-tests/psat/psat_lib.tcl
+cvs -d /auto/autons/CVSROOT co  ena-tests/psat/psat_cfg.tcl
+cvs -d /auto/autons/CVSROOT co  ena-tests/psat/psat_tgn.tcl
+cvs -d /auto/autons/CVSROOT co  ena-tests/psat/psat_triggers.tcl
+cvs -d /auto/autons/CVSROOT co  ena-tests/psat/psat_verifications.tcl
+cvs -d /auto/autons/CVSROOT co  ena-tests/psat/psat_verifications_cfg.tcl
+cvs -d /auto/autons/CVSROOT co  ena-tests/psat/psat_xml_lib.tcl
+cvs -d /auto/autons/CVSROOT co  ena-tests/lib
+cvs -d /auto/autons/CVSROOT co  ena-tests/hfr-mpls/lib
+cvs -d /auto/autons/CVSROOT co  ena-tests/multicast/mrib
+cvs -d /auto/autons/CVSROOT co  ena-tests/multicast/lib
+cvs -d /auto/autons/CVSROOT co  ena-tests/template
+cvs -d /auto/autons/CVSROOT co  ena-tests/tools/instaGTO
+cvs -d /auto/autons/CVSROOT co  ena-tests/tools/mem-leak
+cvs -d /auto/autons/CVSROOT co  ena-tests/tools/mem-profile.lib
+cvs -d /auto/autons/CVSROOT co  ena-tests/tools/mem-profiler
+cvs -d /auto/autons/CVSROOT co  ena-tests/tools/TgnSsnLbl
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Get ngxr-tests libraries:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$AUTOTEST</span>
+cvs -d /auto/autons/CVSROOT co  ngxr-tests/lib
+<span class="nb">cd</span> <span class="nv">$AUTOTEST</span>/ats_easy
+ln -s ../ngxr-tests ngxr-tests
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Get regression libraries:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$AUTOTEST</span>
+cvs -d /auto/autons/CVSROOT co regression/lib/mid_range_routing/mrrUtils
+cvs -d /auto/autons/CVSROOT co regression/lib/contrib
+<span class="nb">cd</span> <span class="nv">$AUTOTEST</span>/local/lib
+ln -s ../../regression/lib/contrib/ contrib
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Get contrib libraries:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$AUTOTEST</span>
+cvs -d /auto/autons/CVSROOT co  contrib/pkgIndex.tcl
+cvs -d /auto/autons/CVSROOT co  contrib/tbmap
+cvs -d /auto/autons/CVSROOT co  contrib/common
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Get DC3 libraries:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$AUTOTEST</span>
+cvs -d /auto/autons/CVSROOT co  dc3/lib
+<span class="nb">cd</span> <span class="nv">$AUTOTEST</span>/lib
+ln -s ../dc3/lib dc3_utils
+
+<span class="c1"># Go to the pkgIndex file</span>
+<span class="nb">cd</span> <span class="nv">$AUTOTEST</span>/dc3/lib/
+vim pkgIndex.tcl
+
+<span class="c1"># Edit the pkgIndex of dc3_utils to remove/comment out the following lines:</span>
+<span class="c1"># package ifneeded AgtClient 1.1 [list source [file join $dir agilent AgilentN2X AgtClient.tcl]]</span>
+<span class="c1"># package ifneeded AgtCommon 0.1 [list source [file join $dir agilent AgilentN2X AgtCommon.tcl]]</span>
+<span class="c1"># package ifneeded AgtScriptControl 1.0 [list source [file join $dir agilent AgilentN2X AgtScriptControl.tcl]]</span>
+<span class="c1"># package ifneeded AtoTest 0.1 [list source [file join $dir agilent AgilentN2X AtoTest.tcl]]</span>
+<span class="c1"># package ifneeded AgtTsu 15.14 [list source [file join $dir agilent AgtTsu AgtTsuLib.tcl]]</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

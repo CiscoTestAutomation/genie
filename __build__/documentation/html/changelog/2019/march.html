@@ -1,0 +1,629 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>March 2019 &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="February 2019" href="february.html" />
+    <link rel="prev" title="April 2019" href="april.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Changelog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../2020/october.html">October 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2020/sept.html">September 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2020/august.html">August 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2020/july.html">July 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2020/june.html">June 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2020/may.html">May 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2020/april.html">April 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2020/february.html">February 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2020/january.html">January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="december.html">December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="november.html">November 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="october.html">October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="september.html">September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="august.html">August 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="july.html">July 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="june.html">June 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="may.html">May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="april.html">April 2019</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">March 2019</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#march-20th">March 20th</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#upgrade-instructions">Upgrade Instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#march-12th">March 12th</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Upgrade Instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#march-7th">March 7th</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Upgrade Instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#march-4th-genie-v19-0-0">March 4th- Genie v19.0.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Upgrade Instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="february.html">February 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="january.html">January 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2018/december.html">December 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2018/november.html">November 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2018/october.html">October 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2018/august.html">August 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2018/july.html">July 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2018/june.html">June 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2018/may.html">May 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2018/april.html">April 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2017/october.html">October 2017</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2017/august.html">August 2017</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2017/july.html">July 2017</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2017/may.html">May 2017</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2017/march.html">March 2017</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/december.html">December 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/november.html">November 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/july.html">July 2016</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2016/may.html">May 2016</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Changelog</a> &raquo;</li>
+        
+      <li>March 2019</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="march-2019">
+<h1>March 2019<a class="headerlink" href="#march-2019" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="march-20th">
+<h2>March 20th<a class="headerlink" href="#march-20th" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Versions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.harness</span></code></p></td>
+<td><p>19.0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.examples</span></code></p></td>
+<td><p>19.0.1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="upgrade-instructions">
+<h3>Upgrade Instructions<a class="headerlink" href="#upgrade-instructions" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade genie.harness genie.examples
+</pre></div>
+</div>
+</div>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<p><strong>Genie.Harness</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../userguide/harness/user/pyats.html#pyats-harness"><span class="std std-ref">New Mechanism to run trigger/verification within pyATS!</span></a></p></li>
+<li><p><a class="reference internal" href="../../userguide/harness/user/custom.html#genie-harness-cluster"><span class="std std-ref">New Custom Mixed trigger</span></a>. Allow to run multiple
+triggers and verifications within 1 trigger.</p></li>
+<li><p>Adding custom to the mapping datafile schema</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mapping:
+    cli: vty
+    custom:
+        active: a
+        standby: b
+</pre></div>
+</div>
+<p><strong>Genie.Examples</strong></p>
+<ul class="simple">
+<li><p>New demo11 on how to run a clsuter Trigger (multiple triggers and verifications within 1</p></li>
+</ul>
+<p>trigger)</p>
+</div>
+</div>
+<div class="section" id="march-12th">
+<h2>March 12th<a class="headerlink" href="#march-12th" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Versions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unicon</span></code></p></td>
+<td><p>19.0.1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h3>Upgrade Instructions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade unicon
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Features<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><strong>Unicon</strong></p>
+<ul class="simple">
+<li><p>Fix bug where prompt recovery was not applied on initial connection during init command execution.</p></li>
+<li><p>Fix bug to ensure protocol is not required in connection block when command key is specified.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="march-7th">
+<h2>March 7th<a class="headerlink" href="#march-7th" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Versions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.ops</span></code></p></td>
+<td><p>19.0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.telemetry</span></code></p></td>
+<td><p>19.0.1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.libs.parser</span></code></p></td>
+<td><p>19.0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.utils</span></code></p></td>
+<td><p>19.0.1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id3">
+<h3>Upgrade Instructions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade genie.ops genie.telemetry genie.libs.parser genie.utils
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Features<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><strong>Genie.Ops</strong></p>
+<ul class="simple">
+<li><p>Enhancement in <code class="xref py py-obj docutils literal notranslate"><span class="pre">async</span></code> call for py37 compatibility.</p></li>
+</ul>
+<p><strong>Genie.Telemetry</strong></p>
+<ul class="simple">
+<li><p>Enhancement in <code class="xref py py-obj docutils literal notranslate"><span class="pre">async</span></code> call for py37 compatibility.</p></li>
+</ul>
+<p><strong>Genie.Utils</strong></p>
+<ul class="simple">
+<li><p>Enhancement in <code class="xref py py-obj docutils literal notranslate"><span class="pre">re._pattern_type</span></code> call for py37 compatibility.</p></li>
+</ul>
+<p><strong>Genie.Libs.Parser</strong></p>
+<ul class="simple">
+<li><p>Changelog can be checked <a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genieparser/browse/changelog/2019/MARCH.md">here</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="march-4th-genie-v19-0-0">
+<h2>March 4th- Genie v19.0.0<a class="headerlink" href="#march-4th-genie-v19-0-0" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Versions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.abstract</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.conf</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.examples</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.harness</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.libs.conf</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.libs.filetransferutils</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.libs.ops</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.libs.parser</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.libs.robot</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.libs.sdk</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.libs.telemetry</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.metaparser</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.ops</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.parsergen</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.predcore</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.telemetry</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">genie.utils</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">genie.trafficgen</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unicon</span></code></p></td>
+<td><p>19.0.0</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id5">
+<h3>Upgrade Instructions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade genie genie.abstract genie.conf genie.examples genie.harness genie.libs.conf genie.libs.filetransferutils genie.libs.ops genie.libs.parser genie.libs.robot genie.libs.sdk genie.libs.telemetry genie.metaparser genie.ops genie.parsergen genie.predcore genie.telemetry genie.utils unicon genie.trafficgen
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Features<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>New package version following PEP 440 guidelines.</p></li>
+<li><p>New GettingStarted guide.</p></li>
+<li><p>Genie support for 3.7!</p></li>
+<li><p>CiscoLive Genie <a class="reference external" href="https://github.com/CiscoTestAutomation/CL-DevNet-2595">Workshop</a></p></li>
+<li><p>CiscoLive pyATS/Genie Ops &amp; Parsers <a class="reference external" href="https://github.com/RunSi/DEVWKS-2601">Workshop</a></p></li>
+</ul>
+<p><strong>Genie</strong></p>
+<ul class="simple">
+<li><p>Genie run</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie run --testbed-file /path/to/testbed.yaml <span class="se">\</span>
+  --trigger-uids<span class="o">=</span><span class="s2">&quot;And(&#39;TriggerShutNoShutBgp</span>$<span class="s2">&#39;)&quot;</span> <span class="se">\</span>
+  --verification-uids<span class="o">=</span><span class="s2">&quot;And(&#39;Verify_BgpProcessVrfAll</span>$<span class="s2">&#39;)&quot;</span> <span class="se">\</span>
+  --devices nxos-osv-1
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Genie parse</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie parse all --testbed-file /path/to/testbed.yaml --devices uut
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Genie learn</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie learn all --testbed-file /path/to/testbed.yaml --devices nx-osv-1 --output genie_learn_all
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Genie diff (Compare directories of learnt features in <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">parse</span></code>)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie diff dir1 dir2 --output diff1
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Genie shell (Open a Genie interactive shell)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie shell --testbed-file tb.yaml
+</pre></div>
+</div>
+<p><strong>Genie.Harness</strong></p>
+<ul class="simple">
+<li><p>Python Ixia Library <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genietrafficgen/html/">GenieTrafficGen</a></p></li>
+<li><p>Randomized triggers for more testing scenarios!</p></li>
+<li><p>Profile the System with the device show commands!</p></li>
+<li><p>Mapping data file is now optional.</p></li>
+</ul>
+<p><strong>Genie.Conf</strong></p>
+<ul class="simple">
+<li><p>Package version change following PEP 440 guidelines.</p></li>
+</ul>
+<p><strong>Genie.Examples</strong></p>
+<ul class="simple">
+<li><p>All Genie Examples are now runnable without need to the device.</p></li>
+<li><p>Changed name of all demos replay directories from Example_&lt;demo number&gt; to mock_device</p></li>
+</ul>
+<p><strong>Genie.Libs.Conf</strong></p>
+<ul class="simple">
+<li><p>Changelog can be checked <a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/pkgs/conf-pkg/changelog/2019/MARCH.md">here</a></p></li>
+</ul>
+<p><strong>Genie.Libs.Ops</strong></p>
+<ul class="simple">
+<li><p>Changelog can be checked <a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/pkgs/ops-pkg/changelog/2019/MARCH.md">here</a></p></li>
+</ul>
+<p><strong>Genie.Libs.Parser</strong></p>
+<ul class="simple">
+<li><p>New <code class="xref py py-obj docutils literal notranslate"><span class="pre">get_parser</span></code> feature for retrieving the parser class.</p></li>
+<li><p>Over 100 new IOS Parsers!</p></li>
+<li><p>Changelog can be checked <a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genieparser/browse/changelog/2019/MARCH.md">here</a></p></li>
+</ul>
+<p><strong>Genie.Libs.Robot</strong></p>
+<ul class="simple">
+<li><p>Changelog can be checked <a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/pkgs/robot-pkg/changelog/2019/MARCH.md">here</a></p></li>
+</ul>
+<p><strong>Genie.Libs.Sdk</strong></p>
+<ul class="simple">
+<li><p>Changelog can be checked <a class="reference external" href="https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/pkgs/sdk-pkg/changelog/2019/MARCH.md">here</a></p></li>
+</ul>
+<p><strong>Genie.Ops</strong></p>
+<ul class="simple">
+<li><p>Package version change following PEP 440 guidelines.</p></li>
+</ul>
+<p><strong>Genie.Utils</strong></p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Profile</span></code> new API for system profiling user passed features and compare at a later time.</p></li>
+</ul>
+<p><strong>Unicon</strong></p>
+<ul class="simple">
+<li><p>Playback, records all interaction with any device and can be replayed later!</p></li>
+<li><p>device.parse for directly calling over than 580 Genie parsers as below;</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">parsed_dictionary</span> <span class="o">=</span> device.parse<span class="o">(</span><span class="s1">&#39;show version&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>device.learn new feature calling Genie networking models;</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ops_dictionary</span> <span class="o">=</span> device.learn<span class="o">(</span>‘ospf’<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="february.html" class="btn btn-neutral float-right" title="February 2019" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="april.html" class="btn btn-neutral float-left" title="April 2019" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

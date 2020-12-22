@@ -1,0 +1,567 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>XML Parser Using ETree &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/asciinema-player.js"></script>
+        <script src="../../_static/tracker.js"></script>
+        <script src="../../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>XML Parser Using ETree</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="xml-parser-using-etree">
+<span id="xmletree"></span><h1>XML Parser Using ETree<a class="headerlink" href="#xml-parser-using-etree" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ShowBgpProcessVrfAllSchema</span><span class="p">(</span><span class="n">MetaParser</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;Schema for show bgp process vrf all&#39;&#39;&#39;</span>
+
+    <span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;bgp_pid&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;bgp_protocol_started_reason&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;bgp_performance_mode&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s1">&#39;bgp_tag&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s1">&#39;bgp_protocol_state&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;bgp_isolate_mode&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;bgp_mmode&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s1">&#39;bgp_memory_state&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;bgp_asformat&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;segment_routing_global_block&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s1">&#39;num_attr_entries&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;hwm_attr_entries&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;bytes_used&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;entries_pending_delete&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;hwm_entries_pending_delete&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;bgp_paths_per_hwm_attr&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;bgp_as_path_entries&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s1">&#39;bytes_used_as_path_entries&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;vrf&#39;</span><span class="p">):</span>
+            <span class="p">{</span><span class="n">Any</span><span class="p">():</span>
+                <span class="p">{</span><span class="s1">&#39;vrf_id&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="s1">&#39;vrf_state&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;router_id&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;conf_router_id&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;confed_id&#39;</span><span class="p">):</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;cluster_id&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="s1">&#39;num_conf_peers&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="s1">&#39;num_pending_conf_peers&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="s1">&#39;num_established_peers&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;vrf_rd&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;address_family&#39;</span><span class="p">):</span>
+                    <span class="p">{</span><span class="n">Any</span><span class="p">():</span>
+                        <span class="p">{</span><span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;table_id&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;table_state&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="s1">&#39;peers&#39;</span><span class="p">:</span>
+                            <span class="p">{</span><span class="n">Any</span><span class="p">():</span>
+                                <span class="p">{</span><span class="s1">&#39;active_peers&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                 <span class="s1">&#39;routes&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                 <span class="s1">&#39;paths&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                 <span class="s1">&#39;networks&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                 <span class="s1">&#39;aggregates&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                <span class="p">},</span>
+                            <span class="p">},</span>
+                         <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;redistribution&#39;</span><span class="p">):</span>
+                            <span class="p">{</span><span class="n">Any</span><span class="p">():</span>
+                                <span class="p">{</span><span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;route_map&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                                <span class="p">},</span>
+                            <span class="p">},</span>
+                         <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;export_rt_list&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;import_rt_list&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;label_mode&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;aggregate_label&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;route_reflector&#39;</span><span class="p">):</span> <span class="nb">bool</span><span class="p">,</span>
+                         <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;next_hop_trigger_delay&#39;</span><span class="p">):</span>
+                            <span class="p">{</span><span class="s1">&#39;critical&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                             <span class="s1">&#39;non_critical&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                            <span class="p">},</span>
+                        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;import_default_map&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;import_default_prefix_limit&#39;</span><span class="p">):</span> <span class="nb">int</span><span class="p">,</span>
+                        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;import_default_prefix_count&#39;</span><span class="p">):</span> <span class="nb">int</span><span class="p">,</span>
+                        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;export_default_map&#39;</span><span class="p">):</span> <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;export_default_prefix_limit&#39;</span><span class="p">):</span> <span class="nb">int</span><span class="p">,</span>
+                        <span class="n">Optional</span><span class="p">(</span><span class="s1">&#39;export_default_prefix_count&#39;</span><span class="p">):</span> <span class="nb">int</span><span class="p">,</span>
+                        <span class="p">},</span>
+                    <span class="p">},</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">ShowBgpProcessVrfAll</span><span class="p">(</span><span class="n">ShowBgpProcessVrfAllSchema</span><span class="p">):</span>
+
+    <span class="sd">&#39;&#39;&#39;Parser for show bgp process vrf all&#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;show bgp process vrf all | xml&#39;</span><span class="p">)</span>
+
+        <span class="n">etree_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;]]&gt;]]&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">output</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">show</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">bgp</span> <span class="ow">in</span> <span class="n">show</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">__XML__OPT_Cmd_show_ip_bgp_session_cmd_vrf</span> <span class="ow">in</span> <span class="n">bgp</span><span class="p">:</span>
+                            <span class="k">for</span> <span class="n">process</span> <span class="ow">in</span> <span class="n">__XML__OPT_Cmd_show_ip_bgp_session_cmd_vrf</span><span class="p">:</span>
+                                <span class="k">for</span> <span class="n">__XML__OPT_Cmd_show_bgp_process_cmd_vrf</span> <span class="ow">in</span> <span class="n">process</span><span class="p">:</span>
+                                    <span class="k">for</span> <span class="n">__XML__OPT_Cmd_show_bgp_process_cmd___readonly__</span> <span class="ow">in</span> <span class="n">__XML__OPT_Cmd_show_bgp_process_cmd_vrf</span><span class="p">:</span>
+                                        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">__XML__OPT_Cmd_show_bgp_process_cmd___readonly__</span><span class="p">:</span>
+                                            <span class="n">text</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">tag</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+                                            <span class="c1"># bgp_pid</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;processid&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_pid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                            <span class="c1"># bgp_protocol_started_reason</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;protocolstartedreason&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_protocol_started_reason&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                            <span class="c1"># bgp_tag</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;protocoltag&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_tag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                            <span class="c1"># bgp_protocol_state</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;protocolstate&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_protocol_state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                            <span class="c1"># bgp_isolate_mode</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;isolatemode&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_isolate_mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                            <span class="c1"># bgp_mmode</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;mmode&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_mmode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                            <span class="c1"># bgp_memory_state</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;memorystate&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_memory_state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                            <span class="c1"># bgp_performance_mode</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;forwardingstatesaved&#39;</span><span class="p">:</span>
+                                                <span class="n">state</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                                <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">:</span>
+                                                    <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_performance_mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;No&#39;</span>
+                                                <span class="k">else</span><span class="p">:</span>
+                                                    <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_performance_mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Yes&#39;</span>
+                                            <span class="c1"># bgp_asformat</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;asformat&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_asformat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;srgbmin&#39;</span><span class="p">:</span>
+                                                <span class="n">srgbin</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;srgbmax&#39;</span><span class="p">:</span>
+                                                <span class="n">srgmax</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">text</span>
+                                                <span class="k">try</span><span class="p">:</span>
+                                                    <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;segment_routing_global_block&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">srgbin</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">srgmax</span>
+                                                <span class="k">except</span><span class="p">:</span>
+                                                    <span class="k">pass</span>
+                                            <span class="c1"># num_attr_entries</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;attributeentries&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;num_attr_entries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                            <span class="c1"># hwm_attr_entries</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;hwmattributeentries&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;hwm_attr_entries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                            <span class="c1"># bytes_used</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;bytesused&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bytes_used&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                            <span class="c1"># entries_pending_delete</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;entriespendingdelete&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;entries_pending_delete&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                            <span class="c1"># hwm_entries_pending_delete</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;hwmentriespendingdelete&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;hwm_entries_pending_delete&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                            <span class="c1"># bgp_paths_per_hwm_attr</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;pathsperattribute&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_paths_per_hwm_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                            <span class="c1"># bgp_as_path_entries</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;aspathentries&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bgp_as_path_entries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                            <span class="c1"># bytes_used_as_path_entries</span>
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;aspathbytes&#39;</span><span class="p">:</span>
+                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;bytes_used_as_path_entries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+                                            <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;TABLE_vrf&#39;</span><span class="p">:</span>
+                                                <span class="k">for</span> <span class="n">table_vrf</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+                                                    <span class="k">for</span> <span class="n">row_vrf</span> <span class="ow">in</span> <span class="n">table_vrf</span><span class="p">:</span>
+                                                        <span class="n">vrf_tag</span> <span class="o">=</span> <span class="n">row_vrf</span><span class="o">.</span><span class="n">tag</span><span class="p">[</span><span class="n">row_vrf</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+
+                                                        <span class="c1"># vrf</span>
+                                                        <span class="c1">#   vrf_name</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-name-out&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_name</span> <span class="o">=</span> <span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span>
+                                                            <span class="k">if</span> <span class="s1">&#39;vrf&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">etree_dict</span><span class="p">:</span>
+                                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                            <span class="k">if</span> <span class="n">vrf_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">]:</span>
+                                                                <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">][</span><span class="n">vrf_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                                <span class="n">vrf_dict</span> <span class="o">=</span> <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">][</span><span class="n">vrf_name</span><span class="p">]</span>
+                                                        <span class="c1"># vrf_id</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-id&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;vrf_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span>
+                                                        <span class="c1"># vrf_state</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-state&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;vrf_state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span>
+                                                        <span class="c1"># router_id</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-router-id&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;router_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span>
+                                                        <span class="c1"># conf_router_id</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-cfgd-id&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;conf_router_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span>
+                                                        <span class="c1"># confed_id</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-confed-id&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;confed_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                        <span class="c1"># cluster_id</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-cluster-id&#39;</span><span class="p">:</span>
+                                                           <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;cluster_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span>
+                                                        <span class="c1"># num_conf_peers</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-peers&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;num_conf_peers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                        <span class="c1"># num_pending_conf_peers</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-pending-peers&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;num_pending_conf_peers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                        <span class="c1"># num_established_peers</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-est-peers&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;num_established_peers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                        <span class="c1"># vrf_rd</span>
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;vrf-rd&#39;</span><span class="p">:</span>
+                                                            <span class="n">vrf_dict</span><span class="p">[</span><span class="s1">&#39;vrf_rd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_vrf</span><span class="o">.</span><span class="n">text</span>
+
+                                                        <span class="k">if</span> <span class="n">vrf_tag</span> <span class="o">==</span> <span class="s1">&#39;TABLE_af&#39;</span><span class="p">:</span>
+                                                            <span class="k">for</span> <span class="n">table_af</span> <span class="ow">in</span> <span class="n">row_vrf</span><span class="p">:</span>
+                                                                <span class="k">for</span> <span class="n">row_af</span> <span class="ow">in</span> <span class="n">table_af</span><span class="p">:</span>
+                                                                    <span class="n">af_tag</span> <span class="o">=</span> <span class="n">row_af</span><span class="o">.</span><span class="n">tag</span><span class="p">[</span><span class="n">row_af</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+
+                                                                    <span class="c1"># address_family</span>
+                                                                    <span class="c1">#   address_family_name</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-name&#39;</span><span class="p">:</span>
+                                                                        <span class="n">address_family_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                                                                        <span class="k">if</span> <span class="s1">&#39;address_family&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">][</span><span class="n">vrf_name</span><span class="p">]:</span>
+                                                                            <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">][</span><span class="n">vrf_name</span><span class="p">][</span><span class="s1">&#39;address_family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                                        <span class="k">if</span> <span class="n">address_family_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">][</span><span class="n">vrf_name</span><span class="p">][</span><span class="s1">&#39;address_family&#39;</span><span class="p">]:</span>
+                                                                            <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">][</span><span class="n">vrf_name</span><span class="p">][</span><span class="s1">&#39;address_family&#39;</span><span class="p">][</span><span class="n">address_family_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                                            <span class="n">af_dict</span> <span class="o">=</span> <span class="n">etree_dict</span><span class="p">[</span><span class="s1">&#39;vrf&#39;</span><span class="p">][</span><span class="n">vrf_name</span><span class="p">][</span><span class="s1">&#39;address_family&#39;</span><span class="p">][</span><span class="n">address_family_name</span><span class="p">]</span>
+                                                                        <span class="c1"># Initialize empty lists</span>
+                                                                        <span class="n">export_rt_list</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                                                                        <span class="n">import_rt_list</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                                                                    <span class="c1"># table_id</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-table-id&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;table_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_af</span><span class="o">.</span><span class="n">text</span>
+                                                                    <span class="c1"># table_state</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-state&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;table_state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_af</span><span class="o">.</span><span class="n">text</span>
+                                                                    <span class="c1"># peers</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-num-peers&#39;</span><span class="p">:</span>
+                                                                        <span class="n">peers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                        <span class="k">if</span> <span class="s1">&#39;peers&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">af_dict</span><span class="p">:</span>
+                                                                            <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;peers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                                        <span class="k">if</span> <span class="n">peers</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;peers&#39;</span><span class="p">]:</span>
+                                                                            <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;peers&#39;</span><span class="p">][</span><span class="n">peers</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                                    <span class="c1"># active_peers</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-num-active-peers&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;peers&#39;</span><span class="p">][</span><span class="n">peers</span><span class="p">][</span><span class="s1">&#39;active_peers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># routes</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-peer-routes&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;peers&#39;</span><span class="p">][</span><span class="n">peers</span><span class="p">][</span><span class="s1">&#39;routes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># paths</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-peer-paths&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;peers&#39;</span><span class="p">][</span><span class="n">peers</span><span class="p">][</span><span class="s1">&#39;paths&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># networks</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-peer-networks&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;peers&#39;</span><span class="p">][</span><span class="n">peers</span><span class="p">][</span><span class="s1">&#39;networks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># aggregates</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-peer-aggregates&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;peers&#39;</span><span class="p">][</span><span class="n">peers</span><span class="p">][</span><span class="s1">&#39;aggregates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># route_reflector</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-rr&#39;</span><span class="p">:</span>
+                                                                        <span class="k">if</span> <span class="n">row_af</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">:</span>
+                                                                            <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;route_reflector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+                                                                        <span class="k">elif</span> <span class="n">row_af</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">:</span>
+                                                                            <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;route_reflector&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                                                                    <span class="c1"># next_hop_trigger_delay</span>
+                                                                    <span class="c1">#   critical</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;nexthop-trigger-delay-critical&#39;</span><span class="p">:</span>
+                                                                        <span class="k">if</span> <span class="s1">&#39;next_hop_trigger_delay&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">af_dict</span><span class="p">:</span>
+                                                                            <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;next_hop_trigger_delay&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;next_hop_trigger_delay&#39;</span><span class="p">][</span><span class="s1">&#39;critical&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># next_hop_trigger_delay</span>
+                                                                    <span class="c1">#   non_critical</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;nexthop-trigger-delay-non-critical&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;next_hop_trigger_delay&#39;</span><span class="p">][</span><span class="s1">&#39;non_critical&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># aggregate_label</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-aggregate-label&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;aggregate_label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_af</span><span class="o">.</span><span class="n">text</span>
+                                                                    <span class="c1"># label_mode</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;af-label-mode&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;label_mode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_af</span><span class="o">.</span><span class="n">text</span>
+                                                                    <span class="c1"># import_default_map</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;importdefault_map&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;import_default_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_af</span><span class="o">.</span><span class="n">text</span>
+                                                                    <span class="c1"># import_default_prefix_limit</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;importdefault_prefixlimit&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;import_default_prefix_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># import_default_prefix_count</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;importdefault_prefixcount&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;import_default_prefix_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># export_default_map</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;exportdefault_map&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;export_default_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_af</span><span class="o">.</span><span class="n">text</span>
+                                                                    <span class="c1"># export_default_prefix_limit</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;exportdefault_prefixlimit&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;export_default_prefix_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+                                                                    <span class="c1"># export_default_prefix_count</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;exportdefault_prefixcount&#39;</span><span class="p">:</span>
+                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;export_default_prefix_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_af</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+                                                                    <span class="c1"># TABLE_redist</span>
+                                                                    <span class="c1">#   ROW_redist</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;TABLE_redist&#39;</span><span class="p">:</span>
+                                                                        <span class="k">for</span> <span class="n">table_redist</span> <span class="ow">in</span> <span class="n">row_af</span><span class="p">:</span>
+                                                                            <span class="k">for</span> <span class="n">row_redist</span> <span class="ow">in</span> <span class="n">table_redist</span><span class="p">:</span>
+                                                                                <span class="n">row_redist_tag</span> <span class="o">=</span> <span class="n">row_redist</span><span class="o">.</span><span class="n">tag</span><span class="p">[</span><span class="n">row_redist</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+                                                                                <span class="c1"># protocol</span>
+                                                                                <span class="k">if</span> <span class="n">row_redist_tag</span> <span class="o">==</span> <span class="s1">&#39;protocol&#39;</span><span class="p">:</span>
+                                                                                    <span class="n">protocol</span> <span class="o">=</span> <span class="n">row_redist</span><span class="o">.</span><span class="n">text</span>
+                                                                                    <span class="k">if</span> <span class="s1">&#39;redistribution&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">af_dict</span><span class="p">:</span>
+                                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;redistribution&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                                                    <span class="k">if</span> <span class="n">protocol</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;redistribution&#39;</span><span class="p">]:</span>
+                                                                                        <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;redistribution&#39;</span><span class="p">][</span><span class="n">protocol</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                                                                                <span class="c1"># route_map</span>
+                                                                                <span class="k">if</span> <span class="n">row_redist_tag</span> <span class="o">==</span> <span class="s1">&#39;route-map&#39;</span><span class="p">:</span>
+                                                                                    <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;redistribution&#39;</span><span class="p">][</span><span class="n">protocol</span><span class="p">][</span><span class="s1">&#39;route_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row_redist</span><span class="o">.</span><span class="n">text</span>
+
+                                                                    <span class="c1"># TABLE_evpn_export_rt</span>
+                                                                    <span class="c1">#   ROW_evpn_export_rt</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;TABLE_evpn_export_rt&#39;</span><span class="p">:</span>
+                                                                        <span class="k">for</span> <span class="n">table_evpn_export</span> <span class="ow">in</span> <span class="n">row_af</span><span class="p">:</span>
+                                                                            <span class="k">for</span> <span class="n">row_export</span> <span class="ow">in</span> <span class="n">table_evpn_export</span><span class="p">:</span>
+                                                                                <span class="n">row_export_tag</span> <span class="o">=</span> <span class="n">row_export</span><span class="o">.</span><span class="n">tag</span><span class="p">[</span><span class="n">row_export</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+                                                                                <span class="c1"># export_rt_list</span>
+                                                                                <span class="k">if</span> <span class="n">row_export_tag</span> <span class="o">==</span> <span class="s1">&#39;evpn-export-rt&#39;</span><span class="p">:</span>
+                                                                                    <span class="n">export_rt_list</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">export_rt_list</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">row_export</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                                                                                    <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;export_rt_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">export_rt_list</span>
+                                                                    <span class="c1"># TABLE_evpn_import_rt</span>
+                                                                    <span class="c1">#   ROW_evpn_import_rt</span>
+                                                                    <span class="k">if</span> <span class="n">af_tag</span> <span class="o">==</span> <span class="s1">&#39;TABLE_evpn_import_rt&#39;</span><span class="p">:</span>
+                                                                        <span class="k">for</span> <span class="n">table_evpn_import</span> <span class="ow">in</span> <span class="n">row_af</span><span class="p">:</span>
+                                                                            <span class="k">for</span> <span class="n">row_import</span> <span class="ow">in</span> <span class="n">table_evpn_import</span><span class="p">:</span>
+                                                                                <span class="n">row_import_tag</span> <span class="o">=</span> <span class="n">row_import</span><span class="o">.</span><span class="n">tag</span><span class="p">[</span><span class="n">row_import</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+                                                                                <span class="c1"># export_rt_list</span>
+                                                                                <span class="k">if</span> <span class="n">row_import_tag</span> <span class="o">==</span> <span class="s1">&#39;evpn-import-rt&#39;</span><span class="p">:</span>
+                                                                                    <span class="n">import_rt_list</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">import_rt_list</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">row_import</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                                                                                    <span class="n">af_dict</span><span class="p">[</span><span class="s1">&#39;import_rt_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">import_rt_list</span>
+
+                                                                    <span class="c1"># parsed all tags</span>
+                                                                    <span class="k">continue</span>
+
+        <span class="k">return</span> <span class="n">etree_dict</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

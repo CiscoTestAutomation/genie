@@ -1,0 +1,724 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Docs &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/asciinema-player.js"></script>
+        <script src="../_static/tracker.js"></script>
+        <script src="../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Metaparsers" href="../metaparser/index.html" />
+    <link rel="prev" title="Conventions" href="conventions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Genie Command Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Library Abstraction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concept.html">Concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup_class.html">Lookup Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup_decorator.html">Lookup Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup_decorator.html#lookup-from-device-decorator">Lookup From Device Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API Docs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-genie.abstract.decorator">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-abstract">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Library Abstraction</a> &raquo;</li>
+        
+      <li>API Docs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-docs">
+<h1>API Docs<a class="headerlink" href="#api-docs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-genie.abstract.decorator">
+<span id="submodules"></span><h2>Submodules<a class="headerlink" href="#module-genie.abstract.decorator" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="genie.abstract.decorator.LookupDecorator">
+<em class="property">class </em><code class="sig-prename descclassname">genie.abstract.decorator.</code><code class="sig-name descname">LookupDecorator</code><span class="sig-paren">(</span><em class="sig-param">*attrs</em>, <em class="sig-param">builder=&lt;function default_builder&gt;</em>, <em class="sig-param">attr_getter=&lt;cyfunction default_token_getter&gt;</em>, <em class="sig-param">**builder_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.decorator.LookupDecorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is to be used as a decorator on class methods in abstracted
+packages. It allows dynamic class method references: eg, calling obj.b()
+first performs a lookup on the tokens, and if found, calls the class.b from
+the actual token matching.</p>
+<p>This class is built on the python descriptor mechanism.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This class functions based on the same principles as the AbstractPackage
+and Lookup() combination. However, instead of using declare_package()
+at the root of an abstraction package. this decorator treats the calling
+class’s module as the root of a new abstraction package, and goes from
+there.</p>
+</div>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<p>class MyClass(object):</p>
+<blockquote>
+<div><p>&#64;LookupDecorator(‘os’)
+def do_work(self):</p>
+<blockquote>
+<div><p>pass</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>list of str</strong><strong>)</strong> (<em>*attrs</em>) – </p></li>
+<li><p><strong>(</strong><strong>func</strong><strong>)</strong> (<em>attr_getter</em>) – </p></li>
+<li><p><strong>(</strong><strong>func</strong><strong>)</strong> – </p></li>
+<li><p><strong>(</strong><strong>kwargs</strong><strong>)</strong> (<em>**builder_kwargs</em>) – sequence builder.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="genie.abstract.decorator.LookupDecorator.from_device">
+<code class="sig-name descname">from_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.decorator.LookupDecorator.from_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>lookup_from_device</p>
+<p>The actual LookupDecorator.from_device decorator</p>
+<p>If decorator is called without arguments (no ()), the method would be the
+first argument. we need to manually call dunder __call__().</p>
+<p>If it is called with arguments, then we need to return the actual decorator
+that takes in the method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="genie.abstract.decorator.default_token_getter">
+<code class="sig-prename descclassname">genie.abstract.decorator.</code><code class="sig-name descname">default_token_getter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">attrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.decorator.default_token_getter" title="Permalink to this definition">¶</a></dt>
+<dd><p>default api to be used by the LookupDecorator in order to collect the
+provided attributes during runtime.</p>
+<p>This api first attempts to get obj.&lt;attr&gt;. If not found, attempts to collect
+from obj.device.&lt;attr&gt;, else raise error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>object</strong><strong>)</strong> (<em>obj</em>) – </p></li>
+<li><p><strong>(</strong><strong>list of strings</strong><strong>)</strong> (<em>attrs</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>collected attributes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="genie.abstract.decorator.from_device_token_getter">
+<code class="sig-prename descclassname">genie.abstract.decorator.</code><code class="sig-name descname">from_device_token_getter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">defaults</span><span class="o">=</span><span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.decorator.from_device_token_getter" title="Permalink to this definition">¶</a></dt>
+<dd><p>default api to be used by the LookupFromDeviceDecorator in order to collect
+the provided attributes during runtime.</p>
+<p>This api first attempts to get attributes from device.custom.abstraction.
+If not found, falls back to provided defaults.</p>
+<p>This api first attempts to get obj.&lt;attr&gt;. If not found, attempts to collect
+from obj.device.&lt;attr&gt;, else raise error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>object</strong><strong>)</strong> (<em>obj</em>) – </p></li>
+<li><p><strong>(</strong><strong>list of strings</strong><strong>)</strong> (<em>attrs</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>collected attributes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="genie.abstract.decorator.lookup_from_device">
+<code class="sig-prename descclassname">genie.abstract.decorator.</code><code class="sig-name descname">lookup_from_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.decorator.lookup_from_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actual LookupDecorator.from_device decorator</p>
+<p>If decorator is called without arguments (no ()), the method would be the
+first argument. we need to manually call dunder __call__().</p>
+<p>If it is called with arguments, then we need to return the actual decorator
+that takes in the method.</p>
+</dd></dl>
+
+<span class="target" id="module-genie.abstract.magic"></span><dl class="py function">
+<dt id="genie.abstract.magic.default_builder">
+<code class="sig-prename descclassname">genie.abstract.magic.</code><code class="sig-name descname">default_builder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">mandatory</span><span class="o">=</span><span class="default_value">()</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.magic.default_builder" title="Permalink to this definition">¶</a></dt>
+<dd><p>A token sequence builder takes in a mandatory list of ‘tokens’ as specified
+by the user, and any other keyword arguments necessary, and returns the
+abstraction lookup sequence by combining the tokens into appropriate lookup
+combinations.</p>
+<p>This default builder is a blend between usability and complexity, allowing
+for token dependencies and mandatory tokens.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>list</strong><strong>)</strong> (<em>tokens</em>) – down from Lookup() class.</p></li>
+<li><p><strong>(</strong><strong>iterable</strong><strong>)</strong> (<em>mandatory</em>) – they must appear in the lookup sequence.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of tuples</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">default_builder</span><span class="p">([</span><span class="s1">&#39;os&#39;</span><span class="p">,</span> <span class="s1">&#39;series&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;yang&#39;</span><span class="p">,</span> <span class="s1">&#39;release&#39;</span><span class="p">],</span>
+<span class="go">                    mandatory =[&#39;yang&#39;])</span>
+<span class="go">[(&#39;os&#39;, &#39;series&#39;, &#39;type&#39;, &#39;yang&#39;, &#39;release&#39;),</span>
+<span class="go"> (&#39;os&#39;, &#39;series&#39;, &#39;type&#39;, &#39;yang&#39;),</span>
+<span class="go"> (&#39;os&#39;, &#39;series&#39;, &#39;yang&#39;),</span>
+<span class="go"> (&#39;os&#39;, &#39;yang&#39;),</span>
+<span class="go"> (&#39;yang&#39;,)]</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="genie.abstract.magic.get_caller_stack_pkgs">
+<code class="sig-prename descclassname">genie.abstract.magic.</code><code class="sig-name descname">get_caller_stack_pkgs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stacklvl</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.magic.get_caller_stack_pkgs" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper function, returns a dictionary of names/abstraction module based on
+the caller’s stack frame.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">genie</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">mylib</span> <span class="k">as</span> <span class="nn">local_lib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_caller_stack_pkgs</span><span class="p">()</span>
+<span class="go">{&#39;genie&#39;: &lt;module genie...&gt;,</span>
+<span class="go"> &#39;local_lib&#39;: &lt;module mylib...&gt;,}</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="genie.abstract.magic.DEFAULT_BUILDER">
+<code class="sig-prename descclassname">genie.abstract.magic.</code><code class="sig-name descname">DEFAULT_BUILDER</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">mandatory</span><span class="o">=</span><span class="default_value">()</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.magic.DEFAULT_BUILDER" title="Permalink to this definition">¶</a></dt>
+<dd><p>default_builder</p>
+<p>A token sequence builder takes in a mandatory list of ‘tokens’ as specified
+by the user, and any other keyword arguments necessary, and returns the
+abstraction lookup sequence by combining the tokens into appropriate lookup
+combinations.</p>
+<p>This default builder is a blend between usability and complexity, allowing
+for token dependencies and mandatory tokens.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>list</strong><strong>)</strong> (<em>tokens</em>) – down from Lookup() class.</p></li>
+<li><p><strong>(</strong><strong>iterable</strong><strong>)</strong> (<em>mandatory</em>) – they must appear in the lookup sequence.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of tuples</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">default_builder</span><span class="p">([</span><span class="s1">&#39;os&#39;</span><span class="p">,</span> <span class="s1">&#39;series&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;yang&#39;</span><span class="p">,</span> <span class="s1">&#39;release&#39;</span><span class="p">],</span>
+<span class="go">                    mandatory =[&#39;yang&#39;])</span>
+<span class="go">[(&#39;os&#39;, &#39;series&#39;, &#39;type&#39;, &#39;yang&#39;, &#39;release&#39;),</span>
+<span class="go"> (&#39;os&#39;, &#39;series&#39;, &#39;type&#39;, &#39;yang&#39;),</span>
+<span class="go"> (&#39;os&#39;, &#39;series&#39;, &#39;yang&#39;),</span>
+<span class="go"> (&#39;os&#39;, &#39;yang&#39;),</span>
+<span class="go"> (&#39;yang&#39;,)]</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt id="genie.abstract.magic.Lookup">
+<em class="property">class </em><code class="sig-prename descclassname">genie.abstract.magic.</code><code class="sig-name descname">Lookup</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">tokens</span></em>, <em class="sig-param"><span class="n">builder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">packages</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">builder_kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.magic.Lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>When instanciated with a set of “token requirements”, the lookup object
+allows users to dynamically reference libraries (abstraction packages).</p>
+<p>The concept is akin to dynamic imports. As opposed to</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">genie.nxos</span> <span class="kn">import</span> <span class="n">Ospf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">local_lib.nxos.titanium</span> <span class="kn">import</span> <span class="n">Blah</span>
+</pre></div>
+</div>
+<p>lookup allows the user to simply do:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">genie</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">local_lib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">Lookup</span><span class="p">(</span><span class="s1">&#39;nxos&#39;</span><span class="p">,</span> <span class="s1">&#39;titanium&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">Ospf</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">Blah</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>where the actual import based on the given tokens will be sorted out for
+the user dynamically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>list of str</strong><strong>)</strong> (<em>*tokens</em>) – </p></li>
+<li><p><strong>(</strong><strong>func</strong><strong>)</strong> (<em>builder</em>) – </p></li>
+<li><p><strong>(</strong><strong>dict</strong><strong>)</strong> (<em>packages</em>) – if not provided, the caller’s stack is looked up for
+all available abstraction packages.</p></li>
+<li><p><strong>(</strong><strong>kwargs</strong><strong>)</strong> (<em>**builder_kwargs</em>) – sequence builder.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">my_abstracted_lib</span> <span class="k">as</span> <span class="nn">lib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">Lookup</span><span class="p">(</span><span class="s1">&#39;nxos&#39;</span><span class="p">,</span> <span class="s1">&#39;titanium&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">module_a</span><span class="o">.</span><span class="n">module_b</span><span class="o">.</span><span class="n">MyClass</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<dl class="py method">
+<dt id="genie.abstract.magic.Lookup.from_device">
+<em class="property">classmethod </em><code class="sig-name descname">from_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">device</span></em>, <em class="sig-param"><span class="n">packages</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">default_tokens</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.magic.Lookup.from_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates an abstraction Lookup object by getting the token arguments from
+a pyATS device objects.</p>
+<p>This api expects the device object to have an “abstraction” dictionary
+under ‘custom’ attribute. Eg:</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<dl class="simple">
+<dt>devices:</dt><dd><dl class="simple">
+<dt>my-device:</dt><dd><dl class="simple">
+<dt>custom:</dt><dd><dl class="simple">
+<dt>abstraction:</dt><dd><p>order: [os, serie, context]
+os: nxos
+serie: n7k
+context: yang</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>Device</strong><strong>)</strong> (<em>device</em>) – </p></li>
+<li><p><strong>(</strong><strong>func</strong><strong>)</strong> (<em>builder</em>) – </p></li>
+<li><p><strong>(</strong><strong>dict</strong><strong>)</strong> (<em>packages</em>) – if not provided, the caller’s stack is looked up
+for all available abstraction packages.</p></li>
+<li><p><strong>(</strong><strong>list</strong><strong>)</strong> (<em>default_tokens</em>) – from device.</p></li>
+<li><p><strong>(</strong><strong>kwargs</strong><strong>)</strong> (<em>**builder_kwargs</em>) – sequence builder.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="genie.abstract.magic.AbstractedModule">
+<em class="property">class </em><code class="sig-prename descclassname">genie.abstract.magic.</code><code class="sig-name descname">AbstractedModule</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">package</span></em>, <em class="sig-param"><span class="n">sequence</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.magic.AbstractedModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Internal class, part-two of lookup mechanism. This class is instanciated
+each time a successful package reference (through Lookup class instances)
+is done, and tracks internally user’s attribute chain, used as part of the
+lookup process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>AbstractPackage</strong><strong>)</strong> (<em>package</em>) – </p></li>
+<li><p><strong>(</strong><strong>list</strong><strong>)</strong> (<em>sequence</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-genie.abstract.package"></span><dl class="py class">
+<dt id="genie.abstract.package.AbstractPackage">
+<em class="property">class </em><code class="sig-prename descclassname">genie.abstract.package.</code><code class="sig-name descname">AbstractPackage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">delay</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.package.AbstractPackage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An abstract package is one where its import paths are two parth: the
+relative information part, and the tokenization part. With the proper tools,
+abstract packages allows users to make calls to classes/methods/etc without
+having to explicitly specify the import/module path, and only use the
+informational one.</p>
+<blockquote>
+<div><dl>
+<dt>from my_library.nxos.ospf import Ospf</dt><dd><blockquote>
+<div><div class="line-block">
+<div class="line-block">
+<div class="line">|    |</div>
+</div>
+<div class="line">token  |</div>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt>library pkg       |</dt><dd><p>information path</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>When an abstract package is learnt, all child modules within the given
+module (if it is a) package, will be loaded recursively in order to build
+the abstraction matrix/database. Normally this class instance is stored
+under a var called “__abstract_pkg” on the given module.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A packge is a module that contains other modules.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>str/ModuleType</strong><strong>)</strong> (<em>obj</em>) – </p></li>
+<li><p><strong>(</strong><strong>bool</strong><strong>)</strong> (<em>delay</em>) – module’s child modules.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="genie.abstract.package.AbstractPackage.learn">
+<code class="sig-name descname">learn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.package.AbstractPackage.learn" title="Permalink to this definition">¶</a></dt>
+<dd><p>recursively learn this package’s child content</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genie.abstract.package.AbstractPackage.learnt">
+<em class="property">property </em><code class="sig-name descname">learnt</code><a class="headerlink" href="#genie.abstract.package.AbstractPackage.learnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>property, returns True if the matrix is not empty (learnt). Otherwise,
+returns false.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genie.abstract.package.AbstractPackage.lookup">
+<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">relpath</span></em>, <em class="sig-param"><span class="n">tokens</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.package.AbstractPackage.lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="genie.abstract.package.AbstractPackage.module">
+<em class="property">property </em><code class="sig-name descname">module</code><a class="headerlink" href="#genie.abstract.package.AbstractPackage.module" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the python module object assoicated with this abstracted package</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genie.abstract.package.AbstractPackage.paths">
+<em class="property">property </em><code class="sig-name descname">paths</code><a class="headerlink" href="#genie.abstract.package.AbstractPackage.paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>search paths for this package’s children modules.
+- if it’s a namespace package, __path__ is a list
+- else, default to its [__file__, ]
+- note: could’ve used ModuleSpec (__spec__) instead for python 3.4+</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genie.abstract.package.AbstractPackage.register">
+<code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">relpath</span></em>, <em class="sig-param"><span class="n">tokens</span></em>, <em class="sig-param"><span class="n">module</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.package.AbstractPackage.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>store a module internally with its relative name and token path in
+the internal matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>tuple</strong><strong>)</strong> (<em>tokens</em>) – (‘a’, ‘b’, ‘c’) for a.b.c</p></li>
+<li><p><strong>(</strong><strong>tuple</strong><strong>)</strong> – </p></li>
+<li><p><strong>(</strong><strong>ModuleType</strong><strong>)</strong> (<em>module</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-genie.abstract.token"></span><dl class="py class">
+<dt id="genie.abstract.token.AbstractToken">
+<em class="property">class </em><code class="sig-prename descclassname">genie.abstract.token.</code><code class="sig-name descname">AbstractToken</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">modulename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.token.AbstractToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Describes an arbitrary named token within an abstracted package. Normally
+this class instance is stored under a var called “__abstract_token” on the
+given module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong><strong>ModuleType</strong><strong>)</strong> (<em>module</em>) – </p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="genie.abstract.token.AbstractToken.module">
+<em class="property">property </em><code class="sig-name descname">module</code><a class="headerlink" href="#genie.abstract.token.AbstractToken.module" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the python module object assoicated with this token</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="genie.abstract.token.TokenChain">
+<em class="property">class </em><code class="sig-prename descclassname">genie.abstract.token.</code><code class="sig-name descname">TokenChain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chain</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.token.TokenChain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Internal class. Used to track the current chain of tokens in the recursive
+import process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong><strong>list</strong><strong>)</strong> (<em>chain</em>) – </p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="genie.abstract.token.TokenChain.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.token.TokenChain.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="genie.abstract.token.TokenChain.to_tuple">
+<code class="sig-name descname">to_tuple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.token.TokenChain.to_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>to_tuples</p>
+<p>returns all currently tracked tokens in a tuple. This is needed as the
+abstracted package uses token tuples as keys for lookup.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="genie.abstract.token.TokenChain.track">
+<code class="sig-name descname">track</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">module</span></em><span class="sig-paren">)</span><a class="headerlink" href="#genie.abstract.token.TokenChain.track" title="Permalink to this definition">¶</a></dt>
+<dd><p>context manager api allowing auto-tracking of tokens using the with
+statement. On entry, stors the discovered token (if any) internally,
+on exit, removes that token from tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong><strong>ModuleType</strong><strong>)</strong> (<em>module</em>) – </p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">tokenchain</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-abstract">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-abstract" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../metaparser/index.html" class="btn btn-neutral float-right" title="Metaparsers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conventions.html" class="btn btn-neutral float-left" title="Conventions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

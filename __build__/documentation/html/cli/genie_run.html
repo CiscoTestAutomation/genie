@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Genie Run &mdash; Genie Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/asciinema-player.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/genie_ico.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/asciinema-player.js"></script>
+        <script src="../_static/tracker.js"></script>
+        <script src="../_static/embed_version.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Genie Shell" href="genie_shell.html" />
+    <link rel="prev" title="Genie Diff" href="genie_diff.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> pyATS Library: Genie
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cookbooks/index.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/index.html">pyATS Clean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../health/index.html">pyATS Health Check</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Genie Command Line</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="genie_parse.html">Genie Parse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_learn.html">Genie Learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_diff.html">Genie Diff</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Genie Run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-triggers-verifications">Running Triggers &amp; Verifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recording-with-genie">Recording with Genie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replaying-with-genie">Replaying with Genie</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="genie_shell.html">Genie Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_dnac.html">Genie DNAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie_create.html">pyATS Create</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../solutions/index.html">Genie Solutions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Library</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis">Available APIs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean">Available Clean Stages</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/models">Available Models (Conf/Ops)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers">Available Parsers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/triggers">Available Triggers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/verifications">Available Verifications</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract/index.html">Library Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metaparser/index.html">Metaparsers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parsergen/index.html">CLI Auto-Parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../predcore/index.html">Predicates</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/index.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyATS Library: Genie</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Genie Command Line</a> &raquo;</li>
+        
+      <li>Genie Run</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="genie-run">
+<h1>Genie Run<a class="headerlink" href="#genie-run" title="Permalink to this headline">¶</a></h1>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> is a one-stop-shop tool for executing all the Python functionality
+provided by <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">harness</span></code> directly from linux command line. It eliminates
+the need for creating and maintaining job-files and having working Python
+knowledge prior to getting started with <code class="docutils literal notranslate"><span class="pre">Genie</span></code>.</p>
+<p>For more information on <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">harness</span></code>, refer to the user guide:
+<a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/userguide/harness/index.html">http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/userguide/harness/index.html</a></p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> supports all arguments from <code class="docutils literal notranslate"><span class="pre">Genie</span></code>, easypy and aetest.</p>
+<p>For a complete list of arguments supported by <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> sub-components:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><a class="reference internal" href="../userguide/harness/index.html#harness-overview"><span class="std std-ref">Genie Harness Documentation</span></a></p></li>
+<li><p><a class="reference external" href="http://wwwin-pyats.cisco.com/documentation/latest/easypy/usages.html#standard-arguments">Easypy Arguments</a></p></li>
+</ol>
+</div></blockquote>
+<p>To see what functionality <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> offers, execute the following in your
+linux terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>genie<span class="o">)</span> bash-4.1$ genie run --help
+
+usage: genie <span class="o">[</span>--no-mail<span class="o">]</span> <span class="o">[</span>--mail-to<span class="o">]</span> <span class="o">[</span>--mail-subject<span class="o">]</span> <span class="o">[</span>--mail-html<span class="o">]</span>
+             <span class="o">[</span>--submitter<span class="o">]</span> <span class="o">[</span>--image<span class="o">]</span> <span class="o">[</span>--release<span class="o">]</span> <span class="o">[</span>--html-logs <span class="o">[</span>DIR<span class="o">]]</span>
+             <span class="o">[</span>--xunit <span class="o">[</span>DIR<span class="o">]]</span> <span class="o">[</span>--tims-post<span class="o">]</span> <span class="o">[</span>--tims-user<span class="o">]</span> <span class="o">[</span>--tims-dns<span class="o">]</span>
+             <span class="o">[</span>--tims-options<span class="o">]</span> <span class="o">[</span>--tims-folder<span class="o">]</span> <span class="o">[</span>--tims-custom-attrs<span class="o">]</span>
+             <span class="o">[</span>--tims-config-id<span class="o">]</span> <span class="o">[</span>--no-archive<span class="o">]</span> <span class="o">[</span>--runinfo-dir<span class="o">]</span> <span class="o">[</span>--archive-dir<span class="o">]</span>
+             <span class="o">[</span>--no-upload<span class="o">]</span> <span class="o">[</span>--bg-upload<span class="o">]</span> <span class="o">[</span>-t<span class="o">]</span> <span class="o">[</span>--clean-file FILE<span class="o">]</span>
+             <span class="o">[</span>--clean-devices <span class="o">[[</span>...<span class="o">]]]</span> <span class="o">[</span>--clean-scope <span class="o">{</span>job,task<span class="o">}]</span>
+             <span class="o">[</span>--invoke-clean<span class="o">]</span> <span class="o">[</span>--logical-testbed-file<span class="o">]</span> <span class="o">[</span>--rerun-file FILE<span class="o">]</span>
+             <span class="o">[</span>--rerun-condition  <span class="o">[</span>...<span class="o">]]</span> <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-q<span class="o">]</span> <span class="o">[</span>--datafile FILE<span class="o">]</span>
+             <span class="o">[</span>--uids LOGIC<span class="o">]</span> <span class="o">[</span>--groups LOGIC<span class="o">]</span> <span class="o">[</span>--random<span class="o">]</span> <span class="o">[</span>--random-seed INT<span class="o">]</span>
+             <span class="o">[</span>--max-failures INT<span class="o">]</span> <span class="o">[</span>--pdb<span class="o">]</span> <span class="o">[</span>--step-debug FILE<span class="o">]</span>
+             <span class="o">[</span>--pause-on PAUSE_ON<span class="o">]</span> <span class="o">[</span>--trigger-datafile FILE<span class="o">]</span>
+             <span class="o">[</span>--verification-datafile FILE<span class="o">]</span> <span class="o">[</span>--trigger-file FILE<span class="o">]</span>
+             <span class="o">[</span>--verification-file FILE<span class="o">]</span> <span class="o">[</span>--pts-datafile FILE<span class="o">]</span>
+             <span class="o">[</span>--pts-features PTS_FEATURES<span class="o">]</span> <span class="o">[</span>--pts-golden-config FILE<span class="o">]</span>
+             <span class="o">[</span>--config-datafile FILE<span class="o">]</span> <span class="o">[</span>--verification-uids LOGIC<span class="o">]</span>
+             <span class="o">[</span>--trigger-uids LOGIC<span class="o">]</span> <span class="o">[</span>--verification-groups LOGIC<span class="o">]</span>
+             <span class="o">[</span>--trigger-groups LOGIC<span class="o">]</span> <span class="o">[</span>--mapping-datafile FILE<span class="o">]</span>
+             <span class="o">[</span>--subsection-datafile FILE<span class="o">]</span> <span class="o">[</span>--debug-plugin FILE<span class="o">]</span>
+             <span class="o">[</span>--filetransfer-protocol FILETRANSFER_PROTOCOL<span class="o">]</span>
+             <span class="o">[</span>-devices DEVICES<span class="o">]</span>
+             <span class="o">[</span>--tgn-skip-configuration TGN_SKIP_CONFIGURATION<span class="o">]</span> <span class="o">[</span>--tgn-enable<span class="o">]</span>
+             <span class="o">[</span>--tgn-traffic-convergence-threshold TGN_TRAFFIC_CONVERGENCE_THRESHOLD<span class="o">]</span>
+             <span class="o">[</span>--tgn-reference-rate-threshold TGN_REFERENCE_RATE_THRESHOLD<span class="o">]</span>
+             <span class="o">[</span>--tgn-first-sample-threshold TGN_FIRST_SAMPLE_THRESHOLD<span class="o">]</span>
+             <span class="o">[</span>--tgn-disable-traffic-post-execution TGN_DISABLE_TRAFFIC_POST_EXECUTION<span class="o">]</span>
+             <span class="o">[</span>--tgn-traffic-loss-recovery-threshold TGN_TRAFFIC_LOSS_RECOVERY_THRESHOLD<span class="o">]</span>
+             <span class="o">[</span>--tgn-traffic-loss-tolerance-percentage TGN_TRAFFIC_LOSS_TOLERANCE_PERCENTAGE<span class="o">]</span>
+             <span class="o">[</span>--tgn-enable-traffic-loss-check TGN_ENABLE_TRAFFIC_LOSS_CHECK<span class="o">]</span>
+             <span class="o">[</span>--tgn-config-post-device-config TGN_CONFIG_POST_DEVICE_CONFIG<span class="o">]</span>
+             <span class="o">[</span>--tgn-profile-snapshot-threshold TGN_PROFILE_SNAPSHOT_THRESHOLD<span class="o">]</span>
+             <span class="o">[</span>--tgn-routing-threshold TGN_ROUTING_THRESHOLD<span class="o">]</span>
+             <span class="o">[</span>--tgn-port-list TGN_PORT_LIST<span class="o">]</span>
+             <span class="o">[</span>--tgn-arp-wait-time TGN_ARP_WAIT_TIME<span class="o">]</span>
+             <span class="o">[</span>--tgntcl-enable-arp TGNTCL_ENABLE_ARP<span class="o">]</span>
+             <span class="o">[</span>--tgntcl-learn-after-n-samples TGNTCL_LEARN_AFTER_N_SAMPLES<span class="o">]</span>
+             <span class="o">[</span>--tgntcl-stream-sample-rate-percentage TGNTCL_STREAM_SAMPLE_RATE_PERCENTAGE<span class="o">]</span>
+             <span class="o">[</span>--tgntcl-wait-multiplier TGNTCL_WAIT_MULTIPLIER<span class="o">]</span> <span class="o">[</span>-C FILE<span class="o">]</span>
+
+Easypy <span class="nb">command</span> line arguments.
+Non-recognized args will pass-through to the user job file.
+
+Example
+-------
+  genie /path/to/jobfile.py
+  genie /path/to/jobfile.py -testbed_file /path/to/testbed.yaml
+
+--------------------------------------------------------------------------------
+
+Configuration:
+  -C, --configuration FILE    easypy configuration yaml file <span class="k">for</span> plugins
+
+Mailing:
+  --no-mail                   disable report email notifications
+  --mail-to                   list of report email recipients
+  --mail-subject              report email subject header
+  --mail-html                 <span class="nb">enable</span> html format report email
+
+Reporting:
+  --submitter                 Specify the current submitter user id
+  --image                     Specify the image under <span class="nb">test</span>
+  --release                   Specify the release being tested
+  --xunit <span class="o">[</span>DIR<span class="o">]</span>               Generate xunit report in the provided location. If used as a flag, generates xunit reports runtime directory
+
+HTML Logging:
+  --html-logs <span class="o">[</span>DIR<span class="o">]</span>           Experimental feature. Directory to generates HTML logs in addition to any existing log files.
+                              Note - will increase archive size due to log duplication.
+
+TIMS:
+  --tims-post                 Enable posting results to tims
+  --tims-user                 TIMS user. If not specified, the userstarting the run is used
+  --tims-dns                  TIMS project dns name
+  --tims-options              A string in the form of -key value sequence.
+                              <span class="o">(</span>Add a space at the beginning of the string to work around python parser bug. e.g. -a <span class="m">1</span>
+  --tims-folder               A TIMS <span class="m">3</span>.x ID, a Logical ID or a complete, fully-qualified path
+  --tims-custom-attrs         A str of dashed key/value pairs
+                              e.g. -key1 val1 -key2 val2. The key value pairs are fed to TIMS as global custom attributes
+  --tims-config-id            TIMS config_id, maps to Configuration ID, Related Config or logical identifier
+
+Runinfo:
+  --no-archive                disable archive creation
+  --runinfo-dir               specify alternate runinfo directory
+  --archive-dir               specify alternate archive directory
+  --no-upload                 Disable uploading archive to TRADe
+  --bg-upload                 Upload to TRADe in background
+
+Testbed:
+  -t, --testbed-file          Specify testbed file location
+
+Clean:
+  --clean-file FILE           Specify clean file location
+  --clean-devices <span class="o">[</span> <span class="o">[</span> ...<span class="o">]]</span>   Specify list of devices to clean, separated by spaces.  To clean groups of devices sequentially, specify as <span class="s2">&quot;[[dev1, dev2], dev3]&quot;</span>.
+  --clean-scope <span class="o">{</span>job,task<span class="o">}</span>    Specify whether clean runs before job or per task
+  --invoke-clean              Clean is only invoked <span class="k">if</span> this parameter is specified.
+
+Bringup:
+  --logical-testbed-file      Specify logical testbed file location
+
+Rerun:
+  --rerun-file FILE           rerun.results file that contains the information of tasks and testcases
+  --rerun-condition  <span class="o">[</span> ...<span class="o">]</span>   Results <span class="nb">type</span> list <span class="k">for</span> the condition of rerun plugin.
+
+General Options:
+  -h, --help                  Show <span class="nb">help</span> information
+  -v, --verbose               Give more output, additive up to <span class="m">3</span> times.
+  -q, --quiet                 Give less output, additive up to <span class="m">3</span> times, corresponding to WARNING, ERROR, and CRITICAL logging levels
+
+Input Datafile:
+  --datafile FILE             input datafile, supplementing the script
+                              with additional feature enablement <span class="p">&amp;</span> values
+
+Execution Control:
+  --uids LOGIC                logic string matching section uids to run.
+                              eg: -uids<span class="o">=</span><span class="s2">&quot;And(&#39;.*setup.*&#39;, &#39;test.+&#39;)&quot;</span>
+  --groups LOGIC              logic string matching testcase groups to be run.
+                              eg: -ids<span class="o">=</span><span class="s2">&quot;And(&#39;sanity&#39;, &#39;regression&#39;)&quot;</span>
+  --random                    flag to randomize the execution of testcases
+  --random-seed INT           seed value <span class="k">for</span> testcase randomization
+  --max-failures INT          max number of failures before script abandon
+
+Debugging:
+  --pdb                       start the interactive debugger on failure
+  --step-debug FILE           file containing the debug <span class="nb">command</span> to run specific step
+  --pause-on PAUSE_ON         Pauses the testscript when there is a matching phrase in the log messages
+
+Genie arguments:
+  --trigger-datafile FILE     Trigger configuration datafile
+  --verification-datafile     FILE
+                              VerificationTrigger configuration datafile
+  --trigger-file FILE         Trigger configuration file
+  --verification-file FILE    VerificationTrigger configuration file
+  --pts-datafile FILE         PTS configuration datafile
+  --pts-features PTS_FEATURES
+                              Features to learn <span class="k">for</span> pts
+  --pts-golden-config FILE    Golden configuration file
+  --config-datafile FILE      File containing configuration information
+  --verification-uids STR     string matching verifications uids to run.
+                              eg: -uids<span class="o">=</span><span class="s2">&quot;Verify_IpOspfNeighborDetail_vrf_all Verify_IpRoute_protocol_bgp&quot;</span>
+                              or: -uids<span class="o">=</span><span class="s2">&quot;And(&#39;Verify_IpOspfNeighborDetail_vrf_all&#39;,</span>
+<span class="s2">                                         &#39;Verify_IpRoute_protocol_bgp&#39;)&quot;</span>
+  --trigger-uids STR          string matching triggers uids to run.
+                              eg: -uids<span class="o">=</span><span class="s2">&quot;TriggerShutNoShutEthernetInterface TriggerAddRemoveAdvertiseEvpnMulticast&quot;</span>
+                              or: -uids<span class="o">=</span><span class="s2">&quot;And(&#39;TriggerShutNoShutEthernetInterface&#39;,</span>
+<span class="s2">                                         &#39;TriggerAddRemoveAdvertiseEvpnMulticast&#39;)&quot;</span>
+  --verification-groups LOGIC
+                              logic string matching verifications groups to be run.
+                              eg: -ids<span class="o">=</span><span class="s2">&quot;And(&#39;sanity&#39;, &#39;regression&#39;)&quot;</span>
+  --trigger-groups LOGIC      logic string matching triggers groups to be run.
+                              eg: -ids<span class="o">=</span><span class="s2">&quot;And(&#39;sanity&#39;, &#39;regression&#39;)&quot;</span>
+  --mapping-datafile FILE     File containing device to connection mapping
+  --subsection-datafile FILE  File containing Common_<span class="o">(</span>setup/cleanup<span class="o">)</span>subsection information
+  --debug-plugin FILE         File pointing to debug plugin
+  --filetransfer-protocol     FILETRANSFER_PROTOCOL
+                              File transfer protocol to be used in the run
+  -devices DEVICES            List of devices to connect to
+
+Genie Tgn arguments:
+  --tgn-skip-configuration    TGN_SKIP_CONFIGURATION
+                              Allows user to skip loading configuration onto TGN device <span class="k">if</span> it has been configured prior to Genie run.
+  --tgn-enable                Enable subsection <span class="s1">&#39;initialize_traffic&#39;</span>.
+                              Performs the following tasks:
+                              * Connect to TGN device
+                              * Load TGN configuration
+                              * Learn TGN traffic streams
+                              Create snapshot profile of traffic streams
+                              Default value is False.
+  --tgn-traffic-convergence-threshold TGN_TRAFFIC_CONVERGENCE_THRESHOLD
+                              Wait <span class="nb">time</span> <span class="o">(</span>seconds<span class="o">)</span> to allow traffic streams to coverge to steady state.
+                              Default value is <span class="m">60</span> seconds.
+  --tgn-reference-rate-threshold TGN_REFERENCE_RATE_THRESHOLD
+                              Wait <span class="nb">time</span> <span class="o">(</span>seconds<span class="o">)</span> before checking traffic stream rates to create profile snapshot.
+                              Default value is <span class="m">100</span> seconds.
+  --tgn-first-sample-threshold TGN_FIRST_SAMPLE_THRESHOLD
+                              Wait <span class="nb">time</span> <span class="o">(</span>seconds<span class="o">)</span> before collecting the first sample of traffic stream rates.
+                              Default value is <span class="m">15</span> seconds.
+  --tgn-disable-traffic-post-execution TGN_DISABLE_TRAFFIC_POST_EXECUTION
+                              Allows user to stop traffic *AFTER* Genie has completed execution. This is useful <span class="k">for</span> manual debugging after Genie runs complete.
+                              Default value is False.
+  --tgn-traffic-loss-recovery-threshold TGN_TRAFFIC_LOSS_RECOVERY_THRESHOLD
+                              Wait <span class="nb">time</span> <span class="o">(</span>seconds<span class="o">)</span> <span class="k">for</span> allowing traffic to recover to steady state AFTER a traffic loss was observed <span class="o">(</span>say during trigger execution<span class="o">)</span>.
+                              Default value is <span class="m">5</span> seconds.
+  --tgn-traffic-loss-tolerance-percentage TGN_TRAFFIC_LOSS_TOLERANCE_PERCENTAGE
+                              Maximum allowable traffic loss percentage.
+                              Default value is <span class="m">15</span> percent.
+  --tgn-enable-traffic-loss-check TGN_ENABLE_TRAFFIC_LOSS_CHECK
+                              Enable checking of traffic loss after every trigger that is executed by Genie.
+                              Default value is True.
+  --tgn-config-post-device-config TGN_CONFIG_POST_DEVICE_CONFIG
+                              Configure TGN device ONLY AFTER device configuration is successfully applied.
+                              Default value is True.
+  --tgn-profile-snapshot-threshold TGN_PROFILE_SNAPSHOT_THRESHOLD
+                              Wait <span class="nb">time</span> <span class="o">(</span>seconds<span class="o">)</span> to collect reference rate <span class="k">while</span> creating traffic snapshot profile.
+                              Default is <span class="m">1200</span> seconds.
+  --tgn-routing-threshold TGN_ROUTING_THRESHOLD
+                              Wait <span class="nb">time</span> <span class="o">(</span>seconds<span class="o">)</span> after enabling TGN routing engine and before starting traffic.
+                              Default value is <span class="m">120</span> seconds.
+  --tgn-port-list TGN_PORT_LIST
+                              Ports on the traffic generator device to connect to during Genie execution.
+                              Default value is empty
+  --tgn-arp-wait-time TGN_ARP_WAIT_TIME
+                              Time to <span class="nb">wait</span> after sending ARP on interfaces before verifying ARP/ND successfully resolved.
+                              Default value is <span class="m">60</span> seconds
+  --tgntcl-enable-arp TGNTCL_ENABLE_ARP
+                              Send ARP to TGN device
+  --tgntcl-learn-after-n-samples TGNTCL_LEARN_AFTER_N_SAMPLES
+                              Create traffic profile after N number of samples
+  --tgntcl-stream-sample-rate-percentage TGNTCL_STREAM_SAMPLE_RATE_PERCENTAGE
+                              Specifies percentage tolerance that two samples of the same stream group must be within to be considered <span class="s2">&quot;the same&quot;</span>
+  --tgntcl-wait-multiplier TGNTCL_WAIT_MULTIPLIER
+                              Multiplier to increase the <span class="nb">wait</span> <span class="nb">time</span> <span class="k">for</span> creating a traffic profile snapshot. This argument multiples the value of <span class="s1">&#39;tgn_profile_snapshot_threshold&#39;</span>.
+</pre></div>
+</div>
+<div class="section" id="running-triggers-verifications">
+<h2>Running Triggers &amp; Verifications<a class="headerlink" href="#running-triggers-verifications" title="Permalink to this headline">¶</a></h2>
+<p>Let’s use <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> to execute a sample script containing 1 trigger and 1
+verification. The linux CLI to do so would be:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie run --testbed-file /path/to/testbed.yaml <span class="se">\</span>
+          --trigger-uids<span class="o">=</span><span class="s2">&quot;TriggerShutNoShutBgp&quot;</span> <span class="se">\</span>
+          --verification-uids<span class="o">=</span><span class="s2">&quot;Verify_BgpProcessVrfAll&quot;</span> <span class="se">\</span>
+          --devices nxos-osv-1 <span class="se">\</span>
+          -- html_logs .
+</pre></div>
+</div>
+<p>Let’s examine each of those arguments above in more detail:</p>
+<p>1. ‘–trigger-uids’ and/or ‘–trigger-groups’ arguments are used to specify
+which <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code>’s to execute from <code class="docutils literal notranslate"><span class="pre">Genie</span></code>. Complete list of Triggers available</p>
+<blockquote>
+<div><p>to execute within <code class="docutils literal notranslate"><span class="pre">Genie</span></code>: <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/triggers">Available Genie Triggers</a></p>
+</div></blockquote>
+<p>When both ‘–trigger-uids’ and ‘–trigger-groups’ are provided, both will be
+used to elect triggers from trigger datafile.</p>
+<p>For more information on how a <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code> works, refer to:
+<a class="reference internal" href="../userguide/harness/user/gettingstarted.html#getting-trigger"><span class="std std-ref">Genie Trigger Documentation</span></a></p>
+<p>2. ‘–verification-uids’ and/or ‘–verification-groups’ arguments can be used
+to specify which <code class="xref py py-obj docutils literal notranslate"><span class="pre">Verification</span></code>’s to execute from <code class="docutils literal notranslate"><span class="pre">Genie</span></code>. Complete list of
+Verifications available to execute within <code class="docutils literal notranslate"><span class="pre">Genie</span></code>: <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/genie_libs/#/triggers">Available Genie Verifications</a></p>
+<p>When both ‘–verification-uids’ and ‘–verification-groups’ are provided, both
+will be used to elect verifications from verification datafile.</p>
+<p>For more information on how a <code class="docutils literal notranslate"><span class="pre">Genie</span></code> <code class="xref py py-obj docutils literal notranslate"><span class="pre">Verification</span></code> works, refer to:
+<a class="reference internal" href="../userguide/harness/user/gettingstarted.html#getting-verification"><span class="std std-ref">Genie Verification Documentation</span></a></p>
+<p>3. By default, <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> executes on all devices specified in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">testbed</span></code>
+YAML file. Use argumnet ‘–devices &lt;name of device&gt;’ to execute the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code>’s
+and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Verification</span></code>’s on a specific device.</p>
+<p>4. In order to create viewable logs, provide option ‘–html-logs .’ to specify
+that the logfile should be created in the directory we are running from.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>Ensure the <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>’s that we are exeucting triggers and verifications
+on have a connection marked as ‘cli’ within the <code class="xref py py-obj docutils literal notranslate"><span class="pre">testbed</span></code> YAML. For more
+information, refer to the documentation on:
+<a class="reference internal" href="../cookbooks/genie.html#book-genie-connection-control"><span class="std std-ref">Control Device Connections</span></a></p></li>
+<li><p>In case the <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>’s in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">testbed</span></code> YAML does not have any connections
+marked as ‘cli’, provide argument ‘–mapping-datafile’ containing the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code> mapping details to <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code>. For more information, refer to
+the documentation on <a class="reference internal" href="../userguide/harness/user/datafile.html#mapping-datafile"><span class="std std-ref">Mapping Datafile</span></a></p></li>
+</ol>
+</div>
+<p>Once <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> completes, you can see a table summarizing the results of the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code>’s and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Verification</span></code>’s that were executed. The following is a sample:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: +------------------------------------------------------------------------------+
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>                                Easypy Report                                 <span class="p">|</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: +------------------------------------------------------------------------------+
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: pyATS Instance   : /ws/ellewoods/genie
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Python Version   : cpython-3.4.1 <span class="o">(</span>32bit<span class="o">)</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: CLI Arguments    : /ws/ellewoods/genie/bin/genie run --testbed-file /ws/ellewoods/genie/genie_testbeds/genie_n9kv_tt4.yaml --trigger-uids<span class="o">=</span>And<span class="o">(</span><span class="s1">&#39;TriggerSleep&#39;</span><span class="o">)</span> --verification-uids<span class="o">=</span>And<span class="o">(</span><span class="s1">&#39;Verify_BgpProcessVrfAll$&#39;</span><span class="o">)</span> -device uut --html-logs .
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: User             : ellewoods
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Host Server      : ssr-oper-gen.cisco.com
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Host OS Version  : Red Hat Enterprise Linux Server <span class="m">6</span>.9 Santiago <span class="o">(</span>x86_64<span class="o">)</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Job Information
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Name         : job
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Start <span class="nb">time</span>   : <span class="m">2019</span>-01-25 <span class="m">13</span>:05:41.914951
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Stop <span class="nb">time</span>    : <span class="m">2019</span>-01-25 <span class="m">13</span>:06:19.755553
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Elapsed <span class="nb">time</span> : <span class="m">0</span>:00:37.840602
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Archive      : /ws/ellewoods/genie/users/ellewoods/archive/19-01/job.2019Jan25_13:05:40.871779.zip
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Total Tasks    : <span class="m">1</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Overall Stats
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Passed     : <span class="m">5</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Passx      : <span class="m">0</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Failed     : <span class="m">0</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Aborted    : <span class="m">0</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Blocked    : <span class="m">0</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Skipped    : <span class="m">0</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     Errored    : <span class="m">0</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     TOTAL      : <span class="m">5</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Success Rate   : <span class="m">100</span>.00 %
+
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: +------------------------------------------------------------------------------+
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>                             Task Result Summary                              <span class="p">|</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: +------------------------------------------------------------------------------+
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Task-1: commons.commonSetup                                               PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Task-1: base.Verify_BgpProcessVrfAll.uut.1                                PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Task-1: sleep.TriggerSleep.uut                                            PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Task-1: base.Verify_BgpProcessVrfAll.uut.2                                PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Task-1: commons.commonCleanup                                             PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: +------------------------------------------------------------------------------+
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>                             Task Result Details                              <span class="p">|</span>
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: +------------------------------------------------------------------------------+
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: Task-1: commons
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>-- commonSetup                                                           PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="p">|</span>-- connect                                                           PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="p">|</span>-- configure                                                        SKIPPED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="p">|</span>-- configuration_snapshot                                            PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="p">|</span>-- save_bootvar                                                      PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="p">|</span>-- learn_system_defaults                                             PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="sb">`</span>-- initialize_traffic                                               SKIPPED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>-- Verify_BgpProcessVrfAll.uut.1                                         PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="sb">`</span>-- verify                                                            PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>-- TriggerSleep.uut                                                      PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="sb">`</span>-- sleep                                                             PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>-- Verify_BgpProcessVrfAll.uut.2                                         PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="p">|</span>   <span class="sb">`</span>-- verify                                                            PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO: <span class="sb">`</span>-- commonCleanup                                                         PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     <span class="p">|</span>-- verify_configuration_snapshot                                     PASSED
+<span class="m">2019</span>-01-25T13:06:24: %EASYPY-INFO:     <span class="sb">`</span>-- stop_traffic                                                     SKIPPED
+</pre></div>
+</div>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> will also create a logfile named “TaskLog.html” that contains the
+complete logs of all the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Trigger</span></code>’s and <code class="xref py py-obj docutils literal notranslate"><span class="pre">Verification</span></code>’s executed and are
+viewable in any browser.</p>
+<p>The following is a sample log report:</p>
+<div class="figure align-left">
+<img alt="Sample log" src="../_images/Tasklog.png" />
+</div>
+</div>
+<div class="section" id="recording-with-genie">
+<h2>Recording with Genie<a class="headerlink" href="#recording-with-genie" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> in combination with <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/unicon/latest/playback/index.html#record">Unicon Recording</a>
+is capable of <em>recording</em> and saving all interactions with any <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>.</p>
+<p>Simply provide argument ‘–record’ to any <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span></code> CLI command and the path to the
+directory into which recordings should be saved. <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon</span></code> will record all
+interactions with the <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code> and create a pickle file under the directory
+specified. This file can later be unpicked using <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">unpickle</span></code>.</p>
+<p>Let’s look at an example of using <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon</span></code> record with <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>genie<span class="o">)</span> bash-4.1$ genie run --testbed-file /path/to/testbed.yaml <span class="se">\</span>
+                            --trigger-uids<span class="o">=</span><span class="s2">&quot;TriggerShutNoShutBgp&quot;</span> <span class="se">\</span>
+                            --verification-uids<span class="o">=</span><span class="s2">&quot;Verify_BgpProcessVrfAll&quot;</span> <span class="se">\</span>
+                            --devices nxos-osv-1 <span class="se">\</span>
+                            --html_logs . <span class="se">\</span>
+                            --record recorded_session
+</pre></div>
+</div>
+<p>The above <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> command will do exactly as above however, it will record
+all <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code> interactions into the directory specified in ‘–record’.</p>
+<p>Recording device interacations is an extremely useful feature! It enables users
+to easily reproduce complicated issues observed on devices such as unexpected
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code> outputs or crashes/traceback triggers etc</p>
+</div>
+<div class="section" id="replaying-with-genie">
+<h2>Replaying with Genie<a class="headerlink" href="#replaying-with-genie" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> in combination with <a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/unicon/latest/playback/index.html#replay">Unicon Replay</a> is capable
+of <em>replaying</em> a saved <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon</span></code> recording to mimic all interactions with any
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>.</p>
+<p>Simply provide argument ‘–replay’ to any <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span></code> CLI command and the path
+containing the saved pickled <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon</span></code> recording. <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon</span></code> will then replay the
+contents of the pickled file as a <code class="xref py py-obj docutils literal notranslate"><span class="pre">Mock</span></code> device providing inputs to prompts as
+needed.</p>
+<p>Let’s look at an example of using <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon</span></code> replay with <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">learn</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>genie<span class="o">)</span> bash-4.1$ genie run --testbed-file /path/to/testbed.yaml <span class="se">\</span>
+                            --trigger-uids<span class="o">=</span><span class="s2">&quot;TriggerShutNoShutBgp&quot;</span> <span class="se">\</span>
+                            --verification-uids<span class="o">=</span><span class="s2">&quot;Verify_BgpProcessVrfAll&quot;</span> <span class="se">\</span>
+                            --devices nxos-osv-1 <span class="se">\</span>
+                            --html_logs . <span class="se">\</span>
+                            --replay recorded_session
+</pre></div>
+</div>
+<p>The above <code class="xref py py-obj docutils literal notranslate"><span class="pre">genie</span> <span class="pre">run</span></code> command will do exactly as above however, it will replay
+all <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code> interactions from the directory specified in ‘–replay’ instead of
+executing commands on actual device.</p>
+<p>Once again, replaying a device recording is an extremely useful functionality
+in network automation! It significantly improves the ease of debugging issues
+reported on network <code class="xref py py-obj docutils literal notranslate"><span class="pre">device</span></code>’s. Users can now simply request a recording of any
+issue and replay it to reproduce an issue for debugging.</p>
+<p>For more information on the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon.playback</span></code> package refer to the
+<a class="reference external" href="http://wwwin-pyats.cisco.com/cisco-shared/unicon/latest/playback/index.html#playback">Unicon Playback Documentation</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure your python virtual environment has <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon</span></code> version 3.4.6 or higher
+installed, in order to use the <code class="xref py py-obj docutils literal notranslate"><span class="pre">Unicon.playback</span></code> record/replay features.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="genie_shell.html" class="btn btn-neutral float-right" title="Genie Shell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="genie_diff.html" class="btn btn-neutral float-left" title="Genie Diff" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cisco Systems Inc.
+      <span class="lastupdated">
+        Last updated on Dec 22, 2020.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

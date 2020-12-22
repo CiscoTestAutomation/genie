@@ -1,0 +1,4 @@
+repo_path_conf: 'https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/pkgs/conf-pkg/src/genie/libs'
+repo_path_ops: 'https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/pkgs/ops-pkg/src/genie/libs'
+style: 'bitbucket'
+branch: ''
