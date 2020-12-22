@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LogViewer</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>demo1_harness_simple_job</title>
+</head>
+<style type="text/css">
+    /*************************************************/
+/* Main element styling */
+
+body,
+.side-nav.fixed,
+.side-nav.fixed .collapsible li,
+.collapsible-header {
+    background-color: #fcfcfc;
+}
+
+nav, nav .nav-wrapper i, .side-nav-head {
+    height: 50px;
+    line-height: 50px !important;
+}
+
+header, main {
+    /*padding-left: 300px;*/
+}
+.side-nav-head {
+    color: #fff;
+}
+
+main>.container {
+    padding-top: 5px;
+}
+
+main>div.row {
+    margin: 0 2rem;
+    padding-top: 1.6rem;
+}
+
+h6 { 
+  margin: 0; 
+  padding-top: 2px;
+}
+
+.container {
+  max-width: none !important;
+}
+
+.button-collapse, .page-title, .search {
+  display: inline-block;
+}
+
+.nav-title {
+    color: rgba(0, 0, 0, 0.87);
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    height: 48px;
+    line-height: 48px;
+    padding: 5px 32px 0px 26px;
+}
+
+.log-view {
+    background-color: #f5f2f0 !important;
+    border: 1px solid #ddd;
+    font-family: monospace;
+    padding: 1rem 2rem;
+    margin-right: .5rem;
+}
+
+.data-list.row, .log-view {
+  font-size: 13px;
+}
+
+ul.data-list>li {
+  font-size: 14px;
+  margin: 1rem;
+}
+
+.data-list span {
+    margin-left: 1rem;
+}
+
+.time {
+  color: #00788a;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.scrollToTop {
+  -webkit-transition: none !important; 
+  transition: none !important;
+}
+
+.new.badge {
+  width: 64px !important;
+  text-align: center;
+}
+
+.time.new.badge {
+  border: 1px solid #d9d9d9;
+  background-color: #f0f0f0 !important;
+  color: #737373;
+}
+
+.nav-info {
+  color: white;
+  display: flex;
+  float: right;
+}
+
+.nav-info div {
+  margin-right: 2rem;
+}
+
+.nav-info span:not(.badge) {
+  display: block;
+  height: 20px;
+  line-height: 30px;
+}
+
+.nav-info span.badge.new {
+  border: 1px solid #ffffff;
+  background-color: white !important;
+  font-weight: 700;
+  margin-top: 13.5px;
+}
+
+.toggle-data {
+  border: 1px solid #ddd;  
+  border-radius: 2px;
+  color: #737373;
+  font-size: .75rem;
+  line-height: 20px;
+  margin-left: 2rem;
+  margin-bottom: 0.3rem;
+  padding: .1rem .8rem;  
+  opacity: 0;
+  visibility: hidden;
+  transition: .1s all ease-in-out;
+}
+
+.toggle-data+.toggle-data {
+  margin-left: .5rem;
+}
+
+.toggle-data:hover {
+  background-color: #f0f0f0;
+}
+
+.editor {
+  max-height: 700px;
+  margin: 0;
+}
+
+.overview {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.overview table {
+  width: auto;
+}
+
+.overview table td {
+  padding: 6px 5px !important;
+}
+
+.overview table tr td:first-child {
+  min-width: 100px;
+}
+
+
+
+/*************************************************/
+/* Sidenav overrides */
+
+.side-nav {
+  width: 450px;
+}
+
+.side-nav-head span {
+  margin-left: 1.9rem;
+}
+
+.side-nav span.name {
+    width: 275px !important;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.side-nav .collapsible-header,
+.side-nav.fixed .collapsible-header {
+    overflow: hidden;
+    padding-left: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.side-nav .collapsible-header i,
+.side-nav.fixed .collapsible-header i {
+    margin-right: 15px !important;
+}
+
+.side-nav .collapsible-body li a,
+.side-nav.fixed .collapsible-body li a {
+    padding: 0 15px 0 70px;
+}
+
+.side-nav .collapsible-body li a:hover,
+.side-nav.fixed .collapsible-body li a:hover {
+    background-color: #efefef;
+}
+
+.side-nav .collapsible-body .collapsible-body li a,
+.side-nav.fixed .collapsible-body .collapsible-body li a {
+    padding-left: 85px;
+}
+
+
+
+/*************************************************/
+/* Accordion Overrides */
+
+.collapsible-body {
+    padding: 1rem 0rem 1rem 2rem;
+}
+
+.lean .collapsible-body,
+.collapsible-body,
+.collapsible-body .collapsible-header {
+    background-color: #fff;
+}
+
+.collapsible.lean {
+    box-shadow: none;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+}
+
+.lean .collapsible-header {
+    padding-bottom: 5px;
+}
+
+.lean .collapsible-header h5 {
+    margin: 0;
+}
+
+.lean .collapsible-header h6 {
+    font-size: 1.25rem;
+}
+
+.lean>li {
+    margin-bottom: 20px;
+}
+
+.lean .lean .collapsible-header {
+    border-bottom: 1px solid transparent;
+    transition: all .05s ease-in-out;
+}
+
+.lean .lean .collapsible-header:not(.active):hover {
+    border-bottom: 1px solid #ecebeb;
+}
+
+.lean .lean .collapsible-body:not(.log-view) {
+    border-bottom: 0px;
+    border-left: 1px solid #ddd;
+}
+
+.collapsible-header.active i:not(.state):not(.all):not(.none) {
+    padding-top: 4px;
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.collapsible-header .state {
+    font-size: 1.2rem;
+    padding-top: 4px;
+}
+
+.collapsible-header .title {
+  padding-top: 2px;
+}
+
+
+
+/*************************************************/
+/* Collapsible-header expand/collapse toggle icons */
+
+.collapsible-header .expand {
+  height: 22px;
+  margin-left: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .1s ease-in-out;
+}
+
+.collapsible-header:hover .expand,
+.collapsible-header:hover .toggle-data {
+  opacity: 1;
+  visibility: visible;
+  transition: all .1s ease-in-out;
+}
+
+.expand i {
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1 !important;
+  margin: 0;
+  padding: 0;
+  width: 24px;
+}
+
+.expand i:hover {
+  background-color: #ddd;
+  transition: all .2s ease-in-out;
+}
+
+header .expand {
+  float: right;
+  height: 35px;
+  margin-top: .8rem;
+  margin-right: 1.25rem;
+}
+
+.section { 
+  padding: 0 !important; 
+}
+
+.section>.collapsible-header { 
+  border-width: 1px 1px 1px 1px !important;
+  border-style: solid !important;
+  border-color: #ddd !important;
+  padding-bottom: .85rem;
+}
+
+.section>.collapsible-body { 
+  border-width: 0px 1px 1px 1px !important;
+  border-style: solid !important;
+  border-color: #ddd !important;
+  padding-top: 0;
+}
+
+.section>.collapsible-body .collapsible-header {
+  padding-left: 1.5rem;
+}
+
+.section>.collapsible-body .collapsible-header .title {
+  margin-left: .2rem; 
+}
+
+.section>.collapsible-body>ul.collapsible {
+  margin-top: 0;
+}
+
+.section>.collapsible-body>.data-list {
+  padding-left: 0.2rem;
+}
+
+.section>.collapsible-body>.collapsible .descr{
+  padding-top: 0.5rem;
+}
+
+.section .collapsible>li:not(.logs) {
+  margin-left: .3rem;
+}
+
+.section>.collapsible-body>.collapsible-body {
+  margin-bottom: 0;
+}
+
+.section>.collapsible-header.active,
+.section>.collapsible-header.active:hover {
+  border-bottom: 1px solid transparent !important;
+}
+
+.section .collapsible-header, .section .collapsible-body {
+  background-color: #fdfdfd;
+}
+
+.lean .section:first-of-type {
+  margin-top: 1rem;
+}
+
+.logs .collapsible-body{
+  padding: 1rem !important;
+}
+
+/*************************************************/
+/* Helpers */
+
+.ml-1 {
+  margin-left: 1rem !important;
+}
+
+.ml-2 {
+  margin-left: 2rem !important;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mtb-1 {
+  margin: 1rem 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.pr-1 {
+  padding-right: 1rem !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.display-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+
+/*************************************************/
+/* Amcharts */
+
+#chartdiv {
+    width: 100%;
+    height: 350px;
+}
+
+.amcharts-export-menu-top-right {
+    top: 10px;
+    right: 0;
+}
+
+.amcharts-chart-div>svg+a {
+    display: none !important;
+}
+
+.amcharts-pie-slice {
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition-duration: 0.3s;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  cursor: pointer;
+  box-shadow: 0 0 30px 0 #000;
+}
+
+.amcharts-pie-slice:hover {
+  transform: scale(1.1);
+  filter: url(#shadow);
+}
+
+
+
+/*************************************************/
+/* State colors */
+
+
+/* top-nav state badge */
+.nav-info .badge.passed {
+  color: #00AA00 !important;  
+}
+.nav-info .badge.passx {
+  color: #00AABB !important;  
+}
+.nav-info .badge.failed {
+  color: #FF0000 !important;  
+}
+.nav-info .badge.errored {
+  color: #DF01D7 !important;  
+}
+.nav-info .badge.aborted {
+  color: #000000 !important;  
+}
+.nav-info .badge.blocked {
+  color: #A10A28 !important;  
+}
+.nav-info .badge.skipped {
+  color: #6E6E6E !important;  
+}
+
+
+/* header state badge */
+.passed.new.badge,
+.passed.collapsible-header .new.badge {
+    background-color: #00AA0066;
+}
+.passx.new.badge,
+.passx.collapsible-header .new.badge {
+    background-color: #00AABB66;
+}
+.failed.new.badge,
+.failed.collapsible-header .new.badge {
+    background-color: #FF000066;
+}
+.errored.new.badge,
+.errored.collapsible-header .new.badge {
+    background-color: #DF01D766;
+}
+.aborted.new.badge,
+.aborted.collapsible-header .new.badge {
+    background-color: #00000066;
+}
+.blocked.new.badge,
+.blocked.collapsible-header .new.badge {
+    background-color: #A10A2866;
+}
+.skipped.new.badge,
+.skipped.collapsible-header .new.badge {
+    background-color: #6E6E6E66;
+}
+.unknown.new.badge,
+.unknown.collapsible-header .new.badge {
+    background-color: #AAAAAA66;
+}
+.other.new.badge,
+.other.collapsible-header .new.badge {
+    background-color: #80cbc466;
+}
+
+
+
+/*************************************************/
+/* Trade colors */
+
+/*
+.passed { background-color: #00AA00; }
+.passx { background-color: #00AABB; }
+.failed { background-color: #FF0000; }
+.errored { background-color: #DF01D7; }
+.aborted { background-color: #000000; }
+.blocked { background-color: #A10A28; }
+.skipped { background-color: #6E6E6E; }
+.unknown { background-color: #AAAAAA; }
+*/
+
+
+
+/*************************************************/
+/* Media styling */
+
+@media only screen and (max-width: 992px) {
+    header,
+    main,
+    footer {
+        padding-left: 0;
+    }
+
+    header .page-title {
+        padding-left: .3rem;
+    }
+
+    main>div.row {
+        margin: 0 2rem;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .container {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    main>div.row {
+        margin: 0 .5rem;
+    }
+}
+</style>
+
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="top-nav brown lighten-1">
+                <div class="nav-wrapper">
+                    <a href="#" data-activates="slide-out" class="button-collapse top-nav d-inline-block"><i class="material-icons">menu</i></a>
+                    <a class="ml-2">demo1_harness_simple_job</a>
+                    <div class="nav-info">
+                        <div>
+                            <span class="new badge passed" data-badge-caption="">PASSED</span>
+                        </div>
+                        <div>
+                            <span>2018-09-25</span>
+                            <span>0:00:17</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Collapsible side-nav content -->
+        <ul id="slide-out" class="side-nav">
+            <li class="side-nav-head brown lighten-1 z-depth-1">
+                <span>demo1_harness_simple_job</span>
+            </li>
+
+            <!-- Table of Contents -->
+            <li class="no-padding">
+                <ul>
+                    <li><a href="#overview" data-click="true">Overview</a></li>
+                    <li class="no-padding">
+                        <ul class="collapsible ">
+							
+							<li>
+								<a class="collapsible-header"><i class="material-icons">arrow_drop_down</i>Task-1: genie_testscript.py</a>
+								<div class="collapsible-body">
+									<ul>
+										
+										
+										
+                                        <li><a href="#script-1-test-1" data-click="true"><span class="name">commonSetup</span><span class="new badge passed" data-badge-caption="">PASSED</span></a></li>
+										
+										
+                                        <li><a href="#script-1-test-2" data-click="true"><span class="name">Verify_InterfaceBrief.uut.1</span><span class="new badge passed" data-badge-caption="">PASSED</span></a></li>
+										
+										
+                                        <li><a href="#script-1-test-3" data-click="true"><span class="name">TriggerSleep.uut</span><span class="new badge passed" data-badge-caption="">PASSED</span></a></li>
+										
+										
+                                        <li><a href="#script-1-test-4" data-click="true"><span class="name">Verify_InterfaceBrief.uut.2</span><span class="new badge passed" data-badge-caption="">PASSED</span></a></li>
+										
+										
+                                        <li><a href="#script-1-test-5" data-click="true"><span class="name">commonCleanup</span><span class="new badge passed" data-badge-caption="">PASSED</span></a></li>
+										
+									</ul>
+								</div>
+							</li>
+							
+                        </ul>
+                    </li>
+                    <li>
+		                <div class="divider m-0"></div>
+		            </li>                    
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+            <div class="col s12">
+                <ul class="collapsible lean" data-collapsible="expandable">
+                	<!-- Overview -->
+                    <li>
+                        <div id="overview" class="collapsible-header active">
+                            <i class="material-icons">arrow_drop_down</i>
+                            <h6>Overview</h6>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row d-flex">
+                                <div class="col m12 l5 overview">
+                                	<table>
+                                		<tr>
+                                			<td><b>Job Name:</b></td>
+                                            <td>demo1_harness_simple_job</td>
+                                		</tr>
+                                		<tr>
+                                			<td><b>Start Time:</b></td>
+                                            <td>2018-09-25T15:54:40</td>
+                                		</tr>
+                                		<tr>
+                                			<td><b>End Time:</b></td>
+                                            <td>2018-09-25T15:54:58</td>
+                                		</tr>
+                                		<tr>
+                                			<td><b>Submitter:</b></td>
+                                            <td>jeaubin</td>
+                                		</tr>
+                                		<tr>
+                                			<td><b>Run Time:</b></td>
+                                            <td>0:00:17</td>
+                                		</tr>
+                                		<tr>
+                                			<td><b>Testbed:</b></td>
+                                            <td>Nxos-Testbed</td>
+                                		</tr>
+                                		
+                                		
+                                	</table>
+                                </div>
+                                <div class="col m12 l7">
+                                    <div id="chartdiv"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Testscripts -->
+                    
+
+
+<!--Testscript content-->
+<li>
+
+    
+    <div id="script-1" class="collapsible-header other active">
+    
+        <i class="material-icons">arrow_drop_down</i>
+        <h6>Task-1: genie_testscript.py</h6> <i class="material-icons">arrow_drop_down</i>
+        
+        
+        <div class="not-collapse expand">
+            <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+            <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+        </div>
+    </div>
+    <div class="collapsible-body pr-1">
+        
+        
+
+        <!-- Testcases -->
+        <ul class="collapsible lean" data-collapsible="expandable">
+            
+            
+            <li>
+                <div id="script-1-test-1" class="collapsible-header passed">
+                    <!-- <i class="small material-icons state">brightness_1</i> -->
+                    <i class="material-icons">arrow_drop_down</i>
+                    <span class="title">commonSetup</span>
+                    
+                    
+                    <div class="not-collapse expand">
+                        <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                        <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                    </div>
+                    <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                    <span class="new badge time ml-1" data-badge-caption="">0:00:03</span>
+                </div>
+                <div class="collapsible-body">
+                    
+                    
+                    <!-- Sections -->
+                    <ul class="collapsible lean" data-collapsible="expandable">
+
+                        
+
+                        <!-- Section-1 -->
+                        <li class="section">
+                            <div class="collapsible-header passed">
+                                <!-- <i class="small material-icons state">brightness_1</i> -->
+                                <i class="material-icons">arrow_drop_down</i>
+                                <span class="title">connect</span>
+                                
+                                <a class="toggle-data not-collapse" href="#!" data-function="toggler" data-target="descr">Description</a>
+                                
+                                
+                                <div class="not-collapse expand">
+                                    <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                                    <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                                </div>
+                                <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                                <span class="new badge time ml-1" data-badge-caption="">0:00:03</span>
+                            </div>
+                            <div class="collapsible-body">
+                                
+                                <div class="row data-list mb-0 descr" style="display: none;">
+                                    <div class="col s12">
+                                        <span style="display: inline-block;"><b>Description:</b> Connect&emsp14;all&emsp14;the&emsp14;devices&emsp14;defined&emsp14;in&emsp14;mapping&emsp14;file</span>
+                                    </div>
+                                </div>
+                                
+                                
+                                <ul class="collapsible lean" data-collapsible="expandable">
+                                    <!-- Steps -->
+                                    
+                                    
+                                    <!-- step -->
+<li>
+    <div class="collapsible-header not-collapse passed">
+        <!--<i class="material-icons">arrow_drop_down</i>-->
+        <span class="title">Step 1: Connect to 'nx-osv-1'</span>
+        <a class="toggle-data not-collapse" href="#!" data-function="toggler" data-target="descr">Description</a>
+        <span class="new badge" data-badge-caption="">PASSED</span>
+        <span class="new badge time ml-1" data-badge-caption="">0:00:03</span>
+    </div>
+    <div class="row data-list m-0 descr" style="display: none;">
+        <div class="col s12">
+            <span style="display: inline-block;"><b>Description:</b> Connect&emsp14;to&emsp14;'nx-osv-1'</span>
+        </div>
+    </div>
+</li>
+
+
+                                    
+                                    
+
+                                    <!-- log -->
+                                    <li class="logs">
+                                        <div class="collapsible-header passed">
+                                            <i class="material-icons">arrow_drop_down</i>
+                                            <span class="title"><b>Section Logs</b></span>
+                                        </div>
+                                        <div class="collapsible-body">
+                                            <pre class="editor" style="height: 1162px;">14: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Starting subsection connect
+15: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: Connect to all the devices described in the 'Mapping Datafile' and 'Testbed file': nx-osv-1
+16: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: For more information visit Genie connection section documentation: http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/harness/user/gettingstarted.html#set-up
+17: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: STEP 1: Connect to 'nx-osv-1'
+18: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ nx-osv-1 logfile /Users/jeaubin/genie/users/jeaubin/runinfo/demo1_harness_simple_job.2018Sep25_15:54:39.209150/nx-osv-1-cli-1537905286.log +++
+19: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ Unicon plugin nxos +++
+20: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ connection to spawn: telnet 172.25.192.90 17052, id: 4644054912 +++
+21: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: connection to nx-osv-1
+0: JEAUBIN-M-43JF: 2018-09-25T15:54:46: %UNICON-6-INFO: %[pid=42896][pname=Task-1]: telnet 172.25.192.90 17052
+[2018-09-25 15:54:46,915] telnet 172.25.192.90 17052
+Trying 172.25.192.90...
+Connected to asg-virl-ubuntu.cisco.com.
+Escape character is '^]'.
+
+
+
+nx-osv-1# 
+26: JEAUBIN-M-43JF: 2018-09-25T15:54:47: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ initializing handle +++
+27: JEAUBIN-M-43JF: 2018-09-25T15:54:47: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ nx-osv-1: executing command 'term length 0' +++
+term length 0
+
+
+nx-osv-1# 
+29: JEAUBIN-M-43JF: 2018-09-25T15:54:48: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ nx-osv-1: executing command 'term width 511' +++
+term width 511
+
+
+nx-osv-1# 
+31: JEAUBIN-M-43JF: 2018-09-25T15:54:48: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ nx-osv-1: executing command 'terminal session-timeout 0' +++
+terminal session-timeout 0
+
+
+nx-osv-1# 
+34: JEAUBIN-M-43JF: 2018-09-25T15:54:48: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ nx-osv-1: config +++
+config term
+
+Enter configuration commands, one per line.  End with CNTL/Z.
+
+nx-osv-1(config)# no logging console
+
+
+nx-osv-1(config)# line console
+
+
+nx-osv-1(config-console)# exec-timeout 0
+
+
+nx-osv-1(config-console)# terminal width 511
+
+
+nx-osv-1(config-console)# end
+
+
+nx-osv-1# 
+42: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: 
+43: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %GENIE-6-INFO: %[part=43.1/3][pid=42879][pname=Task-1]: +------------------------------------------------------------------------------+
+44: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %GENIE-6-INFO: %[part=43.2/3][pid=42879][pname=Task-1]: |              Identifying device 'nx-osv-1' management interface              |
+45: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %GENIE-6-INFO: %[part=43.3/3][pid=42879][pname=Task-1]: +------------------------------------------------------------------------------+
+46: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ nx-osv-1: executing command 'show ip interface brief vrf all | include 172.25.192.90' +++
+show ip interface brief vrf all | include 172.25.192.90
+
+
+nx-osv-1# 
+48: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: 
+49: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: Device 'nx-osv-1' does not have a management interface configured which could be found
+50: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Passed reason: Connected to device 'nx-osv-1'
+51: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: STEP 1: Connect to 'nx-osv-1' - Passed
+52: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %ATS-6-INFO: %[pid=42879][pname=Task-1]: +========================================================================================+
+53: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %ATS-6-INFO: %[pid=42879][pname=Task-1]: | Summary                                                                                |
+54: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %ATS-6-INFO: %[pid=42879][pname=Task-1]: +========================================================================================+
+55: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %ATS-6-INFO: %[pid=42879][pname=Task-1]: | Summary for device: nx-osv-1                                                           |
+56: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %ATS-6-INFO: %[pid=42879][pname=Task-1]: |----------------------------------------------------------------------------------------|
+57: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %ATS-6-INFO: %[pid=42879][pname=Task-1]: |    1) Connected with alias 'cli' using connection 'a'                                  |
+58: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %ATS-6-INFO: %[pid=42879][pname=Task-1]: |========================================================================================|
+59: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: Information about devices and connections can be found in the Testbed file and Mapping datafile
+60: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %AETEST-6-INFO: %[part=60.1/3][pid=42879][pname=Task-1]: +----------------------------------------------------------+
+61: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %AETEST-6-INFO: %[part=60.2/3][pid=42879][pname=Task-1]: |                       STEPS Report                       |
+62: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %AETEST-6-INFO: %[part=60.3/3][pid=42879][pname=Task-1]: +----------------------------------------------------------+
+63: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: STEP 1 - Connect to 'nx-osv-1'                        Passed
+64: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: ------------------------------------------------------------
+65: JEAUBIN-M-43JF: 2018-09-25T15:54:49: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of subsection connect is => PASSED
+66: JEAUBIN-M-43</pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+                </div>
+            </li>
+            
+            
+            <li>
+                <div id="script-1-test-2" class="collapsible-header passed">
+                    <!-- <i class="small material-icons state">brightness_1</i> -->
+                    <i class="material-icons">arrow_drop_down</i>
+                    <span class="title">Verify_InterfaceBrief.uut.1</span>
+                    
+                    
+                    <div class="not-collapse expand">
+                        <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                        <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                    </div>
+                    <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                    <span class="new badge time ml-1" data-badge-caption="">0:00:00</span>
+                </div>
+                <div class="collapsible-body">
+                    
+                    
+                    <!-- Sections -->
+                    <ul class="collapsible lean" data-collapsible="expandable">
+
+                        
+
+                        <!-- Section-1 -->
+                        <li class="section">
+                            <div class="collapsible-header passed">
+                                <!-- <i class="small material-icons state">brightness_1</i> -->
+                                <i class="material-icons">arrow_drop_down</i>
+                                <span class="title">verify</span>
+                                
+                                
+                                <div class="not-collapse expand">
+                                    <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                                    <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                                </div>
+                                <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                                <span class="new badge time ml-1" data-badge-caption="">0:00:00</span>
+                            </div>
+                            <div class="collapsible-body">
+                                
+                                
+                                <ul class="collapsible lean" data-collapsible="expandable">
+                                    <!-- Steps -->
+                                    
+
+                                    <!-- log -->
+                                    <li class="logs">
+                                        <div class="collapsible-header passed">
+                                            <i class="material-icons">arrow_drop_down</i>
+                                            <span class="title"><b>Section Logs</b></span>
+                                        </div>
+                                        <div class="collapsible-body">
+                                            <pre class="editor" style="height: 2380px;">70: JEAUBIN-M-43JF: 2018-09-25T15:54:50: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Starting section verify
+71: JEAUBIN-M-43JF: 2018-09-25T15:54:50: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ nx-osv-1: executing command 'show interface brief' +++
+show interface brief
+
+
+--------------------------------------------------------------------------------
+Port   VRF          Status IP Address                              Speed    MTU
+--------------------------------------------------------------------------------
+mgmt0  --           up     --                                      1000     1500
+
+--------------------------------------------------------------------------------
+Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
+Interface                                                                    Ch #
+--------------------------------------------------------------------------------
+Eth2/1        --      eth  routed up      none                       1000(D) --
+Eth2/2        --      eth  routed up      none                       1000(D) --
+Eth2/3        --      eth  routed down    Administratively down      auto(D) --
+Eth2/4        --      eth  routed down    Administratively down      auto(D) --
+Eth2/5        --      eth  routed down    Administratively down      auto(D) --
+Eth2/6        --      eth  routed down    Administratively down      auto(D) --
+Eth2/7        --      eth  routed down    Administratively down      auto(D) --
+Eth2/8        --      eth  routed down    Administratively down      auto(D) --
+Eth2/9        --      eth  routed down    Administratively down      auto(D) --
+Eth2/10       --      eth  routed down    Administratively down      auto(D) --
+Eth2/11       --      eth  routed down    Administratively down      auto(D) --
+Eth2/12       --      eth  routed down    Administratively down      auto(D) --
+Eth2/13       --      eth  routed down    Administratively down      auto(D) --
+Eth2/14       --      eth  routed down    Administratively down      auto(D) --
+Eth2/15       --      eth  routed down    Administratively down      auto(D) --
+Eth2/16       --      eth  routed down    Administratively down      auto(D) --
+Eth2/17       --      eth  routed down    Administratively down      auto(D) --
+Eth2/18       --      eth  routed down    Administratively down      auto(D) --
+Eth2/19       --      eth  routed down    Administratively down      auto(D) --
+Eth2/20       --      eth  routed down    Administratively down      auto(D) --
+Eth2/21       --      eth  routed down    Administratively down      auto(D) --
+Eth2/22       --      eth  routed down    Administratively down      auto(D) --
+Eth2/23       --      eth  routed down    Administratively down      auto(D) --
+Eth2/24       --      eth  routed down    Administratively down      auto(D) --
+Eth2/25       --      eth  routed down    Administratively down      auto(D) --
+Eth2/26       --      eth  routed down    Administratively down      auto(D) --
+Eth2/27       --      eth  routed down    Administratively down      auto(D) --
+Eth2/28       --      eth  routed down    Administratively down      auto(D) --
+Eth2/29       --      eth  routed down    Administratively down      auto(D) --
+Eth2/30       --      eth  routed down    Administratively down      auto(D) --
+Eth2/31       --      eth  routed down    Administratively down      auto(D) --
+Eth2/32       --      eth  routed down    Administratively down      auto(D) --
+Eth2/33       --      eth  routed down    Administratively down      auto(D) --
+Eth2/34       --      eth  routed down    Administratively down      auto(D) --
+Eth2/35       --      eth  routed down    Administratively down      auto(D) --
+Eth2/36       --      eth  routed down    Administratively down      auto(D) --
+Eth2/37       --      eth  routed down    Administratively down      auto(D) --
+Eth2/38       --      eth  routed down    Administratively down      auto(D) --
+Eth2/39       --      eth  routed down    Administratively down      auto(D) --
+Eth2/40       --      eth  routed down    Administratively down      auto(D) --
+Eth2/41       --      eth  routed down    Administratively down      auto(D) --
+Eth2/42       --      eth  routed down    Administratively down      auto(D) --
+Eth2/43       --      eth  routed down    Administratively down      auto(D) --
+Eth2/44       --      eth  routed down    Administratively down      auto(D) --
+Eth2/45       --      eth  routed down    Administratively down      auto(D) --
+Eth2/46       --      eth  routed down    Administratively down      auto(D) --
+Eth2/47       --      eth  routed down    Administratively down      auto(D) --
+Eth2/48       --      eth  routed down    Administratively down      auto(D) --
+Eth3/1        --      eth  routed down    Administratively down      auto(D) --
+Eth3/2        --      eth  routed down    Administratively down      auto(D) --
+Eth3/3        --      eth  routed down    Administratively down      auto(D) --
+Eth3/4        --      eth  routed down    Administratively down      auto(D) --
+Eth3/5        --      eth  routed down    Administratively down      auto(D) --
+Eth3/6        --      eth  routed down    Administratively down      auto(D) --
+Eth3/7        --      eth  routed down    Administratively down      auto(D) --
+Eth3/8        --      eth  routed down    Administratively down      auto(D) --
+Eth3/9        --      eth  routed down    Administratively down      auto(D) --
+Eth3/10       --      eth  routed down    Administratively down      auto(D) --
+Eth3/11       --      eth  routed down    Administratively down      auto(D) --
+Eth3/12       --      eth  routed down    Administratively down      auto(D) --
+Eth3/13       --      eth  routed down    Administratively down      auto(D) --
+Eth3/14       --      eth  routed down    Administratively down      auto(D) --
+Eth3/15       --      eth  routed down    Administratively down      auto(D) --
+Eth3/16       --      eth  routed down    Administratively down      auto(D) --
+Eth3/17       --      eth  routed down    Administratively down      auto(D) --
+Eth3/18       --      eth  routed down    Administratively down      auto(D) --
+Eth3/19       --      eth  routed down    Administratively down      auto(D) --
+Eth3/20       --      eth  routed down    Administratively down      auto(D) --
+Eth3/21       --      eth  routed down    Administratively down      auto(D) --
+Eth3/22       --      eth  routed down    Administratively down      auto(D) --
+Eth3/23       --      eth  routed down    Administratively down      auto(D) --
+Eth3/24       --      eth  routed down    Administratively down      auto(D) --
+Eth3/25       --      eth  routed down    Administratively down      auto(D) --
+Eth3/26       --      eth  routed down    Administratively down      auto(D) --
+Eth3/27       --      eth  routed down    Administratively down      auto(D) --
+Eth3/28       --      eth  routed down    Administratively down      auto(D) --
+Eth3/29       --      eth  routed down    Administratively down      auto(D) --
+Eth3/30       --      eth  routed down    Administratively down      auto(D) --
+Eth3/31       --      eth  routed down    Administratively down      auto(D) --
+Eth3/32       --      eth  routed down    Administratively down      auto(D) --
+Eth3/33       --      eth  routed down    Administratively down      auto(D) --
+Eth3/34       --      eth  routed down    Administratively down      auto(D) --
+Eth3/35       --      eth  routed down    Administratively down      auto(D) --
+Eth3/36       --      eth  routed down    Administratively down      auto(D) --
+Eth3/37       --      eth  routed down    Administratively down      auto(D) --
+Eth3/38       --      eth  routed down    Administratively down      auto(D) --
+Eth3/39       --      eth  routed down    Administratively down      auto(D) --
+Eth3/40       --      eth  routed down    Administratively down      auto(D) --
+Eth3/41       --      eth  routed down    Administratively down      auto(D) --
+Eth3/42       --      eth  routed down    Administratively down      auto(D) --
+Eth3/43       --      eth  routed down    Administratively down      auto(D) --
+Eth3/44       --      eth  routed down    Administratively down      auto(D) --
+Eth3/45       --      eth  routed down    Administratively down      auto(D) --
+Eth3/46       --      eth  routed down    Administratively down      auto(D) --
+Eth3/47       --      eth  routed down    Administratively down      auto(D) --
+Eth3/48       --      eth  routed down    Administratively down      auto(D) --
+Eth4/1        1       eth  access down    Link not connected         auto(D) --
+Eth4/2        1       eth  access down    Link not connected         auto(D) --
+Eth4/3        1       eth  access down    Link not connected         auto(D) --
+Eth4/4        1       eth  access down    Link not connected         auto(D) --
+Eth4/5        1       eth  access down    Link not connected         auto(D) --
+Eth4/6        1       eth  access down    Link not connected         auto(D) --
+Eth4/7        --      eth  routed down    Link not connected         1000(D) --
+Eth4/8        1       eth  access down    Link not connected         auto(D) --
+Eth4/9        1       eth  access down    Link not connected         auto(D) --
+Eth4/10       1       eth  access down    Link not connected         auto(D) --
+Eth4/11       1       eth  access down    Link not connected         auto(D) --
+Eth4/12       1       eth  access down    Link not connected         auto(D) --
+Eth4/13       1       eth  access down    Link not connected         auto(D) --
+Eth4/14       1       eth  access down    Link not connected         auto(D) --
+Eth4/15       1       eth  access down    Link not connected         auto(D) --
+Eth4/16       1       eth  access down    Link not connected         auto(D) --
+Eth4/17       1       eth  access down    Link not connected         auto(D) --
+Eth4/18       1       eth  access down    Link not connected         auto(D) --
+Eth4/19       1       eth  access down    Link not connected         auto(D) --
+Eth4/20       1       eth  access down    Link not connected         auto(D) --
+Eth4/21       1       eth  access down    Link not connected         auto(D) --
+Eth4/22       1       eth  access down    Link not connected         auto(D) --
+Eth4/23       1       eth  access down    Link not connected         auto(D) --
+Eth4/24       1       eth  access down    Link not connected         auto(D) --
+Eth4/25       1       eth  access down    Link not connected         auto(D) --
+Eth4/26       1       eth  access down    Link not connected         auto(D) --
+Eth4/27       1       eth  access down    Link not connected         auto(D) --
+Eth4/28       1       eth  access down    Link not connected         auto(D) --
+Eth4/29       1       eth  access down    Link not connected         auto(D) --
+Eth4/30       1       eth  access down    Link not connected         auto(D) --
+Eth4/31       1       eth  access down    Link not connected         auto(D) --
+Eth4/32       1       eth  access down    Link not connected         auto(D) --
+Eth4/33       1       eth  access down    Link not connected         auto(D) --
+Eth4/34       1       eth  access down    Link not connected         auto(D) --
+Eth4/35       1       eth  access down    Link not connected         auto(D) --
+Eth4/36       1       eth  access down    Link not connected         auto(D) --
+Eth4/37       1       eth  access down    Link not connected         auto(D) --
+Eth4/38       1       eth  access down    Link not connected         auto(D) --
+Eth4/39       1       eth  access down    Link not connected         auto(D) --
+Eth4/40       1       eth  access down    Link not connected         auto(D) --
+Eth4/41       1       eth  access down    Link not connected         auto(D) --
+Eth4/42       1       eth  access down    Link not connected         auto(D) --
+Eth4/43       1       eth  access down    Link not connected         auto(D) --
+Eth4/44       1       eth  access down    Link not connected         auto(D) --
+Eth4/45       1       eth  access down    Link not connected         auto(D) --
+Eth4/46       1       eth  access down    Link not connected         auto(D) --
+Eth4/47       1       eth  access down    Link not connected         auto(D) --
+Eth4/48       1       eth  access down    Link not connected         auto(D) --
+
+--------------------------------------------------------------------------------
+Interface     Status     Description
+--------------------------------------------------------------------------------
+Lo0           up         --
+Lo1           up         --
+
+nx-osv-1# 
+90: JEAUBIN-M-43JF: 2018-09-25T15:54:50: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of section verify is => PASSED
+91: JEAUBIN-M-43JF: 2018-09-25T15:54:50: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of testcase Verify_InterfaceBrief.uut.1 is => PASSED
+92: JEAUBIN-</pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+                </div>
+            </li>
+            
+            
+            <li>
+                <div id="script-1-test-3" class="collapsible-header passed">
+                    <!-- <i class="small material-icons state">brightness_1</i> -->
+                    <i class="material-icons">arrow_drop_down</i>
+                    <span class="title">TriggerSleep.uut</span>
+                    
+                    
+                    <div class="not-collapse expand">
+                        <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                        <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                    </div>
+                    <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                    <span class="new badge time ml-1" data-badge-caption="">0:00:06</span>
+                </div>
+                <div class="collapsible-body">
+                    
+                    
+                    <!-- Sections -->
+                    <ul class="collapsible lean" data-collapsible="expandable">
+
+                        
+
+                        <!-- Section-1 -->
+                        <li class="section">
+                            <div class="collapsible-header passed">
+                                <!-- <i class="small material-icons state">brightness_1</i> -->
+                                <i class="material-icons">arrow_drop_down</i>
+                                <span class="title">sleep</span>
+                                
+                                <a class="toggle-data not-collapse" href="#!" data-function="toggler" data-target="descr">Description</a>
+                                
+                                
+                                <div class="not-collapse expand">
+                                    <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                                    <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                                </div>
+                                <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                                <span class="new badge time ml-1" data-badge-caption="">0:00:05</span>
+                            </div>
+                            <div class="collapsible-body">
+                                
+                                <div class="row data-list mb-0 descr" style="display: none;">
+                                    <div class="col s12">
+                                        <span style="display: inline-block;"><b>Description:</b> &emsp14;Trigger&emsp14;will&emsp14;sleep&emsp14;for&emsp14;'sleep_time'&emsp14;seconds&emsp14;given&emsp14;by&emsp14;the&emsp14;user<br />&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;and&emsp14;will&emsp14;populate&emsp14;a&emsp14;message&emsp14;with&emsp14;the&emsp14;remaining&emsp14;sleep&emsp14;time&emsp14;every&emsp14;<br />&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;'message_time'&emsp14;seconds.<br />&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;</span>
+                                    </div>
+                                </div>
+                                
+                                
+                                <ul class="collapsible lean" data-collapsible="expandable">
+                                    <!-- Steps -->
+                                    
+
+                                    <!-- log -->
+                                    <li class="logs">
+                                        <div class="collapsible-header passed">
+                                            <i class="material-icons">arrow_drop_down</i>
+                                            <span class="title"><b>Section Logs</b></span>
+                                        </div>
+                                        <div class="collapsible-body">
+                                            <pre class="editor" style="height: 126px;">93: JEAUBIN-M-43JF: 2018-09-25T15:54:51: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Starting section sleep
+94: JEAUBIN-M-43JF: 2018-09-25T15:54:51: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: Sleeping for 5 seconds
+95: JEAUBIN-M-43JF: 2018-09-25T15:54:53: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: 4 seconds remaining
+96: JEAUBIN-M-43JF: 2018-09-25T15:54:54: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: 3 seconds remaining
+97: JEAUBIN-M-43JF: 2018-09-25T15:54:55: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: 2 seconds remaining
+98: JEAUBIN-M-43JF: 2018-09-25T15:54:56: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: 1 seconds remaining
+99: JEAUBIN-M-43JF: 2018-09-25T15:54:56: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of section sleep is => PASSED
+</pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+                </div>
+            </li>
+            
+            
+            <li>
+                <div id="script-1-test-4" class="collapsible-header passed">
+                    <!-- <i class="small material-icons state">brightness_1</i> -->
+                    <i class="material-icons">arrow_drop_down</i>
+                    <span class="title">Verify_InterfaceBrief.uut.2</span>
+                    
+                    
+                    <div class="not-collapse expand">
+                        <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                        <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                    </div>
+                    <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                    <span class="new badge time ml-1" data-badge-caption="">0:00:01</span>
+                </div>
+                <div class="collapsible-body">
+                    
+                    
+                    <!-- Sections -->
+                    <ul class="collapsible lean" data-collapsible="expandable">
+
+                        
+
+                        <!-- Section-1 -->
+                        <li class="section">
+                            <div class="collapsible-header passed">
+                                <!-- <i class="small material-icons state">brightness_1</i> -->
+                                <i class="material-icons">arrow_drop_down</i>
+                                <span class="title">verify</span>
+                                
+                                
+                                <div class="not-collapse expand">
+                                    <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                                    <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                                </div>
+                                <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                                <span class="new badge time ml-1" data-badge-caption="">0:00:01</span>
+                            </div>
+                            <div class="collapsible-body">
+                                
+                                
+                                <ul class="collapsible lean" data-collapsible="expandable">
+                                    <!-- Steps -->
+                                    
+
+                                    <!-- log -->
+                                    <li class="logs">
+                                        <div class="collapsible-header passed">
+                                            <i class="material-icons">arrow_drop_down</i>
+                                            <span class="title"><b>Section Logs</b></span>
+                                        </div>
+                                        <div class="collapsible-body">
+                                            <pre class="editor" style="height: 2380px;">105: JEAUBIN-M-43JF: 2018-09-25T15:54:56: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Starting section verify
+106: JEAUBIN-M-43JF: 2018-09-25T15:54:56: %UNICON-6-INFO: %[pid=42879][pname=Task-1]: +++ nx-osv-1: executing command 'show interface brief' +++
+show interface brief
+
+
+--------------------------------------------------------------------------------
+Port   VRF          Status IP Address                              Speed    MTU
+--------------------------------------------------------------------------------
+mgmt0  --           up     --                                      1000     1500
+
+--------------------------------------------------------------------------------
+Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
+Interface                                                                    Ch #
+--------------------------------------------------------------------------------
+Eth2/1        --      eth  routed up      none                       1000(D) --
+Eth2/2        --      eth  routed up      none                       1000(D) --
+Eth2/3        --      eth  routed down    Administratively down      auto(D) --
+Eth2/4        --      eth  routed down    Administratively down      auto(D) --
+Eth2/5        --      eth  routed down    Administratively down      auto(D) --
+Eth2/6        --      eth  routed down    Administratively down      auto(D) --
+Eth2/7        --      eth  routed down    Administratively down      auto(D) --
+Eth2/8        --      eth  routed down    Administratively down      auto(D) --
+Eth2/9        --      eth  routed down    Administratively down      auto(D) --
+Eth2/10       --      eth  routed down    Administratively down      auto(D) --
+Eth2/11       --      eth  routed down    Administratively down      auto(D) --
+Eth2/12       --      eth  routed down    Administratively down      auto(D) --
+Eth2/13       --      eth  routed down    Administratively down      auto(D) --
+Eth2/14       --      eth  routed down    Administratively down      auto(D) --
+Eth2/15       --      eth  routed down    Administratively down      auto(D) --
+Eth2/16       --      eth  routed down    Administratively down      auto(D) --
+Eth2/17       --      eth  routed down    Administratively down      auto(D) --
+Eth2/18       --      eth  routed down    Administratively down      auto(D) --
+Eth2/19       --      eth  routed down    Administratively down      auto(D) --
+Eth2/20       --      eth  routed down    Administratively down      auto(D) --
+Eth2/21       --      eth  routed down    Administratively down      auto(D) --
+Eth2/22       --      eth  routed down    Administratively down      auto(D) --
+Eth2/23       --      eth  routed down    Administratively down      auto(D) --
+Eth2/24       --      eth  routed down    Administratively down      auto(D) --
+Eth2/25       --      eth  routed down    Administratively down      auto(D) --
+Eth2/26       --      eth  routed down    Administratively down      auto(D) --
+Eth2/27       --      eth  routed down    Administratively down      auto(D) --
+Eth2/28       --      eth  routed down    Administratively down      auto(D) --
+Eth2/29       --      eth  routed down    Administratively down      auto(D) --
+Eth2/30       --      eth  routed down    Administratively down      auto(D) --
+Eth2/31       --      eth  routed down    Administratively down      auto(D) --
+Eth2/32       --      eth  routed down    Administratively down      auto(D) --
+Eth2/33       --      eth  routed down    Administratively down      auto(D) --
+Eth2/34       --      eth  routed down    Administratively down      auto(D) --
+Eth2/35       --      eth  routed down    Administratively down      auto(D) --
+Eth2/36       --      eth  routed down    Administratively down      auto(D) --
+Eth2/37       --      eth  routed down    Administratively down      auto(D) --
+Eth2/38       --      eth  routed down    Administratively down      auto(D) --
+Eth2/39       --      eth  routed down    Administratively down      auto(D) --
+Eth2/40       --      eth  routed down    Administratively down      auto(D) --
+Eth2/41       --      eth  routed down    Administratively down      auto(D) --
+Eth2/42       --      eth  routed down    Administratively down      auto(D) --
+Eth2/43       --      eth  routed down    Administratively down      auto(D) --
+Eth2/44       --      eth  routed down    Administratively down      auto(D) --
+Eth2/45       --      eth  routed down    Administratively down      auto(D) --
+Eth2/46       --      eth  routed down    Administratively down      auto(D) --
+Eth2/47       --      eth  routed down    Administratively down      auto(D) --
+Eth2/48       --      eth  routed down    Administratively down      auto(D) --
+Eth3/1        --      eth  routed down    Administratively down      auto(D) --
+Eth3/2        --      eth  routed down    Administratively down      auto(D) --
+Eth3/3        --      eth  routed down    Administratively down      auto(D) --
+Eth3/4        --      eth  routed down    Administratively down      auto(D) --
+Eth3/5        --      eth  routed down    Administratively down      auto(D) --
+Eth3/6        --      eth  routed down    Administratively down      auto(D) --
+Eth3/7        --      eth  routed down    Administratively down      auto(D) --
+Eth3/8        --      eth  routed down    Administratively down      auto(D) --
+Eth3/9        --      eth  routed down    Administratively down      auto(D) --
+Eth3/10       --      eth  routed down    Administratively down      auto(D) --
+Eth3/11       --      eth  routed down    Administratively down      auto(D) --
+Eth3/12       --      eth  routed down    Administratively down      auto(D) --
+Eth3/13       --      eth  routed down    Administratively down      auto(D) --
+Eth3/14       --      eth  routed down    Administratively down      auto(D) --
+Eth3/15       --      eth  routed down    Administratively down      auto(D) --
+Eth3/16       --      eth  routed down    Administratively down      auto(D) --
+Eth3/17       --      eth  routed down    Administratively down      auto(D) --
+Eth3/18       --      eth  routed down    Administratively down      auto(D) --
+Eth3/19       --      eth  routed down    Administratively down      auto(D) --
+Eth3/20       --      eth  routed down    Administratively down      auto(D) --
+Eth3/21       --      eth  routed down    Administratively down      auto(D) --
+Eth3/22       --      eth  routed down    Administratively down      auto(D) --
+Eth3/23       --      eth  routed down    Administratively down      auto(D) --
+Eth3/24       --      eth  routed down    Administratively down      auto(D) --
+Eth3/25       --      eth  routed down    Administratively down      auto(D) --
+Eth3/26       --      eth  routed down    Administratively down      auto(D) --
+Eth3/27       --      eth  routed down    Administratively down      auto(D) --
+Eth3/28       --      eth  routed down    Administratively down      auto(D) --
+Eth3/29       --      eth  routed down    Administratively down      auto(D) --
+Eth3/30       --      eth  routed down    Administratively down      auto(D) --
+Eth3/31       --      eth  routed down    Administratively down      auto(D) --
+Eth3/32       --      eth  routed down    Administratively down      auto(D) --
+Eth3/33       --      eth  routed down    Administratively down      auto(D) --
+Eth3/34       --      eth  routed down    Administratively down      auto(D) --
+Eth3/35       --      eth  routed down    Administratively down      auto(D) --
+Eth3/36       --      eth  routed down    Administratively down      auto(D) --
+Eth3/37       --      eth  routed down    Administratively down      auto(D) --
+Eth3/38       --      eth  routed down    Administratively down      auto(D) --
+Eth3/39       --      eth  routed down    Administratively down      auto(D) --
+Eth3/40       --      eth  routed down    Administratively down      auto(D) --
+Eth3/41       --      eth  routed down    Administratively down      auto(D) --
+Eth3/42       --      eth  routed down    Administratively down      auto(D) --
+Eth3/43       --      eth  routed down    Administratively down      auto(D) --
+Eth3/44       --      eth  routed down    Administratively down      auto(D) --
+Eth3/45       --      eth  routed down    Administratively down      auto(D) --
+Eth3/46       --      eth  routed down    Administratively down      auto(D) --
+Eth3/47       --      eth  routed down    Administratively down      auto(D) --
+Eth3/48       --      eth  routed down    Administratively down      auto(D) --
+Eth4/1        1       eth  access down    Link not connected         auto(D) --
+Eth4/2        1       eth  access down    Link not connected         auto(D) --
+Eth4/3        1       eth  access down    Link not connected         auto(D) --
+Eth4/4        1       eth  access down    Link not connected         auto(D) --
+Eth4/5        1       eth  access down    Link not connected         auto(D) --
+Eth4/6        1       eth  access down    Link not connected         auto(D) --
+Eth4/7        --      eth  routed down    Link not connected         1000(D) --
+Eth4/8        1       eth  access down    Link not connected         auto(D) --
+Eth4/9        1       eth  access down    Link not connected         auto(D) --
+Eth4/10       1       eth  access down    Link not connected         auto(D) --
+Eth4/11       1       eth  access down    Link not connected         auto(D) --
+Eth4/12       1       eth  access down    Link not connected         auto(D) --
+Eth4/13       1       eth  access down    Link not connected         auto(D) --
+Eth4/14       1       eth  access down    Link not connected         auto(D) --
+Eth4/15       1       eth  access down    Link not connected         auto(D) --
+Eth4/16       1       eth  access down    Link not connected         auto(D) --
+Eth4/17       1       eth  access down    Link not connected         auto(D) --
+Eth4/18       1       eth  access down    Link not connected         auto(D) --
+Eth4/19       1       eth  access down    Link not connected         auto(D) --
+Eth4/20       1       eth  access down    Link not connected         auto(D) --
+Eth4/21       1       eth  access down    Link not connected         auto(D) --
+Eth4/22       1       eth  access down    Link not connected         auto(D) --
+Eth4/23       1       eth  access down    Link not connected         auto(D) --
+Eth4/24       1       eth  access down    Link not connected         auto(D) --
+Eth4/25       1       eth  access down    Link not connected         auto(D) --
+Eth4/26       1       eth  access down    Link not connected         auto(D) --
+Eth4/27       1       eth  access down    Link not connected         auto(D) --
+Eth4/28       1       eth  access down    Link not connected         auto(D) --
+Eth4/29       1       eth  access down    Link not connected         auto(D) --
+Eth4/30       1       eth  access down    Link not connected         auto(D) --
+Eth4/31       1       eth  access down    Link not connected         auto(D) --
+Eth4/32       1       eth  access down    Link not connected         auto(D) --
+Eth4/33       1       eth  access down    Link not connected         auto(D) --
+Eth4/34       1       eth  access down    Link not connected         auto(D) --
+Eth4/35       1       eth  access down    Link not connected         auto(D) --
+Eth4/36       1       eth  access down    Link not connected         auto(D) --
+Eth4/37       1       eth  access down    Link not connected         auto(D) --
+Eth4/38       1       eth  access down    Link not connected         auto(D) --
+Eth4/39       1       eth  access down    Link not connected         auto(D) --
+Eth4/40       1       eth  access down    Link not connected         auto(D) --
+Eth4/41       1       eth  access down    Link not connected         auto(D) --
+Eth4/42       1       eth  access down    Link not connected         auto(D) --
+Eth4/43       1       eth  access down    Link not connected         auto(D) --
+Eth4/44       1       eth  access down    Link not connected         auto(D) --
+Eth4/45       1       eth  access down    Link not connected         auto(D) --
+Eth4/46       1       eth  access down    Link not connected         auto(D) --
+Eth4/47       1       eth  access down    Link not connected         auto(D) --
+Eth4/48       1       eth  access down    Link not connected         auto(D) --
+
+--------------------------------------------------------------------------------
+Interface     Status     Description
+--------------------------------------------------------------------------------
+Lo0           up         --
+Lo1           up         --
+
+nx-osv-1# 
+124: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of section verify is => PASSED
+125: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of testcase Verify_InterfaceBrief.uut.2 is => PASSED
+126: JEAUBI</pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+                </div>
+            </li>
+            
+            
+            <li>
+                <div id="script-1-test-5" class="collapsible-header passed">
+                    <!-- <i class="small material-icons state">brightness_1</i> -->
+                    <i class="material-icons">arrow_drop_down</i>
+                    <span class="title">commonCleanup</span>
+                    
+                    
+                    <div class="not-collapse expand">
+                        <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                        <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                    </div>
+                    <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                    <span class="new badge time ml-1" data-badge-caption="">0:00:00</span>
+                </div>
+                <div class="collapsible-body">
+                    
+                    
+                    <!-- Sections -->
+                    <ul class="collapsible lean" data-collapsible="expandable">
+
+                        
+
+                        <!-- Section-1 -->
+                        <li class="section">
+                            <div class="collapsible-header skipped">
+                                <!-- <i class="small material-icons state">brightness_1</i> -->
+                                <i class="material-icons">arrow_drop_down</i>
+                                <span class="title">verify_configuration_snapshot</span>
+                                
+                                <a class="toggle-data not-collapse" href="#!" data-function="toggler" data-target="descr">Description</a>
+                                
+                                
+                                <div class="not-collapse expand">
+                                    <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                                    <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                                </div>
+                                <span class="new badge ml-1" data-badge-caption="">SKIPPED</span>
+                                <span class="new badge time ml-1" data-badge-caption="">0:00:00</span>
+                            </div>
+                            <div class="collapsible-body">
+                                
+                                <div class="row data-list mb-0 descr" style="display: none;">
+                                    <div class="col s12">
+                                        <span style="display: inline-block;"><b>Description:</b> Verify&emsp14;the&emsp14;configuration&emsp14;for&emsp14;the&emsp14;devices&emsp14;has&emsp14;not&emsp14;changed</span>
+                                    </div>
+                                </div>
+                                
+                                
+                                <ul class="collapsible lean" data-collapsible="expandable">
+                                    <!-- Steps -->
+                                    
+
+                                    <!-- log -->
+                                    <li class="logs">
+                                        <div class="collapsible-header passed">
+                                            <i class="material-icons">arrow_drop_down</i>
+                                            <span class="title"><b>Section Logs</b></span>
+                                        </div>
+                                        <div class="collapsible-body">
+                                            <pre class="editor" style="height: 98px;">127: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Starting subsection verify_configuration_snapshot
+128: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: Verify if the devices configuration has been modified within the run. A new snapshot is taken and is compared with the one taken in Common Setup
+129: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: For more information visit Genie check_config section http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/harness/user/gettingstarted.html#check-config
+130: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Skipped reason: No initial configuration was taken in Common Setup
+131: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of subsection verify_configuration_snapshot is => SKIPPED
+</pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+
+                        <!-- Section-1 -->
+                        <li class="section">
+                            <div class="collapsible-header skipped">
+                                <!-- <i class="small material-icons state">brightness_1</i> -->
+                                <i class="material-icons">arrow_drop_down</i>
+                                <span class="title">stop_traffic</span>
+                                
+                                
+                                <div class="not-collapse expand">
+                                    <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                                    <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                                </div>
+                                <span class="new badge ml-1" data-badge-caption="">SKIPPED</span>
+                                <span class="new badge time ml-1" data-badge-caption="">0:00:00</span>
+                            </div>
+                            <div class="collapsible-body">
+                                
+                                
+                                <ul class="collapsible lean" data-collapsible="expandable">
+                                    <!-- Steps -->
+                                    
+
+                                    <!-- log -->
+                                    <li class="logs">
+                                        <div class="collapsible-header passed">
+                                            <i class="material-icons">arrow_drop_down</i>
+                                            <span class="title"><b>Section Logs</b></span>
+                                        </div>
+                                        <div class="collapsible-body">
+                                            <pre class="editor" style="height: 98px;">132: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Starting subsection stop_traffic
+133: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: Stops the traffic
+134: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: For more information visit Genie traffic section http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/harness/user/gettingstarted.html#traffic
+135: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Skipped reason: No traffic generator devices has been found in the testbed.
+136: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of subsection stop_traffic is => SKIPPED
+</pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+
+                        <!-- Section-1 -->
+                        <li class="section">
+                            <div class="collapsible-header passed">
+                                <!-- <i class="small material-icons state">brightness_1</i> -->
+                                <i class="material-icons">arrow_drop_down</i>
+                                <span class="title">disconnect</span>
+                                
+                                <a class="toggle-data not-collapse" href="#!" data-function="toggler" data-target="descr">Description</a>
+                                
+                                
+                                <div class="not-collapse expand">
+                                    <i class="material-icons all tooltipped" data-position="top" data-delay="30" data-tooltip="expand all">expand_more</i>
+                                    <i class="material-icons none tooltipped" data-position="top" data-delay="30" data-tooltip="collapse all">expand_less</i>
+                                </div>
+                                <span class="new badge ml-1" data-badge-caption="">PASSED</span>
+                                <span class="new badge time ml-1" data-badge-caption="">0:00:00</span>
+                            </div>
+                            <div class="collapsible-body">
+                                
+                                <div class="row data-list mb-0 descr" style="display: none;">
+                                    <div class="col s12">
+                                        <span style="display: inline-block;"><b>Description:</b> Connect&emsp14;all&emsp14;the&emsp14;devices&emsp14;defined&emsp14;in&emsp14;mapping&emsp14;file</span>
+                                    </div>
+                                </div>
+                                
+                                
+                                <ul class="collapsible lean" data-collapsible="expandable">
+                                    <!-- Steps -->
+                                    
+                                    
+                                    <!-- step -->
+<li>
+    <div class="collapsible-header not-collapse passed">
+        <!--<i class="material-icons">arrow_drop_down</i>-->
+        <span class="title">Step 1: Disconnect to 'nx-osv-1'</span>
+        <a class="toggle-data not-collapse" href="#!" data-function="toggler" data-target="descr">Description</a>
+        <span class="new badge" data-badge-caption="">PASSED</span>
+        <span class="new badge time ml-1" data-badge-caption="">0:00:00</span>
+    </div>
+    <div class="row data-list m-0 descr" style="display: none;">
+        <div class="col s12">
+            <span style="display: inline-block;"><b>Description:</b> Disconnect&emsp14;to&emsp14;'nx-osv-1'</span>
+        </div>
+    </div>
+</li>
+
+
+                                    
+                                    
+
+                                    <!-- log -->
+                                    <li class="logs">
+                                        <div class="collapsible-header passed">
+                                            <i class="material-icons">arrow_drop_down</i>
+                                            <span class="title"><b>Section Logs</b></span>
+                                        </div>
+                                        <div class="collapsible-body">
+                                            <pre class="editor" style="height: 280px;">137: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Starting subsection disconnect
+138: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: STEP 1: Disconnect to 'nx-osv-1'
+139: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: Passed reason: Disconnected to device 'nx-osv-1'
+140: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: STEP 1: Disconnect to 'nx-osv-1' - Passed
+141: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %ATS-6-INFO: %[pid=42879][pname=Task-1]: +========================================================================================+
+142: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %ATS-6-INFO: %[pid=42879][pname=Task-1]: | Summary                                                                                |
+143: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %ATS-6-INFO: %[pid=42879][pname=Task-1]: +========================================================================================+
+144: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %ATS-6-INFO: %[pid=42879][pname=Task-1]: | Summary for device: nx-osv-1                                                           |
+145: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %ATS-6-INFO: %[pid=42879][pname=Task-1]: |----------------------------------------------------------------------------------------|
+146: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %ATS-6-INFO: %[pid=42879][pname=Task-1]: |    1) Disconnected with alias 'cli'                                                    |
+147: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %ATS-6-INFO: %[pid=42879][pname=Task-1]: |========================================================================================|
+148: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %GENIE-6-INFO: %[pid=42879][pname=Task-1]: Information about devices and connections can be found in the Testbed file and Mapping datafile
+149: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[part=149.1/3][pid=42879][pname=Task-1]: +----------------------------------------------------------+
+150: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[part=149.2/3][pid=42879][pname=Task-1]: |                       STEPS Report                       |
+151: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[part=149.3/3][pid=42879][pname=Task-1]: +----------------------------------------------------------+
+152: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: STEP 1 - Disconnect to 'nx-osv-1'                     Passed
+153: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: ------------------------------------------------------------
+154: JEAUBIN-M-43JF: 2018-09-25T15:54:57: %AETEST-6-INFO: %[pid=42879][pname=Task-1]: The result of subsection disconnect is => PASSED
+</pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</li>
+
+
+                </ul>
+            </div>
+        </div>
+        </div>
+
+        <div class="fixed-action-btn">
+		    <a class="btn-floating btn-large waves-effect waves-light red scrollToTop" style="display: none;">
+		      <i class="large material-icons">arrow_upward</i>
+		    </a>
+		</div>
+    </main>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+    <!-- <script src="https://www.amcharts.com/lib/3/serial.js"></script> -->
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    <!-- AceEditor -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+
+
+    // Strip whitespace from Ace Editor text
+	var p = document.getElementsByClassName("editor");
+	for (i = 0; i < p.length; i++) {
+		p[i].textContent = p[i].textContent.replace(/^\s+/mg, "");
+	};
+
+	// Initialize Ace Editor for all .editor elements
+    var editor;
+    $('.editor').each(function( index ) {
+    	editor = ace.edit(this);
+
+    	editor.setOptions({
+	    	readOnly: true,
+	    	showLineNumbers: false,
+	    	showGutter: false,
+	    	showPrintMargin: false,
+	    });
+		editor.setTheme("ace/theme/chrome");
+    });
+
+
+    // Initialize collapse button and collapsible accordion
+    $(".button-collapse").sideNav();
+    $('.collapsible').collapsible();
+
+
+    // Open parent collapsibles when child collapsible is opened
+    $('[data-click]').on('click', function(e) {
+        var el = $($(this).attr('href'));
+        var oneUp = $(el).closest('.collapsible-body').prev('.collapsible-header');
+        var twoUp = $(oneUp).closest('.collapsible-body').prev('.collapsible-header');
+
+        $(el).trigger('click');
+        $.each([oneUp, twoUp], function(i, val) {
+            if (!$(val).hasClass('active'))
+                $(val).trigger('click');
+        });
+
+        // close sidenav on link click
+        $(this).sideNav('hide');
+    });
+
+
+    // Stop collapse event from actions clicked inside collapsible headers
+    $(".not-collapse").on("click", function(e) { e.stopPropagation(); });
+
+    // Expand or Collapse sections by trigerring a click
+    $('.expand i').on('click', function(e) {
+    	var parent, all, el;
+
+    	el = $(this);
+		parent = el.closest('.collapsible-header');
+		all = parent.next('.collapsible-body')
+				    .find('.collapsible-header');
+
+		if ( el.closest('.side-nav').length !== 0 ) {
+			headers = $('.side-nav .collapsible-header');
+
+			if ( el.hasClass('all') && !headers.hasClass('active'))
+				headers.trigger('click');
+			else if ( el.hasClass('none') && headers.hasClass('active') )
+				headers.trigger('click');
+		}
+
+		// check if the click is to expand all sections
+     	else if ( el.hasClass('all') ) {
+    		all.each( function() {
+    			if ( !$(this).hasClass('active') )
+    				$(this).trigger('click');
+    		});
+    		if ( !parent.hasClass('active') )
+    			parent.trigger('click');
+    	}
+
+    	// check if the click is to collapse all sections
+    	else if ( el.hasClass('none') ) {
+    		all.each( function() {
+    			if ( $(this).hasClass('active') )
+    				$(this).trigger('click');
+    		});
+    		// close the parent collapse section if it's open
+    		if ( parent.hasClass('active') )
+    			parent.trigger('click');
+    	}
+    });
+
+
+	// Toggle scrollToTop button visibility based on scroll
+	$(document).ready(function(){
+		//Check to see if the window is top if not then display button
+		$(window).scroll(function(){
+			if ($(this).scrollTop() > 100)
+				$('.scrollToTop').fadeIn();
+			else
+				$('.scrollToTop').fadeOut();
+		});
+		//Click event to scroll to top
+		$('.scrollToTop').click(function(){
+			$('html, body').animate({scrollTop : 0},800);
+			return false;
+		});
+	});
+
+
+	// Setup custom collapse sections
+	$('[data-function="toggler"]').on('click', function (e) {
+	    var el = $(this);
+	    var header = el.closest('.collapsible-header');
+		var collapse;
+
+		// check the data-target, find that first child, then
+		// assign for toggling
+	    if (el.attr('data-target') == 'descr') {
+	    	if (header.next('.collapsible-body').length !== 0){
+	    		console.log(header.next('.collapsible-body'))
+	    		collapse = header.next('.collapsible-body').find('.descr').first();
+	    	}
+	    	else
+	    		collapse = header.next('.descr');
+	    }
+	    else if (el.attr('data-target') == 'meta')
+	    	collapse = header.next('.collapsible-body').find('.meta').first();
+
+	    if (!header.hasClass('active'))
+	    	header.trigger('click');
+
+     	collapse.slideToggle();
+	});
+
+	// Setup the Pie Chart
+    var chart = AmCharts.makeChart("chartdiv", {
+	  "type": "pie",
+	  "startDuration": 0,
+	   "theme": "light",
+	  "addClassNames": true,
+	  "legend":{
+	   	"position":"right",
+	    "marginRight":100,
+	    "autoMargins":false
+	  },
+	  "innerRadius": "30%",
+	  "defs": {
+	    "filter": [{
+	      "id": "shadow",
+	      "width": "200%",
+	      "height": "200%",
+	      "feOffset": {
+	        "result": "offOut",
+	        "in": "SourceAlpha",
+	        "dx": 0,
+	        "dy": 0
+	      },
+	      "feGaussianBlur": {
+	        "result": "blurOut",
+	        "in": "offOut",
+	        "stdDeviation": 5
+	      },
+	      "feBlend": {
+	        "in": "SourceGraphic",
+	        "in2": "blurOut",
+	        "mode": "normal"
+	      }
+	    }]
+	  },
+	  "dataProvider": [{
+            "status": "passed",
+            "count": 5,
+            "color": "rgb(0, 170, 0)" //#00AA00
+        }, {
+            "status": "passx",
+            "count": 0,
+            "color": "rgb(0, 170, 187)" //#00AABB
+        }, {
+            "status": "failed",
+            "count": 0,
+            "color": "rgb(255, 0, 0)" //#FF0000
+        }, {
+            "status": "errored",
+            "count": 0,
+            "color": "rgb(223, 1, 215)" //#DF01D7
+        }, {
+            "status": "aborted",
+            "count": 0,
+            "color": "rgb(0, 0, 0)" //#000000
+        }, {
+            "status": "blocked",
+            "count": 0,
+            "color": "rgb(161, 10, 40)" //#A10A28
+        }, {
+            "status": "skipped",
+            "count": 0,
+            "color": "rgb(110, 110, 110)" //#6E6E6E
+        }],
+	  "valueField": "count",
+	  "titleField": "status",
+	  "colorField": "color",
+	  "export": {
+	    "enabled": true
+	  }
+	});
+
+	chart.addListener("init", handleInit);
+
+	chart.addListener("rollOverSlice", function(e) {
+	  handleRollOver(e);
+	});
+
+	function handleInit(){
+	  chart.legend.addListener("rollOverItem", handleRollOver);
+	}
+
+	function handleRollOver(e){
+	  var wedge = e.dataItem.wedge.node;
+	  wedge.parentNode.appendChild(wedge);
+	}
+    </script>
+</body>
+
+</html>

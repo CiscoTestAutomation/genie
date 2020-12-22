@@ -1,0 +1,13 @@
+root_directories:
+   Trigger_genie_libs:
+     yaml: '$env(VIRTUAL_ENV)/genie_yamls/trigger_datafile.yaml'
+     extra_yamls:
+         iosxe: $env(VIRTUAL_ENV)/genie_yamls/iosxe/trigger_datafile_iosxe.yaml
+         iosxr: $env(VIRTUAL_ENV)/genie_yamls/iosxr/trigger_datafile_xr.yaml
+         nxos: $env(VIRTUAL_ENV)/genie_yamls/nxos/trigger_datafile_nxos.yaml
+     root: 'genie.libs.sdk'
+     mod_name: 'sdk'
+     url:
+         link: 'https://bitbucket-eng-sjc1.cisco.com/bitbucket/projects/PYATS-PYPI/repos/genielibs/browse/pkgs/'
+         branch: ''
+         style: 'bitbucket'
