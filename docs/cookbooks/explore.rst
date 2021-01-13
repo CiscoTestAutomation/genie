@@ -129,7 +129,7 @@ between all OS (Identical between all the OS).
 .. code-block:: python
 
     testbed.devices['nx-osv-1'].connect()
-    output = testbed.devices['nx-osv0'].learn('ospf')
+    output = testbed.devices['nx-osv-1'].learn('ospf')
     import pprint
     pprint.pprint(output.info)
     # {
