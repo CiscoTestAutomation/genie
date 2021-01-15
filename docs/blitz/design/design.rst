@@ -1749,5 +1749,5 @@ Useful tips and tricks in Blitz
 
 as shown in the image you can see how in the logs the starting message is customized.
 
-.. image:: ../images/custom_step_msg.png
+.. image:: custom_step_msg.png
    :width: 200%
