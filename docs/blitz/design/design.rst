@@ -585,9 +585,9 @@ You can save values to a variable name and later use that variable in other acti
 
 *Blitz* provides 3 forms of filters that can be applied to an action output.
 
-* ``Dq filter``: This filter is named after our JSON querying tool `Dq <https://pubhub.devnetcloud.com/media/genie-docs/docs/userguide/utils/index.html#dq>`_. It will apply a query on JSON output and saves the a part of a dictionary into a variable.
+* ``Dq filter``: This filter is named after our JSON querying tool `Dq <https://pubhub.devnetcloud.com/media/genie-docs/docs/userguide/utils/index.html#dq>`_. It will apply a query on JSON output and saves a part of a dictionary into a variable.
 
-* ``regex filter``:For actions that has string outputs you can apply a regex filter. If regex matches the output, the grouped value, that has a variable name specified like ``(?P<variable_name>)``, will be stored into that variable_name. Below you can find related examples.
+* ``regex filter``: For actions that has string outputs you can apply a regex filter. If regex matches the output, the grouped value, that has a variable name specified like ``(?P<variable_name>)``, will be stored into that variable_name. Below you can find related examples.
 
 * ``list filter``: It is a specific filter that only can be applied on action outputs that are a list.
 
@@ -705,6 +705,9 @@ Below you can see an example of list filter.
               filter: Oct\s+15[\S\s]+Configured from console by console$    # checks if any item in the list matches this filter and 
                                                                             # save it in a list named platform_log
 
+
+Load a variable
+^^^^^^^^^^^^^^^^
 
 The following `example` is showing how to use our specific markup language
 to load the saved variable in another action. In this example we save the output
