@@ -1,13 +1,13 @@
 Design
 ======
 
-`pyATS Health Check` is highly flexible and extendable. One of the biggest advantage is, leveraging Quick Trigger(Blitz) style YAML format. Whatever can be possible in pyATS Health Check as long as it's supported/implemented with Blitz way.
+`pyATS Health Check` is highly flexible and extendable. One of the biggest advantage is, leveraging Blitz style YAML format. Whatever can be possible in pyATS Health Check as long as it's supported/implemented with Blitz way.
 
 Develop testcase(trigger-datafile) with Blitz and develop pyATS Health Check yaml with same way! It's very straight forward and very quick to start pyATS Health Check!
 
 .. note::
 
-     See the detail of Quick Trigger (Blitz) `Quick Trigger (Blitz) <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html>`_
+     See the detail of `Blitz <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html>`_
 
 pyATS Health Check yaml
 -----------------------
