@@ -2,19 +2,19 @@
 
 pyATS Health Check
 ==================
-Collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check is all yaml driven and it is based on `Blitz <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html>`_. All Blitz functionalities are fully supported in health check.
+Collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check is all yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are fully supported in health check.
 
 The health check is driven by a `health_file` which is provided at run time. There is two different mechanism to run the checks:
 
 1. Part of a pre/post processor of a section or testcase.
 2. Part of another process continuously (Coming up in September).
 
-pyATS Health Check leverages existing `Blitz <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html>`_ style YAML format and use same format and capabilities what Blitz has.
+pyATS Health Check leverages existing :ref:`Blitz<blitz>` style YAML format and use same format and capabilities what Blitz has.
 The actions in pyATS Health Check yaml, those actions will be added to pyATS job's each section as pre/post processors. Pre, Post or both processors can be specified in the yaml.
 
 .. note::
 
-     See the detail of `Blitz <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html>`_
+     See the detail of :ref:`Blitz<blitz>`
 
 .. code-block:: bash
 

@@ -1,16 +1,15 @@
 Usage
 =====
-This page contains all the documentation needed to use *Blitz*.
-
+Now that you have your Trigger Yaml file ready with your *Blitz* testcase(s), let's get it running. You need the following:
 
 Prerequisites
 -------------
 * sourced pyATS virtual environment
 * testbed yaml
-* blitz yaml
+* `trigger yaml <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writetrigger/writetrigger.html#create-a-new-trigger-datafile>`_
 
-*Blitz* is integerated in pyATS Once you have both the testbed yaml and
-blitz yaml then all you need is a job file to run your tests.
+*Blitz* is integerated in pyATS. Once you have both the testbed yaml and
+blitz yaml then you can run your tests either using a job file or with executing a single cli command.
 
 .. code-block:: bash
 
@@ -22,6 +21,8 @@ blitz yaml then all you need is a job file to run your tests.
 
     # Integrated with pyATS jobs
     pyats run job <path_to_job_file> 
+    # Integerated using only a single command line
+    pyats run genie --trigger-datafile <path_to_blitz_datafile> --trigger-uids 'test1' --testbed-file testbed.yaml
 
 .. code-block:: python
 
@@ -41,7 +42,7 @@ blitz yaml then all you need is a job file to run your tests.
           trigger_uids = ['test1', 'test2'],  # name of the tests you wish to run
           testbed=<path_to_testbed>,
       )
-  
+
 
 Blitz Schema Validation
 -----------------------

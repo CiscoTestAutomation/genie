@@ -7,7 +7,7 @@ Develop testcase(trigger-datafile) with Blitz and develop pyATS Health Check yam
 
 .. note::
 
-     See the detail of `Blitz <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html>`_
+     See the detail of :ref:`Blitz<blitz>`
 
 pyATS Health Check yaml
 -----------------------

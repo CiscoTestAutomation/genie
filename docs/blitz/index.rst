@@ -18,11 +18,11 @@ a test case without having to know any knowledge of programming. This tool is ca
 * Many more features that will be discussed thoroughly in the upcoming sections
 
 
-To use the *Blitz*, add the `YAML` content to a
-*blitz_datafile.yaml* and using a `job
-<https://pubhub.devnetcloud.com/media/pyats/docs/easypy/jobfile.html>`__ file execute tests in the given order.
 
-Each *blitz_datafile* can contains of multiple testcases.
+To use the *Blitz*, add the `YAML` content to a
+`trigger datafile <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writetrigger/writetrigger.html#create-a-new-trigger-datafile>`_, or create a new yaml file if you dont have one. Using a `job <https://pubhub.devnetcloud.com/media/pyats/docs/easypy/jobfile.html>`__ file execute tests in the given order.
+
+Each *trigger datafile* can contains of multiple testcases.
 
 .. code-block:: YAML
 

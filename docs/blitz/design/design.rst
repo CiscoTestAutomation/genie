@@ -1,24 +1,22 @@
 Design
 ======
 
-Designed for quick development, the *Blitz* verifies *key-value* pairs and
-uses parsing for full flexibility across OS and platforms. A *blitz datafile* is constructed of testcases.
-Each testcase consists of various `sections` and each section itself contains various `actions`.
-`Actions` are blocks of command that each perform a task as part of the testcase
-and report the results, as `Passed`, `Failed`, `Errored` etc.
-Each section and action will run in the order given within the testcase. 
+Each *Blitz*  testcase consists of various sections and each section itself contains various actions. 
+Actions are blocks of command that each perform a task as part of the testcase and report the results, as Passed, Failed, Errored etc.
+Each section and action will run in the order given within the testcase.
 
 Blitz yaml
 -----------
-To use the *Blitz* template, add the `YAML` content to a
-*blitz_datafile.yaml* as shown in the following example for `BGP` on a router.
+
+To create a Blitz testcase, go to your Trigger datafile, or create a new yaml file if you dont have one, 
+and add below example into it. This example is a BGP ShutNoShut Testcase.
 The yaml is commented out explaining what each section does. See example below.
 
 .. code-block:: YAML
 
   # Name of the testcase
   TestBgpShutdown:
-      # Location of the blitz trigger
+      # Location of the blitz trigger - always this same location for all blitz trigger
       source:
         pkg: genie.libs.sdk
         class: triggers.blitz.blitz.Blitz
@@ -383,7 +381,7 @@ print
 yang
 ^^^^^
 
-The :ref:`yang action` action is designed to work with differing underlying protocols, but, at the
+The :ref:`yang action<yang action>` action is designed to work with differing underlying protocols, but, at the
 time of this writing, only NETCONF and gNMI are supported.  Changing the connection and
 protocol determines the message format.
 
