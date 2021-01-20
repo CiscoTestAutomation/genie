@@ -62,6 +62,5 @@ pyATS Health Check's added processors can be easily found in pyATS Logviewer or 
 .. toctree::
    :maxdepth: 2
 
-   health_installation/installation
    health_design/design
    health_usage/usage

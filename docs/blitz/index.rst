@@ -56,6 +56,5 @@ Each *trigger datafile* can contains of multiple testcases.
 .. toctree::
    :maxdepth: 2
 
-   installation/installation
    design/design
    usage/usage
