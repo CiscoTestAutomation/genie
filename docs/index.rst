@@ -106,6 +106,7 @@ massive news for automation within and outside of Cisco!
 
     userguide/index
     clean/index
+    blitz/index
     health/index
     cli/index
     solutions/index

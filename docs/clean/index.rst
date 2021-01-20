@@ -55,7 +55,6 @@ visiting http://localhost:8080/.
 .. toctree::
    :maxdepth: 2
 
-   installation/installation
    design/design
    usage/usage
    examples/base_clean_files
