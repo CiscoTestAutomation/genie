@@ -28,6 +28,16 @@ Combining a different clean with pyATS Clean
 The `cleaners` section in the ``Clean YAML`` supports multiple cleaners. For example, if pyATS Clean does not
 support a platform that Uniclean does, you can use both of them at the same time.
 
+.. note::
+
+    Uniclean is end-of-life and end-of-support.
+
+    Combining a different clean with pyATS Clean should only be used as a temporary work-around until pyATS Clean has
+    support.
+
+    Please :ref:`contact the development team <clean_doc_support>` and/or contribute following the
+    :ref:`Developer Guide <clean_doc_developer_guide>` to fill these feature gaps.
+
 .. code-block:: yaml
     :linenos:
     :emphasize-lines: 7-10

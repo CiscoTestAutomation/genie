@@ -4,7 +4,8 @@ Image Management
 ================
 
 pyATS Clean has a feature that can manage passing images between stages to help reduce the size and complexity of the
-`Clean YAML`.
+``Clean YAML``. Images can be defined in the ``Clean YAML`` or can be passed via command line arguments
+(See :ref:`Passing images through CLI <clean_doc_image_cli>`).
 
 To illustrate the difference, please see the ``Clean YAML`` below without using `Image Management`. The highlighted lines
 are the lines that `Image Management` would automatically populate if used.
@@ -187,23 +188,17 @@ Some platforms may support multiple structure types.
             Structure #1
             ------------
             images:
-            - /path/to/controller_image.bin
             - /path/to/switch_image.bin
 
             Structure #2
             ------------
             images:
-              controller:
-              - /path/to/controller_image.bin
               switch:
               - /path/to/switch_image.bin
 
             Structure #3
             ------------
             images:
-              controller:
-                file:
-                - /path/to/controller_image.bin
               switch:
                 file:
                 - /path/to/switch_image.bin

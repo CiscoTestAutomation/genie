@@ -2,8 +2,8 @@
 Executing a Clean
 =================
 
-This page contains the basic arguments required to use pyATS Clean. There are two different methods of using pyATS Clean
-– Integrated or Standalone.
+This page contains the information required to execute pyATS Clean and its available arguments. There are two different
+methods of using pyATS Clean – Integrated or Standalone.
 
 Prerequisites
 -------------
@@ -33,6 +33,8 @@ Running without a pyATS script is designed to only clean the device; there isn't
 Run with this command::
 
     pyats clean --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+
+.. _clean_doc_image_cli:
 
 Passing images through CLI
 --------------------------

@@ -8,9 +8,14 @@ At this point you should now have a basic knowledge of pyATS clean such as the f
     * The cleaners block
     * Adding a device to clean
     * Adding a stage and the respective arguments
+    * Adding multiple stages and the respective arguments
     * Adding the order of which stages should execute in
 
-**You also know how to execute your newly developed clean!**
+To Execute the Clean
+--------------------
+
+To execute the clean, follow the :ref:`Executing a Clean (Running Without a pyATS Script) <clean_doc_standalone>` document.
+
 
 Moving Forward
 --------------

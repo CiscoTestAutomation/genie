@@ -35,7 +35,7 @@ Device Recovery is invoked after every stage and it will determine whether to co
 
 **The following diagram explains, in detail, the flow of Device Recovery.**
 
-.. image:: ../../assets/pyATS_clean_device_recovery_diagram.png
+.. image:: ../../assets/pyATS_clean_device_recovery_diagram.svg
 
 How to Enable Device Recovery
 -----------------------------
@@ -78,11 +78,10 @@ you have the Golden Image, follow the steps below.
 
 #. Add the `device_recovery` section to the ``Clean YAML``.
 
-    Below you can find the `Device Recovery` schema and an example that is highlighted at the bottom.
+    Below you can find the `Device Recovery` schema.
 
     .. code-block:: yaml
         :linenos:
-        :emphasize-lines: 67-74
 
         Clean YAML - Device Recovery Schema
         -----------------------------------
@@ -147,6 +146,11 @@ you have the Golden Image, follow the steps below.
                 subnet_mask (str): Management subnet mask.
                 gateway (str): Management gateway.
                 tftp_server (str): Tftp server is reachable with management interface.
+
+    Below you can find a `Device Recovery` example.
+
+    .. code-block:: yaml
+        :linenos:
 
         Clean YAML - Device Recovery Example
         ------------------------------------

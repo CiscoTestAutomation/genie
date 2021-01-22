@@ -3,6 +3,10 @@
 Getting Ready
 =============
 
+.. note::
+
+    This page is the same as `Getting Ready` from the `Quick Start` section. You can skip this if you have already read it.
+
 .. topic:: pyATS Clean requires the following inform to perform a clean:
 
     * `pyATS and Genie installed (latest version)`_

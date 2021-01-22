@@ -11,7 +11,7 @@ provide preliminary information.
 
     .. toctree::
 
-        ../quick_start/getting_ready
+        getting_ready
         cleaner_class
         intro_to_clean_stages
         cleaning_devices

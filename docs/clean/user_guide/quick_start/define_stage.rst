@@ -62,7 +62,33 @@ level of hierarchy as `stages`. The `order` key is a list of stages we previousl
             order:
             - connect
 
-.. note::
+It is supported to add as many stages as needed. Below is an example of adding another stage called
+`apply_configuration <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean/apply_configuration>`_
+under `PE1` in the ``Clean YAML``.
 
-    From this point forward, you have the bare-minimum required and can run this example on your own testbed by following the
-    :ref:`Executing a Clean (Running Without a pyATS Script) <clean_doc_standalone>` document.
+It will run after the `connect` stage as defined under the `order` key.
+
+.. code-block:: yaml
+    :linenos:
+    :emphasize-lines: 15-16, 20
+
+    cleaners:
+        # This means to use the cleaner class `PyatsDeviceClean`
+        PyatsDeviceClean:
+            # The module is where the cleaner class above can be found
+            module: genie.libs.clean
+            # You can define many devices within the Clean YAML.
+            # Any that are not in this list are not cleaned even if they are defined below.
+            devices: [PE1]
+
+    devices:
+        PE1:
+            connect:
+                timeout: 100
+
+            apply_configuration:
+                configuration: hostname PE1
+
+            order:
+            - connect
+            - apply_configuration
