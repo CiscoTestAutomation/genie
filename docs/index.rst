@@ -103,9 +103,10 @@ massive news for automation within and outside of Cisco!
 .. toctree::
     :maxdepth: 1
     :caption: Documentation
+    :titlesonly:
 
     userguide/index
-    clean/index
+    pyATS Clean <clean/index>
     blitz/index
     health/index
     cli/index
