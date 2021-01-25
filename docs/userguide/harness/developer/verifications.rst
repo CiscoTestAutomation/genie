@@ -124,9 +124,9 @@ previous sections to create your verifications as they provide users with
 multiple advantages, including: os agnostic, extensibility for different management interfaces
 (Cli/Yang), among others.
 
-Step 1: Write a callable which has `self` as its first argument and also has
-*arg and **kwargs (as shown below). This callable needs to return a dictionary
-as it will be used as a snapshot for verifications.
+Step 1: Write a callable which has `self` and `device` as its first and second
+arguments. This callable needs to return a dictionary as it will be used as a
+snapshot for verifications. 
 
 .. note::
 
@@ -134,7 +134,8 @@ as it will be used as a snapshot for verifications.
 
 .. code-block::  python
 
-    def a_callable(self, var1, *args, **kwargs):
+    def a_callable(self, device, var1):
+        device.parse('show clock')
         return {'value':var1}
 
 Step 2: Add your callable information to the `verification_datafile` as shown
@@ -142,14 +143,15 @@ below.
 
 .. code-block:: yaml
 
-    Verify_<feature name>:
+    Verify_<whatever you want>:
         source:
             class: <your location, for example: my.callable.function>
         exclude: [<list of generic keys to ignore in the comparison>]
         devices:
             uut:
                 None
-        var1: 9
+        parameters:
+            var1: 9
         iteration:
             attempt: 2
             interval: 10
