@@ -1,99 +1,3 @@
-Design
-======
-
-Each *Blitz*  testcase consists of various sections and each section itself contains various actions. 
-Actions are blocks of command that each perform a task as part of the testcase and report the results, as Passed, Failed, Errored etc.
-Each section and action will run in the order given within the testcase.
-
-Blitz yaml
------------
-
-To create a Blitz testcase, go to your Trigger datafile, or create a new yaml file if you dont have one, 
-and add below example into it. This example is a BGP ShutNoShut Testcase.
-The yaml is commented out explaining what each section does. See example below.
-
-.. code-block:: YAML
-
-  # Name of the testcase
-  TestBgpShutdown:
-      # Location of the blitz trigger - always this same location for all blitz trigger
-      source:
-        pkg: genie.libs.sdk
-        class: triggers.blitz.blitz.Blitz
-
-      # Devices to run on - Default is uut
-      devices: ['uut']
-  
-      # Field containing all the Testcase sections
-      test_sections:
-  
-        # Section name - Can be any name, it will show as the first section of
-        # the testcase
-          - apply_configuration:
-              # List of actions
-              - configure:
-                  device: R3_nx
-                  command: |
-                    router bgp 65000
-                    shutdown
-              - sleep:
-                  sleep_time: 5
-  
-          # Second section name
-          - verify_configuration:
-              # Action #1
-              # Send show command to the device and verify if part 
-              # of a string is in the output or not
-              - execute:
-                  device: R3_nx
-                  command: show bgp process vrf all
-                  include:
-                      # Verify Shutdown is within the show run output
-                    - 'Shutdown'
-                  exclude:
-                      # Verify Running is not within the show run output
-                    - 'Running'
-              # Action #2
-              # Send show command and use our available parsers to make sure
-              # the bgp protocol state is shutdown
-              - parse:
-                  device: R3_nx
-                  # All action supports banner field to add to the log
-                  banner: Verify bgp process is shutdown
-                  command: show bgp process vrf all
-                  include:
-                    - get_values('shutdown')
-                  exclude:
-                    - not_contains('running')
-          - Revert_configuration:
-              # Configure action, which accepts command as an argument
-              - configure:
-                  device: R3_nx
-                  banner: Un-Shutting down bgp 65000
-                  command: |
-                    router bgp 65000
-                    no shutdown
-          - verify_revert:
-              # Send show command and verify if part of a string is in the output or not
-              - execute:
-                  device: R3_nx
-                  command: show bgp process vrf all
-                  include:
-                      # Verify Running is within the show run output
-                      - 'Running'
-                  exclude:
-                      # Verify Shutdown is not within the show run output
-                      - 'Shutdown'
-              # Send show command and use our available parsers to make sure
-              # it is the bgp protocol state which is running
-              - parse:
-                  device: R3_nx
-                  command: show bgp process vrf all
-
-.. note::
-
-  Make sure you read the comments above! After this all will make sense!
-
 
 Actions
 -----------
@@ -140,7 +44,7 @@ exists in the output. You also, have the option to check if a specific
 
     - execute: # ACTION
         # (Either device hostname or device alias)
-        device: R1 
+        device: R1
         # Send show version to the device
         command: show version
         # Can have as many items under include or exclude that you want
@@ -157,7 +61,7 @@ Both include and exclude keywords are optional to use.
 
 You can apply additional arguments to ``execute`` command.
 List of arguments that can be applied to execute command can be found at this `link
-<http://wwwin-pyats.cisco.com/cisco-shared/unicon/latest/user_guide/services/generic_services.html#execute>`__. 
+<http://wwwin-pyats.cisco.com/cisco-shared/unicon/latest/user_guide/services/generic_services.html#execute>`__.
 Example can be seen below.
 
 .. code-block:: YAML
@@ -197,6 +101,21 @@ Example can be seen below.
         device: PE1
         timeout: 10
 
+
+configure_dual
+^^^^^^^^^^^^^^^
+
+The `configure_dual` action is used to configure the device. It is mandatory to commit your config command to end the session
+
+.. code-block:: YAML
+
+    - configure_dual: # ACTION
+        device: device_name
+        command: |
+            router bgp
+            commit
+
+
 parse
 ^^^^^^
 
@@ -204,11 +123,11 @@ The ``parse`` action use pyATS `Parsers
 <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers>`_.
 The parsers return structured data in a dictionary format. It allows to verify
 if certain key have an expected output, where `execute` verify that it is
-somewhere in the output, irrelevant of the structure. You can use the keywords 
-`include` and `exclude` to *query* the output of your parser. You can learn, how 
-to use `include/exclude` keywords in a parse action by reading through 
+somewhere in the output, irrelevant of the structure. You can use the keywords
+`include` and `exclude` to *query* the output of your parser. You can learn, how
+to use `include/exclude` keywords in a parse action by reading through
 this `section
-<#querying-actions-output>`__.
+<#verifying-actions-output>`__.
 
 .. code-block:: YAML
 
@@ -230,32 +149,39 @@ api
 The ``api`` action use pyATS `Api
 <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis>`_.
 
-You can use `include/exclude` to query the results of the apis that their outputs are ``dictionary``.
-See `section
-<#querying-actions-output>`__.
+You can learn how to query the results of the apis by taking a look at this `section
+<#verifying-actions-output>`__.
 
 .. code-block:: YAML
 
         - api: # ACTION
             function: get_interface_mtu_config_range
             arguments:
+                device: PE1
                 interface: GigabitEthernet1
             include:
-
                 - contains('max')
                 - get_values('range')
             exclude:
                 - contains('min-max')
         ...
 
-The output of the apis that are numerical or string can be also verified using the `include/exclude` keywords.
-See `section
-<#verification-of-non-dictionary-outputs>`__.
+If the api is a common utils api that does not have a device as its argument, then it is not required to specify a device value for that api action.
+Instead by setting the keyword ``common_api: True`` you can have access to that api. See below example.
 
-tgn 
+.. code-block:: YAML
+
+        - api: # ACTION
+            function: get_devices
+            common_api: True
+            arguments:
+                testbed: "%VARIABLES{runtime}"
+        ...
+
+tgn
 ^^^^
 
-The ``tgn`` action now allows you to call `traffic generator` (tgn) apis in addition to the 
+The ``tgn`` action now allows you to call `traffic generator` (tgn) apis in addition to the
 other existing apis.
 
 .. code-block:: YAML
@@ -267,7 +193,7 @@ other existing apis.
 rest
 ^^^^
 
-The ``rest`` action allows to make rest call to any endpoint on a device. Rest uses http method to 
+The ``rest`` action allows to make rest call to any endpoint on a device. Rest uses http method to
 transfer data. Five http protocols are supported, `get`, `post`, `put`, `patch` and `delete`.
 
 You can find additional information on rest, using this `tutorial
@@ -369,13 +295,15 @@ similar to api action and parse action.
 print
 ^^^^^^
 
-``print`` action allows you to print messages, variables and actions output into the console. 
+``print`` action allows you to print messages, variables and actions output into the console.
 
 .. code-block:: YAML
 
     - print:
-        print_item1: "%VARIABLES{parse_output}"
-        print_item2: "%VARIABLES{configure_output}"
+        item:
+          value: "%VARIABLES{parse_output}"
+        another_item:
+          value: "%VARIABLES{parse_output1}"
         ...
 
 yang
@@ -427,13 +355,13 @@ verification on the output of each command. Below example shows how to use bash_
                 - |
                   cd ~
                   echo A string of text
-              include: 
+              include:
                   - contains('ls')
 
 configure_replace
 ^^^^^^^^^^^^^^^^^^^^
 
-The ``configure_replace`` action is used to replace the running-config. Users only needs 
+The ``configure_replace`` action is used to replace the running-config. Users only needs
 to provide the location of the saved configuration.
 
 .. code-block:: YAML
@@ -476,7 +404,7 @@ run_genie_sdk
 
 The ``run_genie_sdk`` action is used to run other triggers from within
 *Blitz*. All you have to do is to mention the trigger name and its arguments
-in your *Blitz* datafile. 
+in your *Blitz* datafile.
 
 .. note::
 
@@ -502,11 +430,11 @@ Allow to diff two variables (Dictionary or Ops object).
 By default it will just print the difference, but can also fail the section
 if they are different with the argument `fail_different=True`.
 
-``command`` or ``feature`` to diff will gather pre-defined exclude list from 
+``command`` or ``feature`` to diff will gather pre-defined exclude list from
 the parser or Ops.
 
-``mode`` can be specified only what you want to check. ``mode`` has ``add``, 
-``remote`` and ``modified``. By default, it will show all the differences, 
+``mode`` can be specified only what you want to check. ``mode`` has ``add``,
+``remote`` and ``modified``. By default, it will show all the differences,
 for the case ``add``, will show only added difference.
 
 .. code-block:: YAML
@@ -557,7 +485,7 @@ Example with ``feature``.
     Please find more detail for ``diff`` from below document.
     `Diff <https://pubhub.devnetcloud.com/media/genie-docs/docs/userguide/utils/index.html#diff>`_
 
-compare 
+compare
 ^^^^^^^^^
 
 Action ``compare`` allows you to verify the values of the saved variables. Below example shows how you can actually use this action.
@@ -571,10 +499,10 @@ Action ``compare`` allows you to verify the values of the saved variables. Below
         - " %VARIABLES{bootflash} >= 290000 or '%VARIABLES{bios}' == '07.33'"
 
 
-Filter, Save and Load variables 
+Filter, Save and Load variables
 ----------------------------------
 
-Another very useful feature that Blitz has, is the ability to save actions output or a variation of the output. 
+Another very useful feature that Blitz has, is the ability to save actions output or a variation of the output.
 You can save values to a variable name and later use that variable in other actions. There are different ways to save values to a variable:
 
 * Save the entire output of an action to a variable name.
@@ -668,7 +596,7 @@ list filter
 ^^^^^^^^^^^^
 
 For actions that has list outputs you can get an index or a part of a list and save it into a list with a desired variable_name.
-You can also specify a regex value and match it against all the items within that list, and get a list of 
+You can also specify a regex value and match it against all the items within that list, and get a list of
 all the matched items.
 
 Below you can see an example of list filter.
@@ -700,7 +628,7 @@ Below you can see an example of list filter.
         save:
             # apply regex filter to items and save a list of matches
             - variable_name: platform_log                                   # The output to save value from is a list of platform logs
-              filter: Oct\s+15[\S\s]+Configured from console by console$    # checks if any item in the list matches this filter and 
+              filter: Oct\s+15[\S\s]+Configured from console by console$    # checks if any item in the list matches this filter and
                                                                             # save it in a list named platform_log
 
 
@@ -714,7 +642,7 @@ of the action ``configure``.
 
 .. code-block:: YAML
 
-    - apply_configuration:    
+    - apply_configuration:
           - api:
               device: PE1
               function: get_interface_mtu_size
@@ -729,12 +657,12 @@ of the action ``configure``.
 
 Another example of how to use our markup language is provided below. In this example the output of the ``learn``
 action is saved on variable  *main_learn_output*. Also, a filter is applied on this output and is saved
-in variable  *filtered_learn_output*. We later check the inclusion of the *filtered_learn_output* 
+in variable  *filtered_learn_output*. We later check the inclusion of the *filtered_learn_output*
 in action ``execute`` output and print the *main_learn_output* into the console.
 
 .. code-block:: YAML
 
-    - apply_configuration:    
+    - apply_configuration:
 
           - learn:
               device: PE1
@@ -759,7 +687,7 @@ in action ``execute`` output and print the *main_learn_output* into the console.
 
 
 
-Verifying actions' output
+Verifying actions output
 ---------------------------
 
 As it was mentioned when introducing different actions, users can query
@@ -777,12 +705,12 @@ Actions ``parse``, ``learn`` and ``api`` are benefiting from this feature the mo
 the one that are most likely to have a JSON output. You can query a JSON using Dq
 and see whether the result of a query is included or excluded in our output.
 
-Below you can see an `example` of using include and exclude on the parsed output of the 
+Below you can see an `example` of using include and exclude on the parsed output of the
 command ``show version``.
 
 .. code-block:: YAML
 
-    - apply_configuration:    
+    - apply_configuration:
               - parse:
                   command: show version
                   device: PE2
@@ -804,13 +732,13 @@ within the *trigger_datafile* and checking if certain query results are included
 
 .. code-block:: YAML
 
-    - apply_configuration:    
+    - apply_configuration:
         - api: #
             function: get_interface_mtu_config_range
             arguments:
                 interface: GigabitEthernet1
             include:
-                
+
                 # Check if the output of this query is not an empty dictionary
                 - contains('max')
 
@@ -834,7 +762,7 @@ within the *trigger_datafile* and checking if certain query results are included
     - parse:
         device: 'N93_3'
         command: 'show module'
-        save: 
+        save:
             - variable_name: banana
               filter: contains('lc')
         include:
@@ -862,7 +790,7 @@ within the *trigger_datafile* and checking if certain query results are included
 
 List
 ^^^^^
-It is also possible to check and see if certain items exist within a output that is a list. 
+It is also possible to check and see if certain items exist within a output that is a list.
 
 .. code-block:: YAML
 
@@ -899,7 +827,7 @@ Numerical
 At this moment, it is only action `api` that supports this feature, as it is the only
 action that have ``integer`` and ``float`` outputs.
 
-In below `example` , we want to verify that the numerical output of *get_interface_mtu_size* is 
+In below `example` , we want to verify that the numerical output of *get_interface_mtu_size* is
 smaller or equal 2000
 
 .. code-block:: YAML
@@ -916,8 +844,8 @@ smaller or equal 2000
 
 For numerical outputs we support all the common mathematical operations ``{=, >=, <=, >, <, !=}``.
 
-You also can check whether a value is within a certain range. Below 
-is an `example` of this feature. We want to see if the action output is 
+You also can check whether a value is within a certain range. Below
+is an `example` of this feature. We want to see if the action output is
 greater than 1200 and smaller or equal 1500.
 
 .. code-block:: YAML
@@ -930,8 +858,8 @@ greater than 1200 and smaller or equal 1500.
             - ">1200  && <=1500"
 
 
-If you use the keyword include without specifying any operation the default operation would be 
-set to ``==`` and by using keyword exclude the operation would be set to ``!=``. 
+If you use the keyword include without specifying any operation the default operation would be
+set to ``==`` and by using keyword exclude the operation would be set to ``!=``.
 Below you can see an `example` of this.
 
 .. code-block:: YAML
@@ -972,10 +900,10 @@ Advanced Actions
 
 Up to this point of this tutorial, we were mainly talking about how to operate with *Blitz* and execute
 different actions in a sequential manner. This means that upon running the *trigger_datafile*
-actions are getting executed one after the other and each action should completely finish its job before 
+actions are getting executed one after the other and each action should completely finish its job before
 another action starts.
 
-*Blitz* advanced actions are a form of action that will be introduced on top of a group actions 
+*Blitz* advanced actions are a form of action that will be introduced on top of a group actions
 and modify implementation behaviour of said actions.
 *Blitz* currently supports three advanced actions:
 
@@ -987,12 +915,12 @@ and modify implementation behaviour of said actions.
 parallel
 ^^^^^^^^^
 
-In some testcases executing actions sequentially could be quite time consuming. 
-In this section we will discuss how to execute multiple actions in parallel and at the same time. Running actions 
+In some testcases executing actions sequentially could be quite time consuming.
+In this section we will discuss how to execute multiple actions in parallel and at the same time. Running actions
 in parallel allows you to execute numerous actions all together, which make the execution of a  *trigger_datafile*
 way more faster.
 
-You can run multiple actions concurrently by defining your actions after the keyword `parallel` within 
+You can run multiple actions concurrently by defining your actions after the keyword `parallel` within
 your *trigger_datafile*. Below you can see an example of multiple actions that are running in parallel.
 In below example actions ``api`` and ``learn`` are executed on device ``PE1`` and ``parse`` is executed on device ``PE2``
 and all at the same time.
@@ -1009,23 +937,23 @@ and all at the same time.
                     - parse:
                         command: show version
                         device: PE2
-                        include: 
+                        include:
                           - contains("version_short")
                     - learn:
                         device: PE1
                         feature: bgp
                         include:
                           - contains("info")
-        ... 
+        ...
 
-While you can execute actions in parallel to make the execution of a *trigger_datafile* faster, 
-you can still run some other actions in the same sequential manner. In below example action ``execute`` 
+While you can execute actions in parallel to make the execution of a *trigger_datafile* faster,
+you can still run some other actions in the same sequential manner. In below example action ``execute``
 gets executed first and then two actions ``api`` and ``parse`` start their work in parallel, and finally
 the action ``sleep`` start its work for 5 seconds.
 
 .. code-block:: YAML
 
-            # Actions 'execute' and 'sleep' are being executed on a sequential manner 
+            # Actions 'execute' and 'sleep' are being executed on a sequential manner
             # While 'api' and 'parse' are executed at the same time
             - apply_configuration:
                 - execute:
@@ -1047,10 +975,10 @@ the action ``sleep`` start its work for 5 seconds.
 
 .. note::
 
-  Please note that you cannot save a variable in parallel and immediately use it in another action 
-  that is being executed in the same parallel block. However, you still can save a variable in an action 
-  that being executed in a parallel block, and use it outside that parallel block later. If you want to use a 
-  variable in an action that is being executed in parallel, you need to save that variable beforehand in an 
+  Please note that you cannot save a variable in parallel and immediately use it in another action
+  that is being executed in the same parallel block. However, you still can save a variable in an action
+  that being executed in a parallel block, and use it outside that parallel block later. If you want to use a
+  variable in an action that is being executed in parallel, you need to save that variable beforehand in an
   action outside of that parallel block.
 
 In below `example` value ``min`` and ``max`` are saved from the output of the *get_interface_mtu_config_range*
@@ -1081,7 +1009,7 @@ to be used later in other actions.
                       - ">= %VARIABLES{min} && <= %VARIABLES{max} "
                 - configure:
                     device: PE1
-                    save: 
+                    save:
                       - variable_name: another_configure_output
                     command: |
                         router bgp 65000
@@ -1090,7 +1018,7 @@ to be used later in other actions.
                   command: show interface
                   include:
                     - "%VARIABLES{another_configure_output}"
- 
+
 
 loop
 ^^^^^
@@ -1103,12 +1031,12 @@ In the below *Blitz* section, the loop is above an execute action.
 
 The goal is to run this action twice on the same device using 2 different commands, without writing two separate execute
 actions with 2 different commands. This can be achieved simply by using loop like below.
-In the below example The loop_variable_name will be the name of the loop value that will be reused in the action. 
-The value here is a list of show commands. Here each show commands get saved into the variable_name “command” and in the execute action would be loaded as the actual command. 
+In the below example The loop_variable_name will be the name of the loop value that will be reused in the action.
+The value here is a list of show commands. Here each show commands get saved into the variable_name “command” and in the execute action would be loaded as the actual command.
 The execute action would run twice once executing show version command and once executing show vrf command both times on the device PE1.
 
 .. note::
-    
+
     An iteration here means, one execution of all the actions below the keyword loop. In below example we have 2 iterations.
 
 .. code-block:: YAML
@@ -1138,7 +1066,7 @@ Each loop can contains the following keywords:
 * ``loop_until``: It could be set to (passed/failed). If set, loop will iterate until the result of the last iteration is as same as the value.
 
 .. note::
-    
+
     A loop can only have one of the ``value``, ``range``, ``until``, ``do_until``.
 
 There are a lot of use cases for looping with various features. Examples can be found below.
@@ -1207,7 +1135,7 @@ There are a lot of use cases for looping with various features. Examples can be 
 
 .. code-block:: YAML
 
-    # Description: Looping over an action twice (two iteration) since the range is 2, and each time, 
+    # Description: Looping over an action twice (two iteration) since the range is 2, and each time,
     # and run a couple of actions in parallel
     # Also after each parallel call sleep for amount of the range value, so once for one second and the other for two seconds.
 
@@ -1232,7 +1160,7 @@ There are a lot of use cases for looping with various features. Examples can be 
     # The iteration stops the second the last iteration is equal to passed.
 
     - loop:
-        
+
         range: 2
         loop_variable_name: range_name
         loop_until: passed
@@ -1248,7 +1176,7 @@ There are a lot of use cases for looping with various features. Examples can be 
             sleep_time: "%VARIABLES{range_name}"
 
 The keyword ``every_seconds`` is defined so users can manage their loop and if possible run it with synchronized timing.
-If the execution of an iteration of a loop exceeds the time assigned for every_seconds, the loop would still continue its work but a warning would be 
+If the execution of an iteration of a loop exceeds the time assigned for every_seconds, the loop would still continue its work but a warning would be
 printed into the log. Below you can see the example of how ``every_seconds`` work.
 
 .. code-block:: YAML
@@ -1260,12 +1188,12 @@ printed into the log. Below you can see the example of how ``every_seconds`` wor
 
     - loop:
         loop_variable_name: banana
-        value: 
+        value:
           - version
           - vrf
         every_seconds: 8
         actions:
-                - execute:  
+                - execute:
                     alias: execute_
                     device: uut
                     command: show %VARIABLES{banana}
@@ -1286,7 +1214,7 @@ in your script.
     - loop:
         # looping over a dictionary and applying values within action in same level and actions that re in the nested loop
         loop_variable_name: l_dict
-        value: 
+        value:
           inventory_save: inventory
           module_save: vrf
         actions:
@@ -1297,10 +1225,10 @@ in your script.
                 interface: GigabitEthernet1
               save:
                 - variable_name: max
-                  filter: get_values('max')                        
+                  filter: get_values('max')
           - loop:
               # Looping on a range of value, this instance it runs twice, you still can use the range number in your actions
-              value: 
+              value:
                 - show version
                 - show vrf
               loop_variable_name: list_name
@@ -1320,8 +1248,8 @@ in your script.
 run_condition
 ^^^^^^^^^^^^^^
 
-It is possible to run (or not run) a set of actions with regards to a conditional statement. 
-This can be achieved by running actions below the keyword run_condition. 
+It is possible to run (or not run) a set of actions with regards to a conditional statement.
+This can be achieved by running actions below the keyword run_condition.
 To run actions with a conditional statement, *Blitz* expects:
 
 * An if statement with boolean value (True or False statement).
@@ -1330,7 +1258,7 @@ To run actions with a conditional statement, *Blitz* expects:
 
 * A set of actions (e.g parse, execute etc.) that would be specified under keyword ``actions``.
 
-The function can be one from this list ``[passed, failed, aborted, skipped, blocked, errored, passx]``. 
+The function can be one from this list ``[passed, failed, aborted, skipped, blocked, errored, passx]``.
 The function will be applied only if the if statement is equal True, otherwise actions will be running normally.
 
 To better understand the use of this feature lets look at the following example.
@@ -1338,10 +1266,10 @@ To better understand the use of this feature lets look at the following example.
 .. code-block:: YAML
 
     - run_condition:
-        
+
         if: "2000 == 2000"  # if statement boolean value True
         function: failed    # function that would be applied to actions
-        
+
         actions:            # All the actions that are under this keyword will be conditioned and the results of them will be set as failed
           - api:            # output as Failed
 
@@ -1356,12 +1284,12 @@ To better understand the use of this feature lets look at the following example.
                 - ">= 1400 && <= 1600"
           - sleep:         # output as Failed
               sleep_time: 1
-    
+
     - run_condition:
-        
+
         if: "2000 != 2000"  # if statement boolean value False
         function: passed    # function that would be applied to actions
-        
+
         actions:
           - api:            # will call the api
 
@@ -1378,11 +1306,11 @@ To better understand the use of this feature lets look at the following example.
               sleep_time: 1
 
 .. note::
-    
-    Be noted, actions would run only if the condition statement is False. If the statement is True, 
+
+    Be noted, actions would run only if the condition statement is False. If the statement is True,
     the result of all the actions underneath the run_condition would be as same as the function value.
 
-Using the run_condition, users can evaluate various conditional statements before running their actions. 
+Using the run_condition, users can evaluate various conditional statements before running their actions.
 Examples are provided below for these conditional statements.
 
 .. code-block:: YAML
@@ -1432,7 +1360,7 @@ Examples are provided below for these conditional statements.
                     include:
                         - parser
                 - run_condition:
-                       if: "%VARIABLES{execute_alias} == failed"     
+                       if: "%VARIABLES{execute_alias} == failed"
                        function: skipped                             # The action execute_alias failed so all the actions below will be skipped
                        actions:
                          - parse:
@@ -1444,7 +1372,7 @@ Examples are provided below for these conditional statements.
 .. code-block:: YAML
 
     # Description: You can check whether if a saved_variable has the appropriate output
-    
+
     test:
         source:
             pkg: genie.libs.sdk
@@ -1472,7 +1400,7 @@ Examples are provided below for these conditional statements.
 .. code-block:: YAML
 
     # Description: You can check multiple conditional statements all at once and run actions with regards to their output
-    
+
     test:
         source:
             pkg: genie.libs.sdk
@@ -1496,7 +1424,7 @@ Examples are provided below for these conditional statements.
                        interface: GigabitEthernet10
                 - run_condition:
                        if: "%VARIABLES{gims_output} != 1500 and %VARIABLES{gims_output} != 2500"        # if gims_output and gime_output_1 are not storing the proper value
-                       function: skipped                                                                # the if statement is false hence, skipping actions 
+                       function: skipped                                                                # the if statement is false hence, skipping actions
                        actions:
                          - parse:
                              command: show version
@@ -1511,17 +1439,17 @@ Customizing Blitz
 *Blitz* its not limited to its built-in actions. It is possible to create various custom actions and still utilize *Blitz* framework.
 Here we discuss how to create custom actions and sections in blitz.
 
-Creating a custom action 
+Creating a custom action
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 The structure needed to create a custom action in *Blitz* is pretty straight forward. A new module (e.g. customBlitz.py) with a new class
-should be created. Within the said class, *Blitz* class should be inherited and the action can be developed. The content of that action can be anything that helps users 
+should be created. Within the said class, *Blitz* class should be inherited and the action can be developed. The content of that action can be anything that helps users
 with their testing. Look at example below
 
 .. code-block:: PYTHON
 
   import logging
-  from pyats import aetest 
+  from pyats import aetest
   from genie.libs.sdk.triggers.blitz.blitz #import Blitz
 
 
@@ -1558,7 +1486,7 @@ A function that represent the custom section should be created within said class
 .. code-block:: PYTHON
 
   import logging
-  from pyats import aetest 
+  from pyats import aetest
   from genie.libs.sdk.triggers.blitz.blitz #import Blitz
 
 
@@ -1612,7 +1540,7 @@ testscripts so the script stop upon failure. Below example shows how to achieve 
 .. code-block:: YAML
 
     - test_sections:
-        - apply_configuration:    
+        - apply_configuration:
             - continue: False
             - configure:
                 command: router bgp 6500
@@ -1636,9 +1564,9 @@ That would send the signal that upon failure of an action the rest of the action
 Replying to the prompt dialogue
 ---------------------------------
 
-When executing or configuring commands on some devices, it is possible that you receive 
-a prompt message that needs to be replied. In *Blitz*, you can handle these prompt messages 
-automatically by using the keyword `reply` in your action. In order to reply a message, 
+When executing or configuring commands on some devices, it is possible that you receive
+a prompt message that needs to be replied. In *Blitz*, you can handle these prompt messages
+automatically by using the keyword `reply` in your action. In order to reply a message,
 you need to know the regex pattern of the message that would show up in the console.
 
 Below you can see an `example` of the action ``execute`` handling a prompt message.
@@ -1646,7 +1574,7 @@ Below you can see an `example` of the action ``execute`` handling a prompt messa
 .. code-block:: YAML
 
     # Looking for the parse_output variable in the action execute
-    - apply_configuration:    
+    - apply_configuration:
         - execute:
             device: PE1
             command: write erase
@@ -1683,7 +1611,7 @@ This feature is supported by actions ``api``, ``execute``, ``parse``, ``learn`` 
                         include:
                           - 'w'
                         max_time: 5
-                        check_interval: 1 
+                        check_interval: 1
         ...
 
 .. code-block:: YAML
@@ -1706,7 +1634,7 @@ This feature is supported by actions ``api``, ``execute``, ``parse``, ``learn`` 
       os: iosxe
       type: CSR1000v
 
-Now the max_time and will half'd. 
+Now the max_time and will half'd.
 
 
 Useful tips and tricks in Blitz
@@ -1715,18 +1643,18 @@ Useful tips and tricks in Blitz
 .. note::
 
     1- The name of the device that the action is being executed on will be saved automatically upon
-    execution of the action and stay usable till the end of that action life-cycle. You can use that 
-    name as a variable using ``%VARIABLES{device.name}`` for various purposes in your action. 
+    execution of the action and stay usable till the end of that action life-cycle. You can use that
+    name as a variable using ``%VARIABLES{device.name}`` for various purposes in your action.
 
     2- Task id and transcript name also can be accessed by using ``%VARIABLES{task.id}``, ``%VARIABLES{transcript.name}``.
 
-    3- The result of a section (whether it is passed, failed etc.) will be saved automatically into a variable 
+    3- The result of a section (whether it is passed, failed etc.) will be saved automatically into a variable
     same as the section name. You can use that name using ``%VARIABLES{<section_name>}``.
-    
+
     4- Also in your YAML file, it is possible to have access the section's uid simply by using ``%VARIABLES{section.uid}``.
-    
-    5- Job file related values, such as job file path or job file name can be accessed by using ``%VARIABLES{runtime.job.file}`` 
-    and ``%VARIABLES{runtime.job.name}``. Any other job file related value can be accessed in similar fashion 
+
+    5- Job file related values, such as job file path or job file name can be accessed by using ``%VARIABLES{runtime.job.file}``
+    and ``%VARIABLES{runtime.job.name}``. Any other job file related value can be accessed in similar fashion
     ``%VARIABLES{runtime.job.<value>``
 
 .. note::
@@ -1735,7 +1663,7 @@ Useful tips and tricks in Blitz
     to all the actions supported in *Blitz*.
 
 .. note::
-    
+
     ```&&``` and ``and`` have different functionalities. ``&&`` is only useful to check if the result of an action is within a range of number
     ``and`` as well as ``or`` should be used to write conditional statements.
 

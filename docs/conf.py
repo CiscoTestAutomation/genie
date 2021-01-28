@@ -42,20 +42,21 @@ extensions = [
     'sphinxcontrib_robotframework',
 ]
 
-#html_theme_options = {
-#    'header_inverse': False,
-#    'relbar_inverse': False,
-#    'inner_theme': True,
-#    'inner_theme_name': 'bootswatch-yeti',
-#    'sidebar_span': 3,
-#    'nav_fixed_top': True,
-#    'content_fixed': True,
-#    'noresponsive': True,
-#    'content_width': '100%',
-#    'googlewebfont': True,
-#    'googlewebfont_url': 'http://fonts.googleapis.com/css?family=Lily+Script+One',  # NOQA
-#
-#}
+# html_theme_options = {
+#    "collapse_navigation" : False,
+# #    'header_inverse': False,
+# #    'relbar_inverse': False,
+# #    'inner_theme': True,
+# #    'inner_theme_name': 'bootswatch-yeti',
+# #    'sidebar_span': 3,
+# #    'nav_fixed_top': True,
+# #    'content_fixed': True,
+# #    'noresponsive': True,
+# #    'content_width': '100%',
+# #    'googlewebfont': True,
+# #    'googlewebfont_url': 'http://fonts.googleapis.com/css?family=Lily+Script+One',  # NOQA
+
+# }
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -320,7 +321,6 @@ autodoc_member_order = 'bysource'
 autoclass_content = 'both'
 
 # Links for the documentation
-import pdb;pdb.set_trace()
 if '-devnet' in sys.argv or os.environ.get('DEVNET', None) == 'true':
     extlinks = links.external_links
 else:
