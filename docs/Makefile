@@ -38,7 +38,7 @@ HOSTNAME      = localhost
 
 # Dependencies for building documentation
 DEPENDENCIES = robotframework Sphinx sphinxcontrib-napoleon \
-			   sphinxcontrib-mockautodoc sphinx-rtd-theme
+			   sphinxcontrib-mockautodoc sphinx-rtd-theme sphinxcontrib_robotframework
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
