@@ -105,7 +105,7 @@ Example can be seen below.
 configure_dual
 ^^^^^^^^^^^^^^^
 
-The `configure_dual` action is used to configure the device. It is mandatory to commit your config command to end the session
+Nxos supports dual configuration, where a commit is necessary. In these case, use this action.
 
 .. code-block:: YAML
 
