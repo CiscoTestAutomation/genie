@@ -76,7 +76,7 @@ massive news for automation within and outside of Cisco!
 
 **Genie at a glance**
 
-* :parsers:`1200+ Parsers that supports all OS<http>`
+* :parsers:`2700+ Parsers that supports all OS<http>`
 * :models:`Feature-centric object models<http>`
 * Provides structured data by parsing devices configuration and operation data
   which are fully OS Agnostic (One common structure for all OS/Interface
