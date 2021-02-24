@@ -3,35 +3,25 @@
 parallel
 ^^^^^^^^^
 
-In some testcases executing actions sequentially could be quite time consuming.
-In this section we will discuss how to execute multiple actions in parallel and at the same time. Running actions
-in parallel allows you to execute numerous actions all together, which make the execution of a  *trigger_datafile*
-way more faster.
+In some testcases executing actions in parallel can save huge amount of time.
+In this section we will discuss how to execute multiple actions in parallel.
 
 You can run multiple actions concurrently by defining your actions after the keyword `parallel` within
-your *trigger_datafile*. Below you can see an example of multiple actions that are running in parallel.
-In below example actions ``api`` and ``learn`` are executed on device ``PE1`` and ``parse`` is executed on device ``PE2``
-and all at the same time.
+your *trigger_datafile*. Below you can see an example of of configuring multiple devices in parallel.
 
 .. code-block:: YAML
 
             - verify_configuration
                 - parallel:
-                    - api:
+                    - configure:
                         device: PE1
-                        function: get_interface_mtu_size
-                        arguments:
-                          interface: GigabitEthernet1
-                    - parse:
-                        command: show version
+                        command: feature bgp
+                    - configure:
                         device: PE2
-                        include:
-                          - contains("version_short")
-                    - learn:
-                        device: PE1
-                        feature: bgp
-                        include:
-                          - contains("info")
+                        command: feature bgp
+                    - configure:
+                        device: xe_rx
+                        command: feature bgp
         ...
 
 While you can execute actions in parallel to make the execution of a *trigger_datafile* faster,
@@ -108,6 +98,11 @@ to be used later in other actions.
                     - "%VARIABLES{another_configure_output}"
 
 
+.. note::
+  
+  You can run multiple actions on one device in parallel. However to make sure that actions are actually
+  running in parallel you need to have multiple sessions of your device open. You can learn how to have multiple sessions open on a device bt following this `link <https://pubhub.devnetcloud.com/media/genie-docs/docs/userguide/harness/user/datafile.html#mapping-datafile>`_.  
+
 loop
 ^^^^^
 
@@ -125,7 +120,7 @@ The execute action would run twice once executing show version command and once 
 
 .. note::
 
-    An iteration here means, one execution of all the actions below the keyword loop. In below example we have 2 iterations.
+  An iteration here means, one execution of all the actions below the keyword loop. In below example we have 2 iterations.
 
 .. code-block:: YAML
 
@@ -261,8 +256,12 @@ printed into the log. **Example-5** shows how ``every_seconds`` work.
 
 This action is looping over a list of size two, hence two iteration and each iteration should take 8 seconds
 if the iteration ends in less than 8 seconds, the loop would sleep for the remaining of that time and after reaching 8 seconds
-it would execute the other iteration. The total time of execution in this case would be 16 seconds
-Keep in mind if an iteration takes more than 8 seconds the loop continue the work and it wont stop
+it would execute the other iteration. The total time of execution in this case would be 16 seconds.
+
+.. note::
+
+  Keep in mind if an iteration takes more than 8 seconds the action will continue, it will not terminate after 8 seconds.
+  The 8 second is the minimal interval between the loop.
 
 .. code-block:: YAML
 
