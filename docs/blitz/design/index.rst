@@ -96,8 +96,54 @@ The yaml is commented out explaining what each section does. See example below.
   Make sure you read the comments above! After this all will make sense!
 
 
+Actions
+-----------
+
+An action is a reserved keyword that maps to code executed by the pyATS libraries.  
+An action block starts with a section name and a list of keywords with their arguments. 
+The section is the title of the test section and can be any string (including spaces) that describes the section in a few words
+These actions are to be placed at this level:
+
+.. code-block:: YAML
+
+    # Name of the testcase
+    Testcase1:
+
+        # Leave this as is for most use cases
+        source:
+            pkg: genie.libs.sdk
+            class: triggers.blitz.blitz.Blitz
+
+        # Field containing all the sections
+        test_sections:
+
+            # Section name - Can be any name, it will show as the first section
+            # of the testcase
+            - section_one:
+                - ">>>> <ACTION> <<<<"
+                - ">>>> <ACTION> <<<<"
+                - ">>>> <ACTION> <<<<"
+
+            - section_two:
+                - ">>>> <ACTION> <<<<"
+                - ">>>> <ACTION> <<<<"
+        ...
+
+In this :ref:`link<actions_list>` you can find all the information about supported actions in blitz 
+
+
 
 .. toctree::
     :maxdepth: 4
 
-    design
+    actions/actions
+    save/index
+    verification/index
+    advanced_actions/index
+    customization/index
+    negative
+    terminate
+    reply
+    timeout
+    steps
+    tips

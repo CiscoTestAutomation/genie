@@ -10,13 +10,11 @@ a test case without having to know any knowledge of programming. This tool is ca
 * Configure a device.
 * Parse the device output to verify if the device state is as expected.
 * Unconfig or modify the initial configuration.
-* Parse the output to check the operational state.
 * Learn a feature and verify the result of the action
 * Calling different apis and use their outputs on other actions and other devices
 * Yang integration
 * It is fully customizable and new actions can be added
 * Many more features that will be discussed thoroughly in the upcoming sections
-
 
 
 To use the *Blitz*, add the `YAML` content to a
