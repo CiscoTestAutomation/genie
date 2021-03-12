@@ -865,3 +865,118 @@ Using a loop generator allows for each iteration of the trigger to be more uniqu
 In the above example, we are yielding three `Iteration` that sets the `uid` to the strings
 'Test1', 'Test2', 'Test3'. We are also able to pass it a dictionary of parameters, in this 
 case it's a single parameter of `num` which will be the numbers 1 through 3.
+
+32. Run command on failure
+--------------------------
+It's possible to run a command at the end of your test section using the `post_execute_command`
+processor, but did you know that you're able to specify which result to run the command on?
+
+If for example, you wanted to run a command if and only if the section failed, you would pass
+`valid_section_results = ['failed']` to the `post_execute_command` processor.
+
+This can be done with both standalone aetest and genie harness like so:
+
+**Standalone**
+
+.. code-block:: python
+    :caption: standalone_processor_example.py
+
+    # pyATS
+    from pyats import aetest
+    from pyats import topology
+
+    # Genie
+    from genie.libs.sdk.libs.abstracted_libs.processors import post_execute_command
+
+
+    # Decorator for running processors
+    @aetest.processors(post = [post_execute_command])
+    class RunPostProcessor(aetest.Testcase):
+        @aetest.setup
+        def Setup(self, testbed):
+            
+            # Connect to testbed
+            testbed.connect()
+
+            # Fail testcase and run command
+            self.failed('Failing')
+
+    if __name__ == '__main__':
+        aetest.main(
+            testscript=__file__,
+
+            # Load topology and assign it to `testbed` parameter
+            testbed=topology.loader.load('testbed.yaml'),
+
+            # Set `devices` parameter to define which commands you would like to run
+            devices={
+                'uut': {
+                    'cmds': [
+                        {'cmd': 'command_1'},
+                        {'cmd': 'command_2'},
+                        {'cmd': 'command_3'},
+                    ]
+                }
+            },
+
+            # Set `valid_section_results` parameter to define what state to run
+            # commands on which devices. Default is all states
+            valid_section_results=[
+                'failed'
+            ]
+        )
+
+You can copy this, change the necessary variables, and run it with `python standalone_processor_example.py`
+
+**Genie Harness**
+
+.. code-block:: python
+    :caption: harness_processor_job_example.py
+
+    # Import Genie run
+    from genie.harness.main import gRun
+
+    def main():
+        gRun(
+            trigger_datafile='pyats_processor_test_trigger.yaml',
+            trigger_uids='ProcessorTrigger',
+            testbed="testbed.yaml"
+            )
+
+.. code-block:: python
+    :caption: harness_processor_testcase_example.py
+
+    # pyATS
+    from pyats import aetest
+
+    # Genie
+    from genie.harness.base import Trigger
+
+    # Trigger setup to fail
+    class ProcessorTrigger(Trigger):
+        @aetest.setup
+        def Setup(self):
+            self.failed('Failed')
+
+.. code-block:: yaml
+    :caption: harness_processor_trigger_example.py
+    :emphasize-lines: 15,16
+
+    ProcessorTrigger:
+        source:
+            class: "harness_processor_testcase_example.ProcessorTrigger"
+        devices:
+            - &uut device_name
+        processors:
+            post:
+            post_execute:
+                method: genie.libs.sdk.libs.abstracted_libs.processors.post_execute_command
+                parameters:
+                devices:
+                    *uut:
+                    cmds:
+                        - cmd: 'show version'
+                valid_section_results:
+                    - 'failed'
+
+You can copy this, change the necessary variables, and run it with `pyats run job harness_processor_job_example.py`
