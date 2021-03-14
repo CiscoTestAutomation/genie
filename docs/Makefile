@@ -86,7 +86,7 @@ docs: html
 	@echo ""
 
 html: install_build_deps
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html -devnet
 	@echo
 	python -m robot.libdoc genie.libs.robot.GenieRobot $(BUILDDIR)/html/userguide/robot.html
 	python -m robot.libdoc genie.libs.robot.GenieRobotApis $(BUILDDIR)/html/userguide/robot_api.html
