@@ -7,7 +7,7 @@ the need for creating and maintaining job-files and having working Python
 knowledge prior to getting started with ``Genie``.
 
 For more information on ``Genie`` `harness`, refer to the user guide:
-http://wwwin-pyats.cisco.com/cisco-shared/genie/latest/userguide/harness/index.html
+https://pubhub.devnetcloud.com/media/genie-docs/docs/userguide/harness/index.html
 
 `genie run` supports all arguments from ``Genie``, easypy and aetest.
 

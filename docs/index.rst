@@ -140,5 +140,5 @@ massive news for automation within and outside of Cisco!
     roadmap/index
     changelog/index
 
-.. _pyATS: http://wwwin-pyats.cisco.com/
+.. _pyATS: https://developer.cisco.com/pyats/
 

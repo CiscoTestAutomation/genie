@@ -14,5 +14,5 @@ User Guide
     apis/index
     utils/index
 
-.. _pyATS: http://wwwin-pyats.cisco.com/
+.. _pyATS: https://developer.cisco.com/pyats/
 
