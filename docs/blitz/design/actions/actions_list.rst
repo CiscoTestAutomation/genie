@@ -30,7 +30,7 @@ Both include and exclude keywords are optional to use.
 
 You can apply additional arguments to ``execute`` command.
 List of arguments that can be applied to execute command can be found at this `link
-<http://wwwin-pyats.cisco.com/cisco-shared/unicon/latest/user_guide/services/generic_services.html#execute>`__.
+<https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/services/generic_services.html#execute>`__.
 Example can be seen below.
 
 .. code-block:: YAML
@@ -58,7 +58,7 @@ The `configure` action is used to configure the device.
 
 You can apply additional arguments to ``configure`` command.
 List of arguments for the configure command can be found at this `link
-<http://wwwin-pyats.cisco.com/cisco-shared/unicon/latest/user_guide/services/generic_services.html#configure>`__.
+<https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/services/generic_services.html#configure>`__.
 Example can be seen below.
 
 .. code-block:: YAML
@@ -166,7 +166,7 @@ The ``rest`` action allows to make rest call to any endpoint on a device. Rest u
 transfer data. Five http protocols are supported, `get`, `post`, `put`, `patch` and `delete`.
 
 You can find additional information on rest, using this `tutorial
-<http://wwwin-pyats.cisco.com/cisco-shared/rest/connector/latest/user_guide/services/index.html>`_.
+<https://pubhub.devnetcloud.com/media/rest-connector/docs/user_guide/services/index.html>`_.
 
 .. code-block:: YAML
 

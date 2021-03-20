@@ -20,7 +20,7 @@ Markup in Datafiles
 -------------------
 
 For every datafile below you can use the markup syntax as seen
-`here <http://wwwin-pyats.cisco.com/documentation/latest/topology/creation.html#testbed-file-markups>`_
+`here <https://pubhub.devnetcloud.com/media/pyats/docs/topology/creation.html#testbed-file-markups>`_
 to allow variable substitution and references similar to the Django template language.
 
 .. note::
