@@ -49,8 +49,8 @@ Passing images through CLI
         # Example of passing an image to a device called 'PE1'
         pyats clean --clean-image PE1:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
-        # Example of passing an image to all devices with the 'n9k' platform
-        pyats clean --clean-platform n9k:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+        # Example of passing an image to all devices with the 'nxos' os
+        pyats clean --clean-platform nxos:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
     Both of these methods can be used with the Callable Markup which will be replaced by the return value of the callable
 
@@ -59,8 +59,8 @@ Passing images through CLI
         # Example of passing an image to a device called 'PE1' using a callable
         pyats clean --clean-image 'PE1:%CALLABLE{path.to.callable(args)}' --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
-        # Example of passing an image to all devices with the 'n9k' platform using a callable
-        pyats clean --clean-platform 'n9k:%CALLABLE{path.to.callable(args)}' --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+        # Example of passing an image to all devices with the 'nxos' os using a callable
+        pyats clean --clean-platform 'nxos:%CALLABLE{path.to.callable(args)}' --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
 Clean Schema Validation
 -----------------------
