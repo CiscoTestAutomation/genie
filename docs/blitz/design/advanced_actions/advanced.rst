@@ -282,7 +282,44 @@ it would execute the other iteration. The total time of execution in this case w
                     device: uut
                     command: show version
 
-**Example-6: Neted looping in Blitz**
+**Example-6: Looping over multiple values**
+
+In case that the goal is to loop over more than one iterable at the same time (over 2 or more list, a combination of lists or dict etc.),
+you can define your ``loop_variable_name`` to have a list of variable names along with a list of iterables. Blitz then would zip each iterable to its variable name
+accordingly, and use items of multiple iterable within your actions that are iterating.
+
+Below example attempts to reuse items of 3 different lists and print each list item. variable name ``a`` is going to represent list ``[1,2]``, ``b`` is going to represent list ``['d', 'e']``,
+and ``c`` will map to [0, 98] 
+
+This way you are iterating over 3 different lists at the same using one single loop.
+
+.. code-block:: YAML
+
+    - loop:
+        loop_variable_name: ['a', 'b', 'c']
+        value:
+            - [1, 2]
+            - ['d', 'e']
+            - [0, 98]
+        actions:
+            - print:
+                item_a:
+                    value: "%VARIABLES{a}"
+                item_b:
+                    value: "%VARIABLES{b}"
+                item_c:
+                    value: "%VARIABLES{c}"
+
+
+The print action here would print ``[1, 'd', 0]`` in the first iteration and in the next iteration it print ``[2, 'e', 98]``.
+
+
+.. note::
+
+  Make sure that you have a variable name for each iterable that you are defining. Failure to do so would results in failure of the testcase.
+
+
+**Example-7: Nested looping in Blitz**
 
 There are cases that the users might want to iterate over
 various values. Using nested loop would provide users with that functionality. Below shows the example of how you can implement nested loops
@@ -327,6 +364,7 @@ in the first loop have access to both the values of the dictionary in the first 
                 - execute:
                     command: "%VARIABLES{list_name}"
                     device: PE2
+
 
 run_condition
 ^^^^^^^^^^^^^^
