@@ -673,3 +673,10 @@ these packages
     * show route afi-all safi-all summary
     * show route vrf all afi-all safi-all summary
     * show route vrf <vrf> afi-all safi-all summary
+
+
+**genie.trafficgen**
+
+* ixianative.py
+    * Modified save_packet_capture_file
+        * Fixed so that it returns `directory` variable instead of static value
