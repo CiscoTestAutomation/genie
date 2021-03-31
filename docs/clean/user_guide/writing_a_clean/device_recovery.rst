@@ -66,7 +66,7 @@ you have the Golden Image, follow the steps below.
                 host: 127.0.0.1
                 outlets: [22]
 
-              terminal-server:
+              terminal_server:
                 # <terminal server device>: <list of lines for the device>
                 # In this case, clearing line 22 would clear the line
                 # connected to 'PE1'
