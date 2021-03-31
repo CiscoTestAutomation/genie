@@ -38,13 +38,11 @@ Upgrade Instructions
     pip install --upgrade ats[full] # For internal user
     pip install --upgrade pyats[full] # For DevNet user
 
-Note that this will leave older v19.12 packages around in pip list, but it will
-not impact anything (visual only).  An update command can be used to clean up
-these packages
+If you have pyATS installed, you can use:
 
 .. code-block:: bash
 
-   pyats version update
+    pyats version update
 
 **genie**
 
