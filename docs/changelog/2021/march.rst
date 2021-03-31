@@ -550,24 +550,8 @@ If you have pyATS installed, you can use:
     * Added Following Commands For Dir
         * Dir Location {Location}
         * Dir {Directory} Location {Location}
-    * Modified Show_Pim.Py
-        * Added Show Pim Topology Summary
-        * Added Show Pim Vrf <Vrf> Topology Summary
-    * Added Showmplsldpdiscovery
-        * Show Mpls Ldp Discovery
-        * Show Mpls Ldp Discovery Detail
-        * Show Mpls Ldp Afi-All Discovery
-        * Show Mpls Ldp Discovery <Ldp>
-        * Show Mpls Ldp Vrf <Vrf> Discovery
-        * Show Mpls Ldp Vrf <Vrf> Discovery Detail
     * Added Showusers
         * Show User
-    * Added Following Commands For Dir
-        * Dir Location {Location}
-        * Dir {Directory} Location {Location}
-    * Added Showbfdsessiondestination
-        * Show Bfd Session Destination {Ip_Address}
-        * Show Bfd Ipv6 Session Destination {Ip_Address}
 
 * IOSXE
     * Added Showsdwanzbfwstatistics
@@ -576,11 +560,6 @@ If you have pyATS installed, you can use:
         * Showsdwanappqoeaoimstatistics
     * Added Showipslasummary
         * Show Ip Sla Summary
-    * Added 'Show Track' Parser
-        * Added Schema And Parser To Iosxe/Show_Track.Py
-        * Added Test Files In Iosxe/Tests/Showtrack Test Directory
-    * Added Showswitchstackportssummary
-        * 'Show Switch Stack-Ports Summary'
     * Added Showsdwanzbfwstatistics
         * Show Sdwan Zbfw Zonepair-Statistics
     * Modified Showvrrp
@@ -602,12 +581,6 @@ If you have pyATS installed, you can use:
     * Added Ping
         * Ping {Addr}
         * Ping {Addr} Source {Source} Count {Count}
-    * Added Showeigrptopologyschema
-    * Added Showeigrptopologysuperparser
-    * Added Showipv4Eigrptopology
-    * Added Showipv6Eigrptopology
-        * For 'Show Ip Eigrp Topology'
-        * For 'Show Ipv6 Eigrp Topology'
     * Modified Showinterfacebrief
         * Modified Parser To Accommodate Nve Related Config.
         * `Show Interface Brief Nve 1`
@@ -650,28 +623,6 @@ If you have pyATS installed, you can use:
     * IOSXE/tests/ShowVrrpAll
     * IOSXE/tests/ShowVrrpBrief
     * IOSXE/tests/ShowVrrpBriefAll
-
-* IRONWARE
-    * Initial Creation Of Ironware Parsers
-    * Added Parsers
-        * show interfaces brief
-        * show ip Interfaces
-        * show media <Interface>
-        * show mpls lsp
-        * show mpls vll <vll>
-        * show mpls vll-Local <vll>
-        * show mpls ldp Neighbor
-        * show optic <slot>
-        * show ip ospf neighbor
-        * show ip ospf interface brief
-        * show ip route
-        * show ip route summary
-
-* Added show route all summary
-    * show route afi-all safi-all summary
-    * show route vrf all afi-all safi-all summary
-    * show route vrf <vrf> afi-all safi-all summary
-
 
 **genie.trafficgen**
 
