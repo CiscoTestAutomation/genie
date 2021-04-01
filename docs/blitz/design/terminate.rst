@@ -28,3 +28,8 @@ a failure the script stops the run of the rest of the sections in the testscript
 
 In the section confirm_actions, in the first action ``execute`` a keyword ``continue`` is added with value ``False``.
 That would send the signal that upon failure of an action the rest of the actions in that section should not be running.
+
+.. note::
+
+    Due to limitation on some of the pyATS libraries that Blitz uses, currently it is not possible to set ``continue: False`` under parallel keyword and terminate 
+    the section upon failure.
