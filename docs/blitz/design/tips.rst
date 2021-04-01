@@ -21,10 +21,5 @@ Useful tips and tricks in Blitz
 
 .. note::
 
-    The starting message of a Step can be modified by specifying a custom message like the example below. This can be applied
-    to all the actions supported in *Blitz*.
-
-.. note::
-
     ```&&``` and ``and`` have different functionalities. ``&&`` is only useful to check if the result of an action is within a range of number
     ``and`` as well as ``or`` should be used to write conditional statements.

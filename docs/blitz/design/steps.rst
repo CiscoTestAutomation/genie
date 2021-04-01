@@ -24,8 +24,6 @@ as shown in the image you can see how in the logs the starting message is custom
 .. image:: custom_step_msg.png
    :width: 200%
 
-
-
 **Example-2: Customizing substeps**
 
 By specifying keyword ``custom_substep_message`` as well as ``custom_verification_message``
@@ -46,4 +44,18 @@ as shown in the image you can see how in the logs the starting message is custom
 .. image:: step_.png
    :width: 200%
 
+**Example-3: Customizing substeps of a loop advanced action**
 
+.. code-block:: YAML
+
+    - loop:
+        loop_variable_name: name1
+        range: 12
+        custom_substep_message: Applying custom_substep_message to substeps of a loop
+        actions:
+                - execute:
+                    custom_verification_message: second test
+                    command: show version
+                    device: N93_3
+                    include: 
+                      - "\d"

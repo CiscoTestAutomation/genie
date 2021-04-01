@@ -12,13 +12,13 @@ with their testing. Look at example below
 
   import logging
   from pyats import aetest
-  from genie.libs.sdk.triggers.blitz.blitz #import Blitz
+  from genie.libs.sdk.triggers.blitz.blitz import Blitz
 
 
   log = logging.getLogger()
 
   class CustomBlitz(Blitz):  # <- inheriting Blitz
-    def my_custom_action(self, steps, device. **kwargs):
+    def my_custom_action(self, steps, device, section, **kwargs):
       log.info("This is my custom action")
 
 
@@ -38,6 +38,13 @@ Later on the custom action can be called within the trigger datafile, with the s
               key1: val1
               key2: val2
 
+
+.. note::
+
+  Some arguments of built-in actions can be shared with custom actions. Those arguments might not be as 
+  useful or usable to the custom action and hence might cause issues with the customized code. As a result it is 
+  highly recommended that ``**kwargs`` be defined to prevent these possible issues.
+
 Creating a custom section
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -49,7 +56,7 @@ A function that represent the custom section should be created within said class
 
   import logging
   from pyats import aetest
-  from genie.libs.sdk.triggers.blitz.blitz #import Blitz
+  from genie.libs.sdk.triggers.blitz.blitz import Blitz
 
 
   log = logging.getLogger()
@@ -58,8 +65,6 @@ A function that represent the custom section should be created within said class
     @aetest.test
     def my_custom_section(self, steps, testbed, data):
       log.info("This is my custom section")
-
-
 
 .. code-block:: YAML
 

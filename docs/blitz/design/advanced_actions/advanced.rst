@@ -225,7 +225,7 @@ max_time is reached
                   command: show vrf
                   device: PE2
 
-**Example-4: Executing actions until the api output is passed** 
+**Example-4: Executing actions twice with range: 2** 
 
 Looping over an action twice (two iteration) since the range is 2, and each time,
 and run a couple of actions in parallel
@@ -245,14 +245,28 @@ Also after each parallel call sleep for amount of the range value, so once for o
             - execute:
                 device: PE2
                 command: show version
-        - sleep:
-            sleep_time: "%VARIABLES{range_name}"
+            - sleep:
+                sleep_time: "%VARIABLES{range_name}"
 
-**Example-5: Synchronizing with every_seconds**
+**Example-5: Looping over actions with regards to range that has an starting and ending point**
+
+In this example the range number will be printed. The starting number is 1 and the final number will be 5. Number 6 wont be included in the range.
+
+.. code-block:: YAML
+
+    - loop:
+        loop_variable_name: range_num
+        range: 1,6
+        actions:
+            - print:
+                item:
+                    value: "%VARIABLES{range_num}"
+
+**Example-6: Synchronizing with every_seconds**
 
 The keyword ``every_seconds`` is defined so users can manage their loop and if possible run it with synchronized timing.
 If the execution of an iteration of a loop exceeds the time assigned for every_seconds, the loop would still continue its work but a warning would be
-printed into the log. **Example-5** shows how ``every_seconds`` work.
+printed into the log. **Example-6** shows how ``every_seconds`` work.
 
 This action is looping over a list of size two, hence two iteration and each iteration should take 8 seconds
 if the iteration ends in less than 8 seconds, the loop would sleep for the remaining of that time and after reaching 8 seconds
@@ -282,7 +296,7 @@ it would execute the other iteration. The total time of execution in this case w
                     device: uut
                     command: show version
 
-**Example-6: Looping over multiple values**
+**Example-7: Looping over multiple values**
 
 In case that the goal is to loop over more than one iterable at the same time (over 2 or more list, a combination of lists or dict etc.),
 you can define your ``loop_variable_name`` to have a list of variable names along with a list of iterables. Blitz then would zip each iterable to its variable name
@@ -319,7 +333,7 @@ The print action here would print ``[1, 'd', 0]`` in the first iteration and in 
   Make sure that you have a variable name for each iterable that you are defining. Failure to do so would results in failure of the testcase.
 
 
-**Example-7: Nested looping in Blitz**
+**Example-8: Nested looping in Blitz**
 
 There are cases that the users might want to iterate over
 various values. Using nested loop would provide users with that functionality. Below shows the example of how you can implement nested loops
