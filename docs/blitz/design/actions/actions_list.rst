@@ -140,6 +140,17 @@ Instead by setting the keyword ``common_api: True`` you can have access to that 
 
 .. code-block:: YAML
 
+        - api: # ACTION
+            function: get_devices
+            common_api: True
+            arguments:
+                testbed: "%VARIABLES{runtime}"
+        ...
+
+In case API has *args or **kwargs to its function as arguments, possible to provide arguments as list like below.
+
+.. code-block:: YAML
+
         - api:
             function: get_interface_from_yaml
             common_api: True
@@ -159,17 +170,6 @@ Instead by setting the keyword ``common_api: True`` you can have access to that 
                 - config.j2
                 - interface: "%VARIABLES{intfs}"
                   description: "%{variables.description}"
-        ...
-
-In case API has *args or **kwargs to its function as arguments, possible to provide arguments as list like below.
-
-.. code-block:: YAML
-
-        - api: # ACTION
-            function: get_devices
-            common_api: True
-            arguments:
-                testbed: "%VARIABLES{runtime}"
         ...
 
 tgn
