@@ -136,7 +136,32 @@ You can learn how to query the results of the apis by taking a look at this `sec
         ...
 
 If the api is a common utils api that does not have a device as its argument, then it is not required to specify a device value for that api action.
-Instead by setting the keyword ``common_api: True`` you can have access to that api. See below example.
+Instead by setting the keyword ``common_api: True`` you can have access to that api. See below example. Even without ``common_api: True``, API will be processed as common API if no device is given.
+
+.. code-block:: YAML
+
+        - api:
+            function: get_interface_from_yaml
+            common_api: True
+            arguments:
+                - iosxe-1
+                - iosxe-2
+                - link1
+                - "%{testbed.topology}"
+            save:
+                - variable_name: test_1
+        ...
+        - api:
+            device: "%{variables.device}"
+            function: configure_by_jinja2
+            arguments:
+                - .
+                - config.j2
+                - interface: "%VARIABLES{intfs}"
+                  description: "%{variables.description}"
+        ...
+
+In case API has *args or **kwargs to its function as arguments, possible to provide arguments as list like below.
 
 .. code-block:: YAML
 
