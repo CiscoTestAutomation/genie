@@ -147,7 +147,7 @@ Instead by setting the keyword ``common_api: True`` you can have access to that 
                 testbed: "%VARIABLES{runtime}"
         ...
 
-In case API has *args or **kwargs to its function as arguments, possible to provide arguments as list like below.
+In case API has *args to its function as arguments, possible to provide arguments as list like below.
 
 .. code-block:: YAML
 
@@ -161,15 +161,6 @@ In case API has *args or **kwargs to its function as arguments, possible to prov
                 - "%{testbed.topology}"
             save:
                 - variable_name: test_1
-        ...
-        - api:
-            device: "%{variables.device}"
-            function: configure_by_jinja2
-            arguments:
-                - .
-                - config.j2
-                - interface: "%VARIABLES{intfs}"
-                  description: "%{variables.description}"
         ...
 
 tgn
