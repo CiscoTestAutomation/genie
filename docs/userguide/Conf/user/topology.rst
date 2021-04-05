@@ -399,6 +399,7 @@ information on the `find_<...>` APIs..
     | Attributes               | Description                                   |
     |--------------------------+-----------------------------------------------|
     | name                     | Interface name, should be unique              |
+    | alias                    | Interface alias, default to interface name    |
     | aliases                  | List of aliases for the interface. Useful for |
     |                          | recognizing interfaces                        |
     | links                    | List of link that this interface is part      |
