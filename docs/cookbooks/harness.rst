@@ -866,9 +866,9 @@ In the above example, we are yielding three `Iteration` that sets the `uid` to t
 'Test1', 'Test2', 'Test3'. We are also able to pass it a dictionary of parameters, in this 
 case it's a single parameter of `num` which will be the numbers 1 through 3.
 
-32. Run command on failure
---------------------------
-It's possible to run a command at the end of your test section using the `post_execute_command`
+32. Run command or API on failure
+---------------------------------
+It's possible to run a command or API at the end of your test section using the `post_execute_command`
 processor, but did you know that you're able to specify which result to run the command on?
 
 If for example, you wanted to run a command if and only if the section failed, you would pass
@@ -894,7 +894,7 @@ This can be done with both standalone aetest and genie harness like so:
     class RunPostProcessor(aetest.Testcase):
         @aetest.setup
         def Setup(self, testbed):
-            
+
             # Connect to testbed
             testbed.connect()
 
@@ -909,13 +909,19 @@ This can be done with both standalone aetest and genie harness like so:
             testbed=topology.loader.load('testbed.yaml'),
 
             # Set `devices` parameter to define which commands you would like to run
-            devices={
+            devices = {
                 'uut': {
                     'cmds': [
                         {'cmd': 'command_1'},
                         {'cmd': 'command_2'},
                         {'cmd': 'command_3'},
-                    ]
+                    ],
+                    'apis': [{
+                        'api': 'get_bgp_summary',
+                        'arguments': {
+                            'vrf': 'blue'
+                        }
+                    }]
                 }
             },
 
@@ -969,14 +975,18 @@ You can copy this, change the necessary variables, and run it with `python stand
             - &uut device_name
         processors:
             post:
-            post_execute:
-                method: genie.libs.sdk.libs.abstracted_libs.processors.post_execute_command
-                parameters:
-                devices:
-                    *uut:
-                    cmds:
-                        - cmd: 'show version'
-                valid_section_results:
-                    - 'failed'
+                post_execute:
+                    method: genie.libs.sdk.libs.abstracted_libs.processors.post_execute_command
+                    parameters:
+                        devices:
+                            *uut:
+                                cmds:
+                                    - cmd: 'show version'
+                                apis:
+                                    - api: get_bgp_summary
+                                      arguments:
+                                          vrf: blue
+                    valid_section_results:
+                        - 'failed'
 
 You can copy this, change the necessary variables, and run it with `pyats run job harness_processor_job_example.py`
