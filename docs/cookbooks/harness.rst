@@ -977,6 +977,8 @@ You can copy this, change the necessary variables, and run it with `python stand
             post:
                 post_execute:
                     method: genie.libs.sdk.libs.abstracted_libs.processors.post_execute_command
+                    valid_section_results:
+                        - 'failed'
                     parameters:
                         devices:
                             *uut:
@@ -986,7 +988,28 @@ You can copy this, change the necessary variables, and run it with `python stand
                                     - api: get_bgp_summary
                                       arguments:
                                           vrf: blue
-                    valid_section_results:
-                        - 'failed'
+                                    - api: my_custom_api
+                                      module: my_module
+                                      arguments:
+                                        vrf: yellow
+
+You can specify a python module name using the `module` option to load the module and call your custom API.
+The device object and arguments specified under `arguments` will be passed to the API method.
+
+An example module and API is shown below.
+
+.. code-block:: python
+    :caption: my_module.py
+
+    import logging
+    log = logging.getLogger(__name__)
+
+    # Example python API
+    def my_custom_api(device, **kwargs):
+        device.execute('show version')
+        if kwargs.get('vrf') == 'yellow':
+            log.info('Collecting info for yellow VRF')
+            ...
+
 
 You can copy this, change the necessary variables, and run it with `pyats run job harness_processor_job_example.py`
