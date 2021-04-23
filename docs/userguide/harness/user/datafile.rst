@@ -46,6 +46,8 @@ Verification Datafile
              # ``Genie`` provides a Master set of verifications for you to
              # extend from as a start. It is found at: 
              # <$virtual_env>/lib/python3.4/site-packages/genie/infra/verifications.yaml
+    uids:    # Mention which verifications to execute
+    groups:  # Mention which verification group to execute
 
     <verification name>: # Verification name goes here
 
@@ -244,6 +246,8 @@ Trigger Datafile
              # <$virtual_env>/lib/python3.4/site-packages/genie/infra/triggers.yaml
     variables: # Use this fiel to store any information to be shared to triggers
                # Can be retrieved : %{variables.<field>}
+    uids:    # Mention which triggers to execute
+    groups:  # Mention which trigger group to execute
 
     <trigger name>: # Trigger name goes here
 
