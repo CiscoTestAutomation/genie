@@ -42,28 +42,116 @@ Passing images through CLI
 .. topic:: Providing the images through CLI arguments
 
     * Can provide a new image at every run without modifying the Clean YAML file.
-    * Can provide the image to a specific device or all devices with a specific platform.
+    * Can provide the image to a specific device, to all devices in a group, to all devices with a given OS, or all devices with a specific platform.
+    * `--device-image`, `--os-image`, `--group-image` and `--platform-image` can all be specified simultaneously. Conflicts are resolved by `device > group > platform > os`.
+    * Images specified with the CLI always override images specified in the YAML file (the previous order only applies to images passed on the CLI, e.g. an image passed with `--os-image` will override an image specified under a device block in a Clean YAML file if the OS of the device matches)
 
     .. code-block:: bash
 
         # Example of passing an image to a device called 'PE1'
-        pyats clean --clean-image PE1:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+        pyats clean --device-image PE1:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
         # Example of passing an image to all devices with the 'nxos' os
-        pyats clean --clean-platform nxos:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+        pyats clean --os-image nxos:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
-        # Example of passing an image and packages
-        pyats clean --clean-image R1:image:</path/to/image.bin> R1:packages:/path/to/package1 R1:packages:/path/to/package2 --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+        # Example of passing an image to all devices belonging to a group called 'group1'
+        pyats clean --group-image group1:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
-    Both of these methods can be used with the Callable Markup which will be replaced by the return value of the callable
+        # Example of passing an image to all devices with the 'n9k' platform
+        pyats clean --platform-image n9k:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+
+    Image names can use Callable Markup which will be replaced by the return value of the callable
 
     .. code-block:: bash
 
         # Example of passing an image to a device called 'PE1' using a callable
-        pyats clean --clean-image 'PE1:%CALLABLE{path.to.callable(args)}' --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+        pyats clean --device-image 'PE1:%CALLABLE{path.to.callable(args)}' --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
-        # Example of passing an image to all devices with the 'nxos' os using a callable
-        pyats clean --clean-platform 'nxos:%CALLABLE{path.to.callable(args)}' --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+.. topic:: CLI image format
+
+    * Single image
+
+    .. code-block:: bash
+
+        --device-image PE1:/path/to/image.bin
+
+    is equivalent to the following in Clean YAML:
+
+    .. code-block:: yaml
+
+        images:
+        - /path/to/image.bin
+
+    * URL image
+
+    .. code-block:: bash
+
+        --device-image PE1:http://server.com:21/path/to/image.bin
+
+    is equivalent to the following in Clean YAML:
+
+    .. code-block:: yaml
+
+        images:
+        - http://server.com:21/path/to/image.bin
+
+    * List of images
+
+    .. code-block:: bash
+
+        --device-image PE1:/path/to/image.bin PE1:/path/to/optional_package1
+
+    is equivalent to the following in Clean YAML:
+
+    .. code-block:: yaml
+
+        images:
+        - /path/to/image.bin
+        - /path/to/optional_package1
+
+    * Key structure
+
+    .. code-block:: bash
+
+        --device-image PE1:image:file:/path/to/image.bin PE1:packages:file:/path/to/optional_package1 PE1:packages:file:/path/to/optional_package2
+
+    is equivalent to the following in Clean YAML:
+
+    .. code-block:: yaml
+
+        images:
+          image:
+            file:
+            - /path/to/image.bin
+          packages:
+            file:
+            - /path/to/optional_package1
+            - /path/to/optional_package2
+
+.. note::
+
+    Images provided on the CLI override/replace images specified in the Clean YAML file. It will not update/merge into the existing structure. If the Clean YAML contains:
+
+    .. code-block:: yaml
+
+        images:
+          image:
+            file:
+            - /path/to/image.bin
+          packages:
+            file:
+            - /path/to/optional_package1
+            - /path/to/optional_package2
+
+    And you specify `--device-image PE1:image:file:/path/to/new_image.bin`, the final result is:
+
+    .. code-block:: yaml
+
+        images:
+          image:
+            file:
+            - /path/to/new_image.bin
+
 
 Clean Schema Validation
 -----------------------
