@@ -767,7 +767,7 @@ The user can connect to custom connections using this new schema mentioned below
                                    # is not provided.
 
                         sleep: #Take a nap after making connection. By default 5 seconds for yang, gnmi, restconf,
-                               netconf,cli.
+                               netconf.
 
 .. _subsection_datafile:
 
