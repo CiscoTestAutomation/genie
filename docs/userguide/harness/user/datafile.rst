@@ -709,6 +709,65 @@ they have either;
 
                     label: # Label to override th alias of the specified interface
 
+
+* Different connections using Mapping datafile:
+
+The user can connect to custom connections using this new schema mentioned below.
+
+``Note``: The user can either use this new schema or the above mentioned one.
+
+.. code-block:: python
+
+    devices:
+      uut:
+        mapping:
+          context:
+              cli:
+               - via: cli
+                 alias: cli
+                 pool_size: 5
+                 sleep: 3
+               - via: ssh
+                 alias: cli2
+              yang:
+                - via: yang
+                  alias: netconf
+
+
+.. code-block:: yaml
+
+    # New Mapping Datafile schema for different connections
+    # -------------------------------------------------
+
+    devices: # Devices
+
+        <device name>: # Name of the device.
+                       # Can either be an alias or device hostname
+                       # as defined in the pyats testbed file.
+
+                label:  # One device in the testbed must be designated as the `uut`
+                        # for ``Genie``.  If no device is already named `uut`, then
+                        # you must map it via `label` field, as shown in the example
+                        # above. In the event that the device is already named uut
+                        # via `alias` in the testbed file, then there is no need to
+                        # use label field.
+
+              mapping: # To map which connection to use for in the context.
+
+              context: # Context for the Genie execution.
+
+                        via: #Specify the connection to use. Eg. cli, ssh, yang etc
+
+                        alias: #The alias name of the connection. Eg. Banana, my_conn
+
+                        pool_size: # Connection pool size, in case of using pyATS connection
+                                   # pool feature.
+                                   # Optional, `harness` will issue single connection if it
+                                   # is not provided.
+
+                        sleep: #Sleep time. By default 5 seconds for yang, gnmi, restconf,
+                               netconf
+
 .. _subsection_datafile:
 
 Subsection datafile
