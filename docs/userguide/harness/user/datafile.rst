@@ -715,6 +715,7 @@ they have either;
 The user can connect to custom connections using this new schema mentioned below.
 
 ``Note``: The user can either use this new schema or the above mentioned one.
+``Note``: via and alias keywords are mandatory when using new mapping schema.
 
 .. code-block:: python
 
@@ -765,8 +766,8 @@ The user can connect to custom connections using this new schema mentioned below
                                    # Optional, `harness` will issue single connection if it
                                    # is not provided.
 
-                        sleep: #Sleep time. By default 5 seconds for yang, gnmi, restconf,
-                               netconf
+                        sleep: #Take a nap after making connection. By default 5 seconds for yang, gnmi, restconf,
+                               netconf,cli.
 
 .. _subsection_datafile:
 

@@ -328,7 +328,7 @@ This will initialize 2 connections to the uut and the cli commands will go up
 to twice as fast! This number can scale up to what your device can support.
 
 In order to use connection pool for different connections, the new mapping schema needs to be followed.
-
+``Note``: via and alias keywords are mandatory when using new mapping schema.
 .. code-block:: python
 
     devices:
@@ -670,6 +670,7 @@ datafile.
              yang: yang
 
 The custom connections are supported in mapping datafile, by the new schema:
+``Note``: via and alias keywords are mandatory when using new mapping schema.
 
 .. code-block:: python
 
