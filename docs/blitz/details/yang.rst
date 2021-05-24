@@ -37,12 +37,35 @@ Description of Available YAML Components
                     # * subscribe
                     # * capabilities
         protocol: # [ netconf | gnmi ]
-        datastore: # YANG datastores (if not defined MPTE will choose from device capabilities)
+        datastore: # YANG datastores (if not defined Blitz will choose from device capabilities)
         format: # Various fomat options (see Format options below)
         banner: # (optional) Prominant log message with borders
         log: # (optional) Log INFO message
         content: # Content of YANG message being sent (see Content section below)
         returns: # (optional) Expected return of YANG message (see Returns section below)
+
+Datastore Options
+-----------------
+
+YANG Datastores, `RFC 8342`_, are a fundamental concept binding network management data models to
+network management protocols such as NETCONF `RFC 6241`_ and RESTCONF `RFC 8040`_.  It is up to the
+YANG server implementation to decide which datastore to support.  Blitz supports several types.  The
+default is an empty string which indicates the type will be determined by device capabilities.  If
+the device supports "candidate", the candidate datastore is chosen for configuration operations.  If not
+the "running" is chosen for configuration.  For all other operations, the "running" datastore is chosen.
+
+.. _RFC 8342: https://datatracker.ietf.org/doc/html/rfc8342
+
+.. _RFC 6241: https://datatracker.ietf.org/doc/html/rfc6241
+
+.. _RFC 8040: https://datatracker.ietf.org/doc/html/rfc8040
+
+.. code-block:: YAML
+
+    datastore:
+      type: ""    # [candidate, running, startup, intent, operational]
+      lock: true  # [true | false] lock datastore before access
+      retry: 40   # If lock is refused, retry N times pausing 1 second between each retry
 
 Format Options
 --------------
@@ -57,18 +80,18 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
       request_mode:    # [STREAM, ONCE, POLL]
       sub_mode:        # [ON_CHANGE, SAMPLE]
       encoding:        # [JSON, JSON_IETF]
-      sample_interval: # seconds (default)
-      stream_max: 20   # seconds to stop stream (default no max)
+      sample_interval: # number of seconds between sampling
+      stream_max: 20   # seconds to stop stream (default: no max)
       auto-validate:   # [true | false] automatically validate config messages
       negative-test:   # [true | false] expecting device to return an error
-      delay: 0         # pause N seconds between each test (global ``sleep``)
+      pause: 0         # pause N seconds between each test (global ``sleep``)
 
 Content
 -------
 
 As explained above, ``content`` contains a reference to namespaces followed by a list of
 Xpath/value pairs (nodes).  Namespace with mapped prefix is defined at the top of the
-YANG file.
+YANG file.  There is also an option, "rpc", to use the string representation of the message.
 
 .. code-block:: YAML
 
@@ -81,8 +104,26 @@ YANG file.
       nodes: # List of:
       - xpath: # Xpath based on `XML Path Language 1.0`_ identifying a resource
         value: # Value Xpath points to which must match the defined datatype
-        edit-op: # (Optional) Applies only to edit-config
+        edit-op: # (Optional) Applies only to edit-config (default: merge)
                  # [ create | merge | replace | delete | remove ]
+
+The "rpc" option can be any completely formed valid XML rpc message.
+
+.. code-block:: YAML
+
+    content:
+      rpc: |
+      <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+        <get>
+          <filter>
+            <interfaces xmlns="http://openconfig.net/yang/interfaces">
+              <interface>
+                <state/>
+              </interface>
+            </interfaces>
+          </filter>
+        </get>
+      </rpc>
 
 Returns
 -------
