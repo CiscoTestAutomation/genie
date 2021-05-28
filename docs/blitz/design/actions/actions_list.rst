@@ -292,7 +292,7 @@ yang
 
 The :ref:`yang action<yang action>` action is designed to work with differing underlying protocols, but, at the
 time of this writing, only NETCONF and gNMI are supported.  Changing the connection and
-protocol determines the message format.
+protocol determines the message format.  See :ref:`yang action details action<yang action>` for other configurations.
 
 Example of configuration using NETCONF (with automated verification of edit-config on device)
 
@@ -303,7 +303,10 @@ Example of configuration using NETCONF (with automated verification of edit-conf
         connection: netconf
         operation: edit-config
         protocol: netconf
-        datastore: candidate
+        datastore:
+          type: candidate  # empty string means type is chosen from device capabilities.
+          lock: true
+          retry: 40
         banner: YANG EDIT-CONFIG MESSAGE
         content:
           namespace:
