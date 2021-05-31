@@ -649,7 +649,7 @@ information such as:
 2. Provide connection pool information per device
 3. Overwrite devices alias
 4. Which connection type to prioritize for the run
-5. Support for custom connections
+5. Support for multiple connections per context(cli/yang/etc) with new schema
 
 It is optional to have a mapping datafile. ``Genie`` will connect to all devices
 (defined in testbed yaml file) only if no mapping datafile is provided.
@@ -669,7 +669,7 @@ datafile.
              cli: vty
              yang: yang
 
-The custom connections are supported in mapping datafile, by the new schema:
+The multiple connections are supported in mapping datafile, by the new schema:
 ``Note``: via and alias keywords are mandatory when using new mapping schema.
 
 .. code-block:: python

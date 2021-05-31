@@ -712,7 +712,7 @@ they have either;
 
 * Different connections using Mapping datafile:
 
-The user can connect to custom connections using this new schema mentioned below.
+The user can connect with different connections using this new schema mentioned below.
 
 ``Note``: The user can either use this new schema or the above mentioned one.
 ``Note``: via and alias keywords are mandatory when using new mapping schema.
@@ -755,19 +755,19 @@ The user can connect to custom connections using this new schema mentioned below
 
               mapping: # To map which connection to use for in the context.
 
-              context: # Context for the Genie execution.
+                  context: # Context for the Genie execution.
 
-                        via: #Specify the connection to use. Eg. cli, ssh, yang etc
+                            via: #Specify the connection to use. Eg. cli, ssh, yang etc
 
-                        alias: #The alias name of the connection. Eg. Banana, my_conn
+                            alias: #The alias name of the connection. Eg. Banana, my_conn
 
-                        pool_size: # Connection pool size, in case of using pyATS connection
-                                   # pool feature.
-                                   # Optional, `harness` will issue single connection if it
-                                   # is not provided.
+                            pool_size: # Connection pool size, in case of using pyATS connection
+                                       # pool feature.
+                                       # Optional, `harness` will issue single connection if it
+                                       # is not provided.
 
-                        sleep: #Take a nap after making connection. By default 5 seconds for yang, gnmi, restconf,
-                               netconf.
+                            sleep: #Take a nap after making connection. By default 5 seconds for yang, gnmi, restconf,
+                                   netconf.
 
 .. _subsection_datafile:
 

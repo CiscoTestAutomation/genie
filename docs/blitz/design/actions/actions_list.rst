@@ -16,7 +16,7 @@ exists in the output. You also, have the option to check if a specific
         device: R1
         # Send show version to the device
         command: show version
-        # To execute command in different connections, by default cli
+        # To execute command with specified connection alias, 'cli' is default
         connection_alias: ssh
         # Can have as many items under include or exclude that you want
         include:
@@ -28,8 +28,8 @@ exists in the output. You also, have the option to check if a specific
             - 'Should not be in the output'
 
 
-Both include, exclude and connection_alias keywords are optional to use.
-But to use connection_alias two things needs to be followed:
+include, exclude and connection_alias keywords are optional to use.
+Two things needs to be followed to use connection_alias:
     1. New mapping datafile schema.
     2. ``alias`` in mapping datafile should be the ``connection_alias``.
 How to use the new schema for different connection can be found at this `link
@@ -58,7 +58,7 @@ The `configure` action is used to configure the device.
 
     - configure: # ACTION
         device: device_name
-        # To configure using different connections, by default cli
+        # To execute command with specified connection alias, 'cli' is default
         connection_alias: ssh
         command: |
             router bgp 65000
@@ -91,10 +91,14 @@ Nxos supports dual configuration, where a commit is necessary. In these case, us
 
     - configure_dual: # ACTION
         device: device_name
+        # To execute command with specified connection alias, 'cli' is default
+        connection_alias: ssh
         command: |
             router bgp
             commit
 
+Connection_alias keyword is optional to use. Refer the execute action for
+how to use connection_alias.
 
 parse
 ^^^^^^
