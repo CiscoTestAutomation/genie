@@ -50,7 +50,7 @@ Passing images through CLI
         pyats clean --clean-image PE1:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
         # Example of passing an image to all devices with the 'nxos' os
-        pyats clean --clean-platform nxos:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>#
+        pyats clean --clean-platform nxos:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
         # Example of passing an image and packages
         pyats clean --clean-image R1:image:</path/to/image.bin> --clean-image R1:packages:/path/to/package1 --clean-image R1:packages:/path/to/package2 --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
@@ -73,4 +73,3 @@ Validating your clean datafile is very useful when writing a new clean as it giv
 Run with this command::
 
     pyats validate clean --testbed-file /path/to/testbed.yaml --clean-file /path/to/clean.yaml
-
