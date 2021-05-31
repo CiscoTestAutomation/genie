@@ -53,7 +53,7 @@ Passing images through CLI
         pyats clean --clean-platform nxos:</path/to/image.bin> --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
         # Example of passing an image and packages
-        pyats clean --clean-image R1:image:</path/to/image.bin> --clean-image R1:packages:/path/to/package1 --clean-image R1:packages:/path/to/package2 --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
+        pyats clean --clean-image R1:image:</path/to/image.bin> R1:packages:/path/to/package1 R1:packages:/path/to/package2 --testbed-file </path/to/testbed.yaml> --clean-file </path/to/clean.yaml>
 
     Both of these methods can be used with the Callable Markup which will be replaced by the return value of the callable
 
