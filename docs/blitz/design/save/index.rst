@@ -25,9 +25,11 @@ There are different ways to save values to a variable and also different ways to
 
 * :ref:`Dq filter<filters>`: This filter is named after our JSON querying tool `Dq <https://pubhub.devnetcloud.com/media/genie-docs/docs/userguide/utils/index.html#dq>`_. It will apply a query on JSON output and saves a part of a dictionary into a variable.
 
-* :ref:`Regex filter<filters>`: For actions that has string outputs you can apply a regex filter. If regex matches the output, the grouped value, that has a variable name specified like ``(?P<variable_name>)``, will be stored into that variable_name. Below you can find related examples.
+* :ref:`Regex filter<filters>`: For actions that have string outputs you can apply a regex filter. If regex matches the output, the grouped value, that has a variable name specified like ``(?P<variable_name>)``, will be stored into that variable_name. Below you can find related examples.
 
-* :ref:`List filter<filters>`: It is a specific filter that only can be applied on action outputs that are a list.
+* :ref:`Regex findall<filters>`: For actions that have string outputs you can apply a regex findall. It returns a list of all matches in the output, or an empty list if no match is found. The list will be stored into a variable_name previously declared using `variable_name` argument.
+
+* :ref:`List filter<filters>`: It is a specific filter that can only be applied to action outputs that are lists.
 
 
 Examples of saving variables with or without applying a filter on the action output can be found :ref:`here<filters>`
