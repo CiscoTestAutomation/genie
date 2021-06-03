@@ -80,6 +80,24 @@ Below you can see an example of regex filter.
         bootflash:
           value: "The bootflash is %VARIABLES{bootflash} and %VARIABLES{measure}"
 
+Save with Regex findall filter
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Below you can see an example of regex_findall.
+In this example, execute_output would contain a list of strings such as: 
+['172.16.1.254', '10.1.1.1', '10.2.2.2', '10.3.3.3', '10.4.4.4']
+
+.. code-block:: YAML
+
+    # saves a list of values from execute action output
+
+    - execute:
+        device: PE1
+        command: show ip interface brief
+        save:
+        - variable_name: execute_output
+          regex_findall: (\d+\.\d+\.\d+\.\d+)   # returns a list of IP addresses
+
 Save with List filter
 ^^^^^^^^^^^^^^^^^^^^^^
 
