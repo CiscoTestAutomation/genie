@@ -42,6 +42,41 @@ Example can be seen below.
         device: PE1
         timeout: 10
 
+The user can now change the result status to failed, passed, aborted, blocked, skipped, errored
+and passx, when the step is passed. In the below example we assigned result_status to passx.
+when only this step is passed, the result will be changed to ``passx``.
+
+.. code-block:: YAML
+
+    - execute: # ACTION
+        # (Either device hostname or device alias)
+        device: R1
+        # Send show version to the device
+        command: show version
+        # To Change the result status
+        result_status: passx
+
+In the below example when either include or exclude keyword is passed its result will be changed
+to ``aborted``. 
+
+Example with include and exclude:
+
+.. code-block:: YAML
+
+    - execute: # ACTION
+        # (Either device hostname or device alias)
+        device: R1
+        # Send show version to the device
+        command: show version
+        # To Change the result status
+        result_status: aborted
+        # Can have as many items under include or exclude that you want
+        include:
+            - 'CSR1000V'
+        exclude:
+            - 'Should not be in the output'
+
+
 configure
 ^^^^^^^^^
 
