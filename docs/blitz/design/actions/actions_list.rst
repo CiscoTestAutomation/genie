@@ -43,8 +43,7 @@ Example can be seen below.
         timeout: 10
 
 The user can now change the result status to failed, passed, aborted, blocked, skipped, errored
-and passx, when the step is passed. In the below example we assigned result_status to passx.
-when only this step is passed, the result will be changed to ``passx``.
+or passx when the step is passed. In the example below, result_status is changed to ``passx``.
 
 .. code-block:: YAML
 
@@ -56,8 +55,8 @@ when only this step is passed, the result will be changed to ``passx``.
         # To Change the result status
         result_status: passx
 
-In the below example when either include or exclude keyword is passed its result will be changed
-to ``aborted``. 
+In the example below, if include or exclude conditions are met, their results will be
+changed to ``aborted``.
 
 Example with include and exclude:
 
