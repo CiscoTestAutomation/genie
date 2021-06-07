@@ -712,9 +712,9 @@ they have either;
 
 * Different connections using Mapping datafile:
 
-The user can connect with different connections using this new schema mentioned below.
+The user can connect with different connections using the following schema.
 
-``Note``: The user can either use this new schema or the above mentioned one.
+``Note``: The user can either use this new schema or the one mentioned above.
 ``Note``: via and alias keywords are mandatory when using new mapping schema.
 
 .. code-block:: python
@@ -759,7 +759,7 @@ The user can connect with different connections using this new schema mentioned 
 
                             via: #Specify the connection to use. Eg. cli, ssh, yang etc
 
-                            alias: #The alias name of the connection. Eg. Banana, my_conn
+                            alias: #The alias name of the connection. Eg. my_connection
 
                             pool_size: # Connection pool size, in case of using pyATS connection
                                        # pool feature.
