@@ -56,7 +56,7 @@ or passx when the step is passed. In the example below, result_status is changed
         result_status: passx
 
 In the example below, if include or exclude conditions are met, their results will be
-changed to ``aborted``.
+changed to ``failed``.
 
 Example with include and exclude:
 
@@ -68,7 +68,7 @@ Example with include and exclude:
         # Send show version to the device
         command: show version
         # To Change the result status
-        result_status: aborted
+        result_status: failed
         # Can have as many items under include or exclude that you want
         include:
             - 'CSR1000V'
