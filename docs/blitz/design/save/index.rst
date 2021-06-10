@@ -14,7 +14,7 @@ Save action outputs
 
 
 Another very useful feature that Blitz has, is the ability to save the output of actions or a variation of it.
-You can either save values to a variable name and later use that variable in other actions or export to a file that will be saved in the directory where the script was executed. 
+You can either save values to a variable name and later use that variable in other actions or save it to a file in the directory where the script was executed.
 There are different ways to save the output and also different ways to reuse them:
 
 * Save the entire output of an action.

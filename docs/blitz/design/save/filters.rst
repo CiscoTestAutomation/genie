@@ -20,7 +20,7 @@ Below you can find examples of how to save the entire output to a variable name 
 
 .. code-block:: YAML
 
-    # Description: Saving the entire output of an execute action into a variable
+    # Description: Saving the entire output of a parse action into a variable
     # The type of output is dictionary/JSON data.
 
     - parse:
