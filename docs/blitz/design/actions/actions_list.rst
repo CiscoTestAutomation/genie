@@ -50,7 +50,9 @@ Example can be seen below.
         timeout: 10
 
 The user can now change the result status to failed, passed, aborted, blocked, skipped, errored
-or passx when the step is passed. In the example below, result_status is changed to ``passx``.
+or passx when the step is passed. This feature is also supported by other actions like parse, api,
+rest, learn and bash_console.
+In the example below, result_status is changed to ``passx``.
 
 .. code-block:: YAML
 
