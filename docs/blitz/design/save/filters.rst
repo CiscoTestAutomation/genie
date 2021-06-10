@@ -5,7 +5,7 @@
 Save with No filter
 ^^^^^^^^^^^^^^^^^^^^
 
-Below you can find examples of how to save the entire output to a variable name.
+Below you can find examples of how to save the entire output to a variable name and/or a file.
 
 .. code-block:: YAML
 
@@ -28,6 +28,20 @@ Below you can find examples of how to save the entire output to a variable name.
         command: show platform
         save:
           - variable_name: execute_output
+
+In the example below, the same action output is saved to a file. 
+All you need to do is provide the file name using the argument `file_name`.
+
+.. code-block:: YAML
+
+    # Description: Saving the entire output of an execute action into a file
+    # The type of output is dictionary/JSON data.
+
+    - parse:
+        device:  '%{testbed.devices.uut.alias}'
+        command: show platform
+        save:
+          - file_name: testfile.txt
 
 Save with Dq filter
 ^^^^^^^^^^^^^^^^^^^^
