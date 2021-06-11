@@ -230,6 +230,19 @@ Filter down based on the value of a certain key with {==, !=,  >=, <=, >, <}
    >>> output.q.value_operator('in_crc_errors', '>', 100).get_values('[0]')
    []
 
+sum_value_operator
+^^^^^^^^^^^^^^^^^^
+
+Filter down based on the value of a certain key and sum up the values and evaluate with {==, !=,  >=, <=, >, <} against the total value.
+
+.. code-block:: python
+
+   # sum up all path which has in_rate and check if the total value is greater than 100
+   # and then get the total value via get_value()
+   >>> output = dev.parse('show interfaces')
+   >>> output.q.sum_value_operator('in_rate', '>', 100).get_values('[0]')
+   145000.0
+
 count
 ^^^^^
 
