@@ -234,6 +234,7 @@ sum_value_operator
 ^^^^^^^^^^^^^^^^^^
 
 Filter down based on the value of a certain key and sum up the values and evaluate with {==, !=,  >=, <=, >, <} against the total value.
+Comparing to value_operator, this allows you to sum up the values from structure data and create new value as total. This operator helps you to reduce steps to calculate the values in your python code. For example, below snipped code gathers all 'in_rate' from 'show interfaces' and you will be able to check how much incoming rate has on the device instead of checking per interface.
 
 .. code-block:: python
 
