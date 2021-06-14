@@ -230,6 +230,20 @@ Filter down based on the value of a certain key with {==, !=,  >=, <=, >, <}
    >>> output.q.value_operator('in_crc_errors', '>', 100).get_values('[0]')
    []
 
+sum_value_operator
+^^^^^^^^^^^^^^^^^^
+
+Filter down based on the value of a certain key and sum up the values and evaluate with {==, !=,  >=, <=, >, <} against the total value.
+Comparing to value_operator, this allows you to sum up the values from structure data and create new value as total. This operator helps you to reduce steps to calculate the values in your python code. For example, below snipped code gathers all 'in_rate' from 'show interfaces' and you will be able to check how much incoming rate has on the device instead of checking per interface.
+
+.. code-block:: python
+
+   # sum up all path which has in_rate and check if the total value is greater than 100
+   # and then get the total value via get_value()
+   >>> output = dev.parse('show interfaces')
+   >>> output.q.sum_value_operator('in_rate', '>', 100).get_values('[0]')
+   145000.0
+
 count
 ^^^^^
 
