@@ -144,6 +144,7 @@ In this :ref:`link<actions_list>` you can find all the information about support
     negative
     terminate
     reply
+    result_status
     timeout
     steps
     tips
