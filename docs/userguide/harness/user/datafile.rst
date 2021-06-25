@@ -385,6 +385,14 @@ Trigger Datafile
 
         sections: # Adding processor to some Trigger section
             <section name>: # Name of the section to add processor to
+
+                parameters: 
+                    <key>: <value>  # Adding in the parameters key along with
+                                    # key/values will allow you to pass in arguments
+                                    # on a per-section basis. Arguments defined in
+                                    # the main body of the trigger will be overridden
+                                    # by these arguments
+
                 processors: # This section is used to let
                             # Genie know where the pyATS processors is located
 
