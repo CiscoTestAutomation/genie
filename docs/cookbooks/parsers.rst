@@ -254,3 +254,157 @@ attach `continue_on_failure=True` to your parse call:
 This will execute all the commands without raising an exception. Any silenced
 errors can be accessed through `output['exceptions']`, which is a dictionary
 of the command that failed mapped to its corresponding error message.
+
+
+7. External Parsers/APIs
+------------------------
+
+What is an external parser/api?
+```````````````````````````````
+
+In short, they are parsers and apis which have been developed but are not yet ready for open-source releases.
+
+
+Step-By-Step Guide For Local Genie Library Implementation:
+``````````````````````````````````````````````````````````
+
+1. Create a directory to store external parsers and external apis, respectively.
+
+.. code-block:: bash
+
+    mkdir /Users/<username>/Desktop/external_parser
+    mkdir /Users/<username>/Desktop/external_api
+
+
+2. Create __init__.py under the root folder (if it doesn't exist)
+
+.. code-block:: bash
+
+    # the following example is for external parser directory - follow the same steps for external api directory
+    cd /Users/<username>/Desktop/external_parser
+    vim __init__.py
+
+    # inside the __init__.py file
+    # declare the package with genie abstract
+    from genie import abstract
+    abstract.declare_package(__name__)
+
+
+3. Create specific os subfolder under root folder
+
+.. code-block:: bash
+
+    # the following example is for parsers - follow the same steps for external api directory
+
+    # eg, for iosxe parser
+    mkdir iosxe
+    cd iosxe/
+
+    # for c9300 platform under iosxe
+    mkdir -p iosxe/c9300
+
+
+4. Create __init__.py under the os folder (and platform) folder
+
+.. code-block:: bash
+
+    # the following example is for parsers - follow the same steps for external api directory
+
+    cd iosxe/
+    vim __init__.py
+
+    # inside the __init__.py file
+    # declare the device os token with genie abstract
+    from genie import abstract
+    abstract.declare_token(__name__)
+
+    # do the same for platform folder
+    cd c9300/
+    vim __init__.py
+
+    # declare the device platform token with genie abstract
+    from genie import abstract
+    abstract.declare_token(__name__)
+
+
+5. Create or overwrite libraries under the corresponding os folder
+        
+    Refer to the official Genie documentation for how to develop parsers and apis:
+        how to write a parser:  https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeparser/writeparser.html
+        genie parser github repo: https://github.com/CiscoTestAutomation/genieparser/tree/master/src/genie/libs/parser
+        current available parsers: https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers
+        
+    Refer to the following links to write apis:
+        api guideline: https://pubhub.devnetcloud.com/media/genie-docs/docs/userguide/apis/index.html
+        genie api github repo: https://github.com/CiscoTestAutomation/genielibs/tree/master/pkgs/sdk-pkg/src/genie/libs/sdk/apis
+        current available apis: https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis
+
+    
+External parser tree structure example:
+
+.. code-block:: bash
+
+    # inside /Users/<username>/Desktop/external_parser
+    .
+    ├── __init__.py
+    ├── iosxe
+    │   ├── __init__.py
+    │   ├── c9300
+    │   │   ├── __init__.py
+    │   │   └── show_platform.py
+    │   └── show_clock.py
+    └── iosxr
+        ├── __init__.py
+        └── show_clock.py
+
+    
+6. Export the parser root folder name and path to environment variable PYATS_LIBS_EXTERNAL_PARSER and PYTHONPATH or use pyats.conf file to include the external package
+NOTE: this is already done for you if you are using the `DevAT Activate Script <https://cisco.sharepoint.com/sites/PolarisDevAT/SitePages/SDK%20Knowledge%20bank.aspx#option-1-using-devat-activate-script>`_.
+
+    a. use environment variable
+
+    .. code-block:: bash
+            
+        export PYTHONPATH=/Users/<username>/Desktop:$PYTHONPATH
+        export PYATS_LIBS_EXTERNAL_PARSER='external_parser'
+        export PYATS_LIBS_EXTERNAL_API='external_api'
+
+    b. use pyats.conf file, this file is located at ~/.pyats/ folder, if you don't have it, please create one
+
+    .. code-block:: bash
+
+        export PYTHONPATH=$/Users/<username>/Desktop:$PYTHONPATH
+
+        cd ~/.pyats/
+        vim pyats.conf
+
+        # Inside pyats.conf file, add the following settings
+        [pyats.libs]
+        external.parser = external_parser
+        external.api = external_api
+
+And that's it! From here onwards, you should be able to use these libraries.
+
+    
+Using Local/Private/Overwrite Genie Libraries:
+``````````````````````````````````````````````
+When following the above steps, your local override/private libraries (part of the external_api/parser folder) should be automatically picked up by Genie library infrastructure. These "overrides" will work as if they are directly part of the library system, no additional work necessary.
+
+.. code-block:: bash
+
+    # calling device parsers
+    output = device.parse('show version')
+
+    # calling device apis
+    output = device.api.configure_cdp(...)
+    
+Follow the standard Genie library usage/guidelines for how apis and parsers are invoked.
+
+https://pubhub.devnetcloud.com/media/genie-docs/docs/cookbooks/index.html#explore-genie
+
+
+Do not importing them directly in your script as it will cause an ImportError since the parsers are not in your PYTHONPATH. That is, do not do the following:
+
+.. code-block:: bash
+        
+    from cisco.pyats.libs.genie.external_parser.iosxe.some_useful_parsers import some_parser
