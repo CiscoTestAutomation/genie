@@ -199,7 +199,7 @@ Health Yaml:
     - cpu:
         - api:
             device: xe
-            function: get_platform_cpu_load
+            function: health_cpu
             arguments:
               command: show processes cpu
               processes: ['BGP I/O']
@@ -258,7 +258,7 @@ In health yaml, same arguments(`health-tc-uids`/`health-tc-sections`/`health-tc-
     - cpu:
         - api:
             device: xe
-            function: get_platform_cpu_load
+            function: health_cpu
             arguments:
               command: show processes cpu
               processes: ['BGP I/O']
