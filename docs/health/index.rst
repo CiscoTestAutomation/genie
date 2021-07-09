@@ -97,7 +97,7 @@ example when changing to `Crash` and `CRASH` for both iosxr and nxos.
 
 **4. I want to change the location of where core files are searched for**
 
-by default, it's pre-defined for each platform (iosxe, iosxr, nxos). If you want to look for somewhere else, the location can be overwritten via `--health-core-default-dir`.
+by default, it's pre-defined for each platform (iosxe, iosxr, nxos). If you want to look somewhere else, the location can be overwritten via `--health-core-default-dir`.
 
 example to change to `harddisk0:/core` for iosxe.
 
