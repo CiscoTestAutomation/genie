@@ -85,7 +85,7 @@ example when specifying thresholds, cpu 75% and memory 80%
 
     pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-threshold cpu:75 memory:80
 
-**3. how can I change logging keywords which want to detect?**
+**3. How can I change which logging keywords I want to detect?**
 
 By default, `logging` check detects only `traceback`, `Traceback` and `TRACEBACK`. The keywords can be overwritten via `--health-show-logging-keywords`.
 
