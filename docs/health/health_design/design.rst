@@ -30,7 +30,7 @@ The actions in pyATS Health Check yaml will be added to pyATS job's sections as 
 
 .. note::
 
-     Devices for pyATS Health Check need to be in the testbed yaml for the pyATS job
+     Devices for pyATS Health Check need to be specified in the health yaml file and the testbed yaml for the pyATS job to execute health checks against the device.
 
      The pyATS testbed object will be converted to Genie testbed object to have Genie functionalities.
 
