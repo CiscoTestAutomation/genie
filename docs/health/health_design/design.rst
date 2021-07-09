@@ -1,7 +1,7 @@
 Design
 ======
 
-The previous page showed you how to use pyATS Health Check easily. This page is for those who want to use their own pyATS Health Check. If you are happy with previous page way, please move on :ref:`processor key in YAML<processor_key_in_yaml>`.
+The previous page showed you how to use pyATS Health Check easily. This page is for those who want to use their own pyATS Health Check. If you are happy with the way it was done on the previous page, then please move on :ref:`processor key in YAML<processor_key_in_yaml>`.
 
 You can collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check is yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are supported in Health Check.
 
