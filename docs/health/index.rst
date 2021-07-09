@@ -115,7 +115,7 @@ example to run against only `R1_xe` device.
 
     pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-devices R1_xe
 
-**6. Is it possible to send webex notification?**
+**6. Is it possible to send a webex notification?**
 
 Yes. There is `--health-webex` argument to send webex notification. The webex notification will be sent out only when health checks fail.
 Webex token and space id or email need to be given via pyats.conf or webex arguments `--webex-token`, `--webex-space`, `--webex-email`.
