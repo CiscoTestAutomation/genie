@@ -22,7 +22,7 @@ The actions in pyATS Health Check yaml will be added to pyATS job's sections as 
     # Quick start Guide!
     # ------------------
     # 1. Create the health yaml
-    # 2. Add the arguments
+    # 2. Add `--health-file` argument to pyats command
     # 3. Run the job and verify issues found by the pyATS Health Check if any
 
     # Integrated with pyATS jobs
