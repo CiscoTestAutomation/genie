@@ -132,7 +132,7 @@ example to send Webex notification to webex space by using webex arguments
 
 ++++
 
-The above are all the easy ways to use pyATS Health Check. Also, please be aware that each of the above arguments can be used in combination. If you want to use pyATS Health Check more and more, please move on following chapters.
+The above are all the easy ways to use pyATS Health Check. Also, please be aware that each of the above arguments can be used in combination. If you want to use custom pyATS Health Checks, please check the design chapter.
 
 .. toctree::
    :maxdepth: 2
