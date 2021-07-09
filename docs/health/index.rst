@@ -32,7 +32,7 @@ Using pyATS Health Check is very easy. Just list the above heath check names by 
 
 If you want to check only cpu, please specify `cpu` to `--health-checks`. **The pyATS Health Check specified by `--health-checks` runs as a post-processor after each test case.**
 
-The core file is only detection by default, but if you want to send it to TAC for analysis or move it to the remote server at the time of detection, you can enumerate the remote server information with `--health-remote-device` to copy the generated core file. It is possible to copy the file at the time of detection and delete the file from the device.
+The core file is the only detection that is by default. If you want to send it to TAC for analysis or move it to the remote server at the time of detection, you can enumerate the remote server information with `--health-remote-device` to copy the generated core file. To copy the file at the time of detection and delete the file from the device, specify the --health-remote-device argument.
 
 The command example in that case is as follows.
 
