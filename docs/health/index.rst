@@ -95,7 +95,7 @@ example when changing to `Crash` and `CRASH` for both iosxr and nxos.
 
     pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-show-logging-keywords "iosxr:['Crash', 'CRASH']" "nxos:['Crash', 'CRASH']"
 
-**4. want to change location where searching core files**
+**4. I want to change the location of where core files are searched for**
 
 by default, it's pre-defined for each platform (iosxe, iosxr, nxos). If you want to look for somewhere else, the location can be overwritten via `--health-core-default-dir`.
 
