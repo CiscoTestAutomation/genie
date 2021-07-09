@@ -52,7 +52,7 @@ pyATS Health Check comes with default checks; however it is fully open-sourced! 
 
 --------
 
-pyATS Health Check's added processors can be easily found in pyATS Logviewer or XPRESSO. The added processors has `pyATS Health Check` and also icons for both `Pre` and `Post`.
+pyATS Health Check's added processors can be easily found in pyATS or XPRESSO logviewer. The processor results are added with a `pyATS Health Check` label and also icons for both `Pre` and `Post`.
 
 .. figure:: health_logviewer.png
     :align: center
