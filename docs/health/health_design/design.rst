@@ -42,7 +42,7 @@ The actions in pyATS Health Check yaml will be added to pyATS job's sections as 
 
 Create health.yaml with knowledge about pyATS Blitz and then add the argument `--health-file` with the filename. pyATS Health Check will add Blitz actions as processors to sections in pyATS job. pyATS Health Check processors will run before and after each section (as specified) to monitor/collect device status as specified in the health yaml file.
 
-Even for development of health yaml, the health file makes developer's life easier. It's same format with Blitz format and the health file can run like Blitz as well. So, develop and test as Blitz first and just switch argument from `--trigger-datafile` to `--health-file` when health yaml is ready.
+Even for development of health yaml, the health file makes developer's life easier. It's the same format as the Blitz format and the health file can run like Blitz as well. So, develop and test as Blitz first and just switch the argument from `--trigger-datafile` to `--health-file` when health yaml is ready.
 
 pyATS Health Check comes with default checks; however it is fully open-sourced! You can add your own checks to be executed at any time! Any features or functions to monitor, those can be contributed and developed as Blitz actions or APIs.
 
