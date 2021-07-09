@@ -21,6 +21,11 @@ Or once you have both the testbed yaml and health yaml for custom health checks 
 
     pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml
 
+
+.. note:
+
+    `cpu`, `memory`, `logging` and `core` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
+
 Standalone
 ----------
 Coming in a future release.
