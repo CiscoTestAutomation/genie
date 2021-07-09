@@ -61,7 +61,7 @@ Note that in order to run the above example you need to have the server `myserve
 
     The above example uses `Embedded pyATS File Transfer Server <https://pubhub.devnetcloud.com/media/pyats/docs/utilities/file_transfer_server.html>`_.
 
-And also you can find examples in our `Github repo <https://github.com/CiscoTestAutomation/examples/tree/master/health>`_. Any contributions for pyATS Health Check examples are encouraged!
+You can find more examples in our `Github repo <https://github.com/CiscoTestAutomation/examples/tree/master/health>`_. Any contributions for pyATS Health Check examples are encouraged!
 
 FAQ
 ---
