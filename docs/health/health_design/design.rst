@@ -11,7 +11,7 @@ The health check is driven by a `health_file` which is provided at run time. The
 2. Continuous data collection using a background process (Coming with 21.7).
 
 To use your own pyATS Health Checks, you can specify pyATS Health Checks by leveraging the existing :ref:`Blitz<blitz>` style YAML format as it uses the same format and capabilities that Blitz has.
-The actions in pyATS Health Check yaml, those actions will be added to pyATS job's each section as pre/post processors. Pre, Post or both processors can be specified in the yaml.
+The actions in pyATS Health Check yaml will be added to pyATS job's sections as pre/post processors. Execution of the actions as pre, post or both can be specified in the yaml.
 
 .. note::
 
