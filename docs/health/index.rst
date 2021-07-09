@@ -21,7 +21,7 @@ pyATS Health Check currently supports the following 4 checks by default.
      - check if core file is generated on device. just check by default. Please use `--health-remote-device` to copy the core file to remote server.
 
 
-Using pyATS Health Check is very easy. Just list the above check names with `--health-checks` in the current pyats command.
+Using pyATS Health Check is very easy. Just list the above heath check names by adding `--health-checks` to the current pyats command.
 
 .. code-block:: bash
 
