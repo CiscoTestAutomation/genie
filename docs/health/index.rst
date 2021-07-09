@@ -27,7 +27,7 @@ Using pyATS Health Check is very easy. Just list the above heath check names by 
 
     pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core
 
-If you want to check only cpu, please specify just only `cpu` to `--health-checks`. **Also, importantly, the pyATS Health Check by `--health-checks` runs as a post-processor after each test case.**
+If you want to check only cpu, please specify `cpu` to `--health-checks`. **The pyATS Health Check specified by `--health-checks` runs as a post-processor after each test case.**
 
 The core file is only detection by default, but if you want to send it to TAC for analysis or move it to the remote server at the time of detection, you can enumerate the remote server information with `--health-remote-device` to copy the generated core file. It is possible to copy the file at the time of detection and delete the file from the device.
 
