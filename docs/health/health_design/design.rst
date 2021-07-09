@@ -3,7 +3,7 @@ Design
 
 The previous page showed you how to use pyATS Health Check easily. This page is for those who want to use their own pyATS Health Check. If you are happy with previous page way, please move on :ref:`processor key in YAML<processor_key_in_yaml>`.
 
-Collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check can be even yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are fully supported in health check.
+You can collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check is yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are supported in Health Check.
 
 The health check is driven by a `health_file` which is provided at run time. There is two different mechanism to run the checks:
 
@@ -303,4 +303,3 @@ If you can connect to it; the infra supports it. You can use any of the existing
      See all the available APIs `Available Apis <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis>`_ 
 
      See all the available Parsers `Available Parsers <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers>`_ 
-
