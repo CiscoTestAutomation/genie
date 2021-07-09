@@ -109,7 +109,6 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
 
   All available APIs and Parsers can be found here `Genie Feature Browser <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/>`_
 
-  Make sure you read the comments above! After this all will make sense!
 
 .. _processor_key_in_yaml:
 
