@@ -117,7 +117,7 @@ example to run against only `R1_xe` device.
 
 **6. Is it possible to send a webex notification?**
 
-Yes. There is `--health-webex` argument to send webex notification. The webex notification will be sent out only when health checks fail.
+Yes. There is `--health-webex` argument to send a webex notification. The webex notification will be sent out only when health checks fail.
 Webex token and space id or email need to be given via pyats.conf or webex arguments `--webex-token`, `--webex-space`, `--webex-email`.
 
 example to send Webex notification to webex space by using webex arguments
