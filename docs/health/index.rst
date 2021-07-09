@@ -105,7 +105,7 @@ example to change to `harddisk0:/core` for iosxe.
 
     pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-core-default-dir "iosxe:['harddisk0:/core']"
 
-**5. how to run pyATS Health check against only certain devices?**
+**5. How to run pyATS Health check against only certain devices?**
 
 All checks will run against all connected devices in testbed yaml by default. To run checks against only specific devices, please use `--health-devices`.
 
