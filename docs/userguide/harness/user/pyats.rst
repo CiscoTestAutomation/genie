@@ -65,18 +65,19 @@ Within your pyATS add the following:
         verifications = ['Verify_BgpVrfAllAll']
         order = ['TriggerShutNoShutBgp', 'Verify_BgpVrfAllAll', 'TriggerSleep']
         custom_arguments = {
-					'TriggerSleep': {
-						'devices': ['uut', 'P1'],
-						'sleep_time': 8},
-					'TriggerShutNoShutBgp': {
-						'devices': ['uut', 'P1'],
-						'count': 2,
-						'timeout': {
-							'max_time': 20,
-							'interval': 10
-						}
-					}
-							}
+            'TriggerSleep': {
+                'devices': ['uut', 'P1'],
+                'sleep_time': 8
+            },
+            'TriggerShutNoShutBgp': {
+                'devices': ['uut', 'P1'],
+                'count': 2,
+                'timeout': {
+                    'max_time': 20,
+                    'interval': 10
+                }
+            }
+        }
 
 Note that the class must inherits from GenieStandalone, which itself inherits from the pyATS `Testcase`, and
 everything provided in `custom_arguments` will overwrite the information in the trigger datafile.
@@ -114,26 +115,26 @@ a sections!
             log.info("First test section ")
 
             # Run genie triggers and verifications
-            run_genie_sdk(
-                self,
-                steps, [
-                    'Verify_BgpVrfAllAll', 'TriggerSleep', 'TriggerShutNoShutBgp',
-                    'TriggerSleep', 'Verify_BgpVrfAllAll'
-                ],
-                parameters={
-                    'TriggerSleep': {
-                        'devices': ['uut', 'P1'],
-                        'sleep_time': 8
-                    },
-                    'TriggerShutNoShutBgp': {
-                        'devices': ['uut', 'P1'],
-                        'count': 2,
-                        'timeout': {
-                            'max_time': 20,
-                            'interval': 10
-                        }
-                    }
-                })
+            run_genie_sdk(self,
+                          steps, [
+                              'Verify_BgpVrfAllAll', 'TriggerSleep',
+                              'TriggerShutNoShutBgp', 'TriggerSleep',
+                              'Verify_BgpVrfAllAll'
+                          ],
+                          parameters={
+                              'TriggerSleep': {
+                                  'devices': ['uut', 'P1'],
+                                  'sleep_time': 8
+                              },
+                              'TriggerShutNoShutBgp': {
+                                  'devices': ['uut', 'P1'],
+                                  'count': 2,
+                                  'timeout': {
+                                      'max_time': 20,
+                                      'interval': 10
+                                  }
+                              }
+                          })
 
 `run_genie_sdk` allows to run any triggers and verifications. `self` and
 `steps` must be passed, then a list of what to execute. The device on which to
