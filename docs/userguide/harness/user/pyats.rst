@@ -114,22 +114,26 @@ a sections!
             log.info("First test section ")
 
             # Run genie triggers and verifications
-            run_genie_sdk(self, steps,
-                          ['Verify_BgpVrfAllAll', 'TriggerSleep', 'TriggerShutNoShutBgp',
-                           'TriggerSleep', 'Verify_BgpVrfAllAll'],
-                           parameters={
-					'TriggerSleep': {
-						'devices': ['uut', 'P1'],
-						'sleep_time': 8},
-					'TriggerShutNoShutBgp': {
-						'devices': ['uut', 'P1'],
-						'count': 2,
-						'timeout': {
-							'max_time': 20,
-							'interval': 10
-						}
-					}
-							})
+            run_genie_sdk(
+                self,
+                steps, [
+                    'Verify_BgpVrfAllAll', 'TriggerSleep', 'TriggerShutNoShutBgp',
+                    'TriggerSleep', 'Verify_BgpVrfAllAll'
+                ],
+                parameters={
+                    'TriggerSleep': {
+                        'devices': ['uut', 'P1'],
+                        'sleep_time': 8
+                    },
+                    'TriggerShutNoShutBgp': {
+                        'devices': ['uut', 'P1'],
+                        'count': 2,
+                        'timeout': {
+                            'max_time': 20,
+                            'interval': 10
+                        }
+                    }
+                })
 
 `run_genie_sdk` allows to run any triggers and verifications. `self` and
 `steps` must be passed, then a list of what to execute. The device on which to
