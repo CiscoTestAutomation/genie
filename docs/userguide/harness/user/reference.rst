@@ -26,12 +26,12 @@ All arguments are optionals.
     ``--trigger-uids``, "Specifies the list of triggers uids to run (list or logic expression)"
     ``--trigger-groups``, "Specifies the list of triggers groups to run (logic expression)"
     ``--devices``, "List of devices to connect to (in case of no mapping datafile)"
-    ``--subsection-datafile``, "Full path/name to the common_(setup/cleanup) subsection datafile"
-    ``--mapping-datafile``, "Full path/name to the mapping datafile"
-    ``--verification-datafile``, "Full path/name to the verification datafile"
-    ``--trigger-datafile``, "Full path/name to the trigger datafile"
-    ``--config-datafile``, "Full path/name to the config datafile"
-    ``--pts-datafile``, "Full path/name to the PTS datafile"
+    ``--subsection-datafile``, "Full path/name or URL to the common_(setup/cleanup) subsection datafile"
+    ``--mapping-datafile``, "Full path/name or URL to the mapping datafile"
+    ``--verification-datafile``, "Full path/name or URL to the verification datafile"
+    ``--trigger-datafile``, "Full path/name or URL to the trigger datafile"
+    ``--config-datafile``, "Full path/name or URL to the config datafile"
+    ``--pts-datafile``, "Full path/name or URL to the PTS datafile"
     ``--debug-plugin``, "Full path/name to the debug plugin (N7k)"
     ``--random``, "flag to enable trigger randomization"
     ``--random-seed``, "testcase randomization seed"  
@@ -241,6 +241,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          --mapping-datafile /path/mapping.pts
+         --mapping-datafile "http://path.to/mapping.pts"
 
     Or inside a job file
 
@@ -263,6 +264,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          --verification-datafile /path/verificationdatafile.yaml
+         --verification-datafile "http://path.to/verificationdatafile.yaml"
 
     Or inside a job file
 
@@ -283,6 +285,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          genie run --trigger-datafile /path/triggerdatafile.yaml
+         genie run --trigger-datafile "http://path.to/triggerdatafile.yaml"
 
     Or inside a job file
 
@@ -306,6 +309,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          --config-datafile /path/config_datafile.yaml
+         --config-datafile "http://path.to/config_datafile.yaml"
 
     Or inside a job file
 
@@ -325,6 +329,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          genie run /path/to/jobfile.py --subsection-datafile /path/subsection_datafile.yaml
+         genie run /path/to/jobfile.py --subsection-datafile "http://path.to/subsection_datafile.yaml"
 
     Or inside a job file
 
@@ -348,6 +353,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          genie run /path/to/jobfile.py --pts-datafile /path/pts_datafile.yaml
+         genie run /path/to/jobfile.py --pts-datafile "hhtp://path.to/pts_datafile.yaml"
 
     Or inside a job file
 
