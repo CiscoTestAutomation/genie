@@ -170,27 +170,64 @@ The `max_time` and `interval` can be configured by adding those under `reconnect
 Selecting Testcase/Section
 --------------------------
 
-pyATS Health Check processors are running before and after every testcase and section by default.
+pyATS Health Check processors are running before and after
+every testcase and section by default.
 
-However, you can select which testcase and which sections to execute pyATS Health checks.
+However, you can select which testcase and which sections
+to execute pyATS Health checks.
 
-There are three ways to filter it. By default pyATS Health Checks run before and after every testcase and section. With the filtering you can decide where they are executed.
+There are four ways to select where health checks run.
+By default pyATS Health Checks run before and after
+every testcase and section. With the filtering you
+can decide where they are executed.
 
-Testcase level: health-tc-uids, provide the testcase/trigger names from Testcase/Trigger datafile. The exact name can be provided or regular expression is also supported. pyATS Health Check processors will run only for the given testcase/trigger names which match the full name or match the regex.
+These arguments can be provided either via the CLI or via the Health YAML file.
 
-Section level: health-tc-sections, provide the section name. The exact name can be provided or regular expression is also supported. pyATS Health Check processors will run only for the given section name which match the full name or match the regex. It will not run at the testcase level.
+#. Testcase level: ``--health-tc-uids`` / `health_tc_uids`
+    Provide the testcase/trigger names from Testcase/Trigger
+    datafile. The exact name can be provided or
+    regular expression is also supported. pyATS Health Check
+    processors will run only for the given testcase/trigger
+    names which match the full name or match the regex.
 
-Group: health-tc-groups, provide the group name from Testcase/Trigger datafile. The exact name can be provided or regular expression is also supported.pyATS Health Check processors will run only for the given section name which match the group or match the regex.
+#. Section level name: ``--health-tc-sections`` / `health_tc_sections`
+    Provide the section name. The exact name can be provided
+    or regular expression is also supported. pyATS Health
+    Check processors will run only for the given
+    section name which match the full name or match the regex.
+    It will not run at the testcase level.
 
-These arguments are to be provided either at
+#. Section level type: ``--health-tc-sections`` / `health_tc_section`
+    Provide the section type. The following types
+    are supported:
 
-Cli Level:
+    * CommonSetup
+    * CommonCleanup
+    * SetupSection
+    * CleanupSection
+    * TestSection
+    * TestCase
+
+    .. code-block:: yaml
+
+      # Section level type filter example
+
+        health_tc_sections:
+        - type:CommonSetup
+
+#. Group: ``--health-tc-groups`` / `health_tc_groups`
+    Provide the group name from Testcase/Trigger datafile.
+    The exact name can be provided or regular expression is also supported.
+    pyATS Health Check processors will run only for the given section name
+    which match the group or match the regex.
+
+**CLI example**
 
 .. code-block:: bash
 
     pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids <testcase name> --health-tc-sections <section name> --health-tc-groups <testcase group>
 
-Health Yaml:
+**Health yaml example**
 
 .. code-block:: yaml
 
@@ -222,7 +259,7 @@ All the arguments can be given to `pyats run` command or only one or two.
 .. code-block:: bash
 
     pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids <testcase name> --health-tc-sections <section name> --health-tc-groups <testcase group>
-    
+
     pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids <testcase name>
 
     pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids <testcase name> --health-tc-sections <section name>

@@ -37,7 +37,7 @@ CLEAN_DIR	  = $(shell pwd)/__build__
 HOSTNAME      = localhost
 
 # Dependencies for building documentation
-DEPENDENCIES = robotframework Sphinx sphinxcontrib-napoleon \
+DEPENDENCIES = robotframework Sphinx==3.5.4 sphinxcontrib-napoleon \
 			   sphinxcontrib-mockautodoc sphinx-rtd-theme sphinxcontrib_robotframework
 
 # User-friendly check for sphinx-build
@@ -92,7 +92,3 @@ html: install_build_deps
 	python -m robot.libdoc genie.libs.robot.GenieRobotApis $(BUILDDIR)/html/userguide/robot_api.html
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
-serve:
-	@echo "point your browser to http://$(HOSTNAME):8000"
-	@cd $(BUILDDIR)/html && python -m http.server || echo Error: run \'make \
-	docs\' before using \'make serve\'
