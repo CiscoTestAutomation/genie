@@ -128,30 +128,6 @@ Passing images through CLI
             - /path/to/optional_package1
             - /path/to/optional_package2
 
-.. note::
-
-    Images provided on the CLI override/replace images specified in the Clean YAML file. It will not update/merge into the existing structure. If the Clean YAML contains:
-
-    .. code-block:: yaml
-
-        images:
-          image:
-            file:
-            - /path/to/image.bin
-          packages:
-            file:
-            - /path/to/optional_package1
-            - /path/to/optional_package2
-
-    And you specify `--clean-device-image PE1:image:file:/path/to/new_image.bin`, the final result is:
-
-    .. code-block:: yaml
-
-        images:
-          image:
-            file:
-            - /path/to/new_image.bin
-
 
 Clean Schema Validation
 -----------------------
