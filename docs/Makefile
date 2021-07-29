@@ -37,7 +37,7 @@ CLEAN_DIR	  = $(shell pwd)/__build__
 HOSTNAME      = localhost
 
 # Dependencies for building documentation
-DEPENDENCIES = robotframework Sphinx sphinxcontrib-napoleon \
+DEPENDENCIES = robotframework "Sphinx==3.5.4" sphinxcontrib-napoleon \
 			   sphinxcontrib-mockautodoc sphinx-rtd-theme
 			   #sphinxcontrib_robotframework
 
