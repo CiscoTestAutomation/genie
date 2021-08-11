@@ -284,8 +284,8 @@ Below you will find additional information on each of those arguments:
 
     .. code-block:: bash
 
-         genie run --trigger-datafile /path/triggerdatafile.yaml
-         genie run --trigger-datafile "http://path.to/triggerdatafile.yaml"
+         pyats run job --trigger-datafile /path/triggerdatafile.yaml
+         pyats run job --trigger-datafile "http://path.to/triggerdatafile.yaml"
 
     Or inside a job file
 
