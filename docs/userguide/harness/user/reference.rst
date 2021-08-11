@@ -328,8 +328,8 @@ Below you will find additional information on each of those arguments:
 
     .. code-block:: bash
 
-         genie run /path/to/jobfile.py --subsection-datafile /path/subsection_datafile.yaml
-         genie run /path/to/jobfile.py --subsection-datafile "http://path.to/subsection_datafile.yaml"
+         pyats run job /path/to/jobfile.py --subsection-datafile /path/subsection_datafile.yaml
+         pyats run job /path/to/jobfile.py --subsection-datafile "http://path.to/subsection_datafile.yaml"
 
     Or inside a job file
 
