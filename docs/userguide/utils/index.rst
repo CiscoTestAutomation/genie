@@ -89,6 +89,14 @@ variable to ``True`` within the contains api arguments, as shown in examples bel
   >>> output.q.contains('[1,2]', regex=True)
   >>> output.q.contains('.*ware', regex=True)
 
+To do a case insensitive comparison in contains you have to set both regex and ignore_case variables to ``True``.
+
+.. code-block:: python
+
+  >>> output = dev.parse('show module')
+  # Ignores case sensitive for the value Model
+  >>> output.q.contains('Model', regex=True, ignore_case=True)
+
 By giving `level`, grab information from upper/lower level. In case of `level=-1`, it means information from 1 above level will be collected.
 
 .. code-block:: python
@@ -126,7 +134,7 @@ input.
   # As well as remove all the keywords that ends with phrase ware.
   >>> output.q.not_contains('1|4', regex=True).not_contains('.*ware', regex=True)
 
-As same as `contains`, `level` argument can be passed to `not_contains`.
+As same as `contains`, `level`, `ignore_case` argument can be passed to `not_contains`.
 
 .. note::
 
@@ -197,6 +205,17 @@ to True. Examples below elaborate this functionality
   # If searching for both key and value using regex
   >>> output.q.contains_key_value('slot/world_wide_name|mac.*|model', '[a-zA-Z0-9\-\s]+', key_regex=True, value_regex=True)
 
+Similar to ``contains`` here also you can do case insensitive comparison.
+- If the ``key`` has to be case insensitive then you have to set ``key_regex`` and ``ignore_case_key`` as True.
+- If the ``value`` has to be case insensitive then you have to set ``value_regex`` and ``ignore_case_value`` as True.
+
+.. code-block:: python
+
+  >>> output = dev.parse('show module')
+  # Ignores case sensitive for key CHECKSUM and value 0x1abc
+  >>> output.q.contains_key_value('CHECKSUM', '0x1abc', key_regex=True, ignore_case_key=True,\
+      value_regex=True, ignore_case_value=True)
+
 not_contains_key_value
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -217,6 +236,8 @@ api.
   >>> output = dev.parse('show module')
   # if applying regex only for value set value_regex=True
   >>> output.q.not_contains_key_value('lc', '(3|4)', value_regex=True)
+
+This one also supports both ``ignore_case_key`` and ``ignore_case_value`` which was already explained for contains_key_value api.
 
 value_operator
 ^^^^^^^^^^^^^^
