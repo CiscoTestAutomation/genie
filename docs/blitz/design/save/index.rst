@@ -185,3 +185,51 @@ After that, the parsed output is filtered using `get_values("rtr_type")` and the
                           - file_name: file.txt
                             filter: get_values("rtr_type")
                             append: True
+
+Save action outputs as dictionary
+===================================
+
+Action results can now be saved as a dictionary by using ``as_dict`` argument. In the example below, we can see that
+a nested dictionary ``parse_output_dict`` is created from the saved variables ``"%VARIABLES{device_name}"``
+and ``"%VARIABLES{action_output}"``.
+
+.. note::
+
+    ``"%VARIABLES{action_output}"`` saves the action output and can be used as key and value for the dictionary.
+
+.. code-block:: YAML
+
+    testsave:
+          source:
+              pkg: genie.libs.sdk
+              class: triggers.blitz.blitz.Blitz
+          test_sections:
+              - apply_configuration:
+                    - parse:
+                        device: R1_xe
+                        command: show version
+                        save:
+                            - variable_name: parse_output_dict
+                              as_dict:
+                                "%VARIABLES{device_name}":
+                                   rt_2_if2: "%VARIABLES{action_output}"
+
+This feature also supports dq filter. An example is given below:
+
+.. code-block:: YAML
+
+    testsave:
+          source:
+              pkg: genie.libs.sdk
+              class: triggers.blitz.blitz.Blitz
+          test_sections:
+              - apply_configuration:
+                   - parse:
+                        device: R1_xe
+                        command: show version
+                        save:
+                          - variable_name: filtered_output
+                            as_dict:
+                              rt_2_if2:
+                                rt_22: "%VARIABLES{action_output}"
+                            filter: contains('version_short').get_values('version_short')
