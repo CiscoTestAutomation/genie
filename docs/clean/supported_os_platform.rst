@@ -296,8 +296,9 @@ For example, if the PowerCycler was a `dualcomm` connected to PE1, then the Test
               host: 127.0.0.1
               outlets: [22]
 
-You could have more than one PowerCycler connected to your device. For example, if you have two PowerCycler with `dualcomm` type connected to PE1,
-then the Testbed Yaml is look like this:
+You could have more than one PowerCyclers connected to your device. For example, if you have two PowerCycler with `dualcomm` type connected to PE1,
+then the Testbed Yaml looks like this:
+
 
 .. code-block:: yaml
     :linenos:
