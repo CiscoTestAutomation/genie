@@ -296,4 +296,25 @@ For example, if the PowerCycler was a `dualcomm` connected to PE1, then the Test
               host: 127.0.0.1
               outlets: [22]
 
+You could have more than one PowerCycler connected to your device. For example, if you have two PowerCycler with `dualcomm` type connected to PE1,
+then the Testbed Yaml is look like this:
+
+.. code-block:: yaml
+    :linenos:
+    :emphasize-lines: 3-8
+
+    devices:
+      PE1:
+        peripherals:
+          power_cycler:
+            - type: dualcomm
+              connect_type: snmp
+              host: 127.0.0.1
+              outlets: [22]
+            - type: dualcomm
+              connect_type: snmp
+              host: 127.0.0.2
+              outlets: [20]
+
+
 See :ref:`Device Recovery <clean_doc_device_recovery>` for additional information.
