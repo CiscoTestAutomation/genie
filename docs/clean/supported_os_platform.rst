@@ -98,10 +98,10 @@ The following table specifies the current set of PowerCycler types supported by 
               PE1:
                 peripherals:
                   power_cycler:
-                    type: raritan-px
-                    connection_type: snmp
-                    host: 127.0.0.1
-                    outlets: [20]
+                    - type: raritan-px
+                      connection_type: snmp
+                      host: 127.0.0.1
+                      outlets: [20]
 
 
     * - raritan-px2
@@ -113,14 +113,14 @@ The following table specifies the current set of PowerCycler types supported by 
               <device>:
                 peripherals:
                   power_cycler:
-                    type: raritan-px2
-                    connection_type: snmp
-                    host (str): Ip address for Powercycler.
-                    outlets (list): Power ports associated with your device.
-                    read_community (str, optional): 'private' or 'public'.
-                        Defaults to 'public'.
-                    write_community (str, optional): 'private' or 'public'.
-                        Defaults to 'private'.
+                    - type: raritan-px2
+                      connection_type: snmp
+                      host (str): Ip address for Powercycler.
+                      outlets (list): Power ports associated with your device.
+                      read_community (str, optional): 'private' or 'public'.
+                          Defaults to 'public'.
+                      write_community (str, optional): 'private' or 'public'.
+                          Defaults to 'private'.
 
             Testbed Example
             ---------------
@@ -128,10 +128,10 @@ The following table specifies the current set of PowerCycler types supported by 
               PE1:
                 peripherals:
                   power_cycler:
-                    type: raritan-px2
-                    connection_type: snmp
-                    host: 127.0.0.1
-                    outlets: [20]
+                    - type: raritan-px2
+                      connection_type: snmp
+                      host: 127.0.0.1
+                      outlets: [20]
 
     * - apc
       - .. code-block:: yaml
@@ -142,14 +142,14 @@ The following table specifies the current set of PowerCycler types supported by 
               <device>:
                 peripherals:
                   power_cycler:
-                    type: apc
-                    connection_type: snmp
-                    host (str): Ip address for Powercycler.
-                    outlets (list): Power ports associated with your device.
-                    read_community (str, optional): 'private' or 'public'.
-                        Defaults to 'public'.
-                    write_community (str, optional): 'private' or 'public'.
-                        Defaults to 'private'.
+                    - type: apc
+                      connection_type: snmp
+                      host (str): Ip address for Powercycler.
+                      outlets (list): Power ports associated with your device.
+                      read_community (str, optional): 'private' or 'public'.
+                          Defaults to 'public'.
+                      write_community (str, optional): 'private' or 'public'.
+                          Defaults to 'private'.
 
             Testbed Example
             ---------------
@@ -157,10 +157,10 @@ The following table specifies the current set of PowerCycler types supported by 
               PE1:
                 peripherals:
                   power_cycler:
-                    type: apc
-                    connection_type: snmp
-                    host: 127.0.0.1
-                    outlets: [20]
+                    - type: apc
+                      connection_type: snmp
+                      host: 127.0.0.1
+                      outlets: [20]
 
     * - apc-rpdu
       - .. code-block:: yaml
@@ -171,14 +171,14 @@ The following table specifies the current set of PowerCycler types supported by 
               <device>:
                 peripherals:
                   power_cycler:
-                    type: apc-rpdu
-                    connection_type: snmp
-                    host (str): Ip address for Powercycler.
-                    outlets (list): Power ports associated with your device.
-                    read_community (str, optional): 'private' or 'public'.
-                        Defaults to 'public'.
-                    write_community (str, optional): 'private' or 'public'.
-                        Defaults to 'private'.
+                    - type: apc-rpdu
+                      connection_type: snmp
+                      host (str): Ip address for Powercycler.
+                      outlets (list): Power ports associated with your device.
+                      read_community (str, optional): 'private' or 'public'.
+                          Defaults to 'public'.
+                      write_community (str, optional): 'private' or 'public'.
+                          Defaults to 'private'.
 
             Testbed Example
             ---------------
@@ -186,10 +186,10 @@ The following table specifies the current set of PowerCycler types supported by 
               PE1:
                 peripherals:
                   power_cycler:
-                    type: apc-rpdu
-                    connection_type: snmp
-                    host: 127.0.0.1
-                    outlets: [20]
+                    - type: apc-rpdu
+                      connection_type: snmp
+                      host: 127.0.0.1
+                      outlets: [20]
 
     * - dualcomm
       - .. code-block:: yaml
@@ -200,14 +200,14 @@ The following table specifies the current set of PowerCycler types supported by 
               <device>:
                 peripherals:
                   power_cycler:
-                    type: dualcom
-                    connection_type: snmp
-                    host (str): Ip address for Powercycler.
-                    outlets (list): Power ports associated with your device.
-                    read_community (str, optional): 'private' or 'public'.
-                        Defaults to 'public'.
-                    write_community (str, optional): 'private' or 'public'.
-                        Defaults to 'private'.
+                    - type: dualcom
+                      connection_type: snmp
+                      host (str): Ip address for Powercycler.
+                      outlets (list): Power ports associated with your device.
+                      read_community (str, optional): 'private' or 'public'.
+                          Defaults to 'public'.
+                      write_community (str, optional): 'private' or 'public'.
+                          Defaults to 'private'.
 
             Testbed Example
             ---------------
@@ -215,10 +215,10 @@ The following table specifies the current set of PowerCycler types supported by 
               PE1:
                 peripherals:
                   power_cycler:
-                    type: dualcom
-                    connection_type: snmp
-                    host: 127.0.0.1
-                    outlets: [20]
+                    - type: dualcom
+                      connection_type: snmp
+                      host: 127.0.0.1
+                      outlets: [20]
 
     * - cyberswitching
       - .. code-block:: yaml
@@ -229,10 +229,10 @@ The following table specifies the current set of PowerCycler types supported by 
               <device>:
                 peripherals:
                   power_cycler:
-                    type: cyberswitching
-                    connection_type: telnet
-                    host (str): Cyberswitching device from Testbed YAML.
-                    outlets (list): Lines associated with your device.
+                    - type: cyberswitching
+                      connection_type: telnet
+                      host (str): Cyberswitching device from Testbed YAML.
+                      outlets (list): Lines associated with your device.
 
             Testbed Example
             ---------------
@@ -240,10 +240,10 @@ The following table specifies the current set of PowerCycler types supported by 
               PE1:
                 peripherals:
                   power_cycler:
-                    type: cyberswitching
-                    connection_type: telnet
-                    host: my-cyberswitching
-                    outlets: [20]
+                    - type: cyberswitching
+                      connection_type: telnet
+                      host: my-cyberswitching
+                      outlets: [20]
 
               my-cyberswitching:
                 # Fill out the rest of this device as normal
@@ -258,10 +258,10 @@ The following table specifies the current set of PowerCycler types supported by 
               <device>:
                 peripherals:
                   power_cycler:
-                    type: esxi
-                    connection_type: ssh
-                    host (str): ESXi device from Testbed YAML.
-                    outlets (list): VM IDs associated with your device.
+                    - type: esxi
+                      connection_type: ssh
+                      host (str): ESXi device from Testbed YAML.
+                      outlets (list): VM IDs associated with your device.
 
             Testbed Example
             ---------------
@@ -269,10 +269,10 @@ The following table specifies the current set of PowerCycler types supported by 
               PE1:
                 peripherals:
                   power_cycler:
-                    type: esxi
-                    connection_type: ssh
-                    host: my-esxi
-                    outlets: [20]
+                    - type: esxi
+                      connection_type: ssh
+                      host: my-esxi
+                      outlets: [20]
 
               my-esxi:
                 # Fill out the rest of this device as normal
@@ -291,9 +291,9 @@ For example, if the PowerCycler was a `dualcomm` connected to PE1, then the Test
       PE1:
         peripherals:
           power_cycler:
-            type: dualcomm
-            connect_type: snmp
-            host: 127.0.0.1
-            outlets: [22]
+            - type: dualcomm
+              connect_type: snmp
+              host: 127.0.0.1
+              outlets: [22]
 
 See :ref:`Device Recovery <clean_doc_device_recovery>` for additional information.
