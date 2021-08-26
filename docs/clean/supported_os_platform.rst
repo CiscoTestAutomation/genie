@@ -31,6 +31,7 @@ The following table specifies the current set of OS and Platform types supported
     ASR 9000 x64, iosxr,
     ASR 9000 px, iosxr,
     APIC, apic,
+    Catalyst WS-C3560CX, ios, cat3k
 
 To use this table, locate the `Product` that corresponds with your device and fill the `os` and `platform` keys
 into your Testbed YAML.
