@@ -190,7 +190,7 @@ Save action outputs as dictionary
 ===================================
 
 Action results can now be saved as a dictionary by using ``as_dict`` argument. In the example below, we can see that
-a nested dictionary ``parse_output_dict`` is created from the saved variables ``"%VARIABLES{device_name}"``
+a nested dictionary ``parse_output_dict`` is created from the saved variables ``"%VARIABLES{device.name}"``
 and ``"%VARIABLES{action_output}"``.
 
 .. note::
@@ -211,8 +211,30 @@ and ``"%VARIABLES{action_output}"``.
                         save:
                             - variable_name: parse_output_dict
                               as_dict:
-                                "%VARIABLES{device_name}":
+                                "%VARIABLES{device.name}":
                                    rt_2_if2: "%VARIABLES{action_output}"
+
+To update an existing saved dictionary variable you can pass ``as_dict_update=True``.
+In the example, you can see ``parse_output_dict`` variable is updated.
+
+.. code-block:: YAML
+
+    testsave:
+          source:
+              pkg: genie.libs.sdk
+              class: triggers.blitz.blitz.Blitz
+          test_sections:
+              - apply_configuration:
+                   - parse:
+                        device: R1_xe
+                        command: show version
+                        save:
+                          - variable_name: parse_output_dict
+                            as_dict_update: True
+                            as_dict:
+                              rt_2_if2:
+                                rt_22: "%VARIABLES{action_output}"
+
 
 This feature also supports dq filter. An example is given below:
 
