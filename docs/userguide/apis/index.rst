@@ -300,26 +300,24 @@ improve our function to handle exceptions:
        from genie.metaparser.util.exceptions import SchemaEmptyParserError
 
        def get_interface_ip_address(device, interface):
-       ''' Get Ip address of an interface
-           Args:
-               device ('obj'): Device object
-               interface ('str'): Interface name
-           Returns:
-               str: Address of interface
-           Raises:
-               N/A
-       '''
-       log.info('Getting ip address of interface {interface}'.format(interface=interface))
-       try:
-           out = dev.parse("show ip interface brief {interface}".format(interface=interface))    
-       except SchemaEmptyParserError:
-           # If not output from the device, then its all good.
-           # No ip address
-           log.info('Could not find IP address')
-           return None
-       ip_address = out['interface'][interface]['ip_address']
-
-       log.info('Found IP address {ip_address}'.format(ip_address=ip_address))
+           ''' Get Ip address of an interface
+               Args:
+                   device ('obj'): Device object
+                   interface ('str'): Interface name
+               Returns:
+                   str: Address of interface
+                   None: If no address found
+               Raises:
+                   N/A
+           '''
+           try:
+               out = dev.parse("show ip interface brief {interface}".format(interface=interface))    
+           except SchemaEmptyParserError:
+               # If not output from the device, then its all good.
+               # No ip address
+               log.error('Could not find IP address')
+               return None
+           return out['interface'][interface]['ip_address']
 
 In ‘get\_’ functions, when SchemaEmptyParserError is raised, we capture it
 and return a value. So for example, if the function was supposed to return
@@ -333,24 +331,31 @@ SubCommandFailure with a message describing what happened. For example:
 .. code:: python
 
    from unicon.core.errors import SubCommandFailure
-   try:
-       device.configure("interface {interface}\n"
-                         "shutdown".format(interface=interface))
-   except SubCommandFailure:
-       raise SubCommandFailure('Could not shutdown interface {interface}'.format(interface=interface))
+
+   def configure_interface_shutdown(device, interface):
+       try:
+           output = device.configure("interface {interface}\n"
+                             "shutdown".format(interface=interface))
+       except SubCommandFailure:
+           raise SubCommandFailure('Could not shutdown interface {interface}'.format(interface=interface))
+       return output
 
 For verify functions, we can capture exceptions and return True/False. For
 example:
 
 .. code:: python
 
+   from genie.utils.timeout import Timeout
    from unicon.core.errors import SubCommandFailure
 
-   def verify_interface_config_is_rejected(device, interface):    
-       try:
-           device.configure("int {interface}".format(interface=interface))
-       except SubCommandFailure as e:
-           return True
+   def verify_interface_config_is_rejected(device, interface, 
+       max_time=60, check_interval=15):
+       timeout = Timeout(max_time, check_interval)
+       while timeout.iterate():
+           try:
+               device.configure("int {interface}".format(interface=interface))
+           except SubCommandFailure as e:
+               return True
 
        return False
 
@@ -380,6 +385,9 @@ Here is how we use it.
 Here function will check every 15 seconds (check_interval) for 60 seconds
 (max_time) the state of the interface. It’s recommended to set default
 values for max_time and check_interval.
+
+.. note::
+   `verify_` API should have a retry mechanism with above `Timeout()`
 
 Accessing dictionaries
 -----------------------
