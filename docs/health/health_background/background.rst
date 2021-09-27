@@ -24,7 +24,7 @@ just add `--health-bg-checks` to your `pyats run job` command::
 
     pyats run job <job file> --testbed-file <testbed file> --health-bg-checks cpu memory logging core
 
-Or once you have both the testbed yaml and health yaml for custom health checks then run this command::
+For more advanced users, you are able to provide your own health yaml file. This can be provided with the `--health-bg-file` argument like so::
 
     pyats run job <job file> --testbed-file <testbed file> --health-bg-file /path/to/health.yaml --health-bg-checks cpu memory logging core
     pyats run job <job file> --testbed-file <testbed file> --health-bg-file "http://path.to/health.yaml" --health-bg-checks cpu memory logging core
@@ -36,7 +36,7 @@ Or once you have both the testbed yaml and health yaml for custom health checks 
 
 Identical to Health Check
 -------------------------
-Everything you can do in pyATS Health Check you can also do in Background Health Check. It has been built off of it to allow for a familiar experience and ease of use. The only major difference between the two functionalities is when they run. Background Health Check will constantly run throughout the entirety of the job, while Health Check will only run after each task has been completed.
+Everything you can do in pyATS Health Check you can also do in Background Health Check. It has been built off of it to allow for a familiar experience and ease of use. This includes the health yaml file as well. It has been designed so that you can take your health yaml file and seemlessly use it with background health. The only major difference between the two functionalities is when they run. Background Health Check will constantly run throughout the entirety of the job, while Health Check will only run after each task has been completed.
 
 Arguments
 ---------
@@ -71,3 +71,25 @@ Here is a list of arguments to use background health
       - **--health-bg-v**
 
 This information can also be found by running `pyats run job --help`
+
+Examples
+--------
+Get cpu and memory information::
+
+    pyats run job job.py --health-bg-check cpu memory
+
+Run cpu check every 30 seconds and memory check every 60 seconds::
+
+    pyats run job job.py --health-bg-check cpu memory --health-bg-interval cpu:30 memory:60
+
+Use ssh connection on devices::
+
+    pyats run job job.py --health-bg-check cpu memory --health-bg-connection ssh
+
+Run bg health on only uut::
+
+    pyats run job job.py --health-bg-check cpu memory --health-bg-devices uut
+
+Supply a custom health.yaml file::
+
+    pyats run job job.py --health-bg-check cpu memory --health-bg-file health.yaml
