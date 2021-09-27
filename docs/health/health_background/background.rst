@@ -1,14 +1,14 @@
 .. _Background-health-check:
 
-Background Health Check
+Health Check Background
 =======================
 
-pyATS Background Health Check is a similar, nearly identical functionality to the traditional health check. However, where health check only runs in the post-processor section of a job, background health check will run continously parallel to the job.
+pyATS Health Check Background is a similar, nearly identical functionality to the traditional health check. However, where health check only runs in the post-processor section of a job, Health Check Background will run continously parallel to the job.
 
 Usage
 -----
-This page contains all the documentation needed to use `pyATS Health Background Check`.
-Currently, `pyATS Health Background Check` is only supported via integrated mode (run via pyATS job).
+This page contains all the documentation needed to use `pyATS Health Check Background`.
+Currently, `pyATS Health Check Background` is only supported via integrated mode (run via pyATS job).
 
 Prerequisites
 -------------
@@ -18,7 +18,7 @@ Prerequisites
 
 Integrated
 ----------
-Running `pyATS Background Health Check` integrated with pyATS scripts is the way to collect and monitor device status on a testbed through a pyATS job.
+Running `pyATS Health Check Background` integrated with pyATS scripts is the way to collect and monitor device status on a testbed through a pyATS job.
 
 just add `--health-bg-checks` to your `pyats run job` command::
 
@@ -31,17 +31,17 @@ For more advanced users, you are able to provide your own health yaml file. This
 
 .. note:
 
-    `cpu`, `memory`, `logging` and `core` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
+    `cpu`, `memory`, `logging` and `core` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-bg-checks` uses this default pyats health file.
 
 
 Identical to Health Check
 -------------------------
-Everything you can do in pyATS Health Check you can also do in Background Health Check. It has been built off of it to allow for a familiar experience and ease of use. This includes the health yaml file as well. It has been designed so that you can take your health yaml file and seemlessly use it with background health. The only major difference between the two functionalities is when they run. Background Health Check will constantly run throughout the entirety of the job, while Health Check will only run after each task has been completed.
+Everything you can do in pyATS Health Check you can also do in Health Check Background. It has been built off of it to allow for a familiar experience and ease of use. This includes the health yaml file as well. It has been designed so that you can take your health yaml file and seemlessly use it with Health Check Background. The only major difference between the two functionalities is when they run. Health Check Background will constantly run throughout the entirety of the job, while Health Check will only run after each task has been completed.
 
 Arguments
 ---------
 
-Here is a list of arguments to use background health
+Here is a list of arguments to use Health Check Background
 
 .. list-table::
 
@@ -49,7 +49,7 @@ Here is a list of arguments to use background health
       - Description
       - Example
     * - --health-bg-file
-      - Specify background health yaml file
+      - Specify background health.yaml file
       - **--health-bg-file health_check.yaml**
     * - --health-bg-interval-time
       - Specify background sleep interval per process in seconds
@@ -67,7 +67,7 @@ Here is a list of arguments to use background health
       - Specify pyATS Health Check testbed connection (Cannot be telnet)
       - **--health-bg-connection ssh**
     * - --health-bg-v
-      - Increase output verbosity
+      - (1) Print Blitz information to stdout. (2) Print command output to stdout
       - **--health-bg-v**
 
 This information can also be found by running `pyats run job --help`
