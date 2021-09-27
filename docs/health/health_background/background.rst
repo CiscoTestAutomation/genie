@@ -64,7 +64,7 @@ Here is a list of arguments to use background health
       - Specify pyATS Health Check configuration yaml file
       - **--health-bg-config health_config.yaml**
     * - --health-bg-connection
-      - Specify pyATS Health Check testbed connection (Cannot be telnet)
+      - Specify pyATS Health Check testbed connection (Cannot be console connection)
       - **--health-bg-connection ssh**
     * - --health-bg-v
       - Increase output verbosity
