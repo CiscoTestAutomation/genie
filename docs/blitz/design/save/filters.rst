@@ -5,7 +5,7 @@
 Save with No filter
 ^^^^^^^^^^^^^^^^^^^^
 
-Below you can find examples of how to save the entire output to a variable name.
+Below you can find examples of how to save the entire output to a variable name and/or a file.
 
 .. code-block:: YAML
 
@@ -20,7 +20,7 @@ Below you can find examples of how to save the entire output to a variable name.
 
 .. code-block:: YAML
 
-    # Description: Saving the entire output of an execute action into a variable
+    # Description: Saving the entire output of a parse action into a variable
     # The type of output is dictionary/JSON data.
 
     - parse:
@@ -28,6 +28,20 @@ Below you can find examples of how to save the entire output to a variable name.
         command: show platform
         save:
           - variable_name: execute_output
+
+In the example below, the same action output is saved to a file. 
+All you need to do is provide the file name using the argument `file_name`.
+
+.. code-block:: YAML
+
+    # Description: Saving the entire output of an execute action into a file
+    # The type of output is dictionary/JSON data.
+
+    - parse:
+        device:  '%{testbed.devices.uut.alias}'
+        command: show platform
+        save:
+          - file_name: testfile.txt
 
 Save with Dq filter
 ^^^^^^^^^^^^^^^^^^^^
@@ -79,6 +93,24 @@ Below you can see an example of regex filter.
           value: "The bios version is %VARIABLES{bios}"
         bootflash:
           value: "The bootflash is %VARIABLES{bootflash} and %VARIABLES{measure}"
+
+Save with Regex findall filter
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Below you can see an example of regex_findall.
+In this example, execute_output would contain a list of strings such as: 
+['172.16.1.254', '10.1.1.1', '10.2.2.2', '10.3.3.3', '10.4.4.4']
+
+.. code-block:: YAML
+
+    # saves a list of values from execute action output
+
+    - execute:
+        device: PE1
+        command: show ip interface brief
+        save:
+        - variable_name: execute_output
+          regex_findall: (\d+\.\d+\.\d+\.\d+)   # returns a list of IP addresses
 
 Save with List filter
 ^^^^^^^^^^^^^^^^^^^^^^

@@ -385,6 +385,14 @@ Trigger Datafile
 
         sections: # Adding processor to some Trigger section
             <section name>: # Name of the section to add processor to
+
+                parameters: # Optional
+                    <key>: <value>  # Adding in the parameters key along with
+                                    # key/values will allow you to pass in arguments
+                                    # on a per-section basis. Arguments defined in
+                                    # the main body of the trigger will be overridden
+                                    # by these arguments
+
                 processors: # This section is used to let
                             # Genie know where the pyATS processors is located
 
@@ -708,6 +716,66 @@ they have either;
                 <interface name>: # Name of the interface
 
                     label: # Label to override th alias of the specified interface
+
+
+* Different connections using Mapping datafile:
+
+The user can connect with different connections using the following schema.
+
+``Note``: The user can either use this new schema or the one mentioned above.
+``Note``: via and alias keywords are mandatory when using new mapping schema.
+
+.. code-block:: python
+
+    devices:
+      uut:
+        mapping:
+          context:
+              cli:
+               - via: cli
+                 alias: cli
+                 pool_size: 5
+                 sleep: 3
+               - via: ssh
+                 alias: cli2
+              yang:
+                - via: yang
+                  alias: netconf
+
+
+.. code-block:: yaml
+
+    # New Mapping Datafile schema for different connections
+    # -------------------------------------------------
+
+    devices: # Devices
+
+        <device name>: # Name of the device.
+                       # Can either be an alias or device hostname
+                       # as defined in the pyats testbed file.
+
+                label:  # One device in the testbed must be designated as the `uut`
+                        # for ``Genie``.  If no device is already named `uut`, then
+                        # you must map it via `label` field, as shown in the example
+                        # above. In the event that the device is already named uut
+                        # via `alias` in the testbed file, then there is no need to
+                        # use label field.
+
+              mapping: # To map which connection to use for in the context.
+
+                  context: # Context for the Genie execution.
+
+                            via: #Specify the connection to use. Eg. cli, ssh, yang etc
+
+                            alias: #The alias name of the connection. Eg. my_connection
+
+                            pool_size: # Connection pool size, in case of using pyATS connection
+                                       # pool feature.
+                                       # Optional, `harness` will issue single connection if it
+                                       # is not provided.
+
+                            sleep: #Take a nap after making connection. By default 5 seconds for yang, gnmi, restconf,
+                                   netconf.
 
 .. _subsection_datafile:
 

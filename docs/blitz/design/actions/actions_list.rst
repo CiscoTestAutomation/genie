@@ -16,6 +16,8 @@ exists in the output. You also, have the option to check if a specific
         device: R1
         # Send show version to the device
         command: show version
+        # To execute command with specified connection alias, 'cli' is default
+        connection_alias: ssh
         # Can have as many items under include or exclude that you want
         include:
             - '12.9.1'
@@ -26,7 +28,12 @@ exists in the output. You also, have the option to check if a specific
             - 'Should not be in the output'
 
 
-Both include and exclude keywords are optional to use.
+include, exclude and connection_alias keywords are optional to use.
+Two things needs to be followed to use connection_alias:
+    1. New mapping datafile schema.
+    2. ``alias`` in mapping datafile should be the ``connection_alias``.
+How to use the new schema for different connection can be found at this `link
+<https://pubhub.devnetcloud.com/media/genie-docs/docs/cookbooks/harness.html#what-can-you-do-with-the-mapping-datafile>`__.
 
 You can apply additional arguments to ``execute`` command.
 List of arguments that can be applied to execute command can be found at this `link
@@ -51,10 +58,14 @@ The `configure` action is used to configure the device.
 
     - configure: # ACTION
         device: device_name
+        # To execute command with specified connection alias, 'cli' is default
+        connection_alias: ssh
         command: |
             router bgp 65000
             shutdown
 
+Connection_alias keyword is optional to use. Refer the execute action for
+how to use connection_alias.
 
 You can apply additional arguments to ``configure`` command.
 List of arguments for the configure command can be found at this `link
@@ -80,10 +91,14 @@ Nxos supports dual configuration, where a commit is necessary. In these case, us
 
     - configure_dual: # ACTION
         device: device_name
+        # To execute command with specified connection alias, 'cli' is default
+        connection_alias: ssh
         command: |
             router bgp
             commit
 
+Connection_alias keyword is optional to use. Refer the execute action for
+how to use connection_alias.
 
 parse
 ^^^^^^
@@ -103,7 +118,10 @@ this `section
     - parse: # ACTION
         device: R2
         command: show version
-
+        # To specify which context to use Eg: cli, yang etc. By default cli.
+        context: yang
+        # To configure using different connections, by default cli
+        connection_alias: ssh
         # Can have as many items under include or exclude that you want
         include:
             - raw("[version][version]")
@@ -111,6 +129,9 @@ this `section
               # Make sure the memory is greater than 1217420
 
         ...
+
+Context and Connection_alias keywords are optional to use. Refer the execute action
+for how to use connection_alias.
 
 api
 ^^^^

@@ -61,10 +61,10 @@ you have the Golden Image, follow the steps below.
           PE1:
             peripherals:
               power_cycler:
-                type: dualcomm
-                connect_type: snmp
-                host: 127.0.0.1
-                outlets: [22]
+                - type: dualcomm
+                  connect_type: snmp
+                  host: 127.0.0.1
+                  outlets: [22]
 
               terminal_server:
                 # <terminal server device>: <list of lines for the device>

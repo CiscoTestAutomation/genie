@@ -327,6 +327,24 @@ The mapping datafile must be modified to add the pool size.
 This will initialize 2 connections to the uut and the cli commands will go up
 to twice as fast! This number can scale up to what your device can support.
 
+In order to use connection pool for different connections, the new mapping schema needs to be followed.
+``Note``: via and alias keywords are mandatory when using new mapping schema.
+.. code-block:: python
+
+    devices:
+      uut:
+        mapping:
+          context:
+              cli:
+               - via: cli
+                 alias: cli1
+                 pool_size: 2
+              yang:
+               - via: yang
+                 alias: netconf
+                 pool_size: 3
+
+
 .. note::
 
     Make sure the device can support multiple connection. Take a look at the
@@ -631,6 +649,7 @@ information such as:
 2. Provide connection pool information per device
 3. Overwrite devices alias
 4. Which connection type to prioritize for the run
+5. Support for multiple connections per context(cli/yang/etc) with new schema
 
 It is optional to have a mapping datafile. ``Genie`` will connect to all devices
 (defined in testbed yaml file) only if no mapping datafile is provided.
@@ -649,6 +668,22 @@ datafile.
              # Associate cli with connection vty
              cli: vty
              yang: yang
+
+The multiple connections are supported in mapping datafile, by the new schema:
+``Note``: via and alias keywords are mandatory when using new mapping schema.
+
+.. code-block:: python
+
+    devices:
+      uut:
+        mapping:
+          context:
+              cli:
+               - via: ssh
+                 alias: cli
+                 pool_size: 2
+
+
 
 .. _book_harness_subsection:
 

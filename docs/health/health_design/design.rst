@@ -1,6 +1,63 @@
 Design
 ======
 
+The previous page showed you how to use pyATS Health Check easily. This page is for those who want to use their own pyATS Health Check. If you are happy with the way it was done on the previous page, then please move on :ref:`processor key in YAML<processor_key_in_yaml>`.
+
+You can collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check is yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are supported in Health Check.
+
+The health check is driven by a `health_file` which is provided at run time. There are two different mechanism to run the checks:
+
+1. Part of a pre/post processor of a section or testcase.
+2. Continuous data collection using a background process (Coming with 21.7).
+
+To use your own pyATS Health Checks, you can specify pyATS Health Checks by leveraging the existing :ref:`Blitz<blitz>` style YAML format as it uses the same format and capabilities that Blitz has.
+The actions in pyATS Health Check yaml will be added to pyATS job's sections as pre/post processors. Execution of the actions as pre, post or both can be specified in the yaml.
+
+.. note::
+
+     See the detail of :ref:`Blitz<blitz>`
+
+.. code-block:: bash
+
+    # Quick start Guide!
+    # ------------------
+    # 1. Create the health yaml
+    # 2. Add `--health-file` argument to pyats command
+    # 3. Run the job and verify issues found by the pyATS Health Check if any
+
+    # Integrated with pyATS jobs
+    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-file /path/to/health.yaml
+
+.. note::
+
+     Devices for pyATS Health Check need to be specified in the health yaml file and the testbed yaml for the pyATS job to execute health checks against the device.
+
+     The pyATS testbed object will be converted to Genie testbed object to have Genie functionalities.
+
+--------
+
+.. figure:: health_run.png
+    :width: 350
+    :align: right
+
+Create health.yaml with knowledge about pyATS Blitz and then add the argument `--health-file` with the filename. pyATS Health Check will add Blitz actions as processors to sections in pyATS job. pyATS Health Check processors will run before and after each section (as specified) to monitor/collect device status as specified in the health yaml file.
+
+Even for development of health yaml, the health file makes developer's life easier. It's the same format as the Blitz format and the health file can run like Blitz as well. So, develop and test as Blitz first and just switch the argument from `--trigger-datafile` to `--health-file` when health yaml is ready.
+
+pyATS Health Check comes with default checks; however it is fully open-sourced! You can add your own checks to be executed at any time! Any features or functions to monitor, those can be contributed and developed as Blitz actions or APIs.
+
+.. note::
+
+     See all the available APIs for pyATS Health Check `Available Apis <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis>`_
+
+--------
+
+pyATS Health Check's added processors can be easily found in pyATS or XPRESSO logviewer. The processor results are added with a `pyATS Health Check` label and also icons for both `Pre` and `Post`.
+
+.. figure:: health_logviewer.png
+    :align: center
+
+
 `pyATS Health Check` is highly flexible and extendable. One of the biggest advantage is, leveraging Blitz style YAML format. Whatever can be possible in pyATS Health Check as long as it's supported/implemented with Blitz way.
 
 Develop testcase(trigger-datafile) with Blitz and develop pyATS Health Check yaml with same way! It's very straight forward and very quick to start pyATS Health Check!
@@ -23,7 +80,6 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
       source:
         pkg: genie.libs.health
         class: health.Health
-      devices: ['uut']
       test_sections:
         # section name. this name will appear in Logviewer
         - cpu:
@@ -34,7 +90,7 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                 processor: both
                 # `function` can be found from Genie Feature Browser
                 # Please find the link to the page from bottom of this section
-                function: get_platform_cpu_load
+                function: health_cpu
                 arguments:
                   command: show processes cpu
                   processes: ['BGP I/O']
@@ -42,18 +98,19 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
             - api:
                 device: uut
                 processor: post
-                function: get_platform_memory_usage
+                function: health_memory
                 arguments:
                   command: show processes memory
                   processes: ['\*Init\*']
                 include:
-                  - ">= 10"
+                  - sum_value_operator('value', '<', 90)
 
 .. note::
 
   All available APIs and Parsers can be found here `Genie Feature Browser <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/>`_
 
-  Make sure you read the comments above! After this all will make sense!
+
+.. _processor_key_in_yaml:
 
 processor key in YAML
 ---------------------
@@ -119,11 +176,11 @@ However, you can select which testcase and which sections to execute pyATS Healt
 
 There are three ways to filter it. By default pyATS Health Checks run before and after every testcase and section. With the filtering you can decide where they are executed.
 
-Testcase level: health-uids, provide the testcase/trigger names from Testcase/Trigger datafile. The exact name can be provided or regular expression is also supported. pyATS Health Check processors will run only for the given testcase/trigger names which match the full name or match the regex.
+Testcase level: health-tc-uids, provide the testcase/trigger names from Testcase/Trigger datafile. The exact name can be provided or regular expression is also supported. pyATS Health Check processors will run only for the given testcase/trigger names which match the full name or match the regex.
 
-Section level: health-sections, provide the section name. The exact name can be provided or regular expression is also supported. pyATS Health Check processors will run only for the given section name which match the full name or match the regex. It will not run at the testcase level.
+Section level: health-tc-sections, provide the section name. The exact name can be provided or regular expression is also supported. pyATS Health Check processors will run only for the given section name which match the full name or match the regex. It will not run at the testcase level.
 
-Group: health-groups, provide the group name from Testcase/Trigger datafile. The exact name can be provided or regular expression is also supported.pyATS Health Check processors will run only for the given section name which match the group or match the regex.
+Group: health-tc-groups, provide the group name from Testcase/Trigger datafile. The exact name can be provided or regular expression is also supported.pyATS Health Check processors will run only for the given section name which match the group or match the regex.
 
 These arguments are to be provided either at
 
@@ -131,7 +188,7 @@ Cli Level:
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-uids <testcase name> --health-sections <section name> --health-groups <testcase group>
+    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids <testcase name> --health-tc-sections <section name> --health-tc-groups <testcase group>
 
 Health Yaml:
 
@@ -141,58 +198,58 @@ Health Yaml:
     - cpu:
         - api:
             device: xe
-            function: get_platform_cpu_load
+            function: health_cpu
             arguments:
               command: show processes cpu
               processes: ['BGP I/O']
             include:
-              - ">= 90"
-            health_sections:
+              - sum_value_operator('value', '<', 90)
+            health_tc_sections:
               - check_cpu
-            health_uids:
+            health_tc_uids:
               - Test.*
 
 .. csv-table::
    :header: "arguments", "behavior"
    :widths: 10, 10
 
-   --health-uids, provide testcase/trigger name from trigger datafile. regular expression is supported. pyATS Health Check processors will run only for the given testcase/trigger names from trigger datafile which meet the regex.
-   --health-sections, provide section name. regular expression is supported. pyATS Health Check processors will run only for the given section name which meet the regex.
-   --health-groups, provide group name from trigger datafile. regular expression is supported. pyATS Health Check processors will run only for the given group name which meet the regex
+   --health-tc-uids, provide testcase/trigger name from trigger datafile. regular expression is supported. pyATS Health Check processors will run only for the given testcase/trigger names from trigger datafile which meet the regex.
+   --health-tc-sections, provide section name. regular expression is supported. pyATS Health Check processors will run only for the given section name which meet the regex.
+   --health-tc-groups, provide group name from trigger datafile. regular expression is supported. pyATS Health Check processors will run only for the given group name which meet the regex
 
 All the arguments can be given to `pyats run` command or only one or two.
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-uids <testcase name> --health-sections <section name> --health-groups <testcase group>
+    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids <testcase name> --health-tc-sections <section name> --health-tc-groups <testcase group>
     
-    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-uids <testcase name>
+    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids <testcase name>
 
-    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-uids <testcase name> --health-sections <section name>
+    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids <testcase name> --health-tc-sections <section name>
 
 When multiple arguments are given, the multiple arguments works as double/triple filters. It means targeted testcase/sections are narrowed down by multiple arguments.
 
-Example1 (only `--health-uids` for testcase `Testcase1`):
+Example1 (only `--health-tc-uids` for testcase `Testcase1`):
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-uids Testcase1
+    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids Testcase1
 
-Example2 (only `--health-sections` for section `show_version`):
-
-.. code-block:: bash
-
-    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-sections show_version
-
-Example3 (both `--health-uids` and `--health-sections` for section `show_version` in testcase `Testcase1`):
+Example2 (only `--health-tc-sections` for section `show_version`):
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-uids Testcase1 --health-sections show_version
+    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-sections show_version
+
+Example3 (both `--health-tc-uids` and `--health-tc-sections` for section `show_version` in testcase `Testcase1`):
+
+.. code-block:: bash
+
+    pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml --health-tc-uids Testcase1 --health-tc-sections show_version
 
 The arguments to `pyats run` command will be effective all the sections/actions in health yaml.
 
-In health yaml, same arguments(`health-uids`/`health-sections`/`health-groups`) can be specified in each action in health yaml. And the behavior is same with above arguments to `pyats run` command. only difference is the arguments will be effective for the `action`.
+In health yaml, same arguments(`health-tc-uids`/`health-tc-sections`/`health-tc-groups`) can be specified in each action in health yaml. And the behavior is same with above arguments to `pyats run` command. only difference is the arguments will be effective for the `action`.
 
 .. code-block:: yaml
 
@@ -200,16 +257,16 @@ In health yaml, same arguments(`health-uids`/`health-sections`/`health-groups`) 
     - cpu:
         - api:
             device: xe
-            function: get_platform_cpu_load
+            function: health_cpu
             arguments:
               command: show processes cpu
               processes: ['BGP I/O']
             include:
-              - ">= 90"
-            health_sections:
+              - sum_value_operator('value', '<', 90)
+            health_tc_sections:
               - check_cpu
 
-In case of above, `health_sections` is given to `api` action. This `api` action will run only for the section `check_cpu` in all Testcases/Triggers.
+In case of above, `health_tc_sections` is given to `api` action. This `api` action will run only for the section `check_cpu` in all Testcases/Triggers.
 
 This way has more flexibility because pyATS Health processors can be controlled per `action` in health yaml.
 
@@ -245,4 +302,3 @@ If you can connect to it; the infra supports it. You can use any of the existing
      See all the available APIs `Available Apis <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis>`_ 
 
      See all the available Parsers `Available Parsers <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/parsers>`_ 
-
