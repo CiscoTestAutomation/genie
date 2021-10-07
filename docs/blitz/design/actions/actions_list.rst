@@ -514,14 +514,15 @@ dialog
 Action ``dialog`` allows you to create a list of statements to handle multiple interactions within a transaction. 
 The following items can be declared in the action dialog:
 
- * ``device`` the name of the device
+ * ``device`` the name of the device.
  * ``start`` and ``end`` represent states a device can be in. 
  * ``statements`` is a list of steps that can be executed to interact with the interface.
 
 In turn, each step in statements can be declared with the following keywords: 
 
- * ``action`` represents the action to be executed during a step
- * ``expect`` is a pattern to check against the output of the interaction
+ * ``step_msg`` message to display when the step is executed.
+ * ``action`` represents the action to be executed during a step.
+ * ``expect`` is a pattern to check against the output of the interaction.
 
 The example below shows how you can use this action.
 
