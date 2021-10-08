@@ -505,20 +505,19 @@ Action ``compare`` allows you to verify the values of the saved variables. Below
 
 .. note::
 
-    Please note that if each comparission statement provided to compare would fail. The actions results would be set to Failed. 
+    Please note that if each comparison statement provided to compare would fail. The actions results would be set to Failed. 
 
 dialog
-^^^^^^^^^
+^^^^^^
 
-
-Action ``dialog`` allows you to create a list of statements to handle multiple interactions within a transaction. 
-The following items can be declared in the action dialog:
+Action ``dialog`` allows you to create a list of sequences to handle multiple interactions within a transaction. 
+The following items must be declared in the action dialog:
 
  * ``device`` the name of the device.
  * ``start`` and ``end`` represent states a device can be in. 
- * ``statements`` is a list of steps that can be executed to interact with the interface.
+ * ``sequences`` is a list of steps that can be executed to interact with the interface.
 
-In turn, each step in statements can be declared with the following keywords: 
+In turn, each step in sequences must be declared with the following keywords: 
 
  * ``step_msg`` message to display when the step is executed.
  * ``action`` represents the action to be executed during a step.
@@ -532,7 +531,7 @@ The example below shows how you can use this action.
         device: switch
         start: show version
         end: "end"
-        statements:
+        sequences:
             - step_msg: Wait for tool
               expect: switch#
             - step_msg: Register with URIB
@@ -541,3 +540,5 @@ The example below shows how you can use this action.
               exclude: NXOS
 
 ``include`` or ``exclude`` are optional keywords you can use to verify if a pattern exists in the output.
+In the example above, the test will pass if the pattern "NXOS" is not present in the output.
+If ``include`` was declared instead of ``exclude``, the test would fail if the output contained "NXOS".
