@@ -86,14 +86,14 @@ Passing images through CLI
 
     .. code-block:: bash
 
-        --clean-device-image PE1:http://<url>/path/to/image.bin
+        --clean-device-image PE1:http://<url>:21/path/to/image.bin
 
     is equivalent to the following in Clean YAML:
 
     .. code-block:: yaml
 
         images:
-        - http://<url>/path/to/image.bin
+        - http://<url>:21/path/to/image.bin
 
     * List of images
 
