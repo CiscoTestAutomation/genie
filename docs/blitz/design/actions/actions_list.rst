@@ -515,7 +515,7 @@ The following items must be declared in the action dialog:
 
  * ``device`` the name of the device.
  * ``start`` and ``end`` represent states a device can be in. 
- * ``sequences`` is a list of steps that can be executed to interact with the interface.
+ * ``sequence`` is a list of steps that can be executed to interact with the interface.
 
 In turn, each step in sequences must be declared with the following keywords: 
 
@@ -531,10 +531,10 @@ The example below shows how you can use this action.
         device: switch
         start: show version
         end: "end"
-        sequences:
-            - step_msg: Wait for tool
+        sequence:
+            - step_msg: Wait for prompt
               expect: switch#
-            - step_msg: Register with URIB
+            - step_msg: Send new action
               action: sendline(show version)
               expect: switch#
               exclude: NXOS
