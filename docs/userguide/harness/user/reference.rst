@@ -329,7 +329,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          pyats run job /path/to/jobfile.py --subsection-datafile /path/subsection_datafile.yaml
-         pyats run job /path/to/jobfile.py --subsection-datafile "http://<url>subsection_datafile.yaml"
+         pyats run job /path/to/jobfile.py --subsection-datafile "http://<url>/subsection_datafile.yaml"
 
     Or inside a job file
 
