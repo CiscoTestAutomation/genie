@@ -20,7 +20,7 @@ just add `--health-checks` then run this command::
 Or once you have both the testbed yaml and health yaml for custom health checks then run this command::
 
     pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml
-    pyats run job <job file> --testbed-file <testbed file> --health-file "http://path.to/health.yaml"
+    pyats run job <job file> --testbed-file <testbed file> --health-file "http://<url>/health.yaml"
 
 
 .. note:
@@ -38,7 +38,7 @@ To validate
 Once you have a pyats health check yaml then run this command::
 
     pyats validate datafile /path/to/health.yaml
-    pyats validate datafile "http://path.to/health.yaml"
+    pyats validate datafile "http://<url>/health.yaml"
 
 pyATS Health Check Examples
 ---------------------------
