@@ -241,7 +241,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          --mapping-datafile /path/mapping.pts
-         --mapping-datafile "http://path.to/mapping.pts"
+         --mapping-datafile "http://<url>/mapping.pts"
 
     Or inside a job file
 
@@ -264,7 +264,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          --verification-datafile /path/verificationdatafile.yaml
-         --verification-datafile "http://path.to/verificationdatafile.yaml"
+         --verification-datafile "http://<url>/verificationdatafile.yaml"
 
     Or inside a job file
 
@@ -285,7 +285,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          pyats run job --trigger-datafile /path/triggerdatafile.yaml
-         pyats run job --trigger-datafile "http://path.to/triggerdatafile.yaml"
+         pyats run job --trigger-datafile "http://<url>/triggerdatafile.yaml"
 
     Or inside a job file
 
@@ -309,7 +309,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          --config-datafile /path/config_datafile.yaml
-         --config-datafile "http://path.to/config_datafile.yaml"
+         --config-datafile "http://<url>/config_datafile.yaml"
 
     Or inside a job file
 
@@ -329,7 +329,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          pyats run job /path/to/jobfile.py --subsection-datafile /path/subsection_datafile.yaml
-         pyats run job /path/to/jobfile.py --subsection-datafile "http://path.to/subsection_datafile.yaml"
+         pyats run job /path/to/jobfile.py --subsection-datafile "http://<url>/subsection_datafile.yaml"
 
     Or inside a job file
 
@@ -353,7 +353,7 @@ Below you will find additional information on each of those arguments:
     .. code-block:: bash
 
          pyats run job /path/to/jobfile.py --pts-datafile /path/pts_datafile.yaml
-         pyats run job /path/to/jobfile.py --pts-datafile "hhtp://path.to/pts_datafile.yaml"
+         pyats run job /path/to/jobfile.py --pts-datafile "http://<url>/pts_datafile.yaml"
 
     Or inside a job file
 

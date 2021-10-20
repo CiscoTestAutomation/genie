@@ -137,8 +137,6 @@ For support, question and training :mailto:`contact us <cisco.com>`.
 .. _develop mode: http://setuptools.readthedocs.io/en/latest/setuptools.html#develop-deploy-the-project-source-in-development-mode
 .. _Genie Support Team: asg-genie-support@cisco.com
 .. _PieStack: http://piestack.cisco.com
-.. _cisco_shared: http://wwwin-pyats.cisco.com/documentation/latest/overview/git.html#cisco-shared-repository
-.. _xbu_shared: http://wwwin-pyats.cisco.com/documentation/latest/overview/git.html#xbu-shared-repository
 .. _pyATS virtual environment: https://wiki.cisco.com/pages/viewpage.action?pageId=80375302
 .. _metaparser: http://wwwin-pyats.cisco.com/cisco-shared/metaparser/html/
 .. _abstract: http://wwwin-pyats.cisco.com/cisco-shared/abstract/html/
