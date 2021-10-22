@@ -218,7 +218,8 @@ Verification Datafile (Optional)
 
 The verification datafile contains all the information on the verifications.
 If no verification datafile is provided, the default datafile
-`$VIRTUAL_ENV/genie_yamls/<uut os>/verification_datafile.yaml` is then used.
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/verification_datafile_<uut os>.yaml` 
+is then used.
 
 It is only needed to provide a new verification datafile if you want to modify
 the default file; otherwise the default one is all you need.
@@ -237,7 +238,8 @@ Trigger Datafile (Optional)
 
 The trigger datafile contains all the information on the triggers.
 If no trigger datafile is provided, the default datafile
-`$VIRTUAL_ENV/genie_yamls/<uut os>/trigger_datafile.yaml` is then used.
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/trigger_datafile_<uut os>.yaml` 
+is then used.
 
 It is only needed to provide a new trigger datafile if you want to modify the
 default file; otherwise the default one is all you need.
@@ -257,7 +259,8 @@ Subsection Datafile (Optional)
 
 The subsection datafile contains all the information on the subsection.
 If no subsection datafile is provided, the default datafile
-`$VIRTUAL_ENV/genie_yamls/subsection_datafile.yaml` is then used.
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/subsection_datafile.yaml` 
+is then used.
 
 It is only needed to provide a new subsection datafile if you want to modify the
 default file; otherwise the default one is all you need.
@@ -283,7 +286,8 @@ PTS Datafile (Optional)
 
 The PTS datafile contains all the information on what to profile in the common
 setup and cleanup. If no PTS datafile is provided, the default datafile
-`$VIRTUAL_ENV/genie_yamls/pts_datafile.yaml` is then used.
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml` 
+is then used.
 
 It is only needed to provide a new profile datafile if you want to modify the
 default file; otherwise the default one is all you need.
@@ -469,8 +473,8 @@ Visit our documentation to view the list of all available
 All verifications are defined in the verification yaml datafile which defines
 how to load each verification, arguments to provide and on which device to
 execute. The default datafiles can be found at
-`$VIRTUAL_ENV/genie_yamls/verification_datafile.yaml` and
-`$VIRTUAL_ENV/genie_yamls/<uut os>/verification_datafile.yaml`.
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/verification_datafile.yaml` and
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/verification_datafile_<uut os>.yaml`.
 
 To modify any of the value for the verification you have to
 
@@ -528,8 +532,8 @@ Visit our documentation to view the list of all available :trigger:`triggers
 All triggers are defined in the trigger yaml datafile which defines
 how to load each trigger, arguments to provide and on which device to
 execute. The default datafiles can be found at
-`$VIRTUAL_ENV/genie_yamls/trigger_datafile.yaml` and
-`$VIRTUAL_ENV/genie_yamls/<uut os>/trigger_datafile.yaml`.
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/trigger_datafile.yaml` and
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/trigger_datafile_<uut os>.yaml`.
 
 To modify any of the value for the trigger you have to:
 
@@ -607,9 +611,9 @@ Here how to profile a feature:
 All feature to be profiled are defined in the PTS (profile the system) yaml
 file which defines which keys to **exclude**, arguments to provide and on which
 device to execute. The default datafiles can be found at
-`$VIRTUAL_ENV/genie_yamls/pts_datafile.yaml`. All parsers does not need to be
-added to this file, and will exclude all eys defined in the Verification
-datafile.
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml`. 
+All parsers does not need to be added to this file, and will exclude all keys 
+defined in the Verification datafile.
 
 More information in the :ref:`PTS<PTS>` getting started page.
 
@@ -693,7 +697,7 @@ The multiple connections are supported in mapping datafile, by the new schema:
 With the `Subsection datafile,` all sections in Genie can be customized. You can
 add, remove and even modify subsections. You can also change the execution
 order. The default datafile can be found at
-`$VIRTUAL_ENV/genie_yamls/subsection_datafile.yaml`.
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/subsection_datafile.yaml`.
 
 Here are the steps on how to create a new subsection.
 
@@ -739,7 +743,7 @@ datafile.
 
 .. code-block:: yaml
 
-    extends: $VIRTUAL_ENV/genie_yamls/nxos/trigger_datafile_nxos.yaml
+    extends: "%CALLABLE{genie.libs.sdk.genie_yamls.datafile(trigger, nxos)}"
     TriggerSleep:
         processor:
             post:
