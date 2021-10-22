@@ -275,7 +275,7 @@ Below you will find additional information on each of those arguments:
 
 .. note:: 
 
-    By default Genie uses $VIRTUAL_ENV/genie_yamls/<uut os>/verification_datafile.yaml
+    By default Genie uses $VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/verification_datafile_<uut os>.yaml
 
 ``--trigger-datafile``
 
@@ -296,7 +296,7 @@ Below you will find additional information on each of those arguments:
 
 .. note:: 
 
-    By default Genie uses $VIRTUAL_ENV/genie_yamls/<uut os>/trigger_datafile.yaml
+    By default Genie uses $VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/trigger_datafile_<uut os>.yaml
 
 ``--config-datafile``
 

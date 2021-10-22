@@ -114,9 +114,11 @@ It does the following:
 
 This script demonstrates how to add your own `Trigger` to execute with existing
 triggers. A trigger is a pyATS testcase which tests some specific action. Look
-inside the file `$VIRTUAL_ENV/examples/libraries/harness_custom_trigger/trigger.py`. Once created, the python path of the trigger must be added to the `$VIRTUAL_ENV/examples/libraries/harness_custom_trigger/trigger_datafile_demo.yaml`.  Lastly, the
-`demo4_harness_custom_trigger_job.py` was modified to add the new trigger to the
-`trigger_uids`.
+inside the file `$VIRTUAL_ENV/examples/libraries/harness_custom_trigger/trigger.py`. 
+Once created, the python path of the trigger must be added to the 
+`$VIRTUAL_ENV/examples/libraries/harness_custom_trigger/trigger_datafile_demo.yaml`.  
+Lastly, the `demo4_harness_custom_trigger_job.py` was modified to add the new 
+trigger to the `trigger_uids`.
 
   .. code-block:: bash
 
@@ -211,7 +213,7 @@ Here's how to add them to any pyATS script:
   * Add the decorator
   * If its a verification, add an uid which is not used yet, and child variable like in the example.
   * Add to the datafile information about this trigger. This information can be found in the Trigger datafile
-    ($VIRTUAL_ENV/genie_yamls/sdk/yaml/<os>/trigger_datafile_<os>.yaml)
+    ($VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/trigger_datafile_<uut os>.yaml)
 
   .. code-block:: bash
 

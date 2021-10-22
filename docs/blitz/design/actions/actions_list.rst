@@ -415,7 +415,7 @@ in your *Blitz* datafile.
 
     You must extend the main trigger_datafile for any of those triggers
     to be accessible. Put this at the top of your trigger_datafile:
-    `extends: '%ENV{VIRTUAL_ENV}/genie_yamls/trigger_datafile.yaml'`
+    `extends: "%CALLABLE{genie.libs.sdk.genie_yamls.datafile(trigger)}"`
 
 .. code-block:: YAML
 

@@ -145,8 +145,8 @@ Example
     Different location for `trigger_datafile` and `verification_datafile` can
     be provided within the Variables section. By default it uses these ones:
 
-    ``${trigger_datafile}     ${VIRTUAL_ENV}/genie_yamls/nxos/trigger_datafile_nxos.yaml``
-    ``${verification_datafile}     ${VIRTUAL_ENV}/geine_yamls/nxos/verification_datafile_nxos.yaml``
+    ``${trigger_datafile}     $VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/trigger_datafile_<uut os>.yaml``
+    ``${verification_datafile}     ${VIRTUAL_ENV}/lib/python<version>/site-packages/genie/libs/sdk/geine_yamls/<uut os>/verification_datafile_<uut os>.yaml``
     
 
 System Profiling

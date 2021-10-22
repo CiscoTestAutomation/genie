@@ -24,7 +24,8 @@ linux terminal:
 
 	Description:
 	  Diff two feature or parser snapshots saved to file or directory
-	  Default exclusion can be found at $VIRTUAL_ENV/genie_yamls/pts_datafile.yaml
+	  Default exclusion can be found at 
+      $VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml
 
 	Diff Options:
 	  [file or directory]   file/directory of pre=snapshot

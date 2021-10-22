@@ -283,8 +283,7 @@ Please copy the following code into a new file called `pts_datafile.yaml`.
 
 .. code-block:: yaml
 
-    # Your python version may vary
-    extends: $VIRTUAL_ENV/lib/python3.6/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml
+    extends: "%CALLABLE{genie.libs.sdk.genie_yamls.datafile(pts)}"
 
     ospf:
         devices: ['uut', 'helper']
@@ -481,7 +480,7 @@ create a  `trigger_datafile`:
 
 .. code-block:: yaml
 
-    extends: <$virtual_env>/lib/python3.4/site-packages/genie/infra/trigger_datafile.yaml
+    extends: "%CALLABLE{genie.libs.sdk.genie_yamls.datafile(trigger)}"
 
     # Simple trigger which will run on the uut and part of the L3 group
     TriggerShutNoShutOspf:
