@@ -3,11 +3,13 @@
 yang
 ^^^^
 
-YANG, "Yet Another Network Generation", is a data modeling language used to
+YANG, "Yet Another Network Generation", `RFC 6020`_, is a data modeling language used to
 model configuration and state data on network devices. The model is represented
 in a hierachal fashion and can be presented in many ways, one of which is the
 "Xpath". The ``content`` of a simple YANG message can be boiled down to 3 required
 components.
+
+.. _RFC 6020: https://datatracker.ietf.org/doc/html/rfc6020
 
 * Xpath based on `XML Path Language 1.0`_ identifying a resource
 
@@ -31,12 +33,12 @@ Description of Available YAML Components
         device: # device name or alias
         connection: # device interface connection (in testbed file)
         operation:  # YANG message operation (based on NETCONF but mapped to other protocols)
-                    # * edit-config - mapped to "set" for gNMI
-                    # * get-config  - mapped to "get CONFIG mode" for gNMI
-                    # * get         - mapped to "get STATE mode" for gNMI
+                    # * edit-config - see Content ``edit-op`` for protocol mappings
+                    # * get-config  - mapped to "get CONFIG mode" for gNMI and GET for RESTCONF
+                    # * get         - mapped to "get STATE mode" for gNMI and GET for RESTCONF
                     # * subscribe
                     # * capabilities
-        protocol: # [ netconf | gnmi ]
+        protocol: # [ netconf | gnmi | restconf]
         datastore: # YANG datastores (if not defined Blitz will choose from device capabilities)
         format: # Various fomat options (see Format options below)
         banner: # (optional) Prominant log message with borders
@@ -102,10 +104,21 @@ YANG file.  There is also an option, "rpc", to use the string representation of 
         config-mda-cfg: http://cisco.com/ns/yang/Cisco-IOS-XR-config-mda-cfg
         oc-if: http://openconfig.net/yang/interfaces
       nodes: # List of:
-      - xpath: # Xpath based on `XML Path Language 1.0`_ identifying a resource
-        value: # Value Xpath points to which must match the defined datatype
+      - nodetype: # YANG defined statement such as leaf, container, etc.
+        default: # Default value if not specifically set by client
+        value:   # Value Xpath points to which must match the defined datatype
         edit-op: # (Optional) Applies only to edit-config (default: merge)
-                 # [ create | merge | replace | delete | remove ]
+                 # These are mapped to gNMI and RESTCONF functionality.
+                 #  ---------------------------------
+                 # | NETCONF | RESTCONF | gNMI       |
+                 #  ---------------------------------
+                 # | create  | POST     | set/update |
+                 # | merge   | PATCH    | set/update |
+                 # | replace | PUT      | set/replace|
+                 # | delete  | DELETE   | set/delete |
+                 # | remove  | DELETE   | set/delete |
+                 #  ---------------------------------
+        xpath: # Xpath based on `XML Path Language 1.0`_ identifying a resource
 
 The "rpc" option can be any completely formed valid XML rpc message.
 

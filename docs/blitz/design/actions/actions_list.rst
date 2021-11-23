@@ -311,9 +311,9 @@ print
 yang
 ^^^^^
 
-The :ref:`yang action<yang action>` action is designed to work with differing underlying protocols, but, at the
-time of this writing, only NETCONF and gNMI are supported.  Changing the connection and
-protocol determines the message format.  See :ref:`yang action details action<yang action>` for other configurations.
+The :ref:`yang action<yang action>` is designed to work with different messaging protocols
+which include NETCONF, RESTCONF and gNMI.  Changing the connection and protocol determines
+the message format.  See :ref:`yang action details<yang action>` for other configurations.
 
 Example of configuration using NETCONF (with automated verification of edit-config on device)
 
@@ -322,8 +322,8 @@ Example of configuration using NETCONF (with automated verification of edit-conf
     - yang:
         device: uut2
         connection: netconf
-        operation: edit-config
         protocol: netconf
+        operation: edit-config
         datastore:
           type: candidate  # empty string means type is chosen from device capabilities.
           lock: true
