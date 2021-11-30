@@ -10,10 +10,11 @@ This topic contains the information required to group devices together in order 
 
     * Device - Manually provide a list of devices that belong to a group.
     * Platform - Provide the platform and all devices with that platform will be grouped together under this group.
+    * OS - Provide the os and all devices with that os will be grouped together under this group.
 
 .. note::
 
-    Only one method is supported per group. You cannot combine group-by-device and group-by-platform in the same group.
+    Only one method is supported per group. You cannot combine group-by-device, group-by-platform and group-by-os in the same group.
     You can have multiple groups with each group using a different method (a sample is provided below showing this option).
 
 Device groups **simplify** the ``Clean YAML``, by removing duplicate stages and arguments for devices that use a similar clean.
@@ -31,7 +32,7 @@ How to Specify Device Groups?
 
 .. note::
 
-    These examples only show the required Device/Platform Group information part of the Clean YAML file,
+    These examples only show the required Device/Platform/OS Group information part of the Clean YAML file,
     and not the entire file requirements.
 
 .. topic:: Option 1: Device - Manually provide a list of devices that belong to a group.
@@ -82,6 +83,30 @@ How to Specify Device Groups?
                 # The 'platforms' key takes a list of all platforms you want under this group
                 platforms:
                     - n9k
+
+.. topic:: Option 3: OS - Provide the os and all devices with that os will be grouped together under this group.
+
+    The following ``Clean YAML`` demonstrates how to create a group that contains all devices of the `iosxe` os.
+
+    .. code-block:: yaml
+        :linenos:
+        :emphasize-lines: 6-8, 10-15
+
+        cleaners:
+            # This means to use the cleaner class `PyatsDeviceClean`
+            PyatsDeviceClean:
+                # The module is where the cleaner class above can be found
+                module: genie.libs.clean
+                # You can define many groups within the Clean YAML.
+                # Any groups not in this list are not cleaned even if they are defined below.
+                groups: [my_group_by_os]
+
+        groups:
+            # The group name can be anything
+            my_group_by_os:
+                # The 'os' key takes a list of all os you want under this group
+                os:
+                    - iosxe
 
 .. topic:: Adding multiple groups to the same Clean YAML.
 
