@@ -33,12 +33,12 @@ Description of Available YAML Components
         device: # device name or alias
         connection: # device interface connection (in testbed file)
         operation:  # YANG message operation (based on NETCONF but mapped to other protocols)
-                    # * edit-config - see Content ``edit-op`` for protocol mappings
+                    # * edit-config - see Content section "edit-op" for protocol mappings
                     # * get-config  - mapped to "get CONFIG mode" for gNMI and GET for RESTCONF
                     # * get         - mapped to "get STATE mode" for gNMI and GET for RESTCONF
                     # * subscribe
                     # * capabilities
-        protocol: # [ netconf | gnmi | restconf]
+        protocol: # [ netconf | gnmi | restconf ] - see Protocol Specifications section
         datastore: # YANG datastores (if not defined Blitz will choose from device capabilities)
         format: # Various fomat options (see Format options below)
         banner: # (optional) Prominant log message with borders
@@ -46,11 +46,32 @@ Description of Available YAML Components
         content: # Content of YANG message being sent (see Content section below)
         returns: # (optional) Expected return of YANG message (see Returns section below)
 
+Protocol Specifications
+-----------------------
+
+YANG modeling is a definition of network device management APIs, not the actual source code that
+interacts with those APIs.  3 messaging protocols are specified to actually send the management
+requests to the modeled APIs.  The details of those protocols are too extensive to get into for
+this documentation.  Each have their advantages and disadvantages. The `NETCONF protocol`_
+has the most extensive functionality of all 3 protocols, but, it is transfered in XML format
+which can be more taxing on network resources.  The `gNMI protocol`_ is more efficient and flexible
+but does not have all the options available with NETCONF.  The `RESTCONF protocol`_ are basically
+REST APIs that many engineers are comfortable with but it also does not have all the options
+available with NETCONF.
+
+The ``yang`` action, will take the basic YANG metadata and construct the properly formed message
+according to the "protocol" parameter setting and send the message using the chosen protocol
+libraries.
+
+.. _NETCONF protocol: https://datatracker.ietf.org/doc/html/rfc6241
+.. _gNMI protocol: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md
+.. _RESTCONF protocol: https://datatracker.ietf.org/doc/html/rfc8040
+
 Datastore Options
 -----------------
 
 YANG Datastores, `RFC 8342`_, are a fundamental concept binding network management data models to
-network management protocols such as NETCONF `RFC 6241`_ and RESTCONF `RFC 8040`_.  It is up to the
+network management protocols such as NETCONF `RFC 6241`_, RESTCONF `RFC 8040`_, and `gNMI specification`_.  It is up to the
 YANG server implementation to decide which datastore to support.  Blitz supports several types.  The
 default is an empty string which indicates the type will be determined by device capabilities.  If
 the device supports "candidate", the candidate datastore is chosen for configuration operations.  If not
@@ -79,14 +100,17 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
 .. code-block:: YAML
 
     format:
-      request_mode:    # [STREAM, ONCE, POLL]
-      sub_mode:        # [ON_CHANGE, SAMPLE]
-      encoding:        # [JSON, JSON_IETF]
+      request_mode:    # [STREAM, ONCE, POLL] gNMI subscription mode
+      sub_mode:        # [ON_CHANGE, SAMPLE] gNMI subscription sub_mode
+      encoding:        # [JSON, JSON_IETF] gNMI val encoding
+      prefix:          # [true | false] gNMI message requires PATH prefix
+      origin:          # [openconfig | rfc7951 | <device defined> ] gNMI origin
+      base64:          # [true | false] gNMI set "val" requires Base64 encoding
       sample_interval: # number of seconds between sampling
-      stream_max: 20   # seconds to stop stream (default: no max)
+      stream_max:      # seconds to stop stream (default: 0, no max)
       auto-validate:   # [true | false] automatically validate config messages
       negative-test:   # [true | false] expecting device to return an error
-      pause: 0         # pause N seconds between each test (global ``sleep``)
+      pause:           # pause N seconds between each test (default: 0, no pause)
 
 Content
 -------
@@ -120,7 +144,7 @@ YANG file.  There is also an option, "rpc", to use the string representation of 
                  #  ---------------------------------
         xpath: # Xpath based on `XML Path Language 1.0`_ identifying a resource
 
-The "rpc" option can be any completely formed valid XML rpc message.
+The "rpc" option can be any well-formed valid XML NETCONF rpc message.
 
 .. code-block:: YAML
 
@@ -137,6 +161,39 @@ The "rpc" option can be any completely formed valid XML rpc message.
           </filter>
         </get>
       </rpc>
+
+The "rpc" option can also accept a well-formed valid dictionary representing a gNMI message.
+
+.. code-block:: YAML
+
+    content:
+      rpc: {
+        "subscribe": {
+          "prefix": {
+            "origin": "rfc7951"
+          },
+          "subscription": [
+            {
+              "path": {
+                "elem": [
+                  {
+                    "name": "Cisco-IOS-XE-lldp-oper:lldp-entries"
+                  },
+                  {
+                    "name": "lldp-intf-details",
+                    "key": {
+                      "if-name": "TenGigabitEthernet1/0/1"
+                    }
+                  }
+                ]
+              },
+              "mode": "SAMPLE",
+              "sampleInterval": "5000000000"
+            }
+          ],
+          "encoding": "JSON_IETF"
+        }
+      }
 
 Returns
 -------
