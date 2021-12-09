@@ -71,7 +71,7 @@ Datastore Options
 -----------------
 
 YANG Datastores, `RFC 8342`_, are a fundamental concept binding network management data models to
-network management protocols such as NETCONF `RFC 6241`_, RESTCONF `RFC 8040`_, and `gNMI specification`_.  It is up to the
+network management protocols such as NETCONF `RFC 6241`_ and RESTCONF `RFC 8040`_.  It is up to the
 YANG server implementation to decide which datastore to support.  Blitz supports several types.  The
 default is an empty string which indicates the type will be determined by device capabilities.  If
 the device supports "candidate", the candidate datastore is chosen for configuration operations.  If not
