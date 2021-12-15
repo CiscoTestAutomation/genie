@@ -62,7 +62,7 @@ genie
     * Modified
         * Removed start_pool calls in lieu of device connect pool param
     * Modified disconnect()
-        * fixed a bug where HA devices would encouner a hash error during disconnection
+        * fixed a bug where HA devices would encounter a hash error during disconnection
 
 * genie.harness
     * Fixed a bug where dev.learn('all') would not learn the device configuration.
