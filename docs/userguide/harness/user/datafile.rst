@@ -46,7 +46,16 @@ Verification Datafile
              # ``Genie`` provides a Master set of verifications for you to
              # extend from as a start. It is found at: 
              # <$virtual_env>/lib/python3.4/site-packages/genie/infra/verifications.yaml
+
+    variables: # Use this field to store any information as dict to be shared
+               # within this datafile
+               # Can be retrieved : %{variables.<field>}
+
+    parameters: # same purpose with variables
+                # Can be retrieved : %{parameters.<field>}
+
     uids:    # Mention which verifications to execute
+
     groups:  # Mention which verification group to execute
 
     <verification name>: # Verification name goes here
@@ -118,27 +127,27 @@ Verification Datafile
 
         groups: # Execution group for this verification.
                 # (Optional)
-  
+
         count: # How many times to execute this verification.
                # (Default: 1)
                # (Optional)
-  
+
         exclude: # Attributes to be ignored.
                  # (Optional)
                  # (Supports regex)
-  
+
         iteration: # Tells Genie to rerun the verification in case 
                    # the result is not valid.
                    # (Optional)
-  
+
             attempt: # Number of iteration attempts.
                      # (Optional)
                      # (Default: 1)
-  
+
             interval: # How long to sleep between rerun, in seconds.
                       # (Optional)
                       # (Default: 0)
-  
+
         devices: # Devices list to execute the verification.
                  # Can either be an alias or device hostname
                  # as defined in the pyats testbed file.
@@ -146,21 +155,21 @@ Verification Datafile
 
         devices_attributes: # attributes for the devices
                             # (Optional)
-  
+
             <device name>: # Name of the device; must be same as devices list
-  
+
                 iteration: # Tells Genie to rerun the verification in case 
                            # the result is not valid.
                            # (Optional)
-  
+
                     attempt: # Number of iteration attempts.
                              # (Optional)
                              # (Default: 1)
-  
+
                     interval: # How long to sleep between rerun, in seconds.
                               # (Optional)
                               # (Default: 0)
-  
+
               # Any extra key will be passed as a parameters to the verification
               <key>: <value>
 
@@ -244,9 +253,16 @@ Trigger Datafile
              # ``Genie`` provides a master set of triggers for you to extend
              # from as a start. It is found at: 
              # <$virtual_env>/lib/python3.4/site-packages/genie/infra/triggers.yaml
-    variables: # Use this fiel to store any information to be shared to triggers
+
+    variables: # Use this field to store any information as dict to be shared
+               # within this datafile
                # Can be retrieved : %{variables.<field>}
+
+    parameters: # same purpose with variables
+                # Can be retrieved : %{parameters.<field>}
+
     uids:    # Mention which triggers to execute
+
     groups:  # Mention which trigger group to execute
 
     <trigger name>: # Trigger name goes here
@@ -332,7 +348,7 @@ Trigger Datafile
 
         devices_attributes: # attributes for the devices
                             # (Optional)
-  
+
             <device name>: # Name of the device; must be same as devices list
 
                 # Any extra key will be passed as a parameter to the verification
@@ -352,7 +368,7 @@ Trigger Datafile
 
                 devices_attributes: # attributes for the devices
                                     # (Optional)
-  
+
                   <device name>: # Name of the device; must be same as devices list
 
                       iteration: # Tells Genie to rerun the verification in case 
@@ -449,14 +465,14 @@ Trigger Datafile
                                         # Any key will be passed as a parameters
                                         <key>: <value>
 
-        static: # Most trigger learn dynamically certain data. 
+        static: # Most trigger learn dynamically certain data.
                 # This key allows to specify which value to use instead of learning.
                 # (Optional will learn all the keys dynamically in the trigger)
                 <key>: <value>
-        num_values: # Most trigger learn dynamically certain data. 
+        num_values: # Most trigger learn dynamically certain data.
                     # This key allows to specify how many value of each type should be learnt
                     # (Optional by default will used the one in the trigger code)
-                    # (Example: 
+                    # (Example:
                     #       interface 1
                     #        vlan: 'all'
                     <key>: <value>
@@ -538,6 +554,13 @@ Configuration Datafile
              # Supports full path/names or names of file in the the same dir.
              # (Optional)
 
+    variables: # Use this field to store any information as dict to be shared
+               # within this datafile
+               # Can be retrieved : %{variables.<field>}
+
+    parameters: # same purpose with variables
+                # Can be retrieved : %{parameters.<field>}
+
     devices: # Devices list to apply the configuration
 
         <device name>: # Name of the device. 
@@ -592,8 +615,15 @@ PTS Datafile
              # allowing you to create an inheritance hierarchy.
              # Supports full path/names or names of file in the the same dir.
              # ``Genie`` provides a master set of PTS for you to extend
-             # from as a start. It may be found at: 
+             # from as a start. It may be found at:
              # <$virtual_env>/lib/python3.4/site-packages/genie/infra/pts.yaml
+
+    variables: # Use this field to store any information as dict to be shared
+               # within this datafile
+               # Can be retrieved : %{variables.<field>}
+
+    parameters: # same purpose with variables
+                # Can be retrieved : %{parameters.<field>}
 
     <feature name>: # Feature name to profile goes here.
 
@@ -619,12 +649,12 @@ PTS Datafile
 
         devices_attributes: # attributes for the devices
                             # (Optional)
-  
+
             <device name>: # Name of the device; must be same as devices list
 
                 # Any extra key will be passed as a parameter to the verification
                 <key>: <value>
-  
+
 .. _mapping_datafile:
 
 Mapping Datafile
@@ -674,9 +704,16 @@ they have either;
     #
     # Production schema with commentary from the devs
 
+    variables: # Use this field to store any information as dict to be shared
+               # within this datafile
+               # Can be retrieved : %{variables.<field>}
+
+    parameters: # same purpose with variables
+                # Can be retrieved : %{parameters.<field>}
+
     devices: # Devices
 
-        <device name>: # Name of the device. 
+        <device name>: # Name of the device.
                        # Can either be an alias or device hostname
                        # as defined in the pyats testbed file.
 
@@ -694,7 +731,7 @@ they have either;
                     # via `alias` in the testbed file, then there is no need to
                     # use label field.
 
-            mapping: # 
+            mapping: #
 
                 cli: # Which connection to use for Cli commands.
                 yang: # Which connection to use for Yang commands.
@@ -708,7 +745,7 @@ they have either;
             <link name>: # Name of the link
 
                 label: # Label to override the alias of the specified link
-        
+
         <device name>: # Name of the device for interfaces
 
             interfaces: # The device's interfaces
@@ -747,6 +784,12 @@ The user can connect with different connections using the following schema.
 
     # New Mapping Datafile schema for different connections
     # -------------------------------------------------
+
+    variables: # Use this field to store any information as dict to be shared
+               # within this datafile
+               # Can be retrieved : %{variables.<field>}
+    parameters: # same purpose with variables
+                # Can be retrieved : %{parameters.<field>}
 
     devices: # Devices
 
@@ -792,6 +835,13 @@ Subsection datafile
     extends: # Use this field to extend an existing yaml Subsection data file,
              # allowing you to create an inheritance hierarchy.
              # Supports full path/names or name of file in the the same dir.
+
+    variables: # Use this field to store any information as dict to be shared
+               # within this datafile
+               # Can be retrieved : %{variables.<field>}
+
+    parameters: # same purpose with variables
+                # Can be retrieved : %{parameters.<field>}
 
     setup: # CommonSetup subsections
            # (optional if common setup)
