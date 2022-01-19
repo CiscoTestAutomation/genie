@@ -14,4 +14,4 @@ This topic provides an overview required to contribute to pyATS Clean.
 
     .. toctree::
 
-        clean_stages
+        stages/index
