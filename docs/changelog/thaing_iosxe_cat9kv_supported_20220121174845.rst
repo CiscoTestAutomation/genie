@@ -1,2 +1,2 @@
 New:
-    * Add supported cat9kv IOSXE device
+    * Add supported c8kv IOSXE device
