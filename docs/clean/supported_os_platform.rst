@@ -23,7 +23,6 @@ The following table specifies the current set of OS and Platform types supported
     ASR 1000v, iosxe,
     ISR, iosxe,
     Catalyst 9000, iosxe, cat9k
-    Catalyst 9000v, iosxe, cat9kv
     Nexus 7000, nxos, n7k
     Nexus 9000, nxos, n9k
     Nexus 9000v, nxos, n9k
