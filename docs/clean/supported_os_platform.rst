@@ -202,7 +202,7 @@ The following table specifies the current set of PowerCycler types supported by 
               <device>:
                 peripherals:
                   power_cycler:
-                    - type: dualcom
+                    - type: dualcomm
                       connection_type: snmp
                       host (str): Ip address for Powercycler.
                       outlets (list): Power ports associated with your device.
@@ -217,7 +217,7 @@ The following table specifies the current set of PowerCycler types supported by 
               PE1:
                 peripherals:
                   power_cycler:
-                    - type: dualcom
+                    - type: dualcomm
                       connection_type: snmp
                       host: 127.0.0.1
                       outlets: [20]
