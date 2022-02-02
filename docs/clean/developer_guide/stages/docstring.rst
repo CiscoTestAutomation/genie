@@ -1,7 +1,7 @@
 Stage Docstring
 ===============
 
-The final part to developing a clean stage is writing the docstring. The docstring is used in the clean stage browser to let users know what the stage does, what arguments are available, and what the arguments default to. It also provides an example of using the stage in the clean YAML file.
+The final part to developing a clean stage is writing the docstring. The docstring is used in the `clean stage browser <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean>`_ to let users know what the stage does, what arguments are available, and what the arguments default to. It also provides an example of using the stage in the clean YAML file.
 
 The docstring should adhere to this general format:
 

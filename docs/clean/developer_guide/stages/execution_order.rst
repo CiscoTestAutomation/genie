@@ -14,7 +14,7 @@ In this example the methods will execute in the following order:
 
 .. note::
 
-    This documentation did not show the development of the remaining steps, though, they have been added for completeness.
+    This documentation did not show the development of the remaining steps, though, they have been added for completeness. Please note that we have also updated the exec_order to accommodate the new steps.
 
 .. code-block:: python
     :linenos:

@@ -122,14 +122,18 @@ To pass arguments to a clean step, add the arguments to the method and if there'
 
 `timeout=TIMEOUT` `current_running_image=CURRENT_RUNNING_IMAGE`
 
-During runtime these values will be overwritten with user provided (if provided). You can then use these arguments like you would in any other python method.
+During runtime these values will be overwritten with user provided values (if provided). You can then use these arguments like you would in any other Python method.
 
 .. code-block:: python
     :linenos:
-    :emphasize-lines: 19, 21, 42-43
+    :emphasize-lines: 23, 25, 46-47
+
+    import logging
 
     from genie.metaparser.util.schemaengine import Optional
     from genie.libs.clean import BaseStage
+
+    log = logging.getLogger(__name__)
 
     class ChangeBootVariable(BaseStage):
 

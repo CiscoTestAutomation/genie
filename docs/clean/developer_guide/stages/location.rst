@@ -14,7 +14,7 @@ The first step to developing a clean stage is to determine the scope of the stag
 
 .. note::
 
-    If the directory structure and/or the `stages.py` file does not already exist, create it following the below example but use your `<os>` and `<platform>`.
+    If the directory structure and/or the `stages.py` file does not already exist, create it following the below example but use your `<os>` and `<platform>`. The `<os>` and `<platform>` must align with the same from `unicon.plugins <https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/supported_platforms.html#>`_.
 
     .. code-block:: bash
 

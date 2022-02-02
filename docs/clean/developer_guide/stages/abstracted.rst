@@ -230,7 +230,7 @@ In the example you can see we modified the `exec_order` by removing the `configu
             'verify_boot_variable'
         ]
 
-If we needed to overwrite delete_boot_variable to change the behaviour all we do is define the method again and write our new logic.
+If we needed to overwrite `delete_boot_variable` to change the behaviour all we do is define the method again and write our new logic.
 
 .. code-block:: python
     :linenos:
