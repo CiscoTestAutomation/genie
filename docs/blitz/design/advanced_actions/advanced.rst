@@ -583,18 +583,11 @@ Examples are provided below for these conditional statements.
                      device: uut
                      function: get_interface_mtu_size
                      save:
-                       - variable_name: gims_output                 # the 1500 is stored in gims_output
+                       - variable_name: mtu1                 # the 1500 is stored in mtu1
                      arguments:
                        interface: GigabitEthernet1
-                - api:                                              # api output is equal to 1500
-                     device: uut
-                     function: get_interface_mtu_size
-                     save:
-                       - variable_name: gims_output_1                 # the 2500 is stored in gims_output
-                     arguments:
-                       interface: GigabitEthernet10
                 - run_condition:
-                  - if: "%VARIABLES{gims_output} == 1200"   # gims_output output is 1500, if condition fails
+                  - if: "%VARIABLES{mtu1} == 1200"   # mtu1 output is 1500, if condition fails
                     actions:
                       - parse:
                           command: show version
@@ -603,9 +596,9 @@ Examples are provided below for these conditional statements.
                           sleep_time: 1
                   - else:                                 # actions under else is executed here
                     actions:
-                      - parse:
-                          command: show version
-                          device: uut
+                      - print:
+                          item1:
+                            value: The mtu is not 1200
 
 
 **Example-7: Running actions with if, elif and else condition**
@@ -623,36 +616,29 @@ Examples are provided below for these conditional statements.
                      device: uut
                      function: get_interface_mtu_size
                      save:
-                       - variable_name: gims_output                 # the 1500 is stored in gims_output
+                       - variable_name: mtu1               # the 1500 is stored in mtu1
                      arguments:
                        interface: GigabitEthernet1
-                - api:                                              # api output is equal to 1500
-                     device: uut
-                     function: get_interface_mtu_size
-                     save:
-                       - variable_name: gims_output_1                 # the 2500 is stored in gims_output
-                     arguments:
-                       interface: GigabitEthernet10
                 - run_condition:
-                  - if: "%VARIABLES{gims_output} == 1300"
+                  - if: "%VARIABLES{mtu1} == 1300"
                     actions:
                       - parse:
                           command: show version
                           device: uut
                       - sleep:
                           sleep_time: 1
-                   - elif: "%VARIABLES{gims_output} == 1000"
+                   - elif: "%VARIABLES{mtu1} == 1000"
                     actions:
                       - parse:
                           command: show ip interface brief
                           device: uut
-                  - elif: "%VARIABLES{gims_output} == 1500"  # gims_output output is 1500, elif is executed
+                  - elif: "%VARIABLES{mtu1} == 1500"  # mtu1 output is 1500, elif is executed
                     actions:
                       - parse:
                           command: show version
                           device: uut
                   - else:
                     actions:
-                      - parse:
-                          command: show version
-                          device: uut
+                      - print:
+                          item1:
+                            value: The mtu does not match any given values.
