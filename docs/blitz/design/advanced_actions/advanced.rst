@@ -391,7 +391,7 @@ To run actions with a conditional statement, *Blitz* expects:
 
 * (Optional) An elif statement with boolean value (True or False statement).
 
-* (Optional) An else statement, the actions under else is executed when if, elif statement fails.
+* (Optional) An else statement, the actions under else are executed when the booleans for the if and elif statements are all False.
 
 * A set of actions (e.g parse, execute etc.) that would be specified under keyword ``actions``.
 
