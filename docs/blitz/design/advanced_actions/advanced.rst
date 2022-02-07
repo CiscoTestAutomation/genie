@@ -389,6 +389,10 @@ To run actions with a conditional statement, *Blitz* expects:
 
 * An if statement with boolean value (True or False statement).
 
+* (Optional) An elif statement with boolean value (True or False statement).
+
+* (Optional) An else statement, the actions under else are executed when the booleans for the if and elif statements are all False.
+
 * A set of actions (e.g parse, execute etc.) that would be specified under keyword ``actions``.
 
 * (Optional) A function that can be the result of all the actions under run_condition if the boolean condition is equal **True**.
@@ -555,7 +559,7 @@ Examples are provided below for these conditional statements.
                      arguments:
                        interface: GigabitEthernet10
                 - run_condition:
-                       if: "%VARIABLES{gims_output} == 1500 and %VARIABLES{gims_output} == 2500"       
+                       if: "%VARIABLES{gims_output} == 1500 and %VARIABLES{gims_output} == 2500"
                        actions:
                          - parse:
                              command: show version
@@ -563,3 +567,78 @@ Examples are provided below for these conditional statements.
                          - sleep:
                              sleep_time: 1
 
+
+**Example-6: Running actions with if else condition**
+
+.. code-block:: YAML
+
+    test:
+        source:
+            pkg: genie.libs.sdk
+            class: triggers.blitz.blitz.Blitz
+        devices: ['uut']
+        test_sections:
+            - apply_config:
+                - api:                                              # api output is equal to 1500
+                     device: uut
+                     function: get_interface_mtu_size
+                     save:
+                       - variable_name: mtu1                 # the 1500 is stored in mtu1
+                     arguments:
+                       interface: GigabitEthernet1
+                - run_condition:
+                  - if: "%VARIABLES{mtu1} == 1200"   # mtu1 output is 1500, if condition fails
+                    actions:
+                      - parse:
+                          command: show version
+                          device: uut
+                      - sleep:
+                          sleep_time: 1
+                  - else:                                 # actions under else is executed here
+                    actions:
+                      - print:
+                          item1:
+                            value: The mtu is not 1200
+
+
+**Example-7: Running actions with if, elif and else condition**
+
+.. code-block:: YAML
+
+    test:
+        source:
+            pkg: genie.libs.sdk
+            class: triggers.blitz.blitz.Blitz
+        devices: ['uut']
+        test_sections:
+            - apply_config:
+                - api:                                              # api output is equal to 1500
+                     device: uut
+                     function: get_interface_mtu_size
+                     save:
+                       - variable_name: mtu1               # the 1500 is stored in mtu1
+                     arguments:
+                       interface: GigabitEthernet1
+                - run_condition:
+                  - if: "%VARIABLES{mtu1} == 1300"
+                    actions:
+                      - parse:
+                          command: show version
+                          device: uut
+                      - sleep:
+                          sleep_time: 1
+                   - elif: "%VARIABLES{mtu1} == 1000"
+                    actions:
+                      - parse:
+                          command: show ip interface brief
+                          device: uut
+                  - elif: "%VARIABLES{mtu1} == 1500"  # mtu1 output is 1500, elif is executed
+                    actions:
+                      - parse:
+                          command: show version
+                          device: uut
+                  - else:
+                    actions:
+                      - print:
+                          item1:
+                            value: The mtu does not match any given values.
