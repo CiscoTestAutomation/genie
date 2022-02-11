@@ -44,7 +44,7 @@ Verification Datafile
              # allowing you to create an inheritance hierarchy.
              # Supports full path/names or name of file in the same dir.
              # ``Genie`` provides a Master set of verifications for you to
-             # extend from as a start. It is found at: 
+             # extend from as a start. It is found at:
              # <$virtual_env>/lib/python3.4/site-packages/genie/infra/verifications.yaml
 
     variables: # Use this field to store any information as dict to be shared
@@ -63,11 +63,11 @@ Verification Datafile
         source: # This section is used to let
                 # Genie know where the verification class
                 # is located.
-  
+
             pkg: # Abstraction package.
                  # (Optional if no abstraction)
                  # (Example: genie_libs)
-    
+
             class: # Location of the class that contains the verification.
                    # (Example: ops.ospf.ospf.Ospf)
 
@@ -136,7 +136,7 @@ Verification Datafile
                  # (Optional)
                  # (Supports regex)
 
-        iteration: # Tells Genie to rerun the verification in case 
+        iteration: # Tells Genie to rerun the verification in case
                    # the result is not valid.
                    # (Optional)
 
@@ -158,7 +158,7 @@ Verification Datafile
 
             <device name>: # Name of the device; must be same as devices list
 
-                iteration: # Tells Genie to rerun the verification in case 
+                iteration: # Tells Genie to rerun the verification in case
                            # the result is not valid.
                            # (Optional)
 
@@ -251,7 +251,7 @@ Trigger Datafile
              # allowing you to create an inheritance hierarchy.
              # Supports full path/names or names of file in the the same dir.
              # ``Genie`` provides a master set of triggers for you to extend
-             # from as a start. It is found at: 
+             # from as a start. It is found at:
              # <$virtual_env>/lib/python3.4/site-packages/genie/infra/triggers.yaml
 
     variables: # Use this field to store any information as dict to be shared
@@ -357,8 +357,8 @@ Trigger Datafile
         verifications: # Local verification to execute
 
             <verification name>: # Verification name
-                                 # It must match one of the names of a 
-                                 # existing verification in 
+                                 # It must match one of the names of a
+                                 # existing verification in
                                  # the verification_datafile.
 
                 devices: # Devices lists to execute the verification.
@@ -371,7 +371,7 @@ Trigger Datafile
 
                   <device name>: # Name of the device; must be same as devices list
 
-                      iteration: # Tells Genie to rerun the verification in case 
+                      iteration: # Tells Genie to rerun the verification in case
                                  # the result is not valid.
                                  # (Optional)
 
@@ -383,7 +383,7 @@ Trigger Datafile
                                     # (Optional)
                                     # (Default: 0)
 
-                iteration: # Tells Genie to rerun the verification in case 
+                iteration: # Tells Genie to rerun the verification in case
                            # the result is not valid.
                            # (Optional)
 
@@ -563,12 +563,15 @@ Configuration Datafile
 
     devices: # Devices list to apply the configuration
 
-        <device name>: # Name of the device. 
+        <device name>: # Name of the device.
                        # Can either be an alias or device hostname
                        # as defined in the pyats testbed file.
 
-            <Number>: # This number will decide the order of 
+            <Number>: # This number will decide the order of
                       # the applied configurations on the device.
+
+                type: # Type of configuration (setup or cleanup).
+                      # (Optional, defaults to 'setup')
 
                 config: # Full path of config file to apply on the device.
                         # (Optional)
@@ -581,19 +584,19 @@ Configuration Datafile
                         <key>: <value>  # Key/Value pair of arguments
 
                 sleep: # As device configurations take some time to
-                       # stabilize, this sleep will tell Genie 
+                       # stabilize, this sleep will tell Genie
                        # how long to wait before continuing, in seconds.
                        # (Optional)
                        # (Default: 0)
 
-                invalid: # When applying configuration, we might see 
-                         # some errors or warnings. Any error or warning 
-                         # patterns specified in the `invalid` key will 
+                invalid: # When applying configuration, we might see
+                         # some errors or warnings. Any error or warning
+                         # patterns specified in the `invalid` key will
                          # fail the configure subsection.
                          # (Optional)
                          # (Supports regex)
 
-    exclude_config_check: # Configuration to be excluded 
+    exclude_config_check: # Configuration to be excluded
                           # in the check_config subsection.
                           # (Optional)
                           # (Supports regex)
