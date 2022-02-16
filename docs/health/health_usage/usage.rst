@@ -17,11 +17,11 @@ just add `--health-checks` then run this command::
 
     pyats run job <job file> --testbed-file <testbed file> --health-checks cpu memory logging core
 
-Or once you have both the testbed yaml and health yaml for custom health checks then run this command::
+Or once you have both the testbed yaml and health yaml for custom health checks then run this command. URL with token can be given like below example::
 
     pyats run job <job file> --testbed-file <testbed file> --health-file /path/to/health.yaml
     pyats run job <job file> --testbed-file <testbed file> --health-file "http://<url>/health.yaml"
-
+    pyats run job <job file> --testbed-file <testbed file> --health-file "http://<token>@<url>/health.yaml"
 
 .. note:
 

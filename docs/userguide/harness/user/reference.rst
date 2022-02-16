@@ -237,11 +237,13 @@ Below you will find additional information on each of those arguments:
 
     More details on the syntax of the datafile can be found in the
     :ref:`datafile <mapping_datafile>` section.
+    URL with token can be given like below example.
 
     .. code-block:: bash
 
          --mapping-datafile /path/mapping.pts
          --mapping-datafile "http://<url>/mapping.pts"
+         --mapping-datafile "http://<token>@<url>/mapping.pts"
 
     Or inside a job file
 
@@ -260,11 +262,13 @@ Below you will find additional information on each of those arguments:
     Specifies the location of the verification datafile. More details on the
     syntax for the file can be found in the :ref:`datafile <verification_datafile>`
     section.
+    URL with token can be given like below example.
 
     .. code-block:: bash
 
          --verification-datafile /path/verificationdatafile.yaml
          --verification-datafile "http://<url>/verificationdatafile.yaml"
+         --verification-datafile "http://<token>@<url>/verificationdatafile.yaml"
 
     Or inside a job file
 
@@ -281,11 +285,13 @@ Below you will find additional information on each of those arguments:
 
     Specifies the location of the trigger datafile. More details on the syntax
     for the file can be found in the :ref:`datafile <trigger_datafile>` section.
+    URL with token can be given like below example.
 
     .. code-block:: bash
 
          pyats run job --trigger-datafile /path/triggerdatafile.yaml
          pyats run job --trigger-datafile "http://<url>/triggerdatafile.yaml"
+         pyats run job --trigger-datafile "http://<token>@<url>/triggerdatafile.yaml"
 
     Or inside a job file
 
@@ -305,11 +311,13 @@ Below you will find additional information on each of those arguments:
     
     More details on the syntax for the file can be found in the :ref:`datafile
     <config_datafile>` section.
+    URL with token can be given like below example.
 
     .. code-block:: bash
 
          --config-datafile /path/config_datafile.yaml
          --config-datafile "http://<url>/config_datafile.yaml"
+         --config-datafile "http://<token>@<url>/config_datafile.yaml"
 
     Or inside a job file
 
@@ -325,11 +333,13 @@ Below you will find additional information on each of those arguments:
 
     More details on the syntax for the CommonSetup/CommonCleanup subsection
     datafile can be found in the :ref:`datafile <subsection_datafile>` section.
+    URL with token can be given like below example.
 
     .. code-block:: bash
 
          pyats run job /path/to/jobfile.py --subsection-datafile /path/subsection_datafile.yaml
          pyats run job /path/to/jobfile.py --subsection-datafile "http://<url>/subsection_datafile.yaml"
+         pyats run job /path/to/jobfile.py --subsection-datafile "http://<token>@<url>/subsection_datafile.yaml"
 
     Or inside a job file
 
@@ -349,11 +359,13 @@ Below you will find additional information on each of those arguments:
 
     More details on the syntax for the PTS datafile can be found in the :ref:`datafile
     <pts_datafile>` section.
+    URL with token can be given like below example.
 
     .. code-block:: bash
 
          pyats run job /path/to/jobfile.py --pts-datafile /path/pts_datafile.yaml
          pyats run job /path/to/jobfile.py --pts-datafile "http://<url>/pts_datafile.yaml"
+         pyats run job /path/to/jobfile.py --pts-datafile "http://<token>@<url>/pts_datafile.yaml"
 
     Or inside a job file
 

@@ -24,10 +24,14 @@ just add `--health-bg-checks` to your `pyats run job` command::
 
     pyats run job <job file> --testbed-file <testbed file> --health-bg-checks cpu memory logging core
 
-For more advanced users, you are able to provide your own health yaml file. This can be provided with the `--health-bg-file` argument like so::
+For more advanced users, you are able to provide your own health yaml file. This can be provided with the `--health-bg-file` argument. It can be a path to a file or even a URL with/without a token. See below for examples::
 
     pyats run job <job file> --testbed-file <testbed file> --health-bg-file /path/to/health.yaml --health-bg-checks cpu memory logging core
-    pyats run job <job file> --testbed-file <testbed file> --health-bg-file "http://path.to/health.yaml" --health-bg-checks cpu memory logging core
+    pyats run job <job file> --testbed-file <testbed file> --health-bg-file "http://<url>/health.yaml" --health-bg-checks cpu memory logging core
+
+In case of URL, token for http can be given like below:
+
+    pyats run job <job file> --testbed-file <testbed file> --health-bg-file "http://<token>@<url>/health.yaml" --health-bg-checks cpu memory logging core
 
 .. note:
 
