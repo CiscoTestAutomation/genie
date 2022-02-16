@@ -28,7 +28,6 @@ For more advanced users, you are able to provide your own health yaml file. This
 
     pyats run job <job file> --testbed-file <testbed file> --health-bg-file /path/to/health.yaml --health-bg-checks cpu memory logging core
     pyats run job <job file> --testbed-file <testbed file> --health-bg-file "http://<url>/health.yaml" --health-bg-checks cpu memory logging core
-    pyats run job <job file> --testbed-file <testbed file> --health-bg-file "http://<token>@<url>/health.yaml" --health-bg-checks cpu memory logging core
 
 In case of URL, token for http can be given like below:
 
