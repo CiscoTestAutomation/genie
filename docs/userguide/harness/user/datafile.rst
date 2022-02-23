@@ -278,6 +278,10 @@ Trigger Datafile
             class: # Location of the class that contains the trigger.
                    # (Example: sdk.triggers.shutnoshut.shutnoshut.TriggerShutNoShutOspf)
 
+        timeout: # (Optional) This section is used for timeout of trigger
+            max_time: # (Optional) Maximum wait time for the trigger. in second.
+            interval: # (Optional) Wait time between iteration when looping is needed. in second.
+
         processors: # This section is used to let
                     # Genie know where the pyATS processors is located
 
