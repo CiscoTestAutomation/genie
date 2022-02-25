@@ -1,8 +1,8 @@
 February 2022
-==========
+=============
 
-February 23 - Genie v22.2 
-------------------------
+February 24 - Genie v22.2 
+-------------------------
 
 
 
@@ -228,12 +228,12 @@ genie.libs.sdk
         * API for configuring subinterface
     * Added unconfigure_aaa_new_model API
         * API for unconfiguring aaa new-model.
-    * added `remove_ipv6_dhcp_guard_policy` API
-    * added `remove_ipv6_nd_suppress_policy` API
-    * added `remove_single_device_tracking_policy` API
-    * added `remove_ipv6_source_guard_policy` API
-    * added `clear_device_tracking_database` API
-    * added `clear_device_tracking_counters` API
+    * added remove_ipv6_dhcp_guard_policy API
+    * added remove_ipv6_nd_suppress_policy API
+    * added remove_single_device_tracking_policy API
+    * added remove_ipv6_source_guard_policy API
+    * added clear_device_tracking_database API
+    * added clear_device_tracking_counters API
     * Added configure_ptp_8275_local_priority API
         * configure ptp 8275 local priority
     * Added unconfigure_ptp_8275_local_priority API
@@ -348,7 +348,7 @@ genie.libs.sdk
         * verifies igmp groups
     * Added verify_mpls_mldp_count
         * verifies  mpls mldp count
-    * Added `unconfig_ip_on_vlan` API
+    * Added unconfig_ip_on_vlan API
         * unconfigures Ipv4/Ipv6 address from vlan
     * Added transceiver API
         * API for getting transceiver input current,output current and laserbiased current
@@ -427,7 +427,7 @@ genie.libs.sdk
         * Fixed bug when default test arguments are not provided
 
 * generic
-    * Modified `copy_from_device` API, avoid stripping of `/`
+    * Modified copy_from_device API, avoid stripping of /
 
 * ios
     * Modified write_erase_reload_device_without_reconfig
@@ -440,7 +440,7 @@ genie.libs.sdk
         * configure_ipsec_profile
     * Modified
         * configure_ip_on_tunnel_interface
-    * Modified `write_erase_reload_device`
+    * Modified write_erase_reload_device
         * Added api to device  and remove the extra argument from  calling the
     * Modified configure_pki_enroll_certificate API
         * Modified to return the output
@@ -822,6 +822,10 @@ genie.libs.parser
         * Added "Dual-Side Optimization" key support.
     * Modified ShowBgpNeighborsAdvertisedRoutesSuperParser
         * added try/catch for unconditional command execution "show bgp all neighbors | i BGP neighbor"
+    * Modified ShowMkaSessions Parser
+        * changed the 'ckn' variable to match decimal/hexa decimal
+    * Modified ShowLispService
+        * Modified Schema and updated code.No backward compatibility
 
 * ios
     * Modified ShowCdpNeighborsDetail
@@ -850,23 +854,4 @@ genie.libs.parser
     * Added ShowIpv6EigrpTopology
         * show ipv6 eigrp topology
         * show ipv6 eigrp topology vrf {vrf}
-
-
---------------------------------------------------------------------------------
-                                     Update                                     
---------------------------------------------------------------------------------
-
-* iosxe
-    * Modified ShowMkaSessions Parser
-        * changed the 'ckn' variable to match decimal/hexa decimal
-
-
---------------------------------------------------------------------------------
-                                    Modified                                    
---------------------------------------------------------------------------------
-
-* iosxe
-    * Modified ShowLispService
-        * Modified Schema and updated code.No backward compatibility
-
 
