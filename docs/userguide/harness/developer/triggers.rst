@@ -13,8 +13,8 @@ verifications, `local verifications`.
 Your First Trigger
 ------------------
 
-The idea of writing a `Trigger` is quite simple. The process is very similar to the 
-process users rely on to write a testcase in `pyATS`  that performs an action on a device. 
+The idea of writing a `Trigger` is quite simple. The process is very similar to the
+process users rely on to write a testcase in `pyATS`  that performs an action on a device.
 It goes something like this:
 
 * Check the device has the configuration for the action.
@@ -28,9 +28,9 @@ interface:
 
 * Find an interface which is `up`.
 * Shutdown this interface.
-* Verify the interface is `down`. 
+* Verify the interface is `down`.
 * Unshut this interface.
-* Verify the interface is `up`. 
+* Verify the interface is `up`.
 
 .. figure:: TriggerSDKNoMapping.png
     :align: center
@@ -78,7 +78,7 @@ Let's convert that to code now:
             # Call Genie Conf
             self.intf1.shutdown = True
             self.intf1.build_config()
-    
+
         @aetest.test
         def verify_shut(self, uut):
             parser = ShowIpInterfaceBrief(uut)
@@ -86,18 +86,18 @@ Let's convert that to code now:
 
             # Verify if the interface is down
             assert(parser[self.interface]['Status'] == 'Down')
-    
+
         @aetest.test
         def noshut(self):
             # Call Genie Conf
             self.intf1.build_unconfig()
-    
+
         @aetest.test
         def verify_noshut(self, uut):
             # Call Ops
             output = self.parser.parse()
 
-            # Verify if the interface is back up 
+            # Verify if the interface is back up
             assert(parser[self.interface]['Status'] == 'Up')
 
 For more information on how to add and execute this `Trigger`, please refer
@@ -111,7 +111,7 @@ which itself inherits from the pyATS `Testcase`.
 
 As you can see from the examples above, we have divided most actions into different subsections. By dividing
 actions in this way, we facilitate inheritance. This means that other engineers can inherit
-this `Trigger` and easily add a new test section or modify an existing `Trigger`. 
+this `Trigger` and easily add a new test section or modify an existing `Trigger`.
 When designing `Triggers`, please follow good OOP design.
 
 More guideline can also be found on the :geniewiki:`wiki <http>`.
@@ -143,18 +143,21 @@ shown below.
         devices: ['uut']
         processors:
             pre:
+                order: [<processor name>, <processor_name>, ..]  # optional processor order
                 <your pre processor name>:
                     pkg: <your abstraction package, for example: genie.libs.sdk>
                     method: <your location, for example: sdk.libs.prepostprocessor.sleep_processor>
                     parameters:
                         <your parameters variable name>: <your parameters value>
             post:
+                order: [<processor name>, <processor_name>, ..]  # optional processor order
                 <your post processor name>:
                     pkg: <your abstraction package, for example: genie.libs.sdk>
                     method: <your location, for example: sdk.libs.prepostprocessor.sleep_processor>
                     parameters:
                         <your parameters variable name>: <your parameters value>
             exception:
+                order: [<processor name>, <processor_name>, ..]  # optional processor order
                 <your exception processor name>:
                     pkg: <your abstraction package, for example: genie.libs.sdk>
                     method: <your location, for example: sdk.libs.prepostprocessor.sleep_processor>
@@ -183,10 +186,10 @@ review to add this processor to the ``Genie`` Master `trigger_datafile`.
 Using FileTransferUtils
 -----------------------
 
-`pyATS` provides a useful package ``FileTransferUtils`` that can be used for 
+`pyATS` provides a useful package ``FileTransferUtils`` that can be used for
 file copy operation to/from device as per :filetransferutils:`filetransferutils <http>` documentation.
 
-It supports different transfer protocols like tftp, ftp, etc. 
+It supports different transfer protocols like tftp, ftp, etc.
 
 Examples can be found at :filetransferutils_examples:`filetransferutils_examples <http>`.
 
