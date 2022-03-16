@@ -541,6 +541,11 @@ Trigger Datafile
                               # Any key will be passed as a parameters
                               <key>: <value>
 
+    order: # accepts a list of triggers
+           # (Optional if no special ordering expected)
+           # This list will decide the execution order of triggers
+           # any trigger not defined here will be excluded
+
 .. _config_datafile:
 
 Configuration Datafile
