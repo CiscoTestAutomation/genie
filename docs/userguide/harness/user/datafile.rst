@@ -302,6 +302,11 @@ Trigger Datafile
                                 # Any key will be passed as a parameters
                                 <key>: <value>
 
+                order: # accepts a list of processors
+                       # (Optional if no special ordering expected)
+                       # This list will decide the execution order of processors
+                       # any processors not defined here will be excluded
+
             post: # post processors
                   # (Optional if no post processors)
                   # Accepts a list of post processors
@@ -318,6 +323,11 @@ Trigger Datafile
                     parameters: # (Optional if no parameters)
                                 # Any key will be passed as a parameters
                                 <key>: <value>
+
+                order: # accepts a list of processors
+                       # (Optional if no special ordering expected)
+                       # This list will decide the execution order of processors
+                       # any processors not defined here will be excluded
 
             exception: # exception processors
                        # (Optional if no exception processors)
@@ -337,6 +347,11 @@ Trigger Datafile
                     parameters: # (Optional if no parameters)
                                 # Any key will be passed as a parameters
                                 <key>: <value>
+
+                order: # accepts a list of processors
+                       # (Optional if no special ordering expected)
+                       # This list will decide the execution order of processors
+                       # any processors not defined here will be excluded
 
         groups: # Execution group for this trigger.
                 # (Optional)
