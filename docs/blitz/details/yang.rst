@@ -111,6 +111,7 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
       auto-validate:   # [true | false] automatically validate config messages
       negative-test:   # [true | false] expecting device to return an error
       pause:           # pause N seconds between each test (default: 0, no pause)
+      sequence:        # [true | false] to check the returns sequentially
 
 Content
 -------
