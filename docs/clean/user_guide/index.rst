@@ -19,3 +19,4 @@ advanced users.
         writing_a_clean/index
         executing_a_clean
         viewing_clean_logs
+        clean_stage_within_testscript
