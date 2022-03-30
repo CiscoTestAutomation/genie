@@ -355,6 +355,93 @@ Examples
             xpath: /native/l2vpn-config/l2vpn/router-id
 
 
+- edit-config negative test RPC error check using NETCONF
+
+.. code-block:: YAML
+
+    - yang:
+        device: uut2
+        connection: netconf
+        operation: edit-config
+        protocol: netconf
+        banner: NETCONF EDIT-CONFIG MESSAGE
+        log: Negative test case
+        format:
+          auto-validate: false
+          negative-test: true
+        content:
+          namespace:
+            ios-l2vpn: http://cisco.com/ns/yang/Cisco-IOS-XE-l2vpn
+          nodes:
+          - xpath: /native/l2vpn-config/ios-l2vpn:l2vpn/ios-l2vpn:router-id
+            value: '10.10.10.2'
+            edit-op: create
+        returns:
+          - id: 1
+            name: error-tag
+            op: ==
+            selected: true
+            value: data-exists
+            xpath: /rpc-reply/rpc-error/error-tag
+
+
+- Same edit-config RPC error check using variables
+
+.. code-block:: YAML
+
+  extends: data_test_file.yml
+
+    - yang:
+        device: '%{ data.device }'
+        connection: '%{ data.connection }'
+        operation: edit-config
+        protocol: '%{ data.protocol }'
+        datastore: '%{ data.datastore }'
+        format: '%{ data.format.2 }'
+        banner: YANG EDIT-CONFIG MESSAGE
+        content: '%{ data.contents.1 }'
+        returns: '%{ data.returns.1 }'
+        banner: NETCONF EDIT-CONFIG MESSAGE
+        log: Negative test case
+
+
+.. code-block:: YAML
+
+  # data_test_file.yml contents
+
+  data:
+    device: uut2
+    connection: netconf
+    protocol:netconf
+    datastore: running
+
+    format:
+      1:
+        auto-validate: true
+        negative-test: false
+        pause: 0
+        timeout: 30
+      2:
+        auto-validate: false
+        negative-test: true
+    contents:
+      1:
+        namespace:
+            ios-l2vpn: http://cisco.com/ns/yang/Cisco-IOS-XE-l2vpn
+        nodes:
+        - xpath: /native/l2vpn-config/ios-l2vpn:l2vpn/ios-l2vpn:router-id
+          value: '10.10.10.2'
+          edit-op: create
+    returns:
+      1:
+        - id: 1
+          name: error-tag
+          op: ==
+          selected: true
+          value: data-exists
+          xpath: /rpc-reply/rpc-error/error-tag
+
+
 - get CONFIG state using gNMI with expected returns
 
 .. code-block:: YAML
