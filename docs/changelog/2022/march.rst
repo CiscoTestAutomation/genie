@@ -690,6 +690,12 @@ genie.libs.parser
         * To support more varied output
     * Modified ShowWirelessProfilePolicyDetailed
         * Added format for policy_name argument
+    * Modified ShowTelemetryIETFSubscriptionReceiver
+        * Added "name" field to schema to account for named receivers
+        * Added regex pattern <p9> for newly added "name" field
+        * Updated regex pattern <p7> to accommodate for multi-word entries
+    * Modified ShowTelemetryConnectionAll
+        * Strip entry under 'VRF' from letter 'M' that might be present in output
 
 * nxos
     * Fixed Show Fabic Multicast ipv4  sa-ad route parser
@@ -712,6 +718,8 @@ genie.libs.parser
         * Added the "tlv_accepted" feature to the schema
         * Added the "last_clear" feature to the schema
     * Modified ShowPolicyMapInterface Parser, update pattern p2 input direction
+    * Updated showEvpnInternalId
+        * Updated p1 pattern to include hex value for esi in 'show evpn internal-id'
 
 * viptela
     * Modified ShowOmpRoutes
@@ -728,27 +736,3 @@ genie.libs.parser
 * dnac
     * Updated Interface
         * Added additional keys
-
-
---------------------------------------------------------------------------------
-                                    Modified                                    
---------------------------------------------------------------------------------
-
-* iosxr
-    * Updated showEvpnInternalId
-        * Updated p1 pattern to include hex value for esi in 'show evpn internal-id'
-
-
---------------------------------------------------------------------------------
-                                     Update                                     
---------------------------------------------------------------------------------
-
-* iosxe
-    * Modified ShowTelemetryIETFSubscriptionReceiver
-        * Added "name" field to schema to account for named receivers
-        * Added regex pattern <p9> for newly added "name" field
-        * Updated regex pattern <p7> to accommodate for multi-word entries
-    * Modified ShowTelemetryConnectionAll
-        * Strip entry under 'VRF' from letter 'M' that might be present in output
-
-
