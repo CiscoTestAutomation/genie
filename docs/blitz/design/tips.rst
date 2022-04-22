@@ -13,7 +13,8 @@ Useful tips and tricks in Blitz
     3- The result of a section (whether it is passed, failed etc.) will be saved automatically into a variable
     same as the section name. You can use that name using ``%VARIABLES{<section_name>}``.
 
-    4- Also in your YAML file, it is possible to have access the section's uid simply by using ``%VARIABLES{section.uid}`` and also section's parameters can be accessed via ``%{VARIABLES{section.parameters.<parameter_name>}``.
+    4- Also in your YAML file, it is possible to have access to the section's uid simply by using ``%VARIABLES{section.uid}``. Section's parameters can be accessed via ``%{VARIABLES{section.parameters.<parameter_name>}``.
+
 
     5- Job file related values, such as job file path or job file name can be accessed by using ``%VARIABLES{runtime.job.file}``
     and ``%VARIABLES{runtime.job.name}``. Any other job file related value can be accessed in similar fashion
