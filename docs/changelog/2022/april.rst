@@ -398,12 +398,6 @@ genie.libs.sdk
     * Modified yang action to fix a NoneType object is not iterable bug
 
 
---------------------------------------------------------------------------------
-                                      Vrf.                                      
---------------------------------------------------------------------------------
-
-
-
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
@@ -499,8 +493,6 @@ genie.libs.parser
     * Added ShowHsrpEventHistoryMsgs for
         * 'show hsrp internal event-history msgs'
 
-* modified the parser name to showsystemintegrityalltrustchainnonce
-
 
 --------------------------------------------------------------------------------
                                       Fix                                       
@@ -586,6 +578,10 @@ genie.libs.parser
         * All switches (active and standby) now appear in the switch_num dictionary
     * Modified ShowIpRoute
         * Updated the key and value of "source_protocol_dict" dict
+    * Modified ShowSystemIntegrityAllMeasurementNonce
+        * Added yang parser for ShowSystemIntegrityAllMeasurementNonce
+        * Modified the parser name to showsystemintegrityalltrustchainnonce
+
 
 * ios
     * Modified ShowIpStaticRoute
@@ -616,19 +612,4 @@ genie.libs.parser
 * nxos
     * Modified ShowSystemInternalSysmgrServiceName
         * Updated regex pattern <p2> to accept 'no SAP'
-
-
---------------------------------------------------------------------------------
-                                 Compatibility)                                 
---------------------------------------------------------------------------------
-
-
---------------------------------------------------------------------------------
-                                      Add                                       
---------------------------------------------------------------------------------
-
-* iosxe
-    * Modified ShowSystemIntegrityAllMeasurementNonce
-        * Added yang parser for ShowSystemIntegrityAllMeasurementNonce
-
 
