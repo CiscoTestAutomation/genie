@@ -526,7 +526,7 @@ genie.libs.parser
         * Updated regex pattern due to change in output
     * Modified ShowLispIpMapCachePrefixSuperParser
         * Updated regex pattern
-    * No backward compatibility
+        * No backward compatibility
     * Modified ShowIdpromInterface
         * Changed the key <nominal_bitrate_per_channel>' to optional
         * Updated regex <p2>, <p3>, <p4>, <p5>, <p8>, <p13>, <p14>, and <p15>
