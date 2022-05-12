@@ -255,8 +255,32 @@ This will execute all the commands without raising an exception. Any silenced
 errors can be accessed through `output['exceptions']`, which is a dictionary
 of the command that failed mapped to its corresponding error message.
 
+7. Getting the raw ouput of a parser
+------------------------------------
 
-7. External Parsers/APIs
+Adding `raw_data=True` when calling parse gives you access to the raw output of the command. All you need to do is get the value in 
+the attribute named raw_output. This attribute contains a list of dictionaries containing all commands executed for this parser call.
+Each item has three keys: 
+- command: a string containing the command that was executed.
+- kwargs: the keyword arguments required to execute the command.
+- output: a string containing the raw output
+
+.. code-block:: python
+
+    dev = testbed.devices['R1_xe']
+    out = dev.parse('show version', raw_data=True)
+    out.raw_output
+    [{'command': 'show version', 'kwargs': {}, 'output': 'Cisco IOS XE Software, Version 17.03.01a\r\n...'}]
+    ...
+
+The device has to be connected, otherwise the attribute will not be created and you will only get the parsed output.
+
+.. note::
+
+   You need genie 22.5 or greater to use this feature.
+
+
+8. External Parsers/APIs
 ------------------------
 
 What is an external parser/api?
