@@ -275,7 +275,7 @@ Each item has three keys:
 
 .. note::
 
-   You need genie 22.5 or greater to use this feature.
+   You need pyATS 22.5 or greater to use this feature.
 
 
 8. External Parsers/APIs
