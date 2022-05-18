@@ -259,7 +259,7 @@ of the command that failed mapped to its corresponding error message.
 ------------------------------------
 
 Adding `raw_data=True` when calling parse gives you access to the raw output of the command. All you need to do is get the value in 
-the attribute named raw_output. This attribute contains a list of dictionaries containing all commands executed for this parser call.
+the attribute named raw_output. This attribute comprises a list of dictionaries containing all commands executed for this parser call.
 Each item has three keys: 
 - command: a string containing the command that was executed.
 - kwargs: the keyword arguments required to execute the command.
@@ -272,8 +272,6 @@ Each item has three keys:
     out.raw_output
     [{'command': 'show version', 'kwargs': {}, 'output': 'Cisco IOS XE Software, Version 17.03.01a\r\n...'}]
     ...
-
-The device has to be connected, otherwise the attribute will not be created and you will only get the parsed output.
 
 .. note::
 
