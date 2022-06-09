@@ -12,19 +12,20 @@ Concept
     - :pythonimportsystem:`Python Import System <http>`
 
 
-``abstract`` package is built upon the principle of dynamically looking up and 
-calling the right set of classes/functions/methods based on *requirements*. 
-These requirements are defined in each **abstraction enabled package** in the 
-form of **tokens**. 
+The ``abstract`` package is built upon the principle of dynamically looking up
+and calling the right set of classes/functions/methods based on *requirements*.
+These requirements are defined in each **abstraction enabled package** in the
+form of **tokens**, which are typically device information such as the OS and
+platform.
 
 .. _abstraction_pkg:
 
 Abstraction-Enabled Package
 ---------------------------
 
-An abstracton-enabled package is simply any regular Python package declared to
-be abstraction-compatible using the ``abstract.declare_package()`` API. Beyond 
-that, an abstraction-enabled package behaves no differently than any other 
+An abstraction-enabled package is simply any regular Python package declared to
+be abstraction-compatible using the ``abstract.declare_package()`` API. Beyond
+that, an abstraction-enabled package behaves no differently than any other
 standard Python modules.
 
 .. code-block:: python
@@ -43,21 +44,25 @@ standard Python modules.
 
     # declare abstraction-package at the top of my_package/__init__.py
     from genie import abstract
-    abstract.declare_package(__name__)
+    abstract.declare_package()
 
     # Note
     # ----
     #
     #   - the above is equivalent to:
     #       from abstract import declare_package
-    #       declare_package(__name__)
-    #
-    #   - __name__ is the name of this module
+    #       declare_package()
 
-The call to ``abstract.declare_package(__name__)`` internally
-flags the given module to be an abstraction package. This is a mandatory step
-when creating a module to be abstraction-compatible, and does not change the 
-behavior of how this package normally behaves.
+The call to ``abstract.declare_package()`` internally flags the given module to
+be an abstraction package. This is a mandatory step when creating a module to
+be abstraction-compatible, and does not change the behavior of how this package
+normally behaves.
+
+``abstract.declare_package()`` can also take an optional list of tokens to
+define the order in which these tokens are explored to find a particular
+implementation. The default order when not specified is ``origin``, ``os``,
+``platform``, ``model``, ``pid``, ``version``, ``revision``.
+
 
 .. code-block:: python
 
@@ -77,12 +82,19 @@ behavior of how this package normally behaves.
 
 .. _abstraction_tokens:
 
-Abstraction Tokens
-------------------
+Abstract Tokens
+---------------
 
-An abstraction token is simply a child-module within an abstraction-enabled 
-package. It is declared by calling ``abstract.declare_token()`` API. Similar to
-the above, these are still... Python modules.
+An abstract token is the device attribute for which a specific value would
+require a unique set of tools/implementations. For example, the token `os`
+could have two different values of `nxos` and `iosxr`, which have vastly
+different libraries required to work with those two devices.
+
+The tokens and values are defined in a tokenized folder within an
+abstraction-enabled package with the ``abstract.declare_token(name=value)`` API.
+All modules within this folder and subfolders become abstract modules associated
+with that token value. Similar to above, these are still just Python modules and
+can be imported as usual.
 
 .. code-block:: python
 
@@ -91,7 +103,7 @@ the above, these are still... Python modules.
     #
     #   abstraction-enabled package with tokens
 
-    # assuming the following directory sturcture
+    # assuming the following directory structure
     #   my_package/
     #   |
     #   |-- __init__.py
@@ -105,21 +117,19 @@ the above, these are still... Python modules.
     #       `-- token_two_one/
     #           `-- __init__.py
 
-    # abstraction-token is declared at the top of 
+    # abstraction-token is declared at the top of
     #   - my_package/token_one/__init__.py
     #   - my_package/token_two/__init__.py
     #   - my_package/token_two_one/__init__.py
     from genie import abstract
-    abstract.declare_token(__name__)
+    abstract.declare_token(os='iosxe')
 
     # Note
     # ----
     #
     #   - the above is equivalent to:
     #       from abstract import declare_token
-    #       declare_token(__name__)
-    #
-    #   - __name__ is the name of this module
+    #       declare_token(os='iosxe')
 
     # keep in mind that this does not alter the nature of python modules
     # it can still be imported
@@ -127,24 +137,67 @@ the above, these are still... Python modules.
     from my_package.token_two import token_two_one
     from my_package.token_two_one.token_two_one import my_other_class
 
-Each abstraction token represents an alternate set of libraries, capable of 
-handling the differences introduced/labelled by the **token** name. For example,
-if a package contains token ``nxos``, it suggests that the libraries following
-this token module is specific to Cisco NXOS. 
+Each abstract token value represents an alternate set of libraries, capable of
+handling the differences introduced/labelled by the token value defined. For
+example, if a package contains token value ``os=nxos``, it suggests that the
+libraries following this token module is specific to Cisco NXOS.
 
-In addition, tokens may be chained/nested. This allows for library tiering. For
-example, if token ``yang`` is declared under token ``nxos``, it suggests that
-these libraries would be specific to Cisco NXOS's NETCONF/YANG implementation.
+In addition, token values may be chained/nested. This allows for library
+tiering. For example, if token ``platform=n5k`` is declared under token value
+``os=nxos``, it suggests that these libraries would be specific to the Cisco
+Nexus 5000 Series.
+
+Tokenized folders must only be nested according to the order of tokens given in
+the abstract package definition (or the default, if no order is given). However,
+not all tokens in the order need to have a value defined as long as the relative
+order is maintained.
+
+.. code-block:: text
+
+    os = iosxe
+        version > v2.0
+            revision = 3
+
+    This is a valid hierarchy of tokenized folders, despite missing values for
+    origin, platform, model, and pid.
+
+    version > v2.0
+        os = iosxe
+
+    This is invalid and will raise an exception since version is defined after
+    os in the token order
+
 
 .. note::
 
-    Tokens may carry arbitrary names. Use token naming wisely to depict 
-    differences where you want to abstract your libraries. For more details, 
-    refer to :ref:`abstraction_conventions`.
+    Folder names may not exactly match the token value (for ``VersionRange``s
+    this would be impossible). Take care when creating a new abstract folder to
+    give it a name that best reflects the token value being declared. For more
+    details, refer to :ref:`abstraction_conventions`.
 
 .. tip::
-    
+
     Follow PEP8 - :modulenamingconvention:`module naming convention <http>`.
+
+
+Version Tokens
+--------------
+
+In addition to a static string value for abstract tokens, a version range can be
+specified.
+
+.. code-block:: python
+
+    from genie import abstract
+    abstract.declare_token(version=abstract.VersionRange(min='v7.3', max='v8.2.1')
+    # Or
+    abstract.declare_token(version=abstract.VersionRange(min='v2')
+
+Both ``min`` and ``max`` are optional arguments, with unbounded defaults. This
+means that tokens can be defined with overlapping ranges (ie. multiple ranges
+with unbounded maximums). In this case, the tokens are sorted during a lookup
+such that the ranges with the greatest values are searched first, giving
+preference to "later" versions.
 
 
 Abstraction Mechanism
@@ -152,22 +205,22 @@ Abstraction Mechanism
 
 The ``abstract`` module works most of its magic at the Python ``import`` and
 ``getattr()`` level. It does so by dissecting each lookup into three distinct
-parts: 
+parts:
 
     - **relative path**: the primary lookup path that makes the most sense from
-      a functional perspective. This is what the user references directly, eg: 
+      a functional perspective. This is what the user references directly, eg:
       ``my_library.routing.ospf``
 
-    - **tokens**: the list of abstraction tokens currently known by the 
+    - **tokens**: the list of abstraction token values currently known by the
       abstraction engine. This portion is registered through the ``Lookup``
-      object. Eg: ``iosxr``, ``fretta``, ``xml``.
+      object. Eg: ``os=iosxe``, ``platform=cat9k``, ``model=c9600``.
 
     - **target**: the module/class/function/variable user is looking for.
 
-During runtime, the lookup engine dynamically pieces together the above 
+During runtime, the lookup engine dynamically pieces together the above
 information into a list of possible candidate **absolute paths** (direct mapping
 to python import statements). As the list of tokens is arbitrary, this candidate
-list is built following the :ref:`abstract_search_algorithm`. 
+list is built following the :ref:`abstract_search_algorithm`.
 
 .. code-block:: python
 
@@ -177,34 +230,36 @@ list is built following the :ref:`abstract_search_algorithm`.
     #   relative path & absolute path explained
 
     # Given the following tokens:
-    #    - iosxe
-    #    - polaris_dev
-    #    - yang
-    os = 'iosxe'
-    branch = 'polaris_dev'
-    context = 'yang'
+    tokens = {
+        'os': 'iosxe',
+        'platform': 'cat9k',
+        'model': 'c9600'
+    }
 
     # feed to to abstraction lookup engine.
-    library = abstract.Lookup(os, branch, context)
+    import my_package
+    library = abstract.Lookup(tokens, package=my_package)
 
     # the relative call to
-    library.my_package.config.routing.ospf.Ospf()
+    library.config.routing.ospf.Ospf()
 
     # could match, for example:
     #
-    #    my_package.iosxe.config.polaris_dev.routing.ospf.yang.Ospf
-    #         |       |      |       |          |     |     |    |
-    #    abstraction  |   relative   |       relative |     |  class
-    #      package    |     path     |         path   |   token
-    #               token          token           relative
-    #                                                path
+    #    my_package.iosxe.config.cat9k.routing.ospf.c9600.Ospf
+    #         |       |      |     |      |     |     |    |
+    #    abstraction  |   relative |   relative |     |  class
+    #      package    |     path   |     path   |  tokenized
+    #                 |         tokenized       |   folder
+    #              tokenized     folder      relative
+    #               folder                     path
+    #
     # which translates to:
-    #   from my_package.iosxe.config.polaris_dev.routing.ospf.yang import Ospf
+    #   from my_package.iosxe.config.cat9k.routing.ospf.c9600 import Ospf
     #
     # where
     # -----
     #    relative path = config, routing, ospf
-    #    tokens        = iosxe, polaris_dev, yang
+    #    tokens        = os=iosxe, platform=cat9k, model=c9600
     #    target        = Ospf()
 
 
@@ -213,153 +268,82 @@ list is built following the :ref:`abstract_search_algorithm`.
 Search Algorithm
 ----------------
 
-The search engine combines the user's **relative path** and currently known
-**tokens** into possible **absolute paths** (python module names) and searches
-through them. A match occurs when an implementation is found (ie the target 
-exists at the candidate relative path). Otherwise, the next combination is 
-tried. If no target is found, a ``LookupError`` would be thrown.
+The first time a lookup is performed on an abstract package, every token
+definition and module is discovered and stored in a tree structure, with each
+**relative path** to a module branching into multiple possible implementations
+based on the token values.
 
-As the token names are not pre-defined, the search engine orders
-all tokens in a pre-defined fashion:
+The lookup will then traverse the tree with the given token values
+in the order defined by the package, and return the stored implementation with
+the best fit for token values. There may not be an implementation that matches
+all the given token values, so the lookup will "fall back" along the search path
+until an implementation is found, which best matches the given token values.
 
-    - token describes a set of *differences*
-    - token positions are always fixed w.r.t. to its left (parent)
-    - tokens on the right are more *specific* than tokens on the left
-    - each token may only appear *once* in a combination
-    - greedy match: more tokens matches is always better than less.
+There are cases where multiple matches are possible. Token values can be given
+as lists, which will attempt to match each value in the list sequentially. The
+lookup works as a depth-first traversal. This means that the second value of a
+list will only be considered if there is no valid implementation in the
+tokenized folder matching the first value and all of the child tokenized folders
+as well.
 
-.. code-block:: text
-
-    Given tokens: a, b, c and d, the preferred token combination would be:
-
-        a b c d
-        a b c
-        a b
-        a
-        (no tokens)
-
-These combinations are then *multiplexed* to user's **relative path** into 
-potential **absolute paths** to search for, using the following rules:
-    
-    - absolute paths must always start with the abstracted package name.
-
-    - the order of relative path sections (words divided by ``.``) must be
-      preserved.
-
-    - the order of token combinations must be preserved.
-
-    - tokens may take place before and after each relative path section, and may
-      appear in multiples together. (eg, ``library.iosxr.google.latest.mpls``)
-
-    - the last resort option is to try with "no token", eg, matching the 
-      relative path directly.
-
-Combining the above rules, the ideal solution would be a multi-combinatory 
-mathematical function, whose search complexity is ... *(insert math here)* ... 
-exponential. 
-
-.. code-block:: text
-    
-    Given Package: my_pkg
-    Relative Path: X, Y
-    Tokens: a, b
-    Target: MyClass()
-
-    We could have the following mathmatical combinational possibilities:
-
-        1. my_pkg.a.X.b.Y.MyClass()
-        2. my_pkg.a.X.Y.b.MyClass()
-        3. my_pkg.X.a.Y.b.MyClass()
-        4. my_pkg.X.a.b.Y.MyClass()
-        5. my_pkg.X.Y.a.b.MyClass()
-        6. my_pkg.a.X.Y.MyClass()
-        7. my_pkg.X.a.Y.MyClass()
-        8. my_pkg.X.Y.a.MyClass()
-        9. my_pkg.X.Y.MyClass()
-
-    And that's just with two tokens and two path sections!
-
-The actual implementation internally is much simpler. When an an abstracted
-package is defined/declared and the lookup object is created, the package and 
-all of its child modules are *recursively imported*. This allows the abstraction
-engine to build an internal table of relative paths, their available token 
-combinations learnt from the import and its corresponding module. This reduced
-**relative path + tokens** relationship effectively simplies the above
-brute-force search algorithm into an ``O(n)`` lookup, where ``n`` is the number 
-of tokens.
+The other way multiple matches can be found is with overlapping version ranges.
+If multiple tokenized folders have overlapping version ranges as their defined
+token value, lookup will consider them in the order of "latest" to "earliest".
 
 .. code-block:: text
 
-    Pseudo Lookup Table
-    ===================
+    Given the token values
+        token_one = one_one
+        token_two = [two_one, two_three]
+        token_three = v4
 
-    Relative Path            Tokens Combos           Corresponding Module
-    -------------            -------------           --------------------
-         X.Y                      a, b                     X.a.Y.b
-         X.Y                      a                        X.a.Y
-         X.Y                      None                     X.Y
-
-    (shown in order of preference, from top down)
-
-This algorithm limits to only dealing with what's been defined in the user 
-library, instead of going through all possible permutations of **relative path**
-and **tokens**. The system assumes that it is unlikely for users to make
-redundant declarations, such as defining both ``from X.a.Y.b import target`` and 
-``from X.a.b.Y import target`` within the same library.
-
-.. note:: 
-    
-    The learning process safeguards against these redundant scenarios.
+    And the abstract package structure
+        one_one                 (token_one = one_one)
+            two_one             (token_two = two_one)
+                v5              (token_three > v5)
+            two_two             (token_two = two_two)
+                v1              (token_three > v1)
+            two_three           (token_two = two_three)
+                v1              (token_three > v1)
+                v2              (token_three > v2)
+        one_two                 (token_one = one_two)
+            two_one             (token_two = two_one)
+                v1              (token_three > v1)
 
 
-.. _token_builder:
+    The order of consideration for implementations within tokenized folders
+    would be
+    one_one.two_one
+    one_one.two_three.v2
+    one_one.two_three.v1
+    one_one.two_three
+    one_one
 
-Token Builder
--------------
 
-The token builder is a simple function that implements the token permutation 
-portion of the :ref:`abstract_search_algorithm`. The default token builder is
-available as ``abstract.magic.default_builder()``.
+JSON Integration
+----------------
 
-.. csv-table:: default_builder Argument List
-    :header: "Argument", "Description"
+Most usage of the abstract lookup will not be done explicitly with a ``Lookup``
+object. Instead, certain packages have an associated pre-generated JSON file
+which links each abstracted feature (classes or functions) in the package with
+matching token values. The contents of the JSON file are loaded into a tree
+structure the same way discovered modules are. The only difference is that the
+lookup will start with the name of a class or function or an associated command
+instead of the **relative path** to a module.
 
-    ``tokens``, "list of tokens to permute"
-    ``mandatory``, "list of tokens that must be used"
 
-.. code-block:: python
+.. _token_retrieval:
 
-    # Example
-    # -------
-    #
-    #   pseudo code demonstrating the behavior of default token builder
+Getting Tokens
+--------------
 
-    from abstract.magic import default_builder
+Tokens can be given as a dict, but are most useful when related to a particular
+device. ``Lookup.from_device(device, package=abstract_package)`` will use the
+tokens defined in ``abstract_package`` to retrieve attributes from devices for
+performing lookups.
 
-    # without any mandatory tokens
-    default_builder(tokens = ['nxos', 'n7k', 'c7003', 'yang', 'R8_1'])
-    # [('nxos', 'n7k', 'c7003', 'yang', 'R8_1'), 
-    #  ('nxos', 'n7k', 'c7003', 'yang'), 
-    #  ('nxos', 'n7k', 'c7003'), 
-    #  ('nxos', 'n7k'), 
-    #  ('nxos',), 
-    #  ()]
+.. note::
 
-    # a mandatory token is one that MUST be used in the search
-    default_builder(tokens = ['nxos', 'n7k', 'c7003', 'yang', 'R8_1'], 
-                    mandatory = ['yang'])
-    # [('nxos', 'n7k', 'c7003', 'yang', 'R8_1'), 
-    #  ('nxos', 'n7k', 'c7003', 'yang'), 
-    #  ('nxos', 'n7k', 'yang'),
-    #  ('nxos', 'yang'),
-    #  ('yang',)]
+    :ref:`Integration with Topology  <abstract_topology>`
 
-In essence, the "tokens" input parameter to the builder is a reflection of
-the actual, longest possible chain of tokens under any given relative path. If
-no target is found at this token/relative path combination, the next, reduced 
-set of tokens is tried. This reduction mechanism always reduces from the right.
 
-Use the ``mandatory`` input argument when you absolutely require some tokens to
-be present in any token permutations during abstraction. This can be useful when
-you do not want the system to automatically fallback using the above logic and 
-remove it. This ensures the proper "set" of libraries is picked.
