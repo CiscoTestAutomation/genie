@@ -607,6 +607,10 @@ Configuration Datafile
                                   # (Optional)
                         <key>: <value>  # Key/Value pair of arguments
 
+                configure_arguments: # Arguments passed to unicon configure() service
+                        # <https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/services/generic_services.html#configure>
+                        <key>: <value>  # Key/Value pair of arguments
+
                 sleep: # As device configurations take some time to
                        # stabilize, this sleep will tell Genie
                        # how long to wait before continuing, in seconds.
