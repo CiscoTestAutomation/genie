@@ -145,6 +145,8 @@ The `configs.yaml` datafile lists all of the configurations files.
             3:
               jinja2_config: routing.j2
               jinja2_arguments:
+                lstrip_blocks: true
+                trim_blocks: true
                 bgp_data:
                     bgp_as: 100
                     neighbor_ips: [
