@@ -121,7 +121,8 @@ contains what configuration to apply on which device.
 Using the `jinja2_config` argument, the configuration will be rendered with the key/value pairs from
 `jinja2_arguments`. The Unicon ``configure()`` service will be used to apply the configuration.
 You can pass additional arguments to the configure service using the `configure_arguments`
-key in the config section, e.g. you can enable bulk configure.
+key in the config section, e.g. you can enable bulk configure. The configuration is rendered
+using the `load_jinja_template` device API.
 
 .. code-block:: bash
 
