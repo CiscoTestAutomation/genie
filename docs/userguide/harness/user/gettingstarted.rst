@@ -145,10 +145,11 @@ The `configs.yaml` datafile lists all of the configurations files.
             3:
               jinja2_config: routing.j2
               jinja2_arguments:
-                bgp_as: 100
-                neighbor_ips: [
-                    '1.1.1.1', '2.2.2.2'
-                ]
+                bgp_data:
+                    bgp_as: 100
+                    neighbor_ips: [
+                        '1.1.1.1', '2.2.2.2'
+                    ]
               configure_arguments:
                 bulk: True
 
