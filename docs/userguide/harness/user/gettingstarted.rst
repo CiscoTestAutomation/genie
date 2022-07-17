@@ -155,6 +155,7 @@ The `configs.yaml` datafile lists all of the configurations files.
                     ]
               configure_arguments:
                 bulk: True
+                timeout: 180
 
 .. important::
 
