@@ -102,8 +102,8 @@ same.
 
 .. _harness_configuration:
 
-Configuration
--------------
+Device Configuration
+--------------------
 
 Genie supports multiple ways to apply configuration on the devices.
 
@@ -111,10 +111,18 @@ Genie supports multiple ways to apply configuration on the devices.
 
 The user can connect manually to the devices and apply any configuration wanted.
 
-  2) Automatically applied on the devices in the Common Setup with Tftp/Ftp/Scp
+  2) Automatically applied on the devices in the Common Setup/Cleanup with Tftp/Ftp/Scp
 
 With the `config_datafile` argument, a `config.yaml` is provided. This file
 contains what configuration to apply on which device.
+
+  3) Automatically applied on the devices in the Common Setup/Cleanup using Jinja2 rendering
+
+Using the `jinja2_config` argument, the configuration will be rendered with the key/value pairs from
+`jinja2_arguments`. The Unicon ``configure()`` service will be used to apply the configuration.
+You can pass additional arguments to the configure service using the `configure_arguments`
+key in the config section, e.g. you can enable bulk configure. The configuration is rendered
+using the `load_jinja_template` device API.
 
 .. code-block:: bash
 
@@ -135,11 +143,26 @@ The `configs.yaml` datafile lists all of the configurations files.
               config: <full path>
               sleep: 2
               invalid: ['some words']
+            3:
+              jinja2_config: routing.j2
+              jinja2_arguments:
+                lstrip_blocks: true
+                trim_blocks: true
+                bgp_data:
+                    bgp_as: 100
+                    neighbor_ips: [
+                        '1.1.1.1', '2.2.2.2'
+                    ]
+              configure_arguments:
+                bulk: True
+                timeout: 180
 
 .. important::
 
     The configuration is applied in the numerical sequence specified in the
     YAML file, (1,2,..), as shown above.
+
+    Configurations are applied to devices in parallel using multiprocessing.
 
 The configuration file is a typical `show running` style. After each
 configuration applied, a wait period is recommended to allow the configuration
@@ -175,7 +198,7 @@ And modify the previously created `configs.yaml` file as follows:
               sleep: 3
 
 .. note::
-    
+
     In case you need multiple configuration files, the number provide
     the sequence of the configuration.
 
@@ -213,7 +236,7 @@ example on sepecifying device for check_config in subsection yaml file:
             parameters: 
                 devices:
                   uut: None
-    
+
 
 In the common cleanup, `check_config` executes the `show running` command on
 all devices in the topology once again to create a second snapshot of the
@@ -238,7 +261,7 @@ Let's see an example of how to add the `exclude_config_check` argument:
                     sleep: 5
                     invalid : ['(.*ERROR.*)']
         exclude_config_check: ['(.*description.*)']
-    
+
 
 .. _PTS:
 
