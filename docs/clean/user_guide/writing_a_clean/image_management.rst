@@ -312,7 +312,7 @@ By default, the image(s) specified under a stage will be overridden by the image
 For `IOSXE`, this behavior can be modified with below configuration. This has not yet been implemented
 for other operating systems such as NXOS or IOSXR.
 
-This behavior can be changed by adding a configuration stage called `image_handler` with setting
+This behavior can be changed by adding a configuration stage called `image_management` with setting
 ``override_stage_images`` set to ``False``. This overrides the default behavior and allows
 stages to keep their image configuration as specified in the clean yaml file.
 
@@ -339,7 +339,7 @@ Example clean yaml file with default behavior.
 
 with the above configuration, the image specified on line 13, will be overridden by the value on line 9.
 
-Example clean yaml with updated confgiuration setting.
+Example clean yaml with updated configuration setting.
 
 .. code-block:: yaml
     :linenos:
@@ -352,7 +352,7 @@ Example clean yaml with updated confgiuration setting.
 
     devices:
         PE1:
-            image_handler:
+            image_management:
               override_stage_images: False
 
             images:
