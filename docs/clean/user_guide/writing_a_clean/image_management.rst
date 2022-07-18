@@ -302,3 +302,64 @@ Some platforms may support multiple structure types.
               system:
                 file:
                 - /path/to/system.bin
+
+
+Images override behavior
+------------------------
+
+By default, the image(s) specified under a stage will be overridden by the image management service.
+
+For `IOSXE`, this behavior can be modified with below configuration. This has not yet been implemented
+for other operating systems such as NXOS or IOSXR.
+
+This behavior can be changed by adding a configuration stage called `image_handler` with setting
+``override_stage_images`` set to ``False``. This overrides the default behavior and allows
+stages to keep their image configuration as specified in the clean yaml file.
+
+Example clean yaml file with default behavior.
+
+.. code-block:: yaml
+    :linenos:
+    :emphasize-lines: 9, 13
+
+    cleaners:
+        PyatsDeviceClean:
+            module: genie.libs.clean
+            devices: [PE1]
+
+    devices:
+        PE1:
+            images:
+            - /path/to/image.bin
+
+            change_boot_variable:
+                images:
+                - bootflash:/image_12345.bin
+
+
+with the above configuration, the image specified on line 13, will be overridden by the value on line 9.
+
+Example clean yaml with updated confgiuration setting.
+
+.. code-block:: yaml
+    :linenos:
+    :emphasize-lines: 8-9, 16
+
+    cleaners:
+        PyatsDeviceClean:
+            module: genie.libs.clean
+            devices: [PE1]
+
+    devices:
+        PE1:
+            image_handler:
+              override_stage_images: False
+
+            images:
+            - /path/to/image.bin
+
+            change_boot_variable:
+                images:
+                - bootflash:/image_12345.bin
+
+With the above configuration, the image specified on line 16 will be used as is.
