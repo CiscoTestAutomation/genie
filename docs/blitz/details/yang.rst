@@ -102,7 +102,7 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
     format:
       request_mode:    # [STREAM, ONCE, POLL] gNMI subscription mode
       sub_mode:        # [ON_CHANGE, SAMPLE] gNMI subscription sub_mode
-      encoding:        # [JSON, JSON_IETF] gNMI val encoding
+      encoding:        # [JSON, JSON_IETF, ASCII] gNMI val encoding
       prefix:          # [true | false] gNMI message requires PATH prefix
       origin:          # [openconfig | rfc7951 | <device defined> ] gNMI origin
       base64:          # [true | false] gNMI set "val" requires Base64 encoding
