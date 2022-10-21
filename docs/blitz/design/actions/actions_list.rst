@@ -399,7 +399,9 @@ More protocols will be added in the future.
         protocol: netconf
         banner: TAKE YANG SNAPSHOT 1
 
-There is one snapshot per device. A new ``yang_snapshot`` action replaces the snapshot created by the previous ``yang_snapshot`` action. ``banner`` is optional and it is just for your information.
+There is one snapshot per device. A new ``yang_snapshot`` action replaces the
+snapshot created by the previous ``yang_snapshot`` action. ``banner`` is
+optional and it is just for your information.
 
 yang_snapshot_restore
 ^^^^^^^^^^^^^^^^^^^^^
