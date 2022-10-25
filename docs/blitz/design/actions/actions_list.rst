@@ -393,7 +393,7 @@ More protocols will be added in the future.
 
 .. code-block:: YAML
 
-    - save_config_snapshot:
+    - yang_snapshot:
         device: my_device
         connection: netconf
         protocol: netconf
