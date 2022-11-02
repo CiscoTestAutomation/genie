@@ -136,7 +136,7 @@ or a device runtime change depending on which resource you are monitoring.
 encoding
 ~~~~~~~~
 
-gNMI messaging can be asked for in different structured datatypes.
+gNMI messaging can request different structured datatypes.
 
 - JSON - defined in `RFC 7159`_
 - JSON_IETF - defined in `RFC 8259`_
