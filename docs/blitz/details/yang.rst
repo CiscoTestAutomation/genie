@@ -102,16 +102,112 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
     format:
       request_mode:    # [STREAM, ONCE, POLL] gNMI subscription mode
       sub_mode:        # [ON_CHANGE, SAMPLE] gNMI subscription sub_mode
-      encoding:        # [JSON, JSON_IETF] gNMI val encoding
+      encoding:        # [JSON, JSON_IETF, PROTO, ASCII] gNMI val encoding
       prefix:          # [true | false] gNMI message requires PATH prefix
-      origin:          # [openconfig | rfc7951 | <device defined> ] gNMI origin
+      origin:          # [openconfig | rfc7951 | module | <device defined> ] gNMI origin
       base64:          # [true | false] gNMI set "val" requires Base64 encoding
       sample_interval: # number of seconds between sampling
       stream_max:      # seconds to stop stream (default: 0, no max)
       auto-validate:   # [true | false] automatically validate config messages
       negative-test:   # [true | false] expecting device to return an error
       pause:           # pause N seconds between each test (default: 0, no pause)
-      sequence:        # [true | false] return values and return sequence verified
+
+request_mode
+~~~~~~~~~~~~
+
+gNMI subscriptions are open gRPC channels to a device which receive data associated to
+a resource on the device.  The yang action subscribes to that resource.
+
+- STREAM - the channel stays open and receives data until *stream_max* times out.
+- ONCE - the channel stays open and receives data until the first response is complete.
+- POLL - the channel stays open and receives data only when a POLL message is sent to the device.
+
+sub_mode
+~~~~~~~~
+
+gNMI subscriptions can have sub-modes associated to a request_mode.
+
+- ON_CHANGE - data is only sent when the resource on the device has changed state.
+- SAMPLE - data is sent in the specified sample_interval.
+
+encoding
+~~~~~~~~
+
+gNMI messaging can be asked for in different structured datatypes.
+
+- JSON - defined in `RFC 7159`_
+- JSON_IETF - defined in `RFC 8259`_
+- PROTO - defined in gNMI specification `2.3.3`_
+- ASCII - defined in gNMI specification `2.3.4`_
+
+.. _RFC 7159: https://datatracker.ietf.org/doc/html/rfc7159
+.. _RFC 8259: https://datatracker.ietf.org/doc/html/rfc8259
+.. _2.3.3: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#233-protobuf
+.. _2.3.4: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#234-ascii
+
+prefix
+~~~~~~
+
+gNMI messages contain a Path component that points to a specific resourse(s) on the device.  It is possible
+to define a common Path called a `prefix`_.  If the prefix is defined, any Path definitions in the message
+will be appended to this prefix.
+
+.. _prefix: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#241-path-prefixes
+
+origin
+~~~~~~
+
+gNMI messages, as well as having a specified encoding, can also structured following a specific schema referred to
+as the `origin`_.
+
+- openconfig - the default schema
+- rfc7951 - follows the JSON schema
+- module - the schema is the YANG module that defines the resource that is the target of the message
+- device defined - any value that the specific device and client understand
+
+.. _origin: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#222-paths
+
+base64
+~~~~~~
+
+gNMI JSON or JSON_IETF encoded messages can contain a `val`_ parameter.  This represents the body of the message
+that a Path is pointing to.  Some clients compress the val into a Base64 encoding which allows for a more efficiant
+use of badnwidth.  The device must be able to decode the Base64 val if this parameter is set.
+
+.. _val: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#231-json-and-json_ietf
+
+sample_interval
+~~~~~~~~~~~~~~~
+
+gNMI STREAM subscriptions can ask for a sampling interval in which messages are sent.  The device will only send
+data at these intervals.  The parameter is set in seconds.
+
+stream_max
+~~~~~~~~~~
+
+gNMI STREAM subscriptions will last as long as the gRPC channel is open.  Without this parameter set, the test
+may never end.  The parameter is set in seconds.
+
+auto-validate
+~~~~~~~~~~~~~
+
+This is a general setting that instructs the infrastructure to automatically send a get related NETCONF or
+gNMI message to ensure that any configuration message was successful.
+
+negative-test
+~~~~~~~~~~~~~
+
+This is a general setting that instructs the infrastructure that the message sent is expected to return an
+error.  The structure of the error can be defined in the return.  If the error is encountered, the test is
+condidered successful.
+
+pause
+~~~~~
+
+This is a general setting that instructs the infrastructure to stop between each message sent to the device.
+The parameter is set in seconds.  It is primarily used to slow down test execution and is really just for
+debugging purposes.  If a device needs you to slow down, it is not handling the messaging properly and this
+should be further investigated.
 
 Content
 -------
