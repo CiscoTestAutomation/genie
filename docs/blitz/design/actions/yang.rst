@@ -566,7 +566,69 @@ Examples
             xpath: /native/l2vpn-config/l2vpn/router-id
             
 
-- gNMI ON_CHANGE subscribe testing a config change
+- gNMI STREAM subscribe testing IPv4 statistic values >= n.
+
+.. code-block:: YAML
+
+    - yang:
+        banner: YANG SUBSCRIBE STREAM SAMPLING
+        connection: gnmi
+        operation: subscribe
+        protocol: gnmi
+        datastore:
+          lock: true
+          retry: 40
+          type: ''
+        device: uut
+        format:
+          encoding: JSON
+          request_mode: STREAM
+          sample_interval: 5
+          stream_max: 20
+          auto_validate: false
+          negative_test: false
+          pause: 0
+          timeout: 30
+        log:
+          category: test
+          module: Cisco-NX-OS-device
+          name: nx-ipv4-stats
+          revision: '2021-12-14'
+        content:
+          namespace:
+            top: http://cisco.com/ns/yang/cisco-nx-os-device
+          nodes:
+          - datatype: ''
+            default: ''
+            edit-op: ''
+            nodetype: container
+            value: ''
+            xpath: /top:System/top:ipv4-items/top:inst-items/top:iptrafficstat-items
+        returns:
+        - id: '1'
+          name: consumed
+          op: '>='
+          selected: true
+          value: '17852'
+          xpath: /System/ipv4-items/inst-items/iptrafficstat-items/consumed
+        - id: '22'
+          name: received
+          op: '>='
+          selected: true
+          value: '452581'
+          xpath: /System/ipv4-items/inst-items/iptrafficstat-items/received
+        - id: '23'
+          name: sent
+          op: '>='
+          selected: true
+          value: '13102'
+          xpath: /System/ipv4-items/inst-items/iptrafficstat-items/sent
+
+
+- gNMI ON_CHANGE subscribe testing config changes to a boolean.
+**NOTE:**
+For ON_CHANGE the returns must contain the base value of the resource as well
+as any changes to the resource setup in the test.
 
 .. code-block:: YAML
 
@@ -610,8 +672,22 @@ Examples
           name: heavyTemplate
           op: ==
           selected: true
-          value: 'false'
+          value: true                                         # the base value
           xpath: /System/igmp-items/inst-items/heavyTemplate
+        - id: '1'
+          name: heavyTemplate
+          op: ==
+          selected: false                                     # the change value
+          value: true
+          xpath: /System/igmp-items/inst-items/heavyTemplate
+    - configure:
+        banner: CONFIG CHANGE FOR ON_CHANGE
+        device: uut
+        command: no ip igmp heavy-template
+    - configure:
+        banner: CONFIG CHANGE FOR ON_CHANGE
+        device: uut
+        command: ip igmp heavy-template
     - configure:
         banner: CONFIG CHANGE FOR ON_CHANGE
         device: uut
