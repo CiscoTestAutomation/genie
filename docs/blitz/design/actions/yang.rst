@@ -115,19 +115,22 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
 request_mode
 ~~~~~~~~~~~~
 
-gNMI subscriptions are open gRPC channels to a device which receive data associated to
+`gNMI subscriptions`_ are open gRPC channels to a device which receive telemetry updates associated to
 a resource on the device.  The yang action subscribes to that resource.
 
 - STREAM - the channel stays open and receives data until *stream_max* times out.
 - ONCE - the channel stays open and receives data until the first response is complete.
 - POLL - the channel stays open and receives data only when a POLL message is sent to the device.
 
+.. _gNMI subscriptions: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#35-subscribing-to-telemetry-updates
+
 sub_mode
 ~~~~~~~~
 
 gNMI subscriptions can have sub-modes associated to a request_mode.
 
-- ON_CHANGE - data is only sent when the resource on the device has changed state.
+- ON_CHANGE - data is sent when the resource on the device has changed state either by a config change
+or a device runtime change depending on which resource you are monitoring.
 - SAMPLE - data is sent in the specified sample_interval.
 
 encoding
@@ -180,13 +183,13 @@ sample_interval
 ~~~~~~~~~~~~~~~
 
 gNMI STREAM subscriptions can ask for a sampling interval in which messages are sent.  The device will only send
-data at these intervals.  The parameter is set in seconds.
+data at these intervals.  Make sure the sample_interval is less than the stream_max.  The parameter is set in seconds.
 
 stream_max
 ~~~~~~~~~~
 
-gNMI STREAM subscriptions will last as long as the gRPC channel is open.  Without this parameter set, the test
-may never end.  The parameter is set in seconds.
+gNMI STREAM subscriptions will last as long as the gRPC channel is open.  Without this parameter set,
+the test may never end.  The parameter is set in seconds.
 
 auto-validate
 ~~~~~~~~~~~~~
@@ -563,43 +566,53 @@ Examples
             xpath: /native/l2vpn-config/l2vpn/router-id
             
 
-- gNMI subscribe testing a config change
+- gNMI ON_CHANGE subscribe testing a config change
 
 .. code-block:: YAML
 
     - configure:
-        commmand:
-          - l2vpn router-id 10.10.10.1
-    - sleep:
-        sleep_time: 5
+        banner: CONFIG SETUP FOR ON_CHANGE
+        device: uut
+        command: ip igmp heavy-template
     - yang:
-        device: uut2
+        banner: YANG SUBSCIBE ON_CHANGE
         connection: gnmi
-        operation: subscribe
-        protocol: gnmi
-        banner: gNMI SUBCRIBE MESSAGE
-        format:
-          request_mode: STREAM
-          sub_mode: SAMPLE
-          encoding: JSON_IETF
-          sample_interval: 5
-          stream_max: 20       # test completes after 20 seconds
         content:
           namespace:
-            ios-l2vpn: http://cisco.com/ns/yang/Cisco-IOS-XE-l2vpn
+            top: http://cisco.com/ns/yang/cisco-nx-os-device
           nodes:
-          - xpath: /native/l2vpn-config/ios-l2vpn:l2vpn/ios-l2vpn:router-id
+          - datatype: boolean
+            nodetype: leaf
+            xpath: /top:System/top:igmp-items/top:inst-items/top:heavyTemplate
+        datastore:
+          lock: true
+          retry: 40
+          type: 'running'
+        device: uut
+        format:
+          encoding: JSON
+          request_mode: STREAM
+          sub_mode: ON_CHANGE
+          stream_max: 10
+          auto_validate: false
+          negative_test: false
+          pause: 0
+          timeout: 30
+        log:
+          category: test
+          module: Cisco-NX-OS-device
+          name: on_change
+          revision: '2021-12-14'
+        operation: subscribe
+        protocol: gnmi
         returns:
-          - id: 2
-            name: router-id
-            op: ==
-            selected: true
-            datatype: string
-            value: 10.10.10.2
-            xpath: /native/l2vpn-config/l2vpn/router-id
-    - sleep:
-        sleep_time: 5
-    # following event will trigger a returns check
+        - id: '0'
+          name: heavyTemplate
+          op: ==
+          selected: true
+          value: 'false'
+          xpath: /System/igmp-items/inst-items/heavyTemplate
     - configure:
-        commmand:
-          - l2vpn router-id 10.10.10.2
+        banner: CONFIG CHANGE FOR ON_CHANGE
+        device: uut
+        command: no ip igmp heavy-template

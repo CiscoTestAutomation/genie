@@ -308,35 +308,6 @@ print
           value: "%VARIABLES{parse_output1}"
         ...
 
-yang
-^^^^^
-
-The :ref:`yang action<yang action>` is designed to work with different messaging protocols
-which include NETCONF, RESTCONF and gNMI.  Changing the connection and protocol determines
-the message format.  See :ref:`yang action details<yang action>` for other configurations.
-
-Example of configuration using NETCONF (with automated verification of edit-config on device)
-
-.. code-block:: YAML
-
-    - yang:
-        device: uut2
-        connection: netconf
-        protocol: netconf
-        operation: edit-config
-        datastore:
-          type: candidate  # empty string means type is chosen from device capabilities.
-          lock: true
-          retry: 40
-        banner: YANG EDIT-CONFIG MESSAGE
-        content:
-          namespace:
-            ios-l2vpn: http://cisco.com/ns/yang/Cisco-IOS-XE-l2vpn
-          nodes:
-          - value: 10.10.10.2
-            xpath: /native/l2vpn-config/ios-l2vpn:l2vpn/ios-l2vpn:router-id
-            edit-op: merge
-
 bash_console
 ^^^^^^^^^^^^^
 
