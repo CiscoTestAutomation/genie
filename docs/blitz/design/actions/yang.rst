@@ -102,16 +102,115 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
     format:
       request_mode:    # [STREAM, ONCE, POLL] gNMI subscription mode
       sub_mode:        # [ON_CHANGE, SAMPLE] gNMI subscription sub_mode
-      encoding:        # [JSON, JSON_IETF] gNMI val encoding
+      encoding:        # [JSON, JSON_IETF, PROTO, ASCII] gNMI val encoding
       prefix:          # [true | false] gNMI message requires PATH prefix
-      origin:          # [openconfig | rfc7951 | <device defined> ] gNMI origin
+      origin:          # [openconfig | rfc7951 | module | <device defined> ] gNMI origin
       base64:          # [true | false] gNMI set "val" requires Base64 encoding
       sample_interval: # number of seconds between sampling
       stream_max:      # seconds to stop stream (default: 0, no max)
       auto-validate:   # [true | false] automatically validate config messages
       negative-test:   # [true | false] expecting device to return an error
       pause:           # pause N seconds between each test (default: 0, no pause)
-      sequence:        # [true | false] return values and return sequence verified
+
+request_mode
+~~~~~~~~~~~~
+
+`gNMI subscriptions`_ are open gRPC channels to a device which receive telemetry updates associated to
+a resource on the device.  The yang action subscribes to that resource.
+
+- STREAM - the channel stays open and receives data until *stream_max* times out.
+- ONCE - the channel stays open and receives data until the first response is complete.
+- POLL - the channel stays open and receives data only when a POLL message is sent to the device.
+
+.. _gNMI subscriptions: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#35-subscribing-to-telemetry-updates
+
+sub_mode
+~~~~~~~~
+
+gNMI subscriptions can have sub-modes associated to a request_mode.
+
+- ON_CHANGE - data is sent when the resource on the device has changed state either by a config change
+or a device runtime change depending on which resource you are monitoring.
+- SAMPLE - data is sent in the specified sample_interval.
+
+encoding
+~~~~~~~~
+
+gNMI messaging can request different structured datatypes.
+
+- JSON - defined in `RFC 7159`_
+- JSON_IETF - defined in `RFC 8259`_
+- PROTO - defined in gNMI specification `2.3.3`_
+- ASCII - defined in gNMI specification `2.3.4`_
+
+.. _RFC 7159: https://datatracker.ietf.org/doc/html/rfc7159
+.. _RFC 8259: https://datatracker.ietf.org/doc/html/rfc8259
+.. _2.3.3: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#233-protobuf
+.. _2.3.4: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#234-ascii
+
+prefix
+~~~~~~
+
+gNMI messages contain a Path component that points to a specific resourse(s) on the device.  It is possible
+to define a common Path called a `prefix`_.  If the prefix is defined, any Path definitions in the message
+will be appended to this prefix.
+
+.. _prefix: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#241-path-prefixes
+
+origin
+~~~~~~
+
+gNMI messages, as well as having a specified encoding, can also structured following a specific schema referred to
+as the `origin`_.
+
+- openconfig - the default schema
+- rfc7951 - follows the JSON schema
+- module - the schema is the YANG module that defines the resource that is the target of the message
+- device defined - any value that the specific device and client understand
+
+.. _origin: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#222-paths
+
+base64
+~~~~~~
+
+gNMI JSON or JSON_IETF encoded messages can contain a `val`_ parameter.  This represents the body of the message
+that a Path is pointing to.  Some clients compress the val into a Base64 encoding which allows for a more efficiant
+use of badnwidth.  The device must be able to decode the Base64 val if this parameter is set.
+
+.. _val: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#231-json-and-json_ietf
+
+sample_interval
+~~~~~~~~~~~~~~~
+
+gNMI STREAM subscriptions can ask for a sampling interval in which messages are sent.  The device will only send
+data at these intervals.  Make sure the sample_interval is less than the stream_max.  The parameter is set in seconds.
+
+stream_max
+~~~~~~~~~~
+
+gNMI STREAM subscriptions will last as long as the gRPC channel is open.  Without this parameter set,
+the test may never end.  The parameter is set in seconds.
+
+auto-validate
+~~~~~~~~~~~~~
+
+This is a general setting that instructs the infrastructure to automatically send a get related NETCONF or
+gNMI message to ensure that any configuration message was successful.
+
+negative-test
+~~~~~~~~~~~~~
+
+This is a general setting that instructs the infrastructure that the message sent is expected to return an
+error.  The structure of the error can be defined in the return.  If the error is encountered, the test is
+condidered successful.
+
+pause
+~~~~~
+
+This is a general setting that instructs the infrastructure to stop between each message sent to the device.
+The parameter is set in seconds.  It is primarily used to slow down test execution and is really just for
+debugging purposes.  If a device needs you to slow down, it is not handling the messaging properly and this
+should be further investigated.
 
 Content
 -------
@@ -467,43 +566,129 @@ Examples
             xpath: /native/l2vpn-config/l2vpn/router-id
             
 
-- gNMI subscribe testing a config change
+- gNMI STREAM subscribe testing IPv4 statistic values >= n.
+
+.. code-block:: YAML
+
+    - yang:
+        banner: YANG SUBSCRIBE STREAM SAMPLING
+        connection: gnmi
+        operation: subscribe
+        protocol: gnmi
+        datastore:
+          lock: true
+          retry: 40
+          type: ''
+        device: uut
+        format:
+          encoding: JSON
+          request_mode: STREAM
+          sample_interval: 5
+          stream_max: 20
+          auto_validate: false
+          negative_test: false
+          pause: 0
+          timeout: 30
+        log:
+          category: test
+          module: Cisco-NX-OS-device
+          name: nx-ipv4-stats
+          revision: '2021-12-14'
+        content:
+          namespace:
+            top: http://cisco.com/ns/yang/cisco-nx-os-device
+          nodes:
+          - datatype: ''
+            default: ''
+            edit-op: ''
+            nodetype: container
+            value: ''
+            xpath: /top:System/top:ipv4-items/top:inst-items/top:iptrafficstat-items
+        returns:
+        - id: '1'
+          name: consumed
+          op: '>='
+          selected: true
+          value: '17852'
+          xpath: /System/ipv4-items/inst-items/iptrafficstat-items/consumed
+        - id: '22'
+          name: received
+          op: '>='
+          selected: true
+          value: '452581'
+          xpath: /System/ipv4-items/inst-items/iptrafficstat-items/received
+        - id: '23'
+          name: sent
+          op: '>='
+          selected: true
+          value: '13102'
+          xpath: /System/ipv4-items/inst-items/iptrafficstat-items/sent
+
+
+- gNMI ON_CHANGE subscribe testing config changes to a boolean.
+**NOTE:**
+For ON_CHANGE the returns must contain the base value of the resource as well
+as any changes to the resource setup in the test.
 
 .. code-block:: YAML
 
     - configure:
-        commmand:
-          - l2vpn router-id 10.10.10.1
-    - sleep:
-        sleep_time: 5
+        banner: CONFIG SETUP FOR ON_CHANGE
+        device: uut
+        command: ip igmp heavy-template
     - yang:
-        device: uut2
+        banner: YANG SUBSCIBE ON_CHANGE
         connection: gnmi
-        operation: subscribe
-        protocol: gnmi
-        banner: gNMI SUBCRIBE MESSAGE
-        format:
-          request_mode: STREAM
-          sub_mode: SAMPLE
-          encoding: JSON_IETF
-          sample_interval: 5
-          stream_max: 20       # test completes after 20 seconds
         content:
           namespace:
-            ios-l2vpn: http://cisco.com/ns/yang/Cisco-IOS-XE-l2vpn
+            top: http://cisco.com/ns/yang/cisco-nx-os-device
           nodes:
-          - xpath: /native/l2vpn-config/ios-l2vpn:l2vpn/ios-l2vpn:router-id
+          - datatype: boolean
+            nodetype: leaf
+            xpath: /top:System/top:igmp-items/top:inst-items/top:heavyTemplate
+        datastore:
+          lock: true
+          retry: 40
+          type: 'running'
+        device: uut
+        format:
+          encoding: JSON
+          request_mode: STREAM
+          sub_mode: ON_CHANGE
+          stream_max: 10
+          auto_validate: false
+          negative_test: false
+          pause: 0
+          timeout: 30
+        log:
+          category: test
+          module: Cisco-NX-OS-device
+          name: on_change
+          revision: '2021-12-14'
+        operation: subscribe
+        protocol: gnmi
         returns:
-          - id: 2
-            name: router-id
-            op: ==
-            selected: true
-            datatype: string
-            value: 10.10.10.2
-            xpath: /native/l2vpn-config/l2vpn/router-id
-    - sleep:
-        sleep_time: 5
-    # following event will trigger a returns check
+        - id: '0'
+          name: heavyTemplate
+          op: ==
+          selected: true
+          value: true                                         # the base value
+          xpath: /System/igmp-items/inst-items/heavyTemplate
+        - id: '1'
+          name: heavyTemplate
+          op: ==
+          selected: false                                     # the change value
+          value: true
+          xpath: /System/igmp-items/inst-items/heavyTemplate
     - configure:
-        commmand:
-          - l2vpn router-id 10.10.10.2
+        banner: CONFIG CHANGE FOR ON_CHANGE
+        device: uut
+        command: no ip igmp heavy-template
+    - configure:
+        banner: CONFIG CHANGE FOR ON_CHANGE
+        device: uut
+        command: ip igmp heavy-template
+    - configure:
+        banner: CONFIG CHANGE FOR ON_CHANGE
+        device: uut
+        command: no ip igmp heavy-template

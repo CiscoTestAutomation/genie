@@ -7,3 +7,4 @@ List of blitz actions
     :maxdepth: 4
 
     actions_list
+    yang
