@@ -100,17 +100,20 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
 .. code-block:: YAML
 
     format:
-      request_mode:    # [STREAM, ONCE, POLL] gNMI subscription mode
-      sub_mode:        # [ON_CHANGE, SAMPLE] gNMI subscription sub_mode
-      encoding:        # [JSON, JSON_IETF, PROTO, ASCII] gNMI val encoding
-      prefix:          # [true | false] gNMI message requires PATH prefix
-      origin:          # [openconfig | rfc7951 | module | <device defined> ] gNMI origin
-      base64:          # [true | false] gNMI set "val" requires Base64 encoding
-      sample_interval: # number of seconds between sampling
-      stream_max:      # seconds to stop stream (default: 0, no max)
-      auto-validate:   # [true | false] automatically validate config messages
-      negative-test:   # [true | false] expecting device to return an error
-      pause:           # pause N seconds between each test (default: 0, no pause)
+      request_mode:     # [STREAM, ONCE, POLL] gNMI subscription mode
+      sub_mode:         # [ON_CHANGE, SAMPLE] gNMI subscription sub_mode
+      encoding:         # [JSON, JSON_IETF, PROTO, ASCII] gNMI val encoding
+      prefix:           # [true | false] gNMI message requires PATH prefix
+      origin:           # [openconfig | rfc7951 | module | <device defined> ] gNMI origin
+      base64:           # [true | false] gNMI set "val" requires Base64 encoding
+      sample_interval:  # number of seconds between sampling
+      stream_max:       # seconds to stop stream (default: 120, no max)
+      auto-validate:    # [true | false] automatically validate config messages
+      negative-test:    # [true | false] expecting device to return an error
+      pause:            # pause N seconds between each test (default: 0, no pause)
+      transaction_time: # number of seconds that determines the maximum time that can pass between sending a request and receiving a response
+      polls_number:     # only for POLL subscribtions, determines how many polls should be sended (default: stream_max // sample_interval)
+      updates_only:     # only for Subscribe requests, determines if only updates should be received (default: false)
 
 request_mode
 ~~~~~~~~~~~~
@@ -211,6 +214,21 @@ This is a general setting that instructs the infrastructure to stop between each
 The parameter is set in seconds.  It is primarily used to slow down test execution and is really just for
 debugging purposes.  If a device needs you to slow down, it is not handling the messaging properly and this
 should be further investigated.
+
+transaction_time
+~~~~~~~~~~~~~~~~
+A general setting that sets the maximum time that can elapse between sending a request and receiving a response. 
+For gNMI subscriptions in STREAM mode, this is the time between updates. If this time is exceeded, the test will fail.
+
+polls_number
+~~~~~~~~~~~~
+gNMI STREAM POLL option, determines how many polls should be sended.
+
+updates_only
+~~~~~~~~~~~~	
+A boolean that causes the server to send only updates to the current state. For STREAM subscriptions, an update occurs upon the next sample 
+(in the case of SAMPLE subscriptions), or upon the next value change for ON_CHANGE subscriptions. For POLL and ONCE subscriptions, 
+the target should send only the sync_response message, before proceeding to process poll requests (in the case of POLL) or closing the RPC (in the case of ONCE).
 
 Content
 -------
