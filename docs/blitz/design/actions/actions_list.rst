@@ -388,6 +388,22 @@ are known, ``yang_snapshot`` action is able to snapshot partial device
 configuration, which will be restored when the ``restore_config_snapshot``
 action comes.
 
+More details on implementation:
+
+ * ``yang_snapshot`` scans all following actions, including ``yang`` and
+ ``yang_snapshot_restore`` until the next ``yang_snapshot``. If there is no
+ ``yang_snapshot_restore`` action between two ``yang_snapshot`` actions,
+ ``yang`` actions in between are ignored. Otherwise, it takes a snapshot of
+ related configurations. In addition, it begins collection of ``yang`` action
+ configuration changes;
+ * If ``yang_snapshot_restore`` is called, the ``yang`` action configuration
+ changes collected since the ``yang_snapshot`` was analyzed are then reversed,
+ and the collection continues;
+ * If another ``yang_snapshot_restore`` is detected, similarly, the ``yang``
+ action configuration changes collected since the ``yang_snapshot`` are
+ reversed, and the collection continues;
+ * This continues up to the last ``yang_snapshot_restore`` of the test.
+
 Currently the ``yang_snapshot`` action is only supported with Netconf protocol.
 More protocols will be added in the future.
 
