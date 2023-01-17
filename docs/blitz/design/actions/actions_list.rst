@@ -375,6 +375,69 @@ snapshot you can specify to not delete it. See `example` below.
         device: my_device
         delete_snapshot: False #optional, default is True
 
+yang_snapshot
+^^^^^^^^^^^^^
+
+The ``yang_snapshot`` action is another alternative to capture related device
+configuration in a lightweight way. It does not save all device configuration,
+instead, it scans Genie Trigger information and find out ``yang`` actions that
+will change the device configuration before the next ``yang_snapshot_restore``
+action. Note that one ``yang_snapshot`` action can be followed by one or
+multiple ``yang_snapshot_restore`` actions. When the related ``yang`` actions
+are known, ``yang_snapshot`` action is able to snapshot partial device
+configuration, which will be restored when the ``restore_config_snapshot``
+action comes.
+
+More details on implementation:
+
+ * ``yang_snapshot`` scans all following actions, including ``yang`` and
+ ``yang_snapshot_restore`` until the next ``yang_snapshot``. If there is no
+ ``yang_snapshot_restore`` action between two ``yang_snapshot`` actions,
+ ``yang`` actions in between are ignored. Otherwise, it takes a snapshot of
+ related configurations. In addition, it begins collection of ``yang`` action
+ configuration changes;
+ * If ``yang_snapshot_restore`` is called, the ``yang`` action configuration
+ changes collected since the ``yang_snapshot`` was analyzed are then reversed,
+ and the collection continues;
+ * If another ``yang_snapshot_restore`` is detected, similarly, the ``yang``
+ action configuration changes collected since the ``yang_snapshot`` are
+ reversed, and the collection continues;
+ * This continues up to the last ``yang_snapshot_restore`` of the test.
+
+Currently the ``yang_snapshot`` action is only supported with Netconf protocol.
+More protocols will be added in the future.
+
+.. code-block:: YAML
+
+    - yang_snapshot:
+        device: my_device
+        connection: netconf
+        protocol: netconf
+        banner: TAKE YANG SNAPSHOT 1
+
+There is one snapshot per device. A new ``yang_snapshot`` action replaces the
+snapshot created by the previous ``yang_snapshot`` action. ``banner`` is
+optional and it is just for your information.
+
+yang_snapshot_restore
+^^^^^^^^^^^^^^^^^^^^^
+
+The ``yang_snapshot_restore`` action is used to restore a snapshot taken from
+the previous ``yang_snapshot`` action. As explained in ``yang_snapshot`` action
+above, this is not to restore a complete snapshot. The
+``yang_snapshot_restore`` action cleans up what the related ``yang`` actions
+have altered.
+
+The same snapshot is allowed to be re-used as needed.
+
+.. code-block:: YAML
+
+    - yang_snapshot_restore:
+        device: my_device
+        connection: netconf
+        protocol: netconf
+        banner: RESTORE YANG SNAPSHOT 1
+
 run_genie_sdk
 ^^^^^^^^^^^^^^^
 
@@ -476,19 +539,19 @@ Action ``compare`` allows you to verify the values of the saved variables. Below
 
 .. note::
 
-    Please note that if each comparison statement provided to compare would fail. The actions results would be set to Failed. 
+    Please note that if each comparison statement provided to compare would fail. The actions results would be set to Failed.
 
 dialog
 ^^^^^^
 
-Action ``dialog`` allows you to create a list of sequences to handle multiple interactions within a transaction. 
+Action ``dialog`` allows you to create a list of sequences to handle multiple interactions within a transaction.
 The following items must be declared in the action dialog:
 
  * ``device`` the name of the device.
- * ``start`` and ``end`` represent states a device can be in. 
+ * ``start`` and ``end`` represent states a device can be in.
  * ``sequence`` is a list of steps that can be executed to interact with the interface.
 
-In turn, each step in sequences must be declared with the following keywords: 
+In turn, each step in sequences must be declared with the following keywords:
 
  * ``step_msg`` message to display when the step is executed.
  * ``action`` represents the action to be executed during a step.
