@@ -265,7 +265,7 @@ Trigger Datafile
 
     groups:  # Mention which trigger group to execute
 
-    <trigger name>: # Trigger name goes here
+    <trigger name>: &trigger_arguments # Trigger name goes here
 
         source: # This section is used to let
                 # Genie know where the trigger class
@@ -557,9 +557,17 @@ Trigger Datafile
                               <key>: <value>
 
     order: # accepts a list of triggers
+        - <trigger name>
            # (Optional if no special ordering expected)
            # This list will decide the execution order of triggers
            # any trigger not defined here will be excluded
+
+        # OR
+
+           # A list of dictionaries for each trigger
+           # with trigger arguments supported as above
+        - <trigger name>: *trigger_arguments
+
 
 .. _config_datafile:
 

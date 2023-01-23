@@ -80,7 +80,7 @@ Triggers and Verifications
 
 Execute triggers and verification to perform tests on your devices.
 
-Common Cleanup 
+Common Cleanup
 ^^^^^^^^^^^^^^
 
 Make sure the state of the devices are the same as in common Setup
@@ -130,17 +130,17 @@ feature.
 
 .. note::
 
-    This is the typical Harness flow, however, everything can be customized 
+    This is the typical Harness flow, however, everything can be customized
 
 .. _book_harness_started:
-    
+
 3. Getting started with the Harness
 -----------------------------------
 
 To execute your first Genie you need the following three items.
 
 1) testbed file
-    
+
     Follow the :ref:`testbed file ready<book_setup_testbed>`.
 
 
@@ -199,7 +199,7 @@ Testbed Datafile (Mandatory)
 The testbed datafile describes the testbed information. Available devices, how
 to connect to them,  server, interfaces, etc.
 
-* :ref:`Quick guide on setting up testbed datafile<book_genie>` 
+* :ref:`Quick guide on setting up testbed datafile<book_genie>`
 * :testbed:`pyATS Documentation on testbed datafile<http>`
 
 Mapping Datafile (Optional)
@@ -218,7 +218,7 @@ Verification Datafile (Optional)
 
 The verification datafile contains all the information on the verifications.
 If no verification datafile is provided, the default datafile
-`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/verification_datafile_<uut os>.yaml` 
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/verification_datafile_<uut os>.yaml`
 is then used.
 
 It is only needed to provide a new verification datafile if you want to modify
@@ -238,7 +238,7 @@ Trigger Datafile (Optional)
 
 The trigger datafile contains all the information on the triggers.
 If no trigger datafile is provided, the default datafile
-`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/trigger_datafile_<uut os>.yaml` 
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/<uut os>/trigger_datafile_<uut os>.yaml`
 is then used.
 
 It is only needed to provide a new trigger datafile if you want to modify the
@@ -259,7 +259,7 @@ Subsection Datafile (Optional)
 
 The subsection datafile contains all the information on the subsection.
 If no subsection datafile is provided, the default datafile
-`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/subsection_datafile.yaml` 
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/subsection_datafile.yaml`
 is then used.
 
 It is only needed to provide a new subsection datafile if you want to modify the
@@ -286,7 +286,7 @@ PTS Datafile (Optional)
 
 The PTS datafile contains all the information on what to profile in the common
 setup and cleanup. If no PTS datafile is provided, the default datafile
-`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml` 
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml`
 is then used.
 
 It is only needed to provide a new profile datafile if you want to modify the
@@ -357,11 +357,11 @@ In order to use connection pool for different connections, the new mapping schem
 .. _book_harness_configure:
 
 7. How to apply the configuration to your devices?
------------------------------------------------
+--------------------------------------------------
 
 There are 3 ways to apply configuration on your devices.
 
-1) Configure the devices before the run gets started. 
+1) Configure the devices before the run gets started.
 
     Just telnet to each device and configure them manually.
 
@@ -427,7 +427,7 @@ For Traffic generator - take a look at the :ref:`traffic documentation<traffic_h
 All the arguments are documented right :ref:`here<harness_arguments>`!
 
 12. What is a datafile schema
-----------------------------
+-----------------------------
 
 The schema datafiles define the expected format of the file and provide all
 the capabilities which are supported. The schemas must be respected for all
@@ -438,7 +438,7 @@ All Genie schemas can be found on the :ref:`datafile<datafile>` page.
 .. _book_harness_extends:
 
 13. How does the `extends` field work for Datafiles?
-------------------------------------
+----------------------------------------------------
 
 Use this field to extend an existing yaml testbed file, allowing you to create
 an inheritance hierarchy.  Supports full path/names or a name of a file in the same dir.  The content of the last file on the list forms the base and is
@@ -507,14 +507,13 @@ Within the job file or as an easypy :ref:`argument<harness_arguments>` you can
 use `--trigger-uids` and/or `--trigger-groups` argument to select which
 triggers to execute.
 
-When both '--trigger-uids' and '--trigger-groups' are provided, both will be 
+When both '--trigger-uids' and '--trigger-groups' are provided, both will be
 used to elect triggers from trigger datafile.
 
 The :ref:`trigger datafile schema<trigger_datafile>` explains all the
 capabilities that the triggers support.
 
-Visit our documentation to view the list of all available :trigger:`triggers
-<http>`.
+Visit our documentation to view the list of all available :trigger:`triggers<http>`.
 
 .. code-block:: python
 
@@ -552,12 +551,12 @@ To modify the actual code and not only the arguments, please visit our
 -----------------------
 
 A trigger is a set of actions and verifications that, together, constitute a
-testcase. 
+testcase.
 
 Visit the :ref:`developer guide on trigger<harness_trigger>` for more
 detail.
 
-20. Apply configuration to your devices 
+20. Apply configuration to your devices
 ---------------------------------------
 
 Genie provides the possibility to apply full configuration on the device in the
@@ -587,7 +586,7 @@ information.
 
 .. _book_harness_profile:
 
-21. Profile the system 
+21. Profile the system
 ----------------------
 
 Profiling the system allow to take snapshot at the begining of the run, and
@@ -602,7 +601,7 @@ Here how to profile a feature:
 .. code-block:: text
 
     gRun(pts_features=['platform', 'show ip route vrf default',
-                       'show ip ospf interface', 
+                       'show ip ospf interface',
                        'show ip ospf interface vrf default',
                        'show ip ospf vrf default', 'show vrf detail'])
 
@@ -611,8 +610,8 @@ Here how to profile a feature:
 All feature to be profiled are defined in the PTS (profile the system) yaml
 file which defines which keys to **exclude**, arguments to provide and on which
 device to execute. The default datafiles can be found at
-`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml`. 
-All parsers does not need to be added to this file, and will exclude all keys 
+`$VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml`.
+All parsers does not need to be added to this file, and will exclude all keys
 defined in the Verification datafile.
 
 More information in the :ref:`PTS<PTS>` getting started page.
@@ -718,7 +717,7 @@ is not in the order list will not be executed.
 --------------
 
 :processors:`Processors <http>` are functions which are scheduled to run
-immediately before and after any sections. 
+immediately before and after any sections.
 
 Processors can be added before and after common setup, Common cleanup, any
 subsection, trigger, trigger section, and verification.
@@ -753,7 +752,7 @@ datafile.
 It's now time to execute this trigger.
 
 26. How to re-use existing Triggers/Verifications within an existing pyATS Script.
-------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 
 All triggers and verifications can be re-used within pyATS. They can be either
 run as a Testcase, or within a testcase depending of the need.
@@ -872,7 +871,7 @@ A simple example of this is as follows:
         def test(self, testbed, steps):
             print(self.uid)
 
-This will run the trigger three times, with each trigger having and 
+This will run the trigger three times, with each trigger having and
 printing the uids 'Test1', 'Test2', 'Test3'
 
 Loops can be extended by using a loop generator
@@ -893,7 +892,7 @@ Loops can be extended by using a loop generator
                     uid = 'Test' + str(i+1),
                     parameters = {'num': i+1}
                 )
-    
+
     @aetest.loop(generator=TestCaseGenerator)
     class TriggerAetestLoop(Trigger):
         @aetest.test
@@ -902,7 +901,7 @@ Loops can be extended by using a loop generator
 
 Using a loop generator allows for each iteration of the trigger to be more uniquely defined.
 In the above example, we are yielding three `Iteration` that sets the `uid` to the strings
-'Test1', 'Test2', 'Test3'. We are also able to pass it a dictionary of parameters, in this 
+'Test1', 'Test2', 'Test3'. We are also able to pass it a dictionary of parameters, in this
 case it's a single parameter of `num` which will be the numbers 1 through 3.
 
 32. Run command or API on failure
@@ -1052,3 +1051,38 @@ An example module and API is shown below.
 
 
 You can copy this, change the necessary variables, and run it with `pyats run job harness_processor_job_example.py`
+
+33. Repeated execution of Triggers
+----------------------------------
+
+To execute a trigger multiple times, use the `order` definition in the trigger datafile.
+You can provide a list of trigger names to execute and repeat the same trigger as needed.
+
+.. code-block:: yaml
+    :caption: trigger-data.yaml
+
+    # extend the default triggers
+    extends: "%CALLABLE{genie.libs.sdk.genie_yamls.datafile(trigger)}"
+
+    order:
+    - TriggerSleep
+    - TriggerSleep
+
+As of release 23.1, you can provide a list of dictionaries with trigger data.
+This allows triggers to be execute repeatedly with different settings.
+
+.. code-block:: yaml
+    :caption: trigger-data.yaml
+
+    # extend the default triggers
+    extends: "%CALLABLE{genie.libs.sdk.genie_yamls.datafile(trigger)}"
+
+    order:
+    - TriggerSleep:
+        sleep_time: 4
+        message_time: 2
+        devices: [uut1, uut2]
+    - TriggerSleep:
+        sleep_time: 10
+        message_time: 1
+        devices: [uut3, uut4]
