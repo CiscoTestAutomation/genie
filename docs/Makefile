@@ -35,6 +35,7 @@ SOURCEDIR     = .
 BUILDDIR      = $(shell pwd)/__build__/documentation
 CLEAN_DIR	  = $(shell pwd)/__build__
 HOSTNAME      = localhost
+DEVNET        = true
 
 # Dependencies for building documentation
 DEPENDENCIES = robotframework Sphinx==4.2.0 sphinxcontrib-napoleon \
@@ -87,7 +88,7 @@ docs: html
 	@echo ""
 
 html: install_build_deps
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html -devnet
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	python -m robot.libdoc genie.libs.robot.GenieRobot $(BUILDDIR)/html/userguide/robot.html
 	python -m robot.libdoc genie.libs.robot.GenieRobotApis $(BUILDDIR)/html/userguide/robot_api.html

@@ -321,7 +321,7 @@ autodoc_member_order = 'bysource'
 autoclass_content = 'both'
 
 # Links for the documentation
-if '-devnet' in sys.argv or os.environ.get('DEVNET', None) == 'true':
+if os.environ.get('DEVNET', None) == 'true':
     extlinks = links.external_links
 else:
     extlinks = links.internal_links
