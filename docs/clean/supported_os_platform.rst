@@ -105,8 +105,7 @@ The following table specifies the current set of PowerCycler types supported by 
                       host: 127.0.0.1
                       outlets: [20]
 
-
-    * - raritan-px2
+    * - raritan-px2 (snmp)
       - .. code-block:: yaml
 
             Testbed Schema
@@ -134,6 +133,85 @@ The following table specifies the current set of PowerCycler types supported by 
                       connection_type: snmp
                       host: 127.0.0.1
                       outlets: [20]
+
+    * - raritan-px2 (snmpv3)
+      - .. code-block:: yaml
+
+            Testbed Schema
+            --------------
+            devices:
+              <device>:
+                peripherals:
+                  power_cycler:
+                    - type: raritan-px2
+                      connection_type: snmpv3
+                      host (str): Ip address for Powercycler.
+                      outlets (list): Power ports associated with your device.
+                      username (str): username for Powercycler.
+                      auth_key (str): authentication password.
+                      auth_protocol (str): authentication protocol.
+                      priv_key (str): private protocol password.
+                      priv_protocol (str): private protocol type.
+                      security_level (str): Different security levels.
+
+              Snmpv3 supports three security levels:
+                1. AuthPriv (Authentication and privacy)
+                2. AuthNoPriv (Authentication)
+                3. NoAuthNoPriv (None)
+
+              Snmpv3 supported authentication protocols:
+               'md5', 'sha', 'sha224', 'sha256, 'sha384', 'sha512'
+
+              Snmpv3 supported private protocols:
+               'des', '3des',  'aes128',  'aes192', 'aes256'
+
+            Testbed Example
+            ---------------
+            Type 1: (AuthPriv)
+
+            devices:
+                PE1:
+                  peripherals:
+                    power_cycler:
+                        type: raritan-px2
+                        connection_type: snmpv3
+                        host: pdu_host
+                        outlets: [15]
+                        username: test_user
+                        auth_key: ****
+                        auth_protocol: md5
+                        priv_key: ****
+                        priv_protocol: aes128
+                        security_level: authpriv
+
+              Type 2: (AuthNoPriv)
+
+              devices:
+                PE1:
+                  peripherals:
+                    power_cycler:
+                        type: raritan-px2
+                        connection_type: snmpv3
+                        host: pdu_host
+                        outlets: [15]
+                        username: test_user
+                        auth_key: ****
+                        auth_protocol: md5
+                        security_level: authnopriv
+
+              Type 3: (NoAuthNoPriv)
+
+              devices:
+                PE1:
+                  peripherals:
+                    power_cycler:
+                        type: raritan-px2
+                        connection_type: snmpv3
+                        host: pdu_host
+                        outlets: [15]
+                        username: test_user
+                        security_level: noauthnopriv
+
 
     * - apc
       - .. code-block:: yaml
