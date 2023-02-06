@@ -6,8 +6,8 @@ Supported Platforms and PowerCyclers
     pyATS Clean is designed modular to enable community-based contribution model. It is expected user communities will
     contribute to the pyATS clean stage/steps for support specifics of their given OS/Platform/Powercycler or to
     close the gap on an any features.
-    
-    Refer to the :ref:`Developer Guide <clean_doc_developer_guide>` documentation to get started in your development. 
+
+    Refer to the :ref:`Developer Guide <clean_doc_developer_guide>` documentation to get started in your development.
 
 .. _clean_doc_supported_os:
 
@@ -212,6 +212,95 @@ The following table specifies the current set of PowerCycler types supported by 
                         username: test_user
                         security_level: noauthnopriv
 
+    * - generic-cli
+      - .. code-block:: yaml
+
+            Testbed Schema
+            --------------
+            devices:
+              <device>:
+                peripherals:
+                  power_cycler:
+                    - type: generic-cli
+                      host (str): Ip address for Powercycler.
+                      connection_type: ssh
+                      outlets (list, optional): Power ports associated with your device.
+                      commands (dict):
+                          power_on (str): Command to power on the Powercycler
+                          power_off (str): Command to power off the Powercycler
+
+            Description
+            -----------
+
+              Commands argument takes in any power_on and power_off commands,
+              which are mandatory.
+
+              Example: 1 (If outlets are used)
+
+              These commands should have outlet string on it, if the power cycle
+              is based on oulet. For example
+
+                  commands:
+                        power_on: "power outlets {outlet} on"
+                        power_off: "power outlets {outlet} off"
+
+              It is mandatory to specify the {outlet} as this string format.
+
+              Example: 2 (If device names are used)
+
+              If the device name is used to powercycle. Please refer
+              the example below:
+
+                  commands:
+                        power_on: "power-tool %{self} on"
+                        power_off: "power-tool %{self} off"
+
+              Here %{self} takes the device name from the testbed.
+
+
+            Testbed Example
+            ---------------
+            devices:
+              PE1:
+                peripherals:
+                  power_cycler:
+                    - type: generic-cli
+                      host: 127.0.0.1
+                      connection_type: ssh
+                      outlets: [6]
+                      commands:
+                          power_on: "power outlets {outlet} on"
+                          power_off: "power outlets {outlet} off"
+
+    * - Raritan
+      - .. code-block:: yaml
+
+            Testbed Schema
+            --------------
+            devices:
+              <device>:
+                peripherals:
+                  power_cycler:
+                    - type: Raritan
+                      host (str): Ip address for Powercycler.
+                      connection_type: ssh
+                      outlets (list): Power ports associated with your device.
+
+            Description
+            -----------
+              The power_on and power_off commands for Raritan are added by default.
+              The user needs to pass the outlets.
+
+            Testbed Example
+            ---------------
+            devices:
+              PE1:
+                peripherals:
+                  power_cycler:
+                      - type: Raritan
+                        host: 127.0.0.1
+                        connection_type: telnet
+                        outlets: [7]
 
     * - apc
       - .. code-block:: yaml
