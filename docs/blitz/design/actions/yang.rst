@@ -106,13 +106,12 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
       prefix:           # [true | false] gNMI message requires PATH prefix
       origin:           # [openconfig | rfc7951 | module | <device defined> ] gNMI origin
       base64:           # [true | false] gNMI set "val" requires Base64 encoding
-      sample_interval:  # number of seconds between sampling
+      sample_poll:      # number of seconds between sampling
       stream_max:       # seconds to stop stream (default: 120, no max)
       auto-validate:    # [true | false] automatically validate config messages
       negative-test:    # [true | false] expecting device to return an error
       pause:            # pause N seconds between each test (default: 0, no pause)
       transaction_time: # number of seconds that determines the maximum time that can pass between sending a request and receiving a response
-      polls_number:     # only for POLL subscribtions, determines how many polls should be sended (default: stream_max // sample_interval)
       updates_only:     # only for Subscribe requests, determines if only updates should be received (default: false)
 
 request_mode
@@ -182,8 +181,8 @@ use of badnwidth.  The device must be able to decode the Base64 val if this para
 
 .. _val: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#231-json-and-json_ietf
 
-sample_interval
-~~~~~~~~~~~~~~~
+sample_poll
+~~~~~~~~~~~
 
 gNMI STREAM subscriptions can ask for a sampling interval in which messages are sent.  The device will only send
 data at these intervals.  Make sure the sample_interval is less than the stream_max.  The parameter is set in seconds.
@@ -219,10 +218,6 @@ transaction_time
 ~~~~~~~~~~~~~~~~
 A general setting that sets the maximum time that can elapse between sending a request and receiving a response. 
 For gNMI subscriptions in STREAM mode, this is the time between updates. If this time is exceeded, the test will fail.
-
-polls_number
-~~~~~~~~~~~~
-gNMI STREAM POLL option, determines how many polls should be sended.
 
 updates_only
 ~~~~~~~~~~~~	
