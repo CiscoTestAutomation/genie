@@ -106,7 +106,7 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
       prefix:           # [true | false] gNMI message requires PATH prefix
       origin:           # [openconfig | rfc7951 | module | <device defined> ] gNMI origin
       base64:           # [true | false] gNMI set "val" requires Base64 encoding
-      sample_poll:      # number of seconds between sampling
+      sample_poll:      # number of seconds between SAMPLE sub_mode or POLL request_mod
       stream_max:       # seconds to stop stream (default: 120, no max)
       auto-validate:    # [true | false] automatically validate config messages
       negative-test:    # [true | false] expecting device to return an error
