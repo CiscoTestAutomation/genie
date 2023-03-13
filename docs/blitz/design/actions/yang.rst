@@ -185,7 +185,10 @@ sample_poll
 ~~~~~~~~~~~
 
 gNMI STREAM subscriptions can ask for a sampling interval in which messages are sent.  The device will only send
-data at these intervals.  Make sure the sample_interval is less than the stream_max.  The parameter is set in seconds.
+data at these intervals.  Make sure the sample_interval is less than the stream_max. For POLL mode it Indicates every how many seconds POLL requests are to be sent. 
+For SAMPLE sub_mode the field is equivalent to the `sample_interval`_ field but value is defined in seconds. Default value is 5.
+
+.. _sample_interval: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#35152-stream-subscriptions
 
 stream_max
 ~~~~~~~~~~
