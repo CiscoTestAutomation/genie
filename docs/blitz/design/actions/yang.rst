@@ -185,7 +185,7 @@ sample_poll
 ~~~~~~~~~~~
 
 gNMI STREAM subscriptions can ask for a sampling interval in which messages are sent.  The device will only send
-data at these intervals.  Make sure the sample_interval is less than the stream_max. For POLL mode it Indicates every how many seconds POLL requests are to be sent. 
+data at these intervals.  Make sure STREAM sub_mode "SAMPLE" is less than the stream_max. For POLL it indicates how many seconds between POLL requests. 
 For SAMPLE sub_mode the field is equivalent to the `sample_interval`_ field but value is defined in seconds. Default value is 5.
 
 .. _sample_interval: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#35152-stream-subscriptions
@@ -219,8 +219,8 @@ should be further investigated.
 
 transaction_time
 ~~~~~~~~~~~~~~~~
-A general setting that sets the maximum time that can elapse between sending a request and receiving a response. 
-For gNMI subscriptions in STREAM mode, this is the time between updates. If this time is exceeded, the test will fail.
+For a GET, the maximum time that can elapse between sending a request and the response completing.
+For gNMI subscriptions in STREAM mode, this is the time between a response arriving and the response completing. If time is exceeded, the test will fail.
 
 updates_only
 ~~~~~~~~~~~~	
