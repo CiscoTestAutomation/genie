@@ -483,3 +483,24 @@ genie.libs.parser
 
 genie.telemetry
 """""""""""""""""
+
+
+
+genie.trafficgen
+"""""""""""""""""
+
+--------------------------------------------------------------------------------
+                                      Fix                                       
+--------------------------------------------------------------------------------
+
+* trex
+    * Modified Trex
+        * Add ability to pass a cfg file when autobooting trex
+
+
+--------------------------------------------------------------------------------
+                                New
+--------------------------------------------------------------------------------
+* trex
+    * Add new APIs to trex implementation.py:
+        * Added support for injecting ns nud, ns dad, rs, ra, redirect packets
