@@ -12,58 +12,41 @@ Concept
     - :pythonimportsystem:`Python Import System <http>`
 
 
-``abstract`` package is built upon the principle of dynamically looking up and 
-calling the right set of classes/functions/methods based on *requirements*. 
-These requirements are defined in each **abstraction enabled package** in the 
-form of **tokens**. 
+``abstract`` package is built upon the principle of dynamically looking up and
+calling the right set of classes/functions/methods based on *requirements*.
+These requirements are defined in the form of **tokens**, which describe the
+types of device that a specific implementation supports.
 
 .. _abstraction_pkg:
 
 Abstraction-Enabled Package
 ---------------------------
 
-An abstracton-enabled package is simply any regular Python package declared to
-be abstraction-compatible using the ``abstract.declare_package()`` API. Beyond 
-that, an abstraction-enabled package behaves no differently than any other 
-standard Python modules.
+An abstraction-enabled package is simply any regular Python package declared to
+be abstraction-compatible using the ``abstract.declare_package()`` API.
 
 .. code-block:: python
 
     # Example
     # -------
-    #
     #   abstraction-enabled package example
 
     # assuming the following directory structure
-    #   my_package/
-    #   |
-    #   |-- __init__.py
-    #   |
-    #   `-- <other files/dirs>
+    #   mypackage/
+    #   ├── __init__.py
+    #   └── <other files/dir>
 
     # declare abstraction-package at the top of my_package/__init__.py
     from genie import abstract
-    abstract.declare_package(__name__)
+    abstract.declare_package()
 
-    # Note
-    # ----
-    #
-    #   - the above is equivalent to:
-    #       from abstract import declare_package
-    #       declare_package(__name__)
-    #
-    #   - __name__ is the name of this module
-
-The call to ``abstract.declare_package(__name__)`` internally
-flags the given module to be an abstraction package. This is a mandatory step
-when creating a module to be abstraction-compatible, and does not change the 
-behavior of how this package normally behaves.
+Beyond that, an abstraction-enabled package behaves no differently than any other
+standard Python module.
 
 .. code-block:: python
 
     # Example
     # -------
-    #
     #   an abstraction-enabled package is just like any other package
 
     # you can import it
@@ -80,286 +63,341 @@ behavior of how this package normally behaves.
 Abstraction Tokens
 ------------------
 
-An abstraction token is simply a child-module within an abstraction-enabled 
-package. It is declared by calling ``abstract.declare_token()`` API. Similar to
-the above, these are still... Python modules.
+An abstraction token is a device description attached to a child-module within
+an abstraction-enabled package. It is declared by calling
+``abstract.declare_token(<attribute>=<value>)`` API, which is how we define what
+kind of device this child-module is meant to support. Similar to the above,
+these are still regular Python modules and can be imported and used
+as such.
 
-.. code-block:: python
+.. code-block:: text
 
     # Example
     # -------
-    #
     #   abstraction-enabled package with tokens
 
-    # assuming the following directory sturcture
-    #   my_package/
-    #   |
-    #   |-- __init__.py
-    #   |
-    #   |-- token_one/
-    #   |   `-- __init__.py
-    #   |
-    #   `-- token_two/
-    #       |-- __init__.py
-    #       |
-    #       `-- token_two_one/
-    #           `-- __init__.py
+    # assuming the following directory structure
+    #   mypackage/
+    #   ├── __init__.py
+    #   ├── nxos/
+    #   │   └── __init__.py
+    #   └── iosxe/
+    #       ├── __init__.py
+    #       └── cat9k/
+    #           └── __init__.py
 
-    # abstraction-token is declared at the top of 
-    #   - my_package/token_one/__init__.py
-    #   - my_package/token_two/__init__.py
-    #   - my_package/token_two_one/__init__.py
+
+Abstraction tokens are declared at the top of the ``__init__.py`` file
+
+
+.. code-block:: python
+
+    #   - my_package/nxos/__init__.py
     from genie import abstract
-    abstract.declare_token(__name__)
+    abstract.declare_token(os='nxos')
 
-    # Note
-    # ----
-    #
-    #   - the above is equivalent to:
-    #       from abstract import declare_token
-    #       declare_token(__name__)
-    #
-    #   - __name__ is the name of this module
 
-    # keep in mind that this does not alter the nature of python modules
-    # it can still be imported
-    from my_package.token_one import my_class
-    from my_package.token_two import token_two_one
-    from my_package.token_two_one.token_two_one import my_other_class
+.. code-block:: python
 
-Each abstraction token represents an alternate set of libraries, capable of 
-handling the differences introduced/labelled by the **token** name. For example,
-if a package contains token ``nxos``, it suggests that the libraries following
-this token module is specific to Cisco NXOS. 
+    #   - my_package/iosxe/__init__.py
+    from genie import abstract
+    abstract.declare_token(os='iosxe')
 
-In addition, tokens may be chained/nested. This allows for library tiering. For
-example, if token ``yang`` is declared under token ``nxos``, it suggests that
-these libraries would be specific to Cisco NXOS's NETCONF/YANG implementation.
+.. code-block:: python
 
-.. note::
+    #   - my_package/iosxe/cat9k/__init__.py
+    from genie import abstract
+    abstract.declare_token(platform='cat9k')
 
-    Tokens may carry arbitrary names. Use token naming wisely to depict 
-    differences where you want to abstract your libraries. For more details, 
-    refer to :ref:`abstraction_conventions`.
+Keep in mind that this does not alter the nature of python modules, they
+can still be imported as usual
 
-.. tip::
-    
-    Follow PEP8 - :modulenamingconvention:`module naming convention <http>`.
+.. code-block:: python
+
+    from my_package.nxos import my_class
+    from my_package.iosxe import my_class
+    from my_package.iosxe.cat9k import my_class
+
+Each abstraction token represents an alternate set of libraries, capable of
+handling the differences introduced/labelled by the **token** value. For example,
+if a package contains token ``os='nxos'``, it suggests that the libraries following
+this token module is specific to Cisco NXOS.
+
+.. _token_order:
+
+In addition, tokens may be nested. For example, if the token ``platform='n7k'``
+is declared under token ``os='nxos'``, it suggests that these libraries would be
+specific to Cisco Nexus 7000 Series Switches. There is a specific order of device
+attributes for tokens, which **must** be followed while nesting:
+
+.. code-block:: markdown
+
+    - os
+    - platform
+    - model
+    - pid
+    - version
+    - revision
+
+.. warning::
+
+    Tokens may *not* carry arbitrary names or values. They should match the values
+    defined in the Unicon `PID tokens`_ file which is the source of truth for device
+    definitions. If the token values for your particular device are not present
+    please consider contributing a new definition to the file.
+
+.. _PID tokens: https://github.com/CiscoTestAutomation/unicon.plugins/blob/master/src/unicon/plugins/pid_tokens.csv
 
 
 Abstraction Mechanism
 ---------------------
 
-The ``abstract`` module works most of its magic at the Python ``import`` and
-``getattr()`` level. It does so by dissecting each lookup into three distinct
-parts: 
-
-    - **relative path**: the primary lookup path that makes the most sense from
-      a functional perspective. This is what the user references directly, eg: 
-      ``my_library.routing.ospf``
-
-    - **tokens**: the list of abstraction tokens currently known by the 
-      abstraction engine. This portion is registered through the ``Lookup``
-      object. Eg: ``iosxr``, ``fretta``, ``xml``.
-
-    - **target**: the module/class/function/variable user is looking for.
-
-During runtime, the lookup engine dynamically pieces together the above 
-information into a list of possible candidate **absolute paths** (direct mapping
-to python import statements). As the list of tokens is arbitrary, this candidate
-list is built following the :ref:`abstract_search_algorithm`. 
-
-.. code-block:: python
-
-    # Example
-    # -------
-    #
-    #   relative path & absolute path explained
-
-    # Given the following tokens:
-    #    - iosxe
-    #    - polaris_dev
-    #    - yang
-    os = 'iosxe'
-    branch = 'polaris_dev'
-    context = 'yang'
-
-    # feed to to abstraction lookup engine.
-    library = abstract.Lookup(os, branch, context)
-
-    # the relative call to
-    library.my_package.config.routing.ospf.Ospf()
-
-    # could match, for example:
-    #
-    #    my_package.iosxe.config.polaris_dev.routing.ospf.yang.Ospf
-    #         |       |      |       |          |     |     |    |
-    #    abstraction  |   relative   |       relative |     |  class
-    #      package    |     path     |         path   |   token
-    #               token          token           relative
-    #                                                path
-    # which translates to:
-    #   from my_package.iosxe.config.polaris_dev.routing.ospf.yang import Ospf
-    #
-    # where
-    # -----
-    #    relative path = config, routing, ospf
-    #    tokens        = iosxe, polaris_dev, yang
-    #    target        = Ospf()
+Retrieving features with abstraction will attempt to find the most number of
+token matches to return an implementation for that feature. An implementation
+matching both OS and platform would be returned instead of just the
+implementation matching OS, as the first would be more specific for the given
+device.
 
 
-.. _abstract_search_algorithm:
+Examples
+########
 
-Search Algorithm
-----------------
-
-The search engine combines the user's **relative path** and currently known
-**tokens** into possible **absolute paths** (python module names) and searches
-through them. A match occurs when an implementation is found (ie the target 
-exists at the candidate relative path). Otherwise, the next combination is 
-tried. If no target is found, a ``LookupError`` would be thrown.
-
-As the token names are not pre-defined, the search engine orders
-all tokens in a pre-defined fashion:
-
-    - token describes a set of *differences*
-    - token positions are always fixed w.r.t. to its left (parent)
-    - tokens on the right are more *specific* than tokens on the left
-    - each token may only appear *once* in a combination
-    - greedy match: more tokens matches is always better than less.
+Parser code exists in a directory structure like so:
 
 .. code-block:: text
 
-    Given tokens: a, b, c and d, the preferred token combination would be:
+    parser/
+    ├── __init__.py
+    └── iosxe/
+        ├── __init__.py
+        ├── show_feature.py
+        └── cat9k/
+            ├── __init__.py
+            ├── show_feature.py
+            └── c9300/
+                ├── __init__.py
+                └── show_feature.py
 
-        a b c d
-        a b c
-        a b
-        a
-        (no tokens)
+Each level of ``show_feature.py`` has an implementation for the `show feature`
+parser, but only ``parser/iosxe/show_feature.py`` and
+``parser/iosxe/cat9k/show_feature.py`` have implementations for the `show other feature`
+parser. Note that the `c9700` folder does **not** exist.
 
-These combinations are then *multiplexed* to user's **relative path** into 
-potential **absolute paths** to search for, using the following rules:
-    
-    - absolute paths must always start with the abstracted package name.
+.. list-table:: Show Feature Parser
+    :header-rows: 1
+    :align: center
 
-    - the order of relative path sections (words divided by ``.``) must be
-      preserved.
+    * - Parser Path
+      - show feature
+      - show other feature
+    * - iosxe
+      - ✔️
+      - ✔️
+    * - iosxe/cat9k
+      - ✔️
+      - ✔️
+    * - iosxe/cat9k/c9300
+      - ✔️
+      - ❌
+    * - iosxe/cat9k/c9700
+      - ❌
+      - ❌
 
-    - the order of token combinations must be preserved.
+.. note::
 
-    - tokens may take place before and after each relative path section, and may
-      appear in multiples together. (eg, ``library.iosxr.google.latest.mpls``)
+    A reminder of purpose of the different levels of ``show_feature.py``
 
-    - the last resort option is to try with "no token", eg, matching the 
-      relative path directly.
+      - Generic implementations for any IOSXE device.
+      - More specific implementations for the Catalyst 9000 Platform.
+      - Even more specific implementations for only the Catalyst 9300 model.
 
-Combining the above rules, the ideal solution would be a multi-combinatory 
-mathematical function, whose search complexity is ... *(insert math here)* ... 
-exponential. 
+We have two devices,
 
-.. code-block:: text
-    
-    Given Package: my_pkg
-    Relative Path: X, Y
-    Tokens: a, b
-    Target: MyClass()
+- ``Device_A`` which can be defined by the tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``.
+- ``Device_B`` which can be defined by the tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9700'``.
 
-    We could have the following mathmatical combinational possibilities:
+Note the different models of the two devices.
 
-        1. my_pkg.a.X.b.Y.MyClass()
-        2. my_pkg.a.X.Y.b.MyClass()
-        3. my_pkg.X.a.Y.b.MyClass()
-        4. my_pkg.X.a.b.Y.MyClass()
-        5. my_pkg.X.Y.a.b.MyClass()
-        6. my_pkg.a.X.Y.MyClass()
-        7. my_pkg.X.a.Y.MyClass()
-        8. my_pkg.X.Y.a.MyClass()
-        9. my_pkg.X.Y.MyClass()
+Example 1
+^^^^^^^^^
 
-    And that's just with two tokens and two path sections!
+.. tabs::
 
-The actual implementation internally is much simpler. When an an abstracted
-package is defined/declared and the lookup object is created, the package and 
-all of its child modules are *recursively imported*. This allows the abstraction
-engine to build an internal table of relative paths, their available token 
-combinations learnt from the import and its corresponding module. This reduced
-**relative path + tokens** relationship effectively simplies the above
-brute-force search algorithm into an ``O(n)`` lookup, where ``n`` is the number 
-of tokens.
+    .. tab:: 1
 
-.. code-block:: text
+        We want to parse `show feature` with ``Device_A``.
 
-    Pseudo Lookup Table
-    ===================
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
 
-    Relative Path            Tokens Combos           Corresponding Module
-    -------------            -------------           --------------------
-         X.Y                      a, b                     X.a.Y.b
-         X.Y                      a                        X.a.Y
-         X.Y                      None                     X.Y
+    .. tab:: 2
 
-    (shown in order of preference, from top down)
+        We want to parse `show feature` with ``Device_A``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9300/show_feature.py``.
 
-This algorithm limits to only dealing with what's been defined in the user 
-library, instead of going through all possible permutations of **relative path**
-and **tokens**. The system assumes that it is unlikely for users to make
-redundant declarations, such as defining both ``from X.a.Y.b import target`` and 
-``from X.a.b.Y import target`` within the same library.
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> File exists!
 
-.. note:: 
-    
-    The learning process safeguards against these redundant scenarios.
+    .. tab:: 3
 
+        We want to parse `show feature` with ``Device_A``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9300/show_feature.py``. An implementation
+        of the `show feature` parser exists here.
 
-.. _token_builder:
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> `show feature` parser exists!
 
-Token Builder
--------------
+    .. tab:: 4
 
-The token builder is a simple function that implements the token permutation 
-portion of the :ref:`abstract_search_algorithm`. The default token builder is
-available as ``abstract.magic.default_builder()``.
+        We want to parse `show feature` with ``Device_A``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9300/show_feature.py``. An implementation
+        of the `show feature` parser exists here. This implementation is returned.
 
-.. csv-table:: default_builder Argument List
-    :header: "Argument", "Description"
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> `show feature` parser exists!
+        - Return found parser
 
-    ``tokens``, "list of tokens to permute"
-    ``mandatory``, "list of tokens that must be used"
+Example 2
+^^^^^^^^^
 
-.. code-block:: python
+.. tabs::
 
-    # Example
-    # -------
-    #
-    #   pseudo code demonstrating the behavior of default token builder
+    .. tab:: 1
 
-    from abstract.magic import default_builder
+        We want to parse `show feature` with ``Device_B``.
 
-    # without any mandatory tokens
-    default_builder(tokens = ['nxos', 'n7k', 'c7003', 'yang', 'R8_1'])
-    # [('nxos', 'n7k', 'c7003', 'yang', 'R8_1'), 
-    #  ('nxos', 'n7k', 'c7003', 'yang'), 
-    #  ('nxos', 'n7k', 'c7003'), 
-    #  ('nxos', 'n7k'), 
-    #  ('nxos',), 
-    #  ()]
+        - ``Device_B`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9700'``
 
-    # a mandatory token is one that MUST be used in the search
-    default_builder(tokens = ['nxos', 'n7k', 'c7003', 'yang', 'R8_1'], 
-                    mandatory = ['yang'])
-    # [('nxos', 'n7k', 'c7003', 'yang', 'R8_1'), 
-    #  ('nxos', 'n7k', 'c7003', 'yang'), 
-    #  ('nxos', 'n7k', 'yang'),
-    #  ('nxos', 'yang'),
-    #  ('yang',)]
+    .. tab:: 2
 
-In essence, the "tokens" input parameter to the builder is a reflection of
-the actual, longest possible chain of tokens under any given relative path. If
-no target is found at this token/relative path combination, the next, reduced 
-set of tokens is tried. This reduction mechanism always reduces from the right.
+        We want to parse `show feature` with ``Device_B``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9700/show_feature.py``.
 
-Use the ``mandatory`` input argument when you absolutely require some tokens to
-be present in any token permutations during abstraction. This can be useful when
-you do not want the system to automatically fallback using the above logic and 
-remove it. This ensures the proper "set" of libraries is picked.
+        - ``Device_B`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9700'``
+        - ``parser/iosxe/cat9k/c9700/show_feature.py`` -> File does not exist!
+
+    .. tab:: 3
+
+        We want to parse `show feature` with ``Device_B``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9700/show_feature.py``. This file does
+        not exist so the abstraction mechanism falls back to the next best match,
+        ``parser/iosxe/cat9k/show_feature.py``.
+
+        - ``Device_B`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9700'``
+        - ``parser/iosxe/cat9k/c9700/show_feature.py`` -> File does not exist! -> Fallback!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> File exists!
+
+    .. tab:: 4
+
+        We want to parse `show feature` with ``Device_B``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9700/show_feature.py``. This file does
+        not exist so the abstraction mechanism falls back to the next best match,
+        ``parser/iosxe/cat9k/show_feature.py``. An implementation of the
+        `show feature` parser exists here.
+
+        - ``Device_B`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9700'``
+        - ``parser/iosxe/cat9k/c9700/show_feature.py`` -> File does not exist! -> Fallback!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> `show feature` parser exists!
+
+    .. tab:: 5
+
+        We want to parse `show feature` with ``Device_B``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9700/show_feature.py``. This file does
+        not exist so the abstraction mechanism falls back to the next best match,
+        ``parser/iosxe/cat9k/show_feature.py``. An implementation of the
+        `show feature` parser exists here. This implementation is returned.
+
+        - ``Device_B`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9700'``
+        - ``parser/iosxe/cat9k/c9700/show_feature.py`` -> File does not exist! -> Fallback!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> `show feature` parser exists!
+        - Return found parser
+
+Example 3
+^^^^^^^^^
+
+.. tabs::
+
+    .. tab:: 1
+
+        We want to parse `show other feature` with ``Device_A``.
+
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+
+    .. tab:: 2
+
+        We want to parse `show feature` with ``Device_A``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9300/show_feature.py``.
+
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> File exists!
+
+    .. tab:: 3
+
+        We want to parse `show feature` with ``Device_A``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9300/show_feature.py``. This file exists
+        but does not have an implementation of the `show other feature` parser
+        that we want.
+
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> `show other feature` parser does not exist!
+
+    .. tab:: 4
+
+        We want to parse `show feature` with ``Device_A``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9300/show_feature.py``. This file exists
+        but does not have an implementation of the `show other feature` parser
+        that we want. The abstraction mechanism falls back to the next best match
+        which is ``parser/iosxe/cat9k/show_feature.py``.
+
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> `show other feature` parser does not exist! -> Fallback!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> File exists!
+
+    .. tab:: 5
+
+        We want to parse `show feature` with ``Device_A``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9300/show_feature.py``. This file exists
+        but does not have an implementation of the `show other feature` parser
+        that we want. The abstraction mechanism falls back to the next best match
+        which is ``parser/iosxe/cat9k/show_feature.py``. An implementation of the
+        `show other feature` parser exists here.
+
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> `show other feature` parser does not exist! -> Fallback!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> `show other feature` parser exists!
+
+    .. tab:: 6
+
+        We want to parse `show feature` with ``Device_A``. The abstraction
+        mechanism will find the file that matches the most number of tokens,
+        which is ``parser/iosxe/cat9k/c9300/show_feature.py``. This file exists
+        but does not have an implementation of the `show other feature` parser
+        that we want. The abstraction mechanism falls back to the next best match
+        which is ``parser/iosxe/cat9k/show_feature.py``. An implementation of the
+        `show other feature` parser exists here. This implementation is returned.
+
+        - ``Device_A`` tokens ``os='iosxe'``, ``platform='cat9k'``, ``model='c9300'``
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/c9300/show_feature.py`` -> `show other feature` parser does not exist! -> Fallback!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> File exists!
+        - ``parser/iosxe/cat9k/show_feature.py`` -> `show other feature` parser exists!
+        - Return found parser
+

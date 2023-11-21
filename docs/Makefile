@@ -40,7 +40,7 @@ DEVNET        = true
 # Dependencies for building documentation
 DEPENDENCIES = robotframework Sphinx==4.2.0 sphinxcontrib-napoleon \
 			   sphinxcontrib-mockautodoc sphinx-rtd-theme
-			   #sphinxcontrib_robotframework
+			   #sphinxcontrib_robotframework sphinx-tabs
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
