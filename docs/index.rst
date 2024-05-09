@@ -47,7 +47,7 @@ libraries and avoiding functional programming.
                                'slots': 'None'},
     ...
 
-.. note:: 
+.. note::
 
     :ref:`More information on the testbed file<book_setup_testbed>`
 
@@ -127,7 +127,7 @@ massive news for automation within and outside of Cisco!
 .. toctree::
     :caption: Developer Docs
     :maxdepth: 1
-    
+
     abstract/index
     metaparser/index
     parsergen/index
