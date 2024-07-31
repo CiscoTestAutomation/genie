@@ -109,7 +109,7 @@ subscription, or, you may expect the test to fail (referred to as a negative tes
       sample_poll:      # number of seconds between SAMPLE sub_mode or POLL request_mod
       stream_max:       # seconds to stop stream (default: 120, no max)
       auto-validate:    # [true | false] automatically validate config messages
-      negative-test:    # [true | false] expecting device to return an error
+      negative_test:    # [true | false] expecting device to return an error
       pause:            # pause N seconds between each test (default: 0, no pause)
       transaction_time: # number of seconds that determines the maximum time that can pass between sending a request and receiving a response
       updates_only:     # only for Subscribe requests, determines if only updates should be received (default: false)
@@ -202,7 +202,7 @@ auto-validate
 This is a general setting that instructs the infrastructure to automatically send a get related NETCONF or
 gNMI message to ensure that any configuration message was successful.
 
-negative-test
+negative_test
 ~~~~~~~~~~~~~
 
 This is a general setting that instructs the infrastructure that the message sent is expected to return an
@@ -400,7 +400,7 @@ Examples
         log: Negative test case
         format:
           auto-validate: false
-          negative-test: true
+          negative_test: true
         content:
           namespace:
             ios-l2vpn: http://cisco.com/ns/yang/Cisco-IOS-XE-l2vpn
@@ -450,7 +450,7 @@ Examples
     format:
       1:
         auto-validate: false
-        negative-test: true
+        negative_test: true
     contents:
       1:
         namespace:
@@ -483,7 +483,7 @@ Examples
         log: Negative test case
         format:
           auto-validate: false
-          negative-test: true
+          negative_test: true
         content:
           namespace:
             ios-l2vpn: http://cisco.com/ns/yang/Cisco-IOS-XE-l2vpn
@@ -533,12 +533,12 @@ Examples
     format:
       1:
         auto-validate: true
-        negative-test: false
+        negative_test: false
         pause: 0
         timeout: 30
       2:
         auto-validate: false
-        negative-test: true
+        negative_test: true
     contents:
       1:
         namespace:
