@@ -4,8 +4,8 @@ Lookup Class
 ============
 
 ``Lookup`` class is the main feature of ``abstract`` package. It implements
-:ref:`Abstraction Concepts <abstraction_concepts>` in a user-friendly fashion, 
-and allows users to perform dynamic lookups just as if they were accessing 
+:ref:`Abstraction Concepts <abstraction_concepts>` in a user-friendly fashion,
+and allows users to perform dynamic lookups just as if they were accessing
 object attributes.
 
 .. code-block:: text
@@ -20,19 +20,19 @@ object attributes.
 Usages
 ------
 
-When instanciated with a list of :ref:`abstraction_tokens`, ``Lookup`` class 
+When instanciated with a list of :ref:`abstraction_tokens`, ``Lookup`` class
 allows the user to reference any :ref:`abstraction_pkg` available in the current
 namespace scope. This behavior can be generally summarized into the following:
 
-- at miminum, a list of :ref:`abstraction_tokens` is required in order to 
+- at miminum, a list of :ref:`abstraction_tokens` is required in order to
   instanciate a new ``Lookup`` object.
 
 - by default, all :ref:`Abstraction-Enabled Packages <abstraction_pkg>` imported
   and available at the scope where ``Lookup()`` is called, gets discovered and
   registered internally.
 
-- if an package is a part of a parent package, it needs to be imported 
-  directly into the current namespace. 
+- if an package is a part of a parent package, it needs to be imported
+  directly into the current namespace.
 
   .. code-block:: python
 
@@ -76,10 +76,10 @@ namespace scope. This behavior can be generally summarized into the following:
       lookup = Lookup(*tokens, builder = my_builder)
 
 
-- in addition, this global default builder setting can be modified by setting 
+- in addition, this global default builder setting can be modified by setting
   ``abstract.magic.DEFAULT_BUILDER`` to a builder of your liking. This will
   affect **all** newly created ``Lookup()`` object from this point onwards.
-    
+
   .. code-block:: python
 
       from genie import abstract
@@ -107,7 +107,7 @@ namespace scope. This behavior can be generally summarized into the following:
     from xbu_shared import genie, parser
 
     # create the lookup object and provide it with tokens
-    # this auto discovers and registers the above imported packages: 
+    # this auto discovers and registers the above imported packages:
     #     my_abstracted_library, genie, parser
     lookup = Lookup('iosxr')
 
@@ -134,7 +134,7 @@ namespace scope. This behavior can be generally summarized into the following:
     # create new Lookup() instances if tokens requirements change
     # you can also change the set of packages available for it,
     # as well as its base reference name.
-    lookup = Lookup('token_a', 'token_b', '...', 'etc', 
+    lookup = Lookup('token_a', 'token_b', '...', 'etc',
                     packages = {'lib_1': my_abstracted_library,
                                 'lib_2': genie',
                                 'lib_3': parser})
@@ -145,13 +145,13 @@ namespace scope. This behavior can be generally summarized into the following:
     output = lookup.lib_3.ShowVersion(device = device)
 
 .. tip::
-    
+
     always use meaningful package names.
 
 .. csv-table:: Lookup Class Argument List
     :header: "Argument", "Description"
 
-    ``*token``, "list of tokens to be used as input requirements for to this 
+    ``*token``, "list of tokens to be used as input requirements for to this
     lookup"
     ``packages``, "dictionary of name/abstraction package to lookup from
     (optional)"
@@ -160,11 +160,34 @@ namespace scope. This behavior can be generally summarized into the following:
     builder (optional)"
 
 
+Default Tokens
+--------------
+
+Sometimes you may want to define some default tokens to be added into your
+lookup. This can be done through the pyATS Configuration file:
+
+.. code-block::ini
+
+    # configuration related to abstraction
+    [abstract]
+    default_revision = <value>
+
+    # configuration related to default abstraction tokens
+    [abstract_token_defaults]
+    origin = <value>
+    os = <value>
+    platform = <value>
+    model = <value>
+    submodel = <value>
+    pid = <value>
+    version = <value>
+    os_flavor = <value>
+
 Integration with Topology
 -------------------------
 
-``Lookup()`` class also features a classmethod constructor that enables it to 
-understand pyATS topology module's ``Device()`` object, and subsequently, create 
+``Lookup()`` class also features a classmethod constructor that enables it to
+understand pyATS topology module's ``Device()`` object, and subsequently, create
 lookup objects based on the tokens specified under ``Device.custom.abstraction``
 field.
 
@@ -186,7 +209,7 @@ field.
                     context: yang
 
 .. code-block:: python
-    
+
     # Example
     # -------
     #
@@ -212,15 +235,15 @@ specifying the expected token list ``[os, series, context]``, and the expected
 
 When ``Lookup.from_device()`` method is called, the tokens associated with that
 device is automatically extracted following these rules:
-    
+
     - ``device.custom.abstraction`` is a dictionary
     - ``device.custom.abstraction['tokens']`` specifies the list of attributes
-      to read from this device object, and converted into token values. 
+      to read from this device object, and converted into token values.
     - the code prefers to read the attributes from
       ``device.custom.abstraction[attrbute]``, and falls back to
       ``device.<attribute>`` if needed.
 
-All other arguments to ``Lookup()``, such as ``builder, packages, 
+All other arguments to ``Lookup()``, such as ``builder, packages,
 builder_kwargs`` also applies to this classmethod.
 
 If however you would like to not specify the ``device.custom.abstraction`` block
@@ -229,7 +252,7 @@ list to ``Lookup.from_device()``. Any tokens specified there would be looked-up
 from the provided device attribute.
 
 .. code-block:: python
-    
+
     # Example
     # -------
     #
@@ -251,7 +274,7 @@ from the provided device attribute.
 Tips & Tricks
 -------------
 
-Typically, abstraction should be used when the end library needs to handle 
+Typically, abstraction should be used when the end library needs to handle
 differences (such as OS/Release/Mgmt Interface) etc. This leads to a per-device
 lookup model, where the set of :ref:`abstraction-tokens` per device differs.
 The best, pythonic method to tackle this is to follow the natural patterns
@@ -260,8 +283,8 @@ of Python/pyATS programming:
 - ``import`` all your packages at the top of your script/code, including all
   :ref:`Abstraction-Enabled Packages <abstraction_pkg>`.
 
-- inside AEtest ``CommonSetup`` section, as soon as you have connected to your 
-  testbed devices and learnt about what they are, create your ``Lookup()`` 
+- inside AEtest ``CommonSetup`` section, as soon as you have connected to your
+  testbed devices and learnt about what they are, create your ``Lookup()``
   objects and assign them as an attribute to each ``Device`` instance.
 
 .. code-block:: python
@@ -294,12 +317,12 @@ of Python/pyATS programming:
         def create_abstraction_lookup_objects(self, testbed, context):
             '''create_abstraction_lookup_objects
 
-            Subsection to create abstraction Lookup object and assigns it to 
+            Subsection to create abstraction Lookup object and assigns it to
             each corresponding device object as 'device.lib' attribute.
 
             In this example, we are using device object's attribute 'os', 'type'
-            (from testbed YAML file) and script input parameter 'context' as 
-            tokens. 
+            (from testbed YAML file) and script input parameter 'context' as
+            tokens.
             '''
             for device in testbed.devices.values():
                 device.lib = Lookup(device.os, device.type, context)
