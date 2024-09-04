@@ -164,24 +164,23 @@ Default Tokens
 --------------
 
 Sometimes you may want to define some default tokens to be added into your
-lookup. This can be done through the pyATS Configuration file:
+lookup. These will allow you to specify which tokens you want to use when looking
+up a package. This is especially important when using external abstracted
+packages. You can set these default tokens in the pyATS Configuration file:
 
 .. code-block::ini
 
     # configuration related to abstraction
     [abstract]
+    default_origin = <value>
+    default_os = <value>
+    default_platform = <value>
+    default_model = <value>
+    default_submodel = <value>
+    default_pid = <value>
+    default_version = <value>
+    default_os_flavor = <value>
     default_revision = <value>
-
-    # configuration related to default abstraction tokens
-    [abstract_token_defaults]
-    origin = <value>
-    os = <value>
-    platform = <value>
-    model = <value>
-    submodel = <value>
-    pid = <value>
-    version = <value>
-    os_flavor = <value>
 
 Integration with Topology
 -------------------------
