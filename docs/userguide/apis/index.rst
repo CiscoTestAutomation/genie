@@ -4,7 +4,7 @@ API Guidelines and good practices
 Genie Apis comes with a guideline. This guideline is there to make the apis
 easy to use and consistent.
 
-:apis:`Website with all existing apis<https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis>`
+`Website with all existing APIs <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/apis>`_
 
 All these apis are open-source. Ready for you to contribute!
 
