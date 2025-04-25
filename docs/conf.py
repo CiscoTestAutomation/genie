@@ -34,13 +34,14 @@ sys.path.insert(0, os.path.abspath('../'))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.extlinks',
-    #'sphinxcontrib_robotframework',
-]
+# No longer needed. All dependencies are added from makefile.
+# extensions = [
+#     'sphinx.ext.autodoc',
+#     'sphinx.ext.napoleon',
+#     'sphinx.ext.intersphinx',
+#     'sphinx.ext.extlinks',
+#     #'sphinxcontrib_robotframework',
+# ]
 
 # html_theme_options = {
 #    "collapse_navigation" : False,

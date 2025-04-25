@@ -38,9 +38,14 @@ HOSTNAME      = localhost
 DEVNET        = true
 
 # Dependencies for building documentation
-DEPENDENCIES = robotframework Sphinx==4.0.2 sphinxcontrib-napoleon \
-			   sphinxcontrib-mockautodoc sphinx-rtd-theme
-			   sphinxcontrib_robotframework
+DEPENDENCIES = sphinx-autobuild==2021.3.14 sphinx-bootstrap-theme==0.8.1 sphinx-iowmd-theme==0.0.18
+DEPENDENCIES += sphinx-rtd-theme==1.3.0 sphinx-tabs==3.4.5 sphinx-togglebutton==0.2.3 sphinxcontrib-apidoc==0.5.0
+DEPENDENCIES += sphinxcontrib-applehelp==2.0.0 sphinxcontrib-contentui==0.2.5 sphinxcontrib-devhelp==2.0.0
+DEPENDENCIES += sphinxcontrib-htmlhelp==2.1.0 sphinxcontrib-jquery==4.1 sphinxcontrib-jsmath==1.0.1
+DEPENDENCIES += sphinxcontrib-mockautodoc==0.0.1.dev20130518 sphinxcontrib-napoleon==0.7
+DEPENDENCIES += sphinxcontrib-qthelp==2.0.0 sphinxcontrib-robotframework==0.8.1
+DEPENDENCIES += sphinxcontrib-serializinghtml==2.0.0 sphinxcontrib-spelling==8.0.0 sphinxcontrib-video==0.3.1 Sphinx==8.1.3
+
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
