@@ -38,8 +38,8 @@ HOSTNAME      = localhost
 DEVNET        = true
 
 # Dependencies for building documentation
-DEPENDENCIES = robotframework Sphinx==4.0.2 sphinxcontrib-napoleon \
-			   sphinxcontrib-mockautodoc sphinx-rtd-theme
+DEPENDENCIES = robotframework Sphinx sphinxcontrib-napoleon \
+			   sphinxcontrib-mockautodoc sphinx-rtd-theme \
 			   sphinxcontrib_robotframework
 
 # User-friendly check for sphinx-build
@@ -48,8 +48,8 @@ $(error The '$(SPHINXBUILD)' command was not found. Make sure you have Sphinx in
 endif
 
 # Internal variables.
-PAPEROPT_a4     = -D latex_paper_size=a4
-PAPEROPT_letter = -D latex_paper_size=letter
+# PAPEROPT_a4     = -D latex_paper_size=a4
+# PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
@@ -90,7 +90,9 @@ docs: html
 html: install_build_deps
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
-	python -m robot.libdoc genie.libs.robot.GenieRobot $(BUILDDIR)/html/userguide/robot.html
-	python -m robot.libdoc genie.libs.robot.GenieRobotApis $(BUILDDIR)/html/userguide/robot_api.html
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
+# ! Removed from make html due to causing errors and being general useless
+# ! The docs that are generated are not useful and are done better by the feature browser
+# python -m robot.libdoc genie.libs.robot.GenieRobot $(BUILDDIR)/html/userguide/robot.html
+# python -m robot.libdoc genie.libs.robot.GenieRobotApis $(BUILDDIR)/html/userguide/robot_api.html

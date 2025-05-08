@@ -8,7 +8,7 @@ customize each step message.
 
 **Example-1: Customizing starting step message**
 
-By specifying keyword ``custom_start_step_message`` as part of the action the starting step message 
+By specifying keyword ``custom_start_step_message`` as part of the action the starting step message
 will be customized.
 
 .. code-block:: YAML
@@ -30,15 +30,16 @@ By specifying keyword ``custom_substep_message`` as well as ``custom_verificatio
 the substeps would be customized as well. ``custom_verification_message`` will be only useful
 if verification on action outputs are being done (using include/exclude)
 
-.. code-block:: YAML
+.. code-block:: yaml
 
-            - execute:
-                custom_substep_message: first test
-                custom_verification_message: second test
-                command: show version
-                device: N93_3
-                include: 
-                  - "\d"
+    - execute:
+        custom_substep_message: first test
+        custom_verification_message: second test
+        command: show version
+        device: N93_3
+        include:
+            - "\d"
+
 as shown in the image you can see how in the logs the starting message is customized.
 
 .. image:: step_.png
@@ -57,5 +58,5 @@ as shown in the image you can see how in the logs the starting message is custom
                     custom_verification_message: second test
                     command: show version
                     device: N93_3
-                    include: 
+                    include:
                       - "\d"

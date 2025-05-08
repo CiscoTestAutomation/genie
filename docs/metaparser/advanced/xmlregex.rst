@@ -1,3 +1,5 @@
+:orphan:
+
 .. _xmlregex:
 
 XML Parser Using Regular Expressions

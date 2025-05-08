@@ -19,13 +19,15 @@ TraceableDict Class
 key usage tracking. The class allows to convert the native ``dict`` into 
 ``TraceableDict`` data structure. All Python common  dictionary key usage 
 functionalities, for example:
- - dict['xx']
- - dict.keys()
- - dict.items()
- - dict.values()
- - dict.get()
- - dict.copy()
- - dict.pop()
+
+- dict['xx']
+- dict.keys()
+- dict.items()
+- dict.values()
+- dict.get()
+- dict.copy()
+- dict.pop()
+
 will be traced and saved into class variable - `tracer` for future access.
 
 **class variable**:

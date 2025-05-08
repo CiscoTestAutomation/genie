@@ -414,7 +414,7 @@ Output Generated from :ref:`Marked Up Input<core_markup>`
 Although `extend_markup` automates the production of all inputs to the
 `extend` API, the user still may wish to see this intermediate output for
 debugging purposes.  This is done by running the
-:download:`mkpgen <../../scripts/mkpgen>` script.  For example::
+:download:`mkpgen <https://github.com/CiscoTestAutomation/examples/blob/master/parsergen/pyAts/parsergen_demo_mkpg.py>` script.  For example::
 
     > mkpgen examples/parsergen/pyAts/parsergen_demo_mkpg.py
 

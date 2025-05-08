@@ -46,7 +46,7 @@ The following is a list of parsers available for execution within `genie parse`:
 :parsers:`Genie Parsers<http>`
 
 The following is an example of using `genie parse` to execute and parse show-
-command "show version" on `device` `nx-osv-1` of the `testbed.
+command "show version" on `device` `nx-osv-1` of the `testbed`.
 
 .. code-block:: bash
 
@@ -176,21 +176,21 @@ version
     +++ nx-osv-1: executing command 'show interface brief' +++
     show interface brief
 
-    -------------------------------------------------------------------------------- 
-    Port   VRF          Status IP Address                              Speed    MTU  
-    -------------------------------------------------------------------------------- 
+    --------------------------------------------------------------------------------
+    Port   VRF          Status IP Address                              Speed    MTU
+    --------------------------------------------------------------------------------
     mgmt0  --           up      x.x.x.x                                 1000     1500
 
-    -------------------------------------------------------------------------------- 
+    --------------------------------------------------------------------------------
     Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
     Interface                                                                    Ch #
-    -------------------------------------------------------------------------------- 
-    Eth1/1        1       eth  access up      none                       auto(D) --  
-    Eth1/2        1       eth  access up      none                       auto(D) --  
-    Eth1/3        1       eth  access up      none                       auto(D) --  
+    --------------------------------------------------------------------------------
+    Eth1/1        1       eth  access up      none                       auto(D) --
+    Eth1/2        1       eth  access up      none                       auto(D) --
+    Eth1/3        1       eth  access up      none                       auto(D) --
 
 The file 'genie_parse/nx-osv-1_show-interface-brief_parsed.txt' contains the parsed
-output of 'show interface brief' in JSON format. 
+output of 'show interface brief' in JSON format.
 
 An example of the JSON created by `genie parse`
 
@@ -250,19 +250,19 @@ within a network. For more information, take a look at the Genie diff command!
 
 Green means it was parsed, and red means the value was not parsed.
 
-`--fuzzy` enables fuzzy search, which allows you to use some regex syntax in 
+`--fuzzy` enables fuzzy search, which allows you to use some regex syntax in
 your search to match multiple commands. By default, searching for command is
 done by exact match or prefix matching, if no ambiguity exists.
 
-Fuzzy matching works by tokenizing your search query by spaces, and then 
+Fuzzy matching works by tokenizing your search query by spaces, and then
 comparing each token with each of the command's token to see if they are either
-the same or is the prefix of the other. When it encounters the supported regex 
-expressions, it will perform regex matching as expected and return the results. 
+the same or is the prefix of the other. When it encounters the supported regex
+expressions, it will perform regex matching as expected and return the results.
 The search is done by best fit, meaning it will try its best to fit your query
-with each command, and if it succeeds, it will be counted as a match. As a 
+with each command, and if it succeeds, it will be counted as a match. As a
 result, arguments are essentially wild cards, and using fuzzy will attempt to
-fit your query with the arguments in any way possible. For instance, 
-`sh .* abc .*` will match with `show vrf {vrf} detail`. In this case `abc` is 
+fit your query with the arguments in any way possible. For instance,
+`sh .* abc .*` will match with `show vrf {vrf} detail`. In this case `abc` is
 simply an argument for `vrf`.
 
 Fuzzy current supports the follow regex symbols and their combinations:
@@ -277,23 +277,23 @@ Fuzzy current supports the follow regex symbols and their combinations:
 - a{3}
 - .
 
-However, since lookup is done by one token at a time, this will limit the use of 
-more complex regex expressions such as lookahead and greedy. Moreover, space is 
+However, since lookup is done by one token at a time, this will limit the use of
+more complex regex expressions such as lookahead and greedy. Moreover, space is
 used as a delimiter, so to incorporate space in your query, use `\s` instead.
 
-Here are some example of matches: 
+Here are some example of matches:
 
 +----------------------------------------------------------------------------------+
 | Search                       |                                    Sample Results |
 +==================================================================================+
-| sh .* tags                   |                                show ethernet tags |
+| | sh .* tags                 | |                              show ethernet tags |
 +------------------------------+---------------------------------------------------+
-| sh .* abc .* ext             |             show ospf vrf {vrf} database external |
+| | sh .* abc .* ext           | |           show ospf vrf {vrf} database external |
 +------------------------------+---------------------------------------------------+
-| sh .* [a-z]* ext\S+          |                       show ted database extensive |
-|                              |                    show ospf3 interface extensive |
-|                              |     show ospf vrf all-inclusive database external |
-|                              |                                               ... |
+| | sh .* [a-z]* ext\S+        | |                     show ted database extensive |
+| |                            | |                  show ospf3 interface extensive |
+| |                            | |   show ospf vrf all-inclusive database external |
+| |                            | |                                             ... |
 +------------------------------+---------------------------------------------------+
 
 
@@ -320,7 +320,7 @@ For instance:
     | http.json_console.txt                                                        |
     |------------------------------------------------------------------------------|
 
-The content of the "snap1/APIC_-api-node-mo-uni-tn-SnV-flt-http.json_parsed.txt" is:
+The content of the "snap1/APIC\_-api-node-mo-uni-tn-SnV-flt-http.json_parsed.txt" is:
 
 .. code-block:: JSON
 

@@ -1,5 +1,5 @@
 July 2020
-========
+=========
 
 July 28th - Genie v20.7
 --------------------------
@@ -45,7 +45,7 @@ these packages
    pyats version update
 
 Features highlights:
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 * Fixed Dq reconstruct issue
 * Enhanced Dq query validation regex to support strings with round brackets
@@ -75,6 +75,7 @@ Features highlights:
       - :ref:`Docs <cli_learn>`
       - | Fixed logic not to terminate the run if connection failed for one of the testbed devices.
         | Summary table will now show failed device's connection.
+
         ::
 
             > pyats parse 'show version' --testbed-file tb.yaml --output .

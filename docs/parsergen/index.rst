@@ -1,4 +1,5 @@
 .. _parsergen:
+
 CLI Auto-Parser
 ===============
 
@@ -21,4 +22,3 @@ parsing mechanisms.
    advanced/index
 
    apidoc/index
-

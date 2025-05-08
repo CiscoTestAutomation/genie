@@ -479,6 +479,7 @@ abstraction purpose) instead.
                      'Status': 'down'}}}
 
 .. note::
+
     Here is the list of the supported OSes: 
-    [ 'ios', 'iosxr', 'iosxe', 'nxos', 'calvados', 'iox',
-      'pix', 'asa', 'sanos', 'dcos', 'aireos', 'linux' ]
+    ['ios', 'iosxr', 'iosxe', 'nxos', 'calvados', 'iox',
+    'pix', 'asa', 'sanos', 'dcos', 'aireos', 'linux' ]

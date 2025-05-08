@@ -1,3 +1,5 @@
+:orphan:
+
 .. _statictgn:
 
 Statictgn

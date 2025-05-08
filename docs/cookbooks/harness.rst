@@ -513,7 +513,7 @@ used to elect triggers from trigger datafile.
 The :ref:`trigger datafile schema<trigger_datafile>` explains all the
 capabilities that the triggers support.
 
-Visit our documentation to view the list of all available :trigger:`triggers<http>`.
+Visit our documentation to view the list of all available :ref:`triggers<http>`.
 
 .. code-block:: python
 
@@ -584,7 +584,7 @@ files to the devices.
 Take a look at the :ref:`full documentation <harness_configuration>` for more
 information.
 
-.. _book_harness_profile:
+.. _book_harness_profile_system:
 
 21. Profile the system
 ----------------------

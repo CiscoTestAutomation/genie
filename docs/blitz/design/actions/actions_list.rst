@@ -30,8 +30,10 @@ exists in the output. You also, have the option to check if a specific
 
 include, exclude and connection_alias keywords are optional to use.
 Two things needs to be followed to use connection_alias:
+
     1. New mapping datafile schema.
     2. ``alias`` in mapping datafile should be the ``connection_alias``.
+
 How to use the new schema for different connection can be found at this `link
 <https://pubhub.devnetcloud.com/media/genie-docs/docs/cookbooks/harness.html#what-can-you-do-with-the-mapping-datafile>`__.
 
@@ -390,19 +392,22 @@ action comes.
 
 More details on implementation:
 
- * ``yang_snapshot`` scans all following actions, including ``yang`` and
- ``yang_snapshot_restore`` until the next ``yang_snapshot``. If there is no
- ``yang_snapshot_restore`` action between two ``yang_snapshot`` actions,
- ``yang`` actions in between are ignored. Otherwise, it takes a snapshot of
- related configurations. In addition, it begins collection of ``yang`` action
- configuration changes;
- * If ``yang_snapshot_restore`` is called, the ``yang`` action configuration
- changes collected since the ``yang_snapshot`` was analyzed are then reversed,
- and the collection continues;
- * If another ``yang_snapshot_restore`` is detected, similarly, the ``yang``
- action configuration changes collected since the ``yang_snapshot`` are
- reversed, and the collection continues;
- * This continues up to the last ``yang_snapshot_restore`` of the test.
+    * ``yang_snapshot`` scans all following actions, including ``yang`` and
+        ``yang_snapshot_restore`` until the next ``yang_snapshot``. If there is no
+        ``yang_snapshot_restore`` action between two ``yang_snapshot`` actions,
+        ``yang`` actions in between are ignored. Otherwise, it takes a snapshot of
+        related configurations. In addition, it begins collection of ``yang`` action
+        configuration changes;
+
+    * If ``yang_snapshot_restore`` is called, the ``yang`` action configuration
+        changes collected since the ``yang_snapshot`` was analyzed are then reversed,
+        and the collection continues;
+
+    * If another ``yang_snapshot_restore`` is detected, similarly, the ``yang``
+        action configuration changes collected since the ``yang_snapshot`` are
+        reversed, and the collection continues;
+
+    * This continues up to the last ``yang_snapshot_restore`` of the test.
 
 Currently the ``yang_snapshot`` action is only supported with Netconf protocol.
 More protocols will be added in the future.

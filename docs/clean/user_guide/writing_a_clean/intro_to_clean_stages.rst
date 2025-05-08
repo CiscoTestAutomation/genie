@@ -1,4 +1,5 @@
 .. _clean_doc_clean_stages:
+
 Intro to Stages (Clean Step)
 ============================
 
@@ -28,6 +29,7 @@ By dividing the clean workflow into smaller stages, this streamlines the develop
 code reuse, assists when debugging clean failures, and allows you to specify exactly what to run.
 
 .. _clean_doc_available_clean_stages:
+
 What Clean Stages are Available
 -------------------------------
 

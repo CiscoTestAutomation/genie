@@ -127,11 +127,12 @@ Example: implement class method xml().
 
 Function xml() defines the xml type output parsing mechanism which
 typically contains 3 steps: executing, transforming, and returning.
-    * Step1 - executing
+
+* Step1 - executing
     Developer has choices of calling the existing xml parsers from known
     libraries, or implementing new parsing mechanism here.
 
-    * Step2 - transforming
+* Step2 - transforming
     This step might be optional for the first parser mechanism writer.
     The purpose of this step is to enforce the final output structure from
     all different parsing mechanisms (cli(), xml(), yang()) to be same.
@@ -141,13 +142,13 @@ typically contains 3 steps: executing, transforming, and returning.
     Useful tools to do the transformation:
     dict.update()  --> adding missing key-value pairs
     metaparser.util.keynames_convert()  --> nested key names converting
-    
-    * Step3: - returning
+
+* Step3: - returning
     Returns the final result - the structure of the result has to be 
     (nested)dictionary.
     
-    For detail example, please read :ref:`template_doc`, and reference the 
-    example: ``parser/nxos/show_platform.py``.
+For detail example, please read :ref:`template_doc`, and reference the 
+example: ``parser/nxos/show_platform.py``.
 
 .. code-block:: python
 

@@ -4,9 +4,9 @@ April 2018
 April 30th - Genie v3.0.0
 --------------------------
 
-Today, we are proud to make your wish becoming true: the availability of Genie v3.0.0! 
+Today, we are proud to make your wish becoming true: the availability of Genie v3.0.0!
 
-With plenty of infrastructure enhancements in the core, 200+ triggers and 280+ verifications spanning over 25 features, Genie v3.0.0 is here to make your mundane test automation exciting. 
+With plenty of infrastructure enhancements in the core, 200+ triggers and 280+ verifications spanning over 25 features, Genie v3.0.0 is here to make your mundane test automation exciting.
 
 * Simplifies the implementation of complex & comprehensive testing using Genie SDK
 * Leverage any Genie triggers & verifications in your traditional pyATS test suites
@@ -15,15 +15,23 @@ Gone are the days where you have to write script-after-script: with Genie, we ar
 
 Release Highlights:
 
-*    Genie Harness - support for Stimulus, Events & Activity (SEA) based testing using 
-     OS/Platform/(Cli/Yang/Xml) agnostic triggers & verifications 
+*    Genie Harness - support for Stimulus, Events & Activity (SEA) based testing using
+     OS/Platform/(Cli/Yang/Xml) agnostic triggers & verifications
+
 *    Plethora of new features, parsers, conf & ops libraries, with traffic generator support
+
 *    Robot Framework keyword support in Genie, pyATS and Unicon
+
 *    Introduction of Genie telemetry: a plug & play framework that monitors your testbed devices during script run for crashes, core dumps, and any related performance & stability issues/metrics through plugins
+
 *    Various core infrastructure enhancements:
+
     *    support for pyATS v4.1.0
+
     *    support for Python 3.5/3.6 (32/64bit) in addition to 3.4
+
     *    support for Mac OSX & WSL in addition to Linux
+
 *    new examples that can be run on your own topologies or VIRL testbeds
 
 With pyATS released through DevNet in Q2FY18, we made our first baby step towards enabling Cisco engineering teams to collaborate with end customers on transparent development of new test suites. However, we always knew that the power of any test automation infrastructure lies always with its libraries. As such -
@@ -147,7 +155,7 @@ Features:
 	interfaces_map -> interfaces (now returns dict of interfaces)
 	links_map      -> links (now returns dict of links)
 
-.. hint:: 
+.. hint::
 
       If you still require a list, you can do it with .values()
 
@@ -186,7 +194,7 @@ Features:
 **Genie.Harness**
 
 * PTS now generates a human readable json format stored in the archive file
-* Genie.harness now supports :ref:`traffic generator Harness <traffic_harness>`. 
+* Genie.harness now supports :ref:`traffic generator Harness <traffic_harness>`.
 * Subsection can be added/removed dynamically with the help of subsection datafile
 * Local and Global processors can be added to Trigger, Verifications and Common_setup/Common_cleanup
 * Argument can be defined for processors within the datafiles
@@ -203,42 +211,42 @@ Features:
 
 **Genie.examples**
 
-* 9 Brand new examples demonstrating all functionalities of Genie. They can be run on your own topologies or on provided Virl_ device. 
+* 9 Brand new examples demonstrating all functionalities of Genie. They can be run on your own topologies or on provided Virl_ device.
 
 **Genie.libs.Ops**
 
 * New Ops object with coresponding parser
 
-    * Vrf 
-    * Prefix-list 
-    * Igmp 
-    * Vlan 
-    * Pim 
+    * Vrf
+    * Prefix-list
+    * Igmp
+    * Vlan
+    * Pim
     * mld
-    * ospf 
-    * static_route 
-    * routing 
-    * stp 
-    * lldp 
-    * acl 
+    * ospf
+    * static_route
+    * routing
+    * stp
+    * lldp
+    * acl
 
 **Genie.libs.Conf**
 
 * New Conf object
 
-    * Mcast 
-    * vrf 
-    * prefix-list 
-    * igmp 
-    * vlan 
-    * pim 
+    * Mcast
+    * vrf
+    * prefix-list
+    * igmp
+    * vlan
+    * pim
     * mld
-    * ospf 
-    * static_route 
-    * routing 
-    * stp 
-    * lldp 
-    * acl 
+    * ospf
+    * static_route
+    * routing
+    * stp
+    * lldp
+    * acl
 
 * New connection implementation for Ixia
 
@@ -271,7 +279,7 @@ Features:
 * A new addition to Genie. :robotframework:`RobotFramework <http>` is a
   keyword-driven testframework which allows simple testscript creating. New Genie
   :robot:`robot librarires<http>` allow to re-use any ``Genie`` Trigger,
-  Verification, Ops and Parser to create powerful easy to read scripts. 
+  Verification, Ops and Parser to create powerful easy to read scripts.
 
 .. note::
 

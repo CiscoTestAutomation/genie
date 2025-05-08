@@ -340,3 +340,8 @@ templates_path = ['_templates',]
 #        app.add_stylesheet('css/asciinema-player.css')
 #        app.add_stylesheet('js/asciinema-player.css')
 
+suppress_warnings = [
+    'ref.ref',
+    'docutils',
+    'misc.highlighting_failure',
+]

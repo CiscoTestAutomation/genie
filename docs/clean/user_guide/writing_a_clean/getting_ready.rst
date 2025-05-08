@@ -1,4 +1,4 @@
-.. _clean_doc_quick_start_getting_ready:
+.. _clean_doc_writing_clean_getting_ready:
 
 Getting Ready
 =============

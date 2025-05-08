@@ -36,10 +36,12 @@ Schema class
 and subsequently validates whether the input data meets the requirements.
 
     **class instance attributes**:
+    
         - schema: the schema to be validated against. It can be any valid Python 
           data structures (eg.: dict) or callables.
           
           To instantiate the ``Schema`` class:
+
         .. code-block:: python
             
                from genie.metaparser.util.schemaengine import Schema
@@ -47,6 +49,7 @@ and subsequently validates whether the input data meets the requirements.
                s = Schema(dic)
 
     **class functionalities**:
+
         - apply_defaults: function takes the current data and applies default 
           fields to wherever needed (e.g:, missing fields), and returns the 
           input data augmented with default values.

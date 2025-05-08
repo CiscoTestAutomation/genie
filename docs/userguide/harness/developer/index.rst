@@ -1,4 +1,4 @@
-.. _harness_user_guide:
+.. _harness_developer_guide:
 
 Harness Developer Guide
 =======================
