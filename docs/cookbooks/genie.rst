@@ -23,11 +23,11 @@ DevNet
 
 .. note::
 
-    Visit :ref:`Genie installation<installation>` page for more information
+  Visit :ref:`Genie installation <installation>` page for more information
 
 .. note::
 
-    Make sure to visit :pyats:`pyAts <http>`website for all information about pyATS.
+  Make sure to visit :pyats:`pyats` website for all information about pyATS.
 
 .. note::
 
@@ -49,15 +49,15 @@ This will give you the latest version of Genie
 3. Summary of Genie Libraries and how to keep those up to date.
 ---------------------------------------------------------------
 
-Genie is a modular package. It is divided into the following packages: 
+Genie is a modular package. It is divided into the following packages:
 
 .. code-block:: text
 
     genie                         Main Genie package
-    genie.libs.conf               Libraries for Configuration object 
-    genie.libs.filetransferutils  Libraries for File Transfer utils 
-    genie.libs.ops                Genie core for Operation state object 
-    genie.libs.parser             Libraries containing all the parsers 
+    genie.libs.conf               Libraries for Configuration object
+    genie.libs.filetransferutils  Libraries for File Transfer utils
+    genie.libs.ops                Genie core for Operation state object
+    genie.libs.parser             Libraries containing all the parsers
     genie.libs.robot              Libraries containing all Robot keywords
     genie.libs.sdk                Libraries containing all Triggers and Verifications
     genie.telemetry               Genie Core for telemetry - Monitor testbed
@@ -101,11 +101,11 @@ Watch these recordings on how to install them and start contributing!
 .. csv-table:: Recordings
     :header: "Subject", "Link", "password"
 
-    Contribute to Genie - Getting started, `Link <https://cisco.webex.com/recordingservice/sites/cisco/recording/playback/379c20aa1b864aef9a4b07a93db93b40>`_, GenieTraining1
-    Modify existing Trigger, `Link <https://cisco.webex.com/recordingservice/sites/cisco/recording/playback/bd08573eabd445648d2365aaa20c1c22>`_, GenieTraining1
-    Create a new Trigger, `Link <https://cisco.webex.com/recordingservice/sites/cisco/recording/playback/836c1d32f2634427abb62c7efa148780>`_, GenieTraining1
-    Genie.abstraction introduction, `Link <https://cisco.webex.com/cisco/ldr.php?RCID=7c81df3e847ac07e1485d5cc9742ebcd>`_, GenieTraining1
-    Create a new trigger under new abstraction package, `Link <https://cisco.webex.com/cisco/ldr.php?RCID=e8208d31e7744c0960e3cb3618acdc9d>`_, GenieTraining1
+    Contribute to Genie - Getting started, `Link <https://cisco.webex.com/recordingservice/sites/cisco/recording/playback/379c20aa1b864aef9a4b07a93db93b40>`__, GenieTraining1
+    Modify existing Trigger, `Link <https://cisco.webex.com/recordingservice/sites/cisco/recording/playback/bd08573eabd445648d2365aaa20c1c22>`__, GenieTraining1
+    Create a new Trigger, `Link <https://cisco.webex.com/recordingservice/sites/cisco/recording/playback/836c1d32f2634427abb62c7efa148780>`__, GenieTraining1
+    Genie.abstraction introduction, `Link <https://cisco.webex.com/cisco/ldr.php?RCID=7c81df3e847ac07e1485d5cc9742ebcd>`__, GenieTraining1
+    Create a new trigger under new abstraction package, `Link <https://cisco.webex.com/cisco/ldr.php?RCID=e8208d31e7744c0960e3cb3618acdc9d>`__, GenieTraining1
 
 
 .. _book_setup_testbed:
@@ -141,7 +141,7 @@ Create your own Testbed file related to your device by following the :pyats_sett
 Here are a few important details to keep in mind:
 
 1) The device name must match the hostname of the device, otherwise, the
-connection will hang. 
+connection will hang.
 
 2) At least one device need to have the alias 'uut' in the testbed yaml file.
 

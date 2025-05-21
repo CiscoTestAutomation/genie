@@ -1,5 +1,5 @@
 August 2020
-========
+===========
 
 August 25th - Genie v20.8
 --------------------------
@@ -48,7 +48,7 @@ these packages
    pyats version update
 
 Features highlights:
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 * Fixed api abstraction in cases where the common and platform specific api exists but the os level does not
 * Updated genie conf device to set the default alias to 'cli' if 'os' is not provided
@@ -91,6 +91,7 @@ Features highlights:
     * - Stage 'reload'
       - `Reload Stage <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean/reload>`_
       - | Schema is changed to allow all unicon reload service arguments. See below:
+
         ::
 
                 Clean yaml file schema:
@@ -120,7 +121,7 @@ Features highlights:
 * Updated copy_to_linux added 'rename_images' argument to rename images
 * Fixed stage not being able to use more than once
 * Fixed the exit code in case clean fails
-* Modified ImageHandlers to have better error messages if the structure of images is invalid   
+* Modified ImageHandlers to have better error messages if the structure of images is invalid
 
 * [IOSXE] Added install_image and install_packages stages
 * [IOSXE] Modified change_boot_variable to save run to start after deleting existing variables

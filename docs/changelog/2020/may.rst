@@ -59,6 +59,7 @@ Features:
     * - pyats parse
       - :ref:`Docs <cli_parse>`
       - | Enhanced to display suggestions if the search is ambiguous.
+
         ::
 
             > pyats parse 'sh a' --testbed-file tb.yaml
@@ -80,6 +81,7 @@ Features:
       - :ref:`Docs <cli_create_testbed>`
       - | Added better error handling.
         | Will now show suggestions in the case of incorrect parameters.
+
         ::
 
             > pyats create testbed x --output x
@@ -96,6 +98,7 @@ Features:
     * - yaml markup
       - :ref:`Docs <markup_datafile>`
       - | Enhanced to retrieve real interface/device/link name
+
         ::
 
             # testbed yaml

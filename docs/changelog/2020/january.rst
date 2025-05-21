@@ -1,5 +1,5 @@
 January 2020
-=============
+============
 
 February 4th - Genie v20.1
 ----------------------------
@@ -75,10 +75,10 @@ This is a whole testcase
       source:
         pkg: genie.libs.sdk
         class: triggers.blitz.blitz.Blitz
-  
+
       # Field containing all the Testcase sections
       test_sections:
-  
+
         # Section name - Can be any name, it will show as the first section of
         # the testcase
           - apply_configuration:
@@ -90,11 +90,11 @@ This is a whole testcase
                     shutdown
               - sleep:
                   sleep_time: 5
-  
+
           # Second section name
           - verify_configuration:
               # Action #1
-              # Send show command to the device and verify if part 
+              # Send show command to the device and verify if part
               # of a string is in the output or not
               - execute:
                   device: R3_nx
@@ -115,7 +115,7 @@ This is a whole testcase
                   command: show bgp process vrf all
                   output:
                       - "[bgp_protocol_state][shutdown]"
-  
+
 - Grand total of 574 :apis:`network automation apis <http>`. Ready for you to use and
   contribute to it.  Fully open sourced!
 

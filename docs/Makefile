@@ -38,13 +38,13 @@ HOSTNAME      = localhost
 DEVNET        = true
 
 # Dependencies for building documentation
-DEPENDENCIES = sphinx-autobuild==2021.3.14 sphinx-bootstrap-theme==0.8.1 sphinx-iowmd-theme==0.0.18
-DEPENDENCIES += sphinx-rtd-theme==1.3.0 sphinx-tabs==3.4.5 sphinx-togglebutton==0.2.3 sphinxcontrib-apidoc==0.5.0
-DEPENDENCIES += sphinxcontrib-applehelp==2.0.0 sphinxcontrib-contentui==0.2.5 sphinxcontrib-devhelp==2.0.0
-DEPENDENCIES += sphinxcontrib-htmlhelp==2.1.0 sphinxcontrib-jquery==4.1 sphinxcontrib-jsmath==1.0.1
-DEPENDENCIES += sphinxcontrib-mockautodoc==0.0.1.dev20130518 sphinxcontrib-napoleon==0.7
-DEPENDENCIES += sphinxcontrib-qthelp==2.0.0 sphinxcontrib-robotframework==0.8.1
-DEPENDENCIES += sphinxcontrib-serializinghtml==2.0.0 sphinxcontrib-spelling==8.0.0 sphinxcontrib-video==0.3.1 Sphinx==8.1.3
+DEPENDENCIES = sphinx-autobuild sphinx-bootstrap-theme sphinx-iowmd-theme
+DEPENDENCIES += sphinx-rtd-theme sphinx-tabs sphinx-togglebutton sphinxcontrib-apidoc
+DEPENDENCIES += sphinxcontrib-applehelp sphinxcontrib-contentui sphinxcontrib-devhelp
+DEPENDENCIES += sphinxcontrib-htmlhelp sphinxcontrib-jquery sphinxcontrib-jsmath
+DEPENDENCIES += sphinxcontrib-mockautodoc sphinxcontrib-napoleon
+DEPENDENCIES += sphinxcontrib-qthelp sphinxcontrib-robotframework
+DEPENDENCIES += sphinxcontrib-serializinghtml sphinxcontrib-spelling sphinxcontrib-video Sphinx
 
 
 # User-friendly check for sphinx-build
@@ -53,8 +53,8 @@ $(error The '$(SPHINXBUILD)' command was not found. Make sure you have Sphinx in
 endif
 
 # Internal variables.
-PAPEROPT_a4     = -D latex_paper_size=a4
-PAPEROPT_letter = -D latex_paper_size=letter
+# PAPEROPT_a4     = -D latex_paper_size=a4
+# PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
@@ -95,7 +95,9 @@ docs: html
 html: install_build_deps
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
-	python -m robot.libdoc genie.libs.robot.GenieRobot $(BUILDDIR)/html/userguide/robot.html
-	python -m robot.libdoc genie.libs.robot.GenieRobotApis $(BUILDDIR)/html/userguide/robot_api.html
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
+# ! Removed from make html due to causing errors and being general useless
+# ! The docs that are generated are not useful and are done better by the feature browser
+# python -m robot.libdoc genie.libs.robot.GenieRobot $(BUILDDIR)/html/userguide/robot.html
+# python -m robot.libdoc genie.libs.robot.GenieRobotApis $(BUILDDIR)/html/userguide/robot_api.html

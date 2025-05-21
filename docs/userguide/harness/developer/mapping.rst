@@ -42,7 +42,7 @@ Let's go over a few examples of triggers to see the pattern.
 to write any new line of code. It utilizes `Conf` and `Ops` object to do the
 action and learn about the feature. Each of these examples follow the structure from the :models:`Models <http>`.
 
-.. notes::
+.. note::
 
     Mapping is optional when writing trigger. 
 

@@ -234,10 +234,10 @@ Here are some example of matches:
 +------------------------------+---------------------------------------------------+
 | sh .* abc .* ext             |             show ospf vrf {vrf} database external |
 +------------------------------+---------------------------------------------------+
-| sh .* [a-z]* ext\S+          |                       show ted database extensive |
-|                              |                    show ospf3 interface extensive |
-|                              |     show ospf vrf all-inclusive database external |
-|                              |                                               ... |
+| sh .* [a-z]* ext\S+          | |                     show ted database extensive |
+|                              | |                  show ospf3 interface extensive |
+|                              | |   show ospf vrf all-inclusive database external |
+|                              | |                                             ... |
 +------------------------------+---------------------------------------------------+
 
 Fuzzy matching will return multiple parsed results in the form of a dictionary,

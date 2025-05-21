@@ -1,5 +1,5 @@
 June 2021
-==========
+=========
 
 June 29th - Genie v21.6
 -----------------------
@@ -315,14 +315,14 @@ No changes
         * Modified _filter_and_save_action_output to expect file_name and append arguments
     * add webex notification support for pyATS Healtch Check
     * 'execute' action
-        * Added `connection_alias' to support different connections
+        * Added `connection_alias` to support different connections
     * 'parse' action
-        * Added `connection_alias' to support different connections
-        * Added `context' to use different context
-    * 'configure' action
-        * Added `connection_alias' to support different connections
-    * 'configure_dual' action
-        * Added `connection_alias' to support different connections
+        * Added `connection_alias` to support different connections
+        * Added `context` to use different context
+    * `configure` action
+        * Added `connection_alias` to support different connections
+    * `configure_dual` action
+        * Added `connection_alias` to support different connections
 
 * api utils
     * Added API `web_interaction`

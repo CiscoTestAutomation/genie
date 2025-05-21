@@ -1,8 +1,8 @@
 September 2020
-========
+==============
 
 September 29th - Genie v20.9
---------------------------
+----------------------------
 
 +-----------------------------------+-------------------------------+
 | Module                            | Versions                      |
@@ -48,7 +48,7 @@ these packages
    pyats version update
 
 Features highlights:
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 
 **genie**
@@ -143,7 +143,7 @@ Features highlights:
 **genie.trafficgen**
 
 * Added traffic and stream statistics table for TRex
-* Added disable_tracking and disable_port_pair arguments for 
+* Added disable_tracking and disable_port_pair arguments for
   create_genie_statistics_view, check_traffic_loss and create_traffic_streams_table
 
 --------

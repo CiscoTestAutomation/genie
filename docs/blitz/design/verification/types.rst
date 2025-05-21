@@ -1,8 +1,8 @@
-.. _types:
+.. _verification_types:
 
 
 JSON
-^^^^^
+^^^^
 
 To query JSON outputs users can take advantage of a tool called Dq. You can find the complete
 tutorial of Dq by following this `link

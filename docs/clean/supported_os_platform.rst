@@ -77,7 +77,8 @@ The following table specifies the current set of PowerCycler types supported by 
       - Arguments
 
     * - raritan-px
-      - .. code-block:: yaml
+       
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -106,7 +107,8 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - raritan-px2 (snmp)
-      - .. code-block:: yaml
+       
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -135,7 +137,8 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - raritan-px2 (snmpv3)
-      - .. code-block:: yaml
+
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -213,7 +216,8 @@ The following table specifies the current set of PowerCycler types supported by 
                         security_level: noauthnopriv
 
     * - generic-cli
-      - .. code-block:: yaml
+
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -273,7 +277,8 @@ The following table specifies the current set of PowerCycler types supported by 
                           power_off: "power outlets {outlet} off"
 
     * - Raritan
-      - .. code-block:: yaml
+       
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -303,7 +308,8 @@ The following table specifies the current set of PowerCycler types supported by 
                         outlets: [7]
 
     * - apc
-      - .. code-block:: yaml
+       
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -332,7 +338,8 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - apc-rpdu
-      - .. code-block:: yaml
+       
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -361,7 +368,8 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - dualcomm
-      - .. code-block:: yaml
+       
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -390,7 +398,8 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - cyberswitching
-      - .. code-block:: yaml
+       
+        .. code-block:: yaml
 
             Testbed Schema
             --------------
@@ -419,7 +428,8 @@ The following table specifies the current set of PowerCycler types supported by 
                 # such as connection info, credentials, etc
 
     * - ESXi
-      - .. code-block:: yaml
+       
+        .. code-block:: yaml
 
             Testbed Schema
             --------------

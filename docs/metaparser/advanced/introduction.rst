@@ -109,8 +109,10 @@ be shared as a common structure to build a os/platform agnostic parser solution.
 
 By default, global key usage traceability feature is disabled in metaparser. 
 Feature can be enabled in two way:
-    1. globally within the user script by enabling the *key_traceable* flag
-    2. dynamically through pyATS  pre/post processing functions
+
+1. globally within the user script by enabling the *key_traceable* flag
+
+2. dynamically through pyATS  pre/post processing functions
 
 Once feature is enabled, the parsing output data type is collected and available 
 in :ref:`TraceableDict`.
@@ -154,6 +156,7 @@ The example below shows three steps to achieve this:
     - :pyats:`pyATS <http>`
 
     * **Step1**: define the pre/post processor in pyats data yaml file.
+
     .. code-block:: python
 
         common_setup:
@@ -248,22 +251,26 @@ mechanism, or use ``abstract`` package dynamic import function described in
 previous section. To run, simply call ``parse`` function.
 
 Execution flow of the parse function:
-    1.  Based on the "context" input (from job or from execution environment 
-        args), a specific management model parsing 
-        mechanism (cli/xml/yang) is called. The parsing mechanism defined in 
-        subclass parser does the following:
-            * Get the output from the device
-            * Call back-end parsing API or run self implemented parser with the 
-              output
-            * Transform the output into 'schema' compatible dictionary
-              and return. For detailed steps to implement parsing mechanism 
-              refers to :ref:`template_doc`.
 
-    2. Schema checking to ensure the returned data structure by the parsing 
-       mechanism meets the schema requirement.
+1.  Based on the "context" input (from job or from execution environment 
+    args), a specific management model parsing 
+    mechanism (cli/xml/yang) is called. The parsing mechanism defined in 
+    subclass parser does the following:
 
-    3. Apply user defined filter on output, then only selected key-value pairs 
-       will be returned as the original format from the output.
+    * Get the output from the device
+
+    * Call back-end parsing API or run self implemented parser with the 
+      output
+      
+    * Transform the output into 'schema' compatible dictionary
+      and return. For detailed steps to implement parsing mechanism 
+      refers to :ref:`template_doc`.
+
+2. Schema checking to ensure the returned data structure by the parsing 
+   mechanism meets the schema requirement.
+
+3. Apply user defined filter on output, then only selected key-value pairs 
+   will be returned as the original format from the output.
 
 The following example shows the usage of the MetaParser with the abstraction (
 typical scenario for pyats scripts):

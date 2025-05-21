@@ -1,7 +1,7 @@
 July 2022
-==========
+=========
 
-July 21 - Genie v22.7 
+July 21 - Genie v22.7
 ------------------------
 
 
@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * genie.harness
@@ -72,11 +72,11 @@ genie
         * Fixed dq get_values first item is empty list case
 
 * Json
-    * Moved the following directories to genielibs/pkgs/sdk-pkg/sdk_generator: 
-        * docs/sdk_generator/github/  
-        * docs/sdk_generator/outputs/   
+    * Moved the following directories to genielibs/pkgs/sdk-pkg/sdk_generator:
+        * docs/sdk_generator/github/
+        * docs/sdk_generator/outputs/
     * Modified get_json.py:
-        * Updated package location for triggers and verifications 
+        * Updated package location for triggers and verifications
     * Modified src/genie/json/make_json.py:
         * Updated package and file locations to reflect new file locations
         * Updated make_genielibs() to also build json files for models, triggers, and verifications
@@ -85,22 +85,22 @@ genie
     * Removed src/genie/json/triggers.json
     * Removed src/genie/json/verifications.json
     * Removed docs/sdk_generator/bitbucket/
-    
+
 * All
     * Modified ci/Jenkinsfile:
         * Remove the now redundant 'make json' command from within genie repo
         * Add git diff checks for models, triggers, and verification json files
-    * Removed sdk_generator/bitbucket/api_datafile.yaml 
+    * Removed sdk_generator/bitbucket/api_datafile.yaml
     * Removed sdk_generator/output/bitbucket_apis.json
     * Modified pkgs/sdk-pkg/api_generator/ directory
         * Renamed to sdk_generator as model, trigger, and verifcation files will share that directory
-    * Moved the following files from genie to genielibs/pkgs/sdk-pkg/sdk_generator/: 
+    * Moved the following files from genie to genielibs/pkgs/sdk-pkg/sdk_generator/:
         * github/models.yaml
-        * github/trigger_datafile.yaml 
+        * github/trigger_datafile.yaml
         * github/verification_datafile.yaml
-        * output/github_models.json 
+        * output/github_models.json
         * output/github_triggers.json
-        * output/github_verifications.json 
+        * output/github_verifications.json
     * Created following symlinks:
         pkgs/sdk-pkg/src/genie/libs/sdk/triggers/triggers.json -> pkgs/sdk-pkg/sdk_generator/output/github_triggers.json
         pkgs/sdk-pkg/src/genie/libs/sdk/verifications/verifications.json -> pkgs/sdk-pkg/sdk_generator/output/github_verifications.json
@@ -108,7 +108,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * genie.libs.clean.stages
@@ -157,7 +157,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+                                      New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -244,7 +244,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * blitz
@@ -265,7 +265,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+                                      New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -370,7 +370,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * iosxe

@@ -1,7 +1,7 @@
 March 2025
 ==========
 
-March 25 - Genie v25.3 
+March 25 - Genie v25.3
 ------------------------
 
 
@@ -9,17 +9,17 @@ March 25 - Genie v25.3
 .. csv-table:: New Module Versions
     :header: "Modules", "Version"
 
-    ``genie``, v25.3 
-    ``genie.libs.health``, v25.3 
-    ``genie.libs.clean``, v25.3 
-    ``genie.libs.conf``, v25.3 
-    ``genie.libs.filetransferutils``, v25.3 
-    ``genie.libs.ops``, v25.3 
-    ``genie.libs.parser``, v25.3 
-    ``genie.libs.robot``, v25.3 
-    ``genie.libs.sdk``, v25.3 
-    ``genie.telemetry``, v25.3 
-    ``genie.trafficgen``, v25.3 
+    ``genie``, v25.3
+    ``genie.libs.health``, v25.3
+    ``genie.libs.clean``, v25.3
+    ``genie.libs.conf``, v25.3
+    ``genie.libs.filetransferutils``, v25.3
+    ``genie.libs.ops``, v25.3
+    ``genie.libs.parser``, v25.3
+    ``genie.libs.robot``, v25.3
+    ``genie.libs.sdk``, v25.3
+    ``genie.telemetry``, v25.3
+    ``genie.trafficgen``, v25.3
 
 
 
@@ -30,7 +30,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New                                       
+                                      New
 --------------------------------------------------------------------------------
 
 * genie.harness
@@ -42,7 +42,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -54,7 +54,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * genie.libs.conf
@@ -79,7 +79,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -96,7 +96,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+                                      New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -127,7 +127,7 @@ genie.libs.sdk
         * API to execute release dhcp on interface
     * Added new API to Renew DHCP on interface
         * API to execute renew dhcp on interface
-    * Added new API to Execute 'clear ipv6 dhcp conflict *' on device
+    * Added new API to Execute 'clear ipv6 dhcp conflict \*' on device
         * API to Execute 'clear ipv6 dhcp conflict' on device
     * Added new API to Configure service-policy type control default on interface
         * API to configure service-policy type control default on interface
@@ -165,7 +165,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -194,7 +194,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+                                      Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -272,7 +272,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add                                       
+                                      Add
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -281,7 +281,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+                                      New
 --------------------------------------------------------------------------------
 
 * iosxe

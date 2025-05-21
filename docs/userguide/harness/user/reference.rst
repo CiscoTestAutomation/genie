@@ -403,6 +403,9 @@ Below you will find additional information on each of those arguments:
 
     In case of multiple debug plugins, user needs to pass the debug plugin itself
     in the testbed yaml file under the corresponding device under custom section as below;
+
+    .. code-block:: yaml
+        
         custom:
             debug_plugin: n7700-s2-debug-sh.8.4.1.gbin
 

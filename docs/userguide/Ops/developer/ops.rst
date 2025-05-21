@@ -79,7 +79,7 @@ looks like this:
 
 After looking at the `feature`, we develop the following structure:
 
-.. _structure:
+.. _feature_structure:
 
 .. code-block:: text
 

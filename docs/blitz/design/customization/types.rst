@@ -1,4 +1,4 @@
-.. _types:
+.. _customization_types:
 
 
 Creating a custom action

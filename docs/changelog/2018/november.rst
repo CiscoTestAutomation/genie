@@ -87,7 +87,7 @@ Upgrade Instructions
 
 **Genie.Ops**
 
-•    Enhanced logging by showing the learnt Ops show commands and their corresponding results.   
+•    Enhanced logging by showing the learnt Ops show commands and their corresponding results.
 
 **Genie.Utils**
 
@@ -196,7 +196,7 @@ Upgrade Instructions
 
     pip install --upgrade genie.libs.parser
 
-New parsers for IOS and TRM NXOS ! 
+New parsers for IOS and TRM NXOS !
 
 •    17 new IOS Parsers (Interface and platform
 •    8 new TRM NXOS parsers
@@ -227,7 +227,7 @@ Upgrade Instructions
 
 .. code-block:: bash
 
-    pip install --upgrade genie.libs.sdk 
+    pip install --upgrade genie.libs.sdk
     pip install --upgrade genie.libs.parser
     pip install --upgrade genie.libs.robot
     pip install --upgrade genie.libs.ops
@@ -236,13 +236,16 @@ Upgrade Instructions
 NTP Feature has now been released !
 
 * 2 new Verifications
+
  * Verify_NtpPeerStatus
  * Verify_NtpPeers
 
 * 1 new PTS
+
  * NTP
 
 * 1 new Ops object
+
  * NTP
 
 * 2 new Robot keywords
@@ -250,6 +253,7 @@ NTP Feature has now been released !
 * Verity NTP is synchronized on device “uut”
 
 * 2 new Parsers
+
  * show ntp peer-status
  * show ntp peers
 
@@ -280,7 +284,7 @@ Upgrade Instructions
 
     pip install --upgrade genie.harness
     pip install --upgrade genie.examples
-    pip install --upgrade genie.libs.sdk 
+    pip install --upgrade genie.libs.sdk
     pip install --upgrade genie.libs.parser
     pip install --upgrade genie.libs.robot
     pip install --upgrade genie.libs.ops

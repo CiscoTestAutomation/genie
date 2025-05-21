@@ -11,17 +11,11 @@ The content includes infrastructure components & structures.
    :maxdepth: 1
 
    introduction
-
    contribute
-
    util
-
    schemaengine
-
    traceabledictionary
-
    detailedexample
-
    template
 
 .. sectionauthor:: Ke Liu <kel2@cisco.com>

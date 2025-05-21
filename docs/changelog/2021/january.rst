@@ -1,5 +1,5 @@
 January 2021
-=============
+============
 
 January 27th - Genie v21.1
 ----------------------------
@@ -40,7 +40,7 @@ Upgrade Instructions
 
 Features:
 ^^^^^^^^^
-  
+
 - Grand total of 1173 :apis:`network automation apis <http>`. Ready for you to use and
   contribute to it.  Fully open sourced!
 
@@ -67,13 +67,12 @@ You can call them by doing
 
 **Genie**
  * Configuration datafile enhanced to allow for jinja2 template files
- * Discovery enhanced to avoid %VARIABLE to pick up device for Blitz testcase 
+ * Discovery enhanced to avoid %VARIABLE to pick up device for Blitz testcase
 
 
 **Genie.Libs.Parser**
  * 84 new IOSXE, IOS, NXOS & IOSXR Parsers!
  * Grand total of 2788 parsers
- * Changelog can be checked :parserchangelog21:`here <january>`
 
 
 **Genie.Libs.Ops**
@@ -88,7 +87,6 @@ You can call them by doing
  * 72 new :apis:`network automation apis <http>` to interact with your devices
  * Grand total of 1173 APIs
  * Updated to current apis to support more arguments
- * Changelog can be checked :sdkchangelog21:`here <january>`
 
 
 **Genie.Libs.Robot**

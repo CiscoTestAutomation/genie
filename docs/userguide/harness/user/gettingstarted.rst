@@ -476,7 +476,7 @@ order to execute Global verifications:
 
     More information on verification in the developer guide.
 
-.. notes::
+.. note::
 
     ``Genie``'s infrastructure includes a set of verifications. These verifications are
     stored in the `extends` location.
@@ -543,23 +543,23 @@ create a  `trigger_datafile`:
     Be sure sure you specify a device for each trigger you would like to execute.
     If no device is specified, the trigger will not run
 
-.. notes::
+.. note::
 
     The local verification name must match a verification which exists in the
     `verification_datafile`
 
-.. notes::
+.. note::
 
     The local verification parameters defined here will overwrite existing
     parameter which exists in the `verification_datafile`
 
-.. notes::
+.. note::
 
     The `order` key define the order of execution. If a trigger is not a part of
     the list, the trigger will still execute but in a arbitrary order as python
     dictionaries are unordered.
 
-.. notes::
+.. note::
 
     ``Genie``'s infrastructure includes a set of triggers. These triggers are
     stored in the `extends` location.  For more information, please consult the

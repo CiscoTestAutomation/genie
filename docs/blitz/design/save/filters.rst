@@ -29,7 +29,7 @@ Below you can find examples of how to save the entire output to a variable name 
         save:
           - variable_name: execute_output
 
-In the example below, the same action output is saved to a file. 
+In the example below, the same action output is saved to a file.
 All you need to do is provide the file name using the argument `file_name`.
 
 .. code-block:: YAML
@@ -95,10 +95,10 @@ Below you can see an example of regex filter.
           value: "The bootflash is %VARIABLES{bootflash} and %VARIABLES{measure}"
 
 Save with Regex findall filter
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Below you can see an example of regex_findall.
-In this example, execute_output would contain a list of strings such as: 
+In this example, execute_output would contain a list of strings such as:
 ['172.16.1.254', '10.1.1.1', '10.2.2.2', '10.3.3.3', '10.4.4.4']
 
 .. code-block:: YAML

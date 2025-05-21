@@ -47,5 +47,3 @@ The following example shows the usage of ``util`` functions:
     assert 'ip_address' in new_dict['address']
     assert 'mask' in new_dict['address']
     assert 'intf' not in new_dict
-
---------------------------------------------------------------------------------
