@@ -345,4 +345,5 @@ suppress_warnings = [
     'ref.ref',
     'docutils',
     'misc.highlighting_failure',
+    'toc.not_readable',
 ]
