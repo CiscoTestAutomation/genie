@@ -77,7 +77,7 @@ The following table specifies the current set of PowerCycler types supported by 
       - Arguments
 
     * - raritan-px
-       
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -107,7 +107,7 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - raritan-px2 (snmp)
-       
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -137,7 +137,7 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - raritan-px2 (snmpv3)
-
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -216,7 +216,7 @@ The following table specifies the current set of PowerCycler types supported by 
                         security_level: noauthnopriv
 
     * - generic-cli
-
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -277,7 +277,7 @@ The following table specifies the current set of PowerCycler types supported by 
                           power_off: "power outlets {outlet} off"
 
     * - Raritan
-       
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -308,7 +308,7 @@ The following table specifies the current set of PowerCycler types supported by 
                         outlets: [7]
 
     * - apc
-       
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -338,7 +338,7 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - apc-rpdu
-       
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -368,7 +368,7 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - dualcomm
-       
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -398,7 +398,7 @@ The following table specifies the current set of PowerCycler types supported by 
                       outlets: [20]
 
     * - cyberswitching
-       
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -428,7 +428,7 @@ The following table specifies the current set of PowerCycler types supported by 
                 # such as connection info, credentials, etc
 
     * - ESXi
-       
+      -
         .. code-block:: yaml
 
             Testbed Schema
@@ -471,7 +471,7 @@ For example, if the PowerCycler was a `dualcomm` connected to PE1, then the Test
         peripherals:
           power_cycler:
             - type: dualcomm
-              connect_type: snmp
+              connection_type: snmp
               host: 127.0.0.1
               outlets: [22]
 
@@ -488,11 +488,11 @@ then the Testbed Yaml looks like this:
         peripherals:
           power_cycler:
             - type: dualcomm
-              connect_type: snmp
+              connection_type: snmp
               host: 127.0.0.1
               outlets: [22]
             - type: dualcomm
-              connect_type: snmp
+              connection_type: snmp
               host: 127.0.0.2
               outlets: [20]
 
