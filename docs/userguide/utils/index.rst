@@ -170,6 +170,51 @@ do with list in Python.
   >>> dev.parse('show interface').q.get_values('[0]', '[0:2]')
   ['mgmt0', 'Ethernet2/1']
 
+`get_values` also supports filtering by sibling key-value conditions using the
+`conditions_key_value` argument. This is useful when you need to retrieve a
+value that shares the same dictionary level with specific key-value pairs.
+
+.. code-block:: python
+
+  >>> out = {
+  ...     'vrf': {
+  ...         'vrf101': {
+  ...             'protocol': {
+  ...                 'ipv4': {
+  ...                     'vni': {
+  ...                         '3000101': {
+  ...                             'installed': 'yes',
+  ...                             'rmac_address': 'AABB.CC80.5B00',
+  ...                             'vtep_ip': '10.0.10.3',
+  ...                         },
+  ...                     },
+  ...                 },
+  ...                 'ipv6': {
+  ...                     'vni': {
+  ...                         '3000101': {
+  ...                             'installed': 'yes',
+  ...                             'rmac_address': 'AABB.CC80.5C00',
+  ...                             'vtep_ip': '10.0.0.1',
+  ...                         },
+  ...                     },
+  ...                 },
+  ...             },
+  ...         },
+  ...     },
+  ... }
+  
+  # Without conditions_key_value - returns all rmac_address values
+  >>> Dq(out).get_values('rmac_address')
+  ['AABB.CC80.5B00', 'AABB.CC80.5C00']
+  
+  # With conditions_key_value - returns only rmac_address where vtep_ip is '10.0.0.1'
+  >>> Dq(out).get_values('rmac_address', conditions_key_value={'vtep_ip': '10.0.0.1'})
+  ['AABB.CC80.5C00']
+  
+  # Multiple conditions are supported - all conditions must match at the same level
+  >>> Dq(out).get_values('rmac_address', conditions_key_value={'vtep_ip': '10.0.0.1', 'installed': 'yes'})
+  ['AABB.CC80.5C00']
+
 get_value does not return a Dq object, considered a "Final" api.
 
 contains_key_value
