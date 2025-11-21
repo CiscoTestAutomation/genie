@@ -1,0 +1,30 @@
+/*
+ * Custom Console CSS - Styling for code blocks with 'console' language.
+ * 
+ * Color scheme (Taken from RTD theme with pygments style 'sphinx'):
+ * - Background: Light greenish (#eeffcc)
+ * - Text: Greyish (#404040)
+ * - Prompts: Red (#d73a49)
+ */
+
+.highlight-console .highlight {
+    background-color: #eeffcc !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Source Code Pro', monospace !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    overflow-x: auto !important;
+    box-shadow: none !important;
+}
+
+.highlight-console .go {
+  color: #404040 !important;
+}
+
+.highlight-console .gp {
+    color: #d73a49 !important;
+    font-weight: 700 !important;
+}
