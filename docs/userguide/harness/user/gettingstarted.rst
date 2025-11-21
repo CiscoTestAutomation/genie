@@ -89,7 +89,7 @@ We can now execute the example with the following command:
 This job does the following:
 
 * Runs common setup
-* Connects to a device
+* Connects to a device (see :ref:`connect` for details on connection functionality)
 * Executes 'show running-config'
 * No testcase to run yet
 * Runs common cleanup
