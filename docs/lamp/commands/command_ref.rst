@@ -2,8 +2,8 @@ Command reference
 ===================
 
 To view the list of all commands in LAMP, type the ``help`` command or ``?`` as shown below. 
-You need not worry about the commands or their categories - they will be covered in detail
-in the next few sections.
+Don't worry about memorizing these commands or categories - they are explained in detail in
+the following sections.
 
 .. code-block:: console
 
