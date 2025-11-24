@@ -108,6 +108,7 @@ massive news for automation within and outside of Cisco!
     userguide/index
     pyATS Clean <clean/index>
     blitz/index
+    lamp/index
     health/index
     cli/index
     solutions/index
