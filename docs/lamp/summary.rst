@@ -1,4 +1,4 @@
-LAMP is an interactive command-line interface built on top of
+LAMP (Live Automation & Management Platform) is an interactive command-line interface built on top of
 pyATS/Genie that enables users to connect to network devices and perform operations interactively.
 Think of it as a REPL (Read-Eval-Print Loop) for network automation—where you can execute commands,
 parse outputs, run APIs, and configure devices in real-time, all while LAMP automatically records
