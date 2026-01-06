@@ -17,4 +17,5 @@ to use it effectively for real-world network automation tasks.
    golden_config_triggers
    error_recovery
    pagent_traffic_generation
+   nxos_specifics
 
