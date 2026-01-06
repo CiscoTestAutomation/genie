@@ -11,7 +11,7 @@ Basic knowledge of pyATS & pyATS Blitz is recommended.
 Relevant information is available at:
 
     * `pyATS <https://developer.cisco.com/docs/pyats>`_
-    * `pyATS Blitz <https://pubhub.devnetcloud.com/media/genie-docs/docs/blitz/index.html#>`_
+    * :ref:`pyATS Blitz <blitz>`
 
 Load Testbed
 -------------

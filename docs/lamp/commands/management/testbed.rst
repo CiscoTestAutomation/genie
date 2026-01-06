@@ -211,6 +211,8 @@ devices while retaining the advantages of testbed YAML configuration.
 Multiple devices can also be selected by separating their names with
 commas as in ``testbed load <file> -d <name1>,<name2>``.
 
+.. _testbed_add:
+
 Loading devices using IP
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
