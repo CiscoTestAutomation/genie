@@ -7,8 +7,9 @@ Loops can help simplify multiple calls for the same command with different argum
 Basic usage
 -----------
 
-'$' is the loop operator. '$' can be appended over multiple arguments separated by ','
-to pass them as a single argument to an operator command.
+'$' is the loop operator. Loop syntax uses `${}` for expansions and `$N{}` for map loops
+where N is the back-reference number. '$' can be appended over multiple arguments
+separated by ',' to pass them as a single argument to an operator command.
 
 In an abstract sense,
 
@@ -18,19 +19,19 @@ In an abstract sense,
 
 would become
 
-``<command> $<arg1>,<arg2>,<arg3>``
+``<command> ${<arg1>,<arg2>,<arg3>}``
 
 Device looping
 --------------
 
-By specifying multiple device names(separated by ',') with '$' prepended to them, users can
+By specifying multiple device names (separated by ',') within `${}`, users can
 perform any operator command such as ``execute`` on multiple devices.
 
 Example:
 
 .. code-block:: console
 
-   (lamp-host1) device $host1,host2
+   (lamp-host1) device ${host1,host2}
    (lamp-host1,host2)
    (lamp-host1,host2) execute debug ip mrouting
    2024-08-01 10:23:49: %LAMP-INFO: +------------------------------------------------------------------------------+
@@ -77,13 +78,13 @@ for the above example:
 Command looping
 ---------------
 
-One can loop multiple commands by using '$' with a list of commands separated by ','.
+One can loop multiple commands by using `${}` with a list of commands separated by ','.
 
 Example:
 
 .. code-block:: console
 
-   (lamp-host1) execute $show ip route,show ipv6 route
+   (lamp-host1) execute ${show ip route,show ipv6 route}
    2024-08-01 11:42:51: %LAMP-INFO: +------------------------------------------------------------------------------+
    2024-08-01 11:42:51: %LAMP-INFO: :                            Execute loop, length=2                            :
    2024-08-01 11:42:51: %LAMP-INFO: +------------------------------------------------------------------------------+
@@ -122,15 +123,15 @@ Example:
 
 To simplify this further, notice that the difference between the 2 commands
 were only at the keywords 'ip' and 'ipv6'. Hence, the command could be reduced
-to ``execute show $(ip,ipv6) route`` with parenthesis emphasizing the start and end
-of the loop argument, with the values outside the parenthesis being the same
+to ``execute show ${ip,ipv6} route`` with braces emphasizing the start and end
+of the loop argument, with the values outside the braces being the same
 across all loop iterations.
 
 As seen below, the minimalized command indeed invoked both the commands:
 
 .. code-block:: console
 
-   (lamp-host1) execute show $(ip,ipv6) route
+   (lamp-host1) execute show ${ip,ipv6} route
    2024-08-01 11:54:29: %LAMP-INFO: +------------------------------------------------------------------------------+
    2024-08-01 11:54:29: %LAMP-INFO: :                            Execute loop, length=2                            :
    2024-08-01 11:54:29: %LAMP-INFO: +------------------------------------------------------------------------------+
@@ -182,28 +183,28 @@ similarities between all of them, loops can help simplify the process.
 First, separate the IPv4 from IPv6 and try looping the IPv4 alone,
 with IPv6 being invoked separately.
 
-   * $show ip mroute,show ip mfib,show ip mrib route
-   * $show ipv6 mroute,show ipv6 mfib,show ipv6 mrib route
+   * ${show ip mroute,show ip mfib,show ip mrib route}
+   * ${show ipv6 mroute,show ipv6 mfib,show ipv6 mrib route}
 
-Minimalizing the above 2 commands above using parenthesis:
+Minimalizing the above 2 commands above using braces:
 
-   * show ip $(mroute,mfib,mrib route)
-   * show ipv6 $(mroute,mfib,mrib route)
+   * show ip ${mroute,mfib,mrib route}
+   * show ipv6 ${mroute,mfib,mrib route}
 
-When using the '$' notation, the entire loop argument could be seen
+When using the `${}` notation, the entire loop argument could be seen
 identical to a string to further consider the possibility of multiple loops.
-Let XXX represent $(mroute,mfib,mrib route). Now, the 2 commands become:
+Let XXX represent ${mroute,mfib,mrib route}. Now, the 2 commands become:
 
    * show ip XXX
    * show ipv6 XXX
 
 Using normal loop principles from earlier, another loop could be created:
 
-   * show $(ip,ipv6) XXX
+   * show ${ip,ipv6} XXX
 
 Finally, substituting XXX brings us to a double loop:
 
-   * show $(ip,ipv6) $(mroute,mfib,mrib route)
+   * show ${ip,ipv6} ${mroute,mfib,mrib route}
 
 The result of 2 '$' and 2 hence loops would be the 'product' akin to a cartesian
 product with (A,B) * (C,D) -> AC, AD, BC, BD. The length of the loop would be the
@@ -212,7 +213,7 @@ which is equal to the total number of required commands.
 
 .. code-block:: console
 
-   (lamp-host1) execute show $(ip,ipv6) $(mroute,mfib,mrib route)
+   (lamp-host1) execute show ${ip,ipv6} ${mroute,mfib,mrib route}
    2024-08-01 12:02:58: %LAMP-INFO: +------------------------------------------------------------------------------+
    2024-08-01 12:02:58: %LAMP-INFO: :                            Execute loop, length=6                            :
    2024-08-01 12:02:58: %LAMP-INFO: +------------------------------------------------------------------------------+
@@ -251,19 +252,19 @@ The same product rule applies when there is both command looping as well as devi
 
 Consider a device loop across 2 devices:
 
-   * device $host1,host2
+   * device ${host1,host2}
 
 Consider a command loop with 3 commands:
 
-   * show ip $(mroute,mfib,mrib route)
+   * show ip ${mroute,mfib,mrib route}
 
 The result of applying both loops would eventually create a loop of length (2 * 3 = 6)
 with the 3 commands first applied on device 'host1' and then on 'host2':
 
 .. code-block:: console
 
-   (lamp-host1) device $host1,host2
-   (lamp-host1,host2) execute show ip $(mroute,mfib,mrib route)
+   (lamp-host1) device ${host1,host2}
+   (lamp-host1,host2) execute show ip ${mroute,mfib,mrib route}
    2024-08-01 12:10:43: %LAMP-INFO: +------------------------------------------------------------------------------+
    2024-08-01 12:10:43: %LAMP-INFO: :                            Execute loop, length=6                            :
    2024-08-01 12:10:43: %LAMP-INFO: +------------------------------------------------------------------------------+
@@ -304,17 +305,20 @@ Consider an example to loop different commands for two devices as follows:
    * host2: show ip route 2.2.2.2
 
 There should be a device loop but the command needs to be modified based on the device
-currently in iteration. To modify existing loop iteration values, use $[]:
+currently in iteration. To modify existing loop iteration values, use `$N{}` along
+with a back-reference number 'N' indicating which loop's iteration values to use.
+Back reference numbers start from 1 and increment by 1 for each loop starting from the
+device loop.
 
-   * $host1,host2: $[show ip route 1.1.1.1,show ip route 2.2.2.2]
+For the above command, to modify the first loop's iteration values, use a back-reference
+number value of '1':
 
-The above command can be simplified to:
-
-   * $host1,host2: show ip route $[1.1.1.1,2.2.2.2]
+   * ${host1,host2}: show ip route $1{1.1.1.1,2.2.2.2}
 
 .. code-block:: console
 
-   (lamp-host1,host2) execute show ip route $[1.1.1.1,2.2.2.2]
+   (lamp-host1) device ${host1,host2}
+   (lamp-host1,host2) execute show ip route $1{1.1.1.1,2.2.2.2}
    2024-08-01 12:26:39: %LAMP-INFO: +------------------------------------------------------------------------------+
    2024-08-01 12:26:39: %LAMP-INFO: :                            Execute loop, length=2                            :
    2024-08-01 12:26:39: %LAMP-INFO: +------------------------------------------------------------------------------+
@@ -344,17 +348,12 @@ The above command can be simplified to:
    host2#
    (lamp-host1,host2)
 
-To modify iteration values of a particular loop in case of multiple loops, mention the
-'back-reference' number of the loop to modify in the format $<back_ref_no>[arg1,arg2].
-Back reference numbers start from 1 and increment by 1 for each loop starting from the
-device loop.
-
 Shown below is an example of a device loop + command loop. To map '225.1.1.1' to 'host1' and
 '232.2.2.2' to 'host2', a back-reference of '1' pointing to the device loop is used:
 
 .. code-block:: console
 
-   (lamp-host1,host2) execute show ip $(mroute,mfib) $1[225.1.1.1,232.2.2.2]
+   (lamp-host1,host2) execute show ip ${mroute,mfib} $1{225.1.1.1,232.2.2.2}
    2025-09-19 14:29:40: %LAMP-INFO: +..............................................................................+
    2025-09-19 14:29:40: %LAMP-INFO: :                            Execute loop, length=4                            :
    2025-09-19 14:29:40: %LAMP-INFO: +..............................................................................+
@@ -381,7 +380,7 @@ Example:
 
 .. code-block:: console
 
-   (lamp-h2) execute -i show $(ip,ipv6) route
+   (lamp-h2) execute -i show ${ip,ipv6} route
    2025-08-29 07:10:08: %LAMP-INFO: +..............................................................................+
    2025-08-29 07:10:08: %LAMP-INFO: :                            Execute loop, length=2                            :
    2025-08-29 07:10:08: %LAMP-INFO: +..............................................................................+
@@ -442,8 +441,8 @@ All *include*, *exclude* entries will be separate between the 2 commands as well
 Api parameter looping
 ---------------------
 
-``api`` parameters can contain loops with multiple arguments seperated by ',' & prepended
-by '$'. The same rules of minimalization apply to api parameters as well.
+``api`` parameters can contain loops with multiple arguments separated by ',' using
+`${}` syntax. The same rules of minimalization apply to api parameters as well.
 
 Example:
 
@@ -464,7 +463,7 @@ Example:
       None
 
    device: host1
-   vrf: $(red,blue)
+   vrf: ${red,blue}
    2025-08-29 07:15:12: %LAMP-INFO: +..............................................................................+
    2025-08-29 07:15:12: %LAMP-INFO: :                              Api loop, length=2                              :
    2025-08-29 07:15:12: %LAMP-INFO: +..............................................................................+
@@ -514,11 +513,11 @@ Example:
 
 The API in the above example was invoked with the following arguments:
 
-   * get_vrf_interface( host1, $(red,blue) )
+   * get_vrf_interface( host1, ${red,blue} )
 
 Removing minimalization in the API arguments:
 
-   * get_vrf_interface( $(host1,red) , (host1,blue) )
+   * get_vrf_interface( ${host1,red} , ${host1,blue} )
 
 Since, 'api $' is equal to invoking api multiple times, the above can be simplified to:
 
@@ -537,21 +536,21 @@ Consider a complex example with multiple loops:
 
 Moving the addresses '225.1.1.1' & '226.1.1.1' into a loop:
 
-   * configure_ip_igmp_join_group_source( host3, Loopback89, $(225.1.1.1,226.1.1.1), 30.0.0.1 )
-   * configure_ip_igmp_join_group_source( host3, Loopback89, $(225.1.1.1,226.1.1.1), 30.0.0.2 )
+   * configure_ip_igmp_join_group_source( host3, Loopback89, ${225.1.1.1,226.1.1.1}, 30.0.0.1 )
+   * configure_ip_igmp_join_group_source( host3, Loopback89, ${225.1.1.1,226.1.1.1}, 30.0.0.2 )
 
-Let $(225.1.1.1,226.1.1.1) = XXX to simplify the command & check for further loops:
+Let ${225.1.1.1,226.1.1.1} = XXX to simplify the command & check for further loops:
 
    * configure_ip_igmp_join_group_source( host3, Loopback89, XXX, 30.0.0.1 )
    * configure_ip_igmp_join_group_source( host3, Loopback89, XXX, 30.0.0.2 )
 
 Applying a loop for the source address:
 
-   * configure_ip_igmp_join_group_source( host3, Loopback89, XXX, $(30.0.0.1,30.0.0.2) )
+   * configure_ip_igmp_join_group_source( host3, Loopback89, XXX, ${30.0.0.1,30.0.0.2} )
 
 Finally, substituting the value of XXX yields:
 
-   * configure_ip_igmp_join_group_source( host3, Loopback89, $(225.1.1.1,226.1.1.1), $(30.0.0.1,30.0.0.2) )
+   * configure_ip_igmp_join_group_source( host3, Loopback89, ${225.1.1.1,226.1.1.1}, ${30.0.0.1,30.0.0.2} )
 
 Invoking this api on LAMP gives the exact same API invocation equivalent to the individual
 invocations as shown below:
@@ -576,8 +575,8 @@ invocations as shown below:
 
    device: host3
    interface: Loopback89
-   group_address: $225.1.1.1,226.1.1.1
-   source_address(''): $30.0.0.1,30.0.0.2
+   group_address: ${225.1.1.1,226.1.1.1}
+   source_address(''): ${30.0.0.1,30.0.0.2}
    2025-08-29 07:18:40: %LAMP-INFO: +..............................................................................+
    2025-08-29 07:18:40: %LAMP-INFO: :                              Api loop, length=4                              :
    2025-08-29 07:18:40: %LAMP-INFO: +..............................................................................+
