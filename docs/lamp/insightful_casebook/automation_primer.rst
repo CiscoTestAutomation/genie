@@ -120,7 +120,7 @@ Add devices using the ``testbed add`` command:
 
 .. code-block:: console
 
-    (lamp) testbed add 150.0.0.1 --os iosxe --port 22 --credentials admin/password --name device1
+    (lamp) testbed add 150.0.0.1 --os iosxe --port 22 --credentials admin/password
 
 See :ref:`testbed_add` for details. Once all devices are added, save the testbed:
 
