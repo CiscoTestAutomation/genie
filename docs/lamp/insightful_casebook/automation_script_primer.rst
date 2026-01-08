@@ -1,5 +1,5 @@
-Automation Primer
-=================
+Automation Script Primer
+========================
 
 This guide covers the essentials for building a pyATS automation script using LAMP,
 from setting up your testbed to executing testcases.

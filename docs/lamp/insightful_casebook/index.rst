@@ -12,7 +12,7 @@ to use it effectively for real-world network automation tasks.
 .. toctree::
    :maxdepth: 1
 
-   automation_primer
+   automation_script_primer
    exploratory_testing
    golden_config_triggers
    error_recovery
