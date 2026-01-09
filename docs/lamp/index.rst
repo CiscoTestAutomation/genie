@@ -12,3 +12,4 @@ Genie LAMP
    commands/index
    shell_capabilities/index
    features/index
+   insightful_casebook/index
