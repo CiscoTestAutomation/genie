@@ -246,7 +246,7 @@ Below you will find additional information on each of those arguments:
 
     uid is the name of a trigger as seen in the triggers datafile.
 
-``-trigger-exclude-uids``
+``--trigger-exclude-uids``
 
     Specifies the list of triggers to be excluded from execution.
     This argument accepts a string in which each trigger-uid is separated by space.
