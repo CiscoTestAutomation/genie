@@ -22,8 +22,10 @@ All arguments are optionals.
     ``--pts-features``, "List of features to execute PTS on"
     ``--pts-golden-config``, "Full path/name to previously verified PTS file"
     ``--verification-uids``, "Specifies the list of verifications uids to run (list or logic expression)"
+    ``--verification-exclude-uids``, "Specifies the list of verifications uids to exclude (list or logic expression)"
     ``--verification-groups``, "Specifies the list of verifications groups to run (logic expression)"
     ``--trigger-uids``, "Specifies the list of triggers uids to run (list or logic expression)"
+    ``--trigger-exclude-uids``, "Specifies the list of triggers uids to exclude (list or logic expression)"
     ``--trigger-groups``, "Specifies the list of triggers groups to run (logic expression)"
     ``--devices``, "List of devices to connect to (in case of no mapping datafile)"
     ``--subsection-datafile``, "Full path/name or URL to the common_(setup/cleanup) subsection datafile"
@@ -139,6 +141,46 @@ Below you will find additional information on each of those arguments:
     The verification name is the name of a verification as seen in the
     verifications datafile.
 
+``--verification-exclude-uids``
+
+    Specifies the list of verifications uids to be excluded from execution.
+    This argument accepts a string in which each verification-uid is separated by space.
+    Also, it supports logical callable that determines which
+    verifications to exclude by matching the verification uids to the
+    pattern provided as input to the callable. This is the inverse of ``--verification-uids``.
+
+    A valid python syntax input is necessary whenever this argument in used in command line so that
+    :logic:`Logic <http>` String Inputs may evaluate it.
+
+    .. code-block:: bash
+
+         --verification-exclude-uids "Verify_SkipThis_test Verify_DisabledTest"
+
+         or
+
+         --verification-exclude-uids "Or('Verify_SkipThis_.*', 'Verify_Temp_.*')"
+
+    Or inside a job file, define the verifications to be excluded as a list or logical callable
+
+    .. code-block:: python
+
+         # Inside a job file using list
+
+         gRun(verification_exclude_uids=['Verify_SkipThis_test', 'Verify_DisabledTest'])
+
+         or
+
+         # Inside a job file using logic expression
+
+         from pyats.datastructures.logic import Or
+
+         gRun(verification_exclude_uids=Or('Verify_SkipThis_.*', 'Verify_Temp_.*'))
+
+.. note::
+
+    The verification name is the name of a verification as seen in the
+    verifications datafile.
+
 ``--verification-groups``
 
     Specify the group(s) of verifications to execute. This argument accepts a
@@ -199,6 +241,45 @@ Below you will find additional information on each of those arguments:
          from pyats.datastructures.logic import Or
 
          gRun(trigger_uids=Or('TriggerUnconfigConfigBgp', 'TriggerShutNoShutEthernetInterface'))
+
+.. note::
+
+    uid is the name of a trigger as seen in the triggers datafile.
+
+``--trigger-exclude-uids``
+
+    Specifies the list of triggers to be excluded from execution.
+    This argument accepts a string in which each trigger-uid is separated by space.
+    Also, it supports pattern matching by logical callable, that is,
+    it determines which triggers to exclude by matching
+    the triggers uids to the pattern provided as input to the callable. This is the inverse of ``--trigger-uids``.
+
+    A valid python syntax input is necessary whenever this argument is used in command line so that
+    :logic:`Logic <http>` String Inputs may evaluate it.
+
+    .. code-block:: bash
+
+         genie run /path/to/jobfile.py --trigger-exclude-uids "TriggerSkipTest TriggerDisabledTest"
+
+         or
+
+         genie run /path/to/jobfile.py --trigger-exclude-uids "Or('TriggerSkip.*', 'TriggerTemp.*')"
+
+    Or inside a job file, define the triggers to be excluded as a list or logical callable
+
+    .. code-block:: python
+
+         # Inside a job file using list
+
+         gRun(trigger_exclude_uids=['TriggerSkipTest', 'TriggerDisabledTest'])
+
+         or
+
+         # Inside a job file using logic expressions
+
+         from pyats.datastructures.logic import Or
+
+         gRun(trigger_exclude_uids=Or('TriggerSkip.*', 'TriggerTemp.*'))
 
 .. note::
     
