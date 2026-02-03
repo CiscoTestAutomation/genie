@@ -457,6 +457,36 @@ The following table specifies the current set of PowerCycler types supported by 
                 # Fill out the rest of this device as normal
                 # such as connection info, credentials, etc
 
+    * - Proxmox
+      -
+        .. code-block:: yaml
+
+            Testbed Schema
+            --------------
+            devices:
+              <device>:
+                peripherals:
+                  power_cycler:
+                    - type: proxmox
+                      connection_type: ssh
+                      host (str): Proxmox device from Testbed YAML.
+                      outlets (list): VM IDs associated with your device.
+
+            Testbed Example
+            ---------------
+            devices:
+              PE1:
+                peripherals:
+                  power_cycler:
+                    - type: proxmox
+                      connection_type: ssh
+                      host: my-proxmox
+                      outlets: [20]
+
+              my-proxmox:
+                # Fill out the rest of this device as normal
+                # such as connection info, credentials, etc  
+
 To use this table, locate the `PowerCycler` that corresponds with yours and fill the arguments into your Testbed YAML
 under the device peripherals key.
 
