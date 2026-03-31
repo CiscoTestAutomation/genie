@@ -44,7 +44,7 @@ DEPENDENCIES += sphinxcontrib-applehelp sphinxcontrib-contentui sphinxcontrib-de
 DEPENDENCIES += sphinxcontrib-htmlhelp sphinxcontrib-jquery sphinxcontrib-jsmath
 DEPENDENCIES += sphinxcontrib-mockautodoc sphinxcontrib-napoleon
 DEPENDENCIES += sphinxcontrib-qthelp sphinxcontrib-robotframework
-DEPENDENCIES += sphinxcontrib-serializinghtml sphinxcontrib-spelling sphinxcontrib-video Sphinx
+DEPENDENCIES += sphinxcontrib-serializinghtml sphinxcontrib-spelling sphinxcontrib-video
 
 
 # User-friendly check for sphinx-build
