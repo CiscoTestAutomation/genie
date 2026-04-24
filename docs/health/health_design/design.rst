@@ -3,7 +3,7 @@ Design
 
 The previous page showed you how to use pyATS Health Check easily. This page is for those who want to use their own pyATS Health Check. If you are happy with the way it was done on the previous page, then please move on :ref:`processor key in YAML<processor_key_in_yaml>`.
 
-You can collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check is yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are supported in Health Check.
+You can collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, process-level core files, IOS XE crashinfo files, etc. pyATS Health Check is yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are supported in Health Check.
 
 The health check is driven by a `health_file` which is provided at run time. There are two different mechanism to run the checks:
 
@@ -92,18 +92,87 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                 # Please find the link to the page from bottom of this section
                 function: health_cpu
                 arguments:
-                  command: show processes cpu
-                  processes: ['BGP I/O']
+                  # add_total:True adds an ALL_PROCESSES entry with the total
+                  # 5-second CPU average, used by the include filter below
+                  add_total: True
+                  timeout: 120
+                  processes:
+                    - .*
+                include:
+                  - contains('ALL_PROCESSES', level=-1).sum_value_operator('value', '<', 90)
         - memory:
             - api:
                 device: uut
                 processor: post
                 function: health_memory
                 arguments:
-                  command: show processes memory
-                  processes: ['\*Init\*']
+                  # memory first checks processor-pool total quickly;
+                  # full per-process parse only runs if threshold is exceeded
+                  add_total: True
+                  timeout: 120
+                  threshold: 90
+                  processes:
+                    - .*
                 include:
-                  - sum_value_operator('value', '<', 90)
+                  - contains('ALL_PROCESSES', level=-1).sum_value_operator('value', '<', 90)
+        - logging:
+            - api:
+                device: uut
+                processor: post
+                function: health_logging
+                arguments:
+                  keywords:
+                    - traceback
+                    - Traceback
+                    - TRACEBACK
+                  # clear_log: true  # uncomment to clear buffer before each check
+                include:
+                  - value_operator('num_of_logs', '==', 0)
+        - core:
+            - api:
+                device: uut
+                processor: post
+                function: health_core
+                arguments:
+                  # default_dir is per-platform; HA/stack overrides are automatic
+                  default_dir:
+                    - bootflash:/core/
+                    - harddisk:/core/
+                  delete_core: true   # only deletes after successful remote copy
+                  # remote_device, remote_path, vrf needed to copy files
+                include:
+                  - value_operator('num_of_cores', '==', 0)
+        # crashinfo_pre_check: baseline at CommonSetup so pre-existing files
+        # don't cause testcase failures (failed_result_status: passx)
+        - crashinfo_pre_check:
+            - api:
+                device: uut
+                # processor: post means this runs as a post-processor;
+                # health_tc_sections scopes it to CommonSetup only
+                processor: post
+                function: health_crashinfo
+                arguments:
+                  delete_crashinfo: true
+                health_tc_sections:
+                  - type:CommonSetup
+                include:
+                  - value_operator('num_of_crashfiles', '==', 0)
+                failed_result_status: passx
+        # crashinfo: post-processor per testcase — fails testcase if new files appear
+        - crashinfo:
+            - api:
+                device: uut
+                processor: post
+                function: health_crashinfo
+                arguments:
+                  delete_crashinfo: true
+                health_tc_sections:
+                  - type:TestCase
+                include:
+                  - value_operator('num_of_crashfiles', '==', 0)
+                save:
+                  - variable_name: health_value
+                    filter: get_values('filename')
 
 .. note::
 
