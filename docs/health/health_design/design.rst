@@ -71,6 +71,16 @@ pyATS Health Check yaml
 
 Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a few consideration to run it as pyATS Health Check. All the things are written as below comments in the yaml. If no comments, it means these items are exact same with `Blitz`.
 
+.. note::
+
+    The ``cpu`` and ``memory`` examples below use ``processes: ['BGP I/O']`` /
+    ``processes: ['*Init*']`` — targeted regexes that match only a few
+    processes. The default ``--health-checks`` yaml uses ``processes: .*``
+    (match all processes) with ``timeout: 120``, which is broader and carries
+    higher overhead. Use targeted process lists when you want lightweight
+    checks; use ``processes: .*`` (with ``add_total: True``) when you need a
+    true system-wide baseline.
+
 .. code-block:: yaml
 
     # testcase name should be `pyats_health_processors`
@@ -92,29 +102,20 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                 # Please find the link to the page from bottom of this section
                 function: health_cpu
                 arguments:
-                  # add_total:True adds an ALL_PROCESSES entry with the total
-                  # 5-second CPU average, used by the include filter below
-                  add_total: True
-                  timeout: 120
                   processes:
-                    - .*
+                    - BGP I/O  # targeted: only check this process
                 include:
-                  - contains('ALL_PROCESSES', level=-1).sum_value_operator('value', '<', 90)
+                  - sum_value_operator('value', '<', 90)
         - memory:
             - api:
                 device: uut
                 processor: post
                 function: health_memory
                 arguments:
-                  # memory first checks processor-pool total quickly;
-                  # full per-process parse only runs if threshold is exceeded
-                  add_total: True
-                  timeout: 120
-                  threshold: 90
                   processes:
-                    - .*
+                    - '*Init*'  # regex: matches any process name containing 'Init'
                 include:
-                  - contains('ALL_PROCESSES', level=-1).sum_value_operator('value', '<', 90)
+                  - sum_value_operator('value', '<', 90)
         - logging:
             - api:
                 device: uut
@@ -142,19 +143,23 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                   # remote_device, remote_path, vrf needed to copy files
                 include:
                   - value_operator('num_of_cores', '==', 0)
-        # crashinfo_pre_check: baseline at CommonSetup so pre-existing files
-        # don't cause testcase failures (failed_result_status: passx)
+        # crashinfo_pre_check: runs as a post-processor on CommonSetup.
+        # Deletes any pre-existing crashinfo files so they don't pollute the
+        # per-testcase check. Result is passx so a pre-existing file does not
+        # fail the overall run.
         - crashinfo_pre_check:
             - api:
                 device: uut
-                # processor: post means this runs as a post-processor;
-                # health_tc_sections scopes it to CommonSetup only
+                # processor: post — runs after CommonSetup completes.
+                # health_tc_sections: type:CommonSetup scopes it to CommonSetup only.
                 processor: post
                 function: health_crashinfo
                 arguments:
                   delete_crashinfo: true
                 health_tc_sections:
                   - type:CommonSetup
+                health_tc_check:
+                  os: iosxe
                 include:
                   - value_operator('num_of_crashfiles', '==', 0)
                 failed_result_status: passx
@@ -168,11 +173,22 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                   delete_crashinfo: true
                 health_tc_sections:
                   - type:TestCase
+                health_tc_check:
+                  os: iosxe
                 include:
                   - value_operator('num_of_crashfiles', '==', 0)
                 save:
                   - variable_name: health_value
                     filter: get_values('filename')
+
+.. warning::
+
+    ``crashinfo`` is **IOS XE only**. On NX-OS or IOS XR devices,
+    ``health_crashinfo`` will raise a runtime error or silently return empty
+    results. On mixed-platform testbeds, restrict the check to IOS XE devices
+    using ``health_tc_uids``, ``health_tc_groups``, or by specifying the device
+    name explicitly (e.g. ``device: my_xe_device``) rather than a loop over all
+    devices.
 
 .. note::
 

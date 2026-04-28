@@ -23,7 +23,7 @@ Or once you have both the testbed yaml and health yaml for custom health checks 
     pyats run job <job file> --testbed-file <testbed file> --health-file "http://<url>/health.yaml"
     pyats run job <job file> --testbed-file <testbed file> --health-file "http://<token>@<url>/health.yaml"
 
-.. note:
+.. note::
 
     `cpu`, `memory`, `logging`, `core` and `crashinfo` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
 
@@ -35,7 +35,7 @@ Or once you have both the testbed yaml and health yaml for custom health checks 
 
     **core** detects process-level ``.core.gz`` / ``.tar.gz`` files. Files are only detected by default; use ``--health-remote-device`` to copy them. HA and stack topologies are handled automatically.
 
-    **crashinfo** detects IOS XE full-OS crash files in ``crashinfo:`` (distinct from ``bootflash:/core/`` process cores). Files are copied automatically to ``<runinfo>/crashinfo/`` — no remote server needed. A pre-run baseline is established at ``CommonSetup`` so only files that appear *during* the run are flagged.
+    **crashinfo** detects IOS XE full-OS crash files in ``crashinfo:`` (distinct from ``bootflash:/core/`` process cores). Files are copied automatically to ``<runinfo>/crashinfo/`` — no remote server needed. A baseline is established after CommonSetup (``crashinfo_pre_check``) so only files that appear *during* a testcase are flagged as failures.
 
 Standalone
 ----------
@@ -142,7 +142,7 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
         pkg: genie.libs.health
         class: health.Health
       test_sections:
-        - crashinfo_pre_check:           # baseline at CommonSetup
+        - crashinfo_pre_check:           # post-processor on CommonSetup
             - api:
                 device: my_xe_device
                 function: health_crashinfo
@@ -150,6 +150,8 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
                   delete_crashinfo: true
                 health_tc_sections:
                   - type:CommonSetup
+                health_tc_check:
+                  os: iosxe
                 include:
                   - value_operator('num_of_crashfiles', '==', 0)
                 failed_result_status: passx  # pre-existing files don't fail the run
@@ -162,6 +164,8 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
                   delete_crashinfo: true
                 health_tc_sections:
                   - type:TestCase
+                health_tc_check:
+                  os: iosxe
                 include:
                   - value_operator('num_of_crashfiles', '==', 0)
                 save:
@@ -193,5 +197,10 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
    * - ``delete_crashinfo``
      - ``True``
      - Delete file from device after successful copy. Set ``False`` to keep.
+   * - ``vrf``
+     - ``None``
+     - Accepted for API consistency with ``health_core`` but unused — files
+       are copied locally to ``<runinfo>/crashinfo/``, not via SCP, so VRF
+       has no effect on this check.
 
 The examples repo is open-sourced. Any contributions for pyATS Health Check examples are encouraged!

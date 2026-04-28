@@ -20,9 +20,17 @@ pyATS Health Check currently supports the following 5 checks by default.
    * - core
      - Checks for process-level ``.core.gz`` / ``.tar.gz`` files in ``bootflash:/core/`` (and ``harddisk:/core/``). Supports HA (also checks ``stby-bootflash:/core/``) and stack (checks ``flash-{id}:/core/``). Use ``--health-remote-device`` to copy files to a remote server. Files are only deleted from the device after a successful copy.
    * - crashinfo
-     - Checks for IOS XE crashinfo files in ``crashinfo:`` (written on full OS crash/reload). **IOS XE only.** Supports HA (also checks ``stby-crashinfo:``) and stack (checks ``crashinfo-{id}:``). Copies discovered files automatically to ``<runinfo>/crashinfo/`` — no remote server needed. Optionally deletes files from the device after copy.
+     - Checks for IOS XE crashinfo files in ``crashinfo:`` (written on full OS crash/reload). **IOS XE only.** Supports HA (also checks ``stby-crashinfo:``) and stack (checks ``crashinfo-{id}:``). Copies discovered files automatically to ``<runinfo>/crashinfo/`` — no remote server needed. A baseline run after CommonSetup (``crashinfo_pre_check``) ensures only files appearing *during* a testcase are flagged. Optionally deletes files from the device after copy.
 
-.. note:
+.. note::
+
+    ``crashinfo`` is **IOS XE only**. On mixed-platform testbeds (e.g. IOS XE +
+    NX-OS), restrict the check to IOS XE devices by specifying the device name
+    explicitly or using ``--health-devices`` / ``health_tc_uids``. Running it
+    against NX-OS or IOS XR will either raise a runtime error or silently return
+    no results.
+
+.. note::
 
     `cpu`, `memory`, `logging`, `core` and `crashinfo` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
 
@@ -36,7 +44,7 @@ If you want to check only specific checks, list only those names after `--health
 
 For ``core``, only detection occurs by default. To copy the file to a remote server for TAC analysis or archival, provide ``--health-remote-device``. Files are deleted from the device only after a successful copy.
 
-For ``crashinfo``, files are copied automatically to the ``crashinfo/`` subdirectory of the pyATS run directory (no remote server needed). The check also establishes a pre-run baseline so only files that appear *during* the run are flagged as failures.
+For ``crashinfo``, files are copied automatically to the ``crashinfo/`` subdirectory of the pyATS run directory (no remote server needed). A baseline is established after CommonSetup (``crashinfo_pre_check``) so only files that appear *during* the run are flagged as failures.
 
 The command example in that case is as follows.
 
@@ -143,7 +151,9 @@ example to send Webex notification to webex space by using webex arguments
 
 .. note::
 
-    ``--health-webex`` is deprecated. Use ``--health-notify-webex`` instead.
+    ``--health-webex`` was deprecated in pyATS 21.7. Use ``--health-notify-webex``
+    instead — both flags are accepted but ``--health-webex`` prints a deprecation
+    warning at runtime.
 
 .. note::
 
