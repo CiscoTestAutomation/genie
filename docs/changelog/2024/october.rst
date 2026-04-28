@@ -33,23 +33,23 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * clean-pkg
     * iosxe
         * image_handler
             * Update clean schema to handle smu images
-        * Added new clean stages `install_smu`, `install_remove_smu`
+        * Added new clean stages ``install_smu``,``install_remove_smu``
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * clean
     * Modified recovery_worker
-        * Changed to use `device_rommon_boot` for TFTP booting
+        * Changed to use ``device_rommon_boot`` for TFTP booting
     * Modified device_rommon_boot
         * Changed it to try and use TFTP_BOOT environment variable if TFTP path is too long
 
@@ -58,7 +58,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -67,7 +67,7 @@ genie.libs.conf
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -91,7 +91,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -177,13 +177,13 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
-    * Modified `check_memory_leaks` processor
+    * Modified ``check_memory_leaks`` processor
         * changed to processor.passed/failed
-    * added `execute_reload`  processor
+    * added ``execute_reload``  processor
         * new processor to reload the device
     * _condition_validator in Blitz
         * Fixed debug message
@@ -204,7 +204,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -222,9 +222,9 @@ genie.libs.parser
     * Added howPlatformHardwareFedSwitchActiveVlanIngress
         * parser for 'show platform hardware fed switch active vlan {num} ingress'
     * Added ShowPlatformSoftwareFedSwitchActiveSecurityFedSisfStatistics parser.
-        * Added parser for CLI `show platform software fed switch active security-fed sisf statistics`.
+        * Added parser for CLI ``show platform software fed switch active security-fed sisf statistics``.
     * Added ShowPlatformHardwareFedSwitchActiveSgaclResourceUsage parser.
-        * Added parser for CLI `show platform hardware fed switch active sgacl resource usage`.
+        * Added parser for CLI ``show platform hardware fed switch active sgacl resource usage``.
     * Added ShowPlatformHardwareFedSwitchActiveFwdAsicInsightL3unexthop
         * show platform hardware fed switch {switch} fwd-asic insight l3u_nexthop {nh_gid}
     * Added ShowLoggingProcess parser
@@ -248,7 +248,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -304,7 +304,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * iosxe

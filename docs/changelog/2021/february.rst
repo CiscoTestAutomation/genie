@@ -57,7 +57,7 @@ Features:
     * Modfied configuration datafile
         * enhanced code to allow for jinja2 templates
 * device
-    * Fixed backward compatiblity of `platform` with `series` for Unicon
+    * Fixed backward compatiblity of ``platform``with``series`` for Unicon
     * return result of connect to caller
 * cli
     * Changed command shell to use pyats testbed loader
@@ -68,7 +68,7 @@ Features:
 **genie.libs.clean**
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * APIC
@@ -92,12 +92,12 @@ Features:
 **genie.libs.conf**
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * IOSXR
     * Modified
-        * Modified Loopbackinterface So That It Will Actually Work With The `Loopback` Type
+        * Modified Loopbackinterface So That It Will Actually Work With The ``Loopback`` Type
 
 * NXOS
     * Modified Nxos Device Object
@@ -114,7 +114,7 @@ Features:
 **genie.libs.ops**
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * IOSXE
@@ -136,7 +136,7 @@ Features:
 **genie.libs.parser**
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * IOSXR
@@ -208,7 +208,7 @@ Features:
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * IOSXE
@@ -228,7 +228,7 @@ Features:
         * To Make 'Configuration_Register' Optional
     * Patch Showmplsldpdiscovery
     * Updated Showaccesslists
-        * Added `Acl_Type` To Distinguish Standard, Extended Or Ipv6
+        * Added ``Acl_Type`` To Distinguish Standard, Extended Or Ipv6
     * Modified Showswitchstackportssummary
         * 'Show Switch Stack-Ports Summary'
     * Modified Showswitchstackportssummary
@@ -298,7 +298,7 @@ Features:
 **genie.libs.sdk**
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * JUNOS
@@ -402,7 +402,7 @@ Features:
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * JUNOS

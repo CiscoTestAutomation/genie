@@ -41,7 +41,7 @@ becomes
 Generating variables
 ---------------------
 
-Variables can be generated from the outputs of ``execute``, ``parse``, or ``api``
+Variables can be generated from the outputs of ``execute``,``parse``, or``api``
 commands using the '-s' option. Filters can be used to extract subsets of
 data from action outputs.
 
@@ -309,7 +309,7 @@ outputs, regex for string outputs.
 Using variables
 ---------------
 
-Variables can be used as arguments to ``execute``, ``configure``, ``api``, and ``parse``
+Variables can be used as arguments to ``execute``,``configure``,``api``, and``parse``
 commands, or in *include*/*exclude* entries.
 
 An example of using a variable as an *include* entry in ``execute``:

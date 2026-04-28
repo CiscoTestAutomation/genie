@@ -39,13 +39,13 @@ Consider some hypothetical output from a show command::
         value_3 : 3000
 
 
-To access the ``value_2`` of interface ``A`` ``parsergen`` needs a list
+To access the ``value_2``of interface``A````parsergen`` needs a list
 of `regular expressions<re>` to narrow down the scope of the matching. The
 order of the `regexes<re>` in the list correspond to the order of the values in
 the output.
 
 Note that ``parsergen`` has a best effort algorithm to catch false
-positives.  For instance, if ``value_2`` is not matched for interface ``B``,
+positives.  For instance, if ``value_2``is not matched for interface``B``,
 ``parsergen`` stops the execution as it exits from the inner level.
 
 .. highlight:: python
@@ -103,7 +103,7 @@ both XR and NXOS. Additionally the command strings can contain python
 :meth:`str.format` arguments. The standard python format function has been
 extended to allow for specifying default values if the argument is not provided
 to ``parsergen``. The default values can be seen above for selecting IPv4
-interfaces using ``=ipv4`` for XR and ``=ip`` for NXOS. If a default value is
+interfaces using ``=ipv4``for XR and``=ip`` for NXOS. If a default value is
 not provided an empty string is substituted.  For requests involving multiple
 format fields, specify a format argument of ``None`` to indicate this is a
 placeholder for the default field value.
@@ -141,8 +141,8 @@ A Full Example
     the router output exactly, otherwise parse failure is expected.
 
 
-In our full example we will create a parser for the show command ``show
-interface``. The :ref:`marked-up output<core_markup>` is placed into
+In our full example we will create a parser for the show command `` show
+interface ``. The :ref:`marked-up output<core_markup>` is placed into
 a file (for example,
 :download:`parsergen_demo_mkpg.py <parsergen_demo_mkpg.txt>`). ::
 

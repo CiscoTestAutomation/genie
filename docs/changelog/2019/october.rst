@@ -103,7 +103,7 @@ You can call them by doing
 
 
 **Genie.Libs.Ops**
- * New `ND` OPS structure on IOSXR
+ * New ``ND`` OPS structure on IOSXR
  * Updated Nd ops to support custom vrf, interface values (IOSXE & NXOS)
  * Updated LAG ops to prevent updating non-existent keys (IOSXR)
  * Fixed issue where exclude keys are not correctly inherited

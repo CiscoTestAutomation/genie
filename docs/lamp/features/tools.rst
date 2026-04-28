@@ -37,7 +37,7 @@ Example:
 Api code viewer
 ^^^^^^^^^^^^^^^^
 
-Api code can be viewed using ``info api <API_NAME>`` or ``info api _<MODULE_NAME> <SUBMODULE_NAME> <API_NAME>``.
+Api code can be viewed using ``info api <API_NAME>``or``info api _<MODULE_NAME> <SUBMODULE_NAME> <API_NAME>``.
 
 Example:
 

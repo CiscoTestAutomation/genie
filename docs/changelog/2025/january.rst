@@ -29,15 +29,15 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie
     * Modified
-        * Pinned minimum `netaddr` package version to `0.10.1`.
+        * Pinned minimum ``netaddr``package version to``0.10.1``.
     * Modified
-        * Unpinned `netaddr` package version in setup.py and Makefile
-    * Removed `TriggerUnconfigureConfigureOspf` trigger from yaml file
+        * Unpinned ``netaddr`` package version in setup.py and Makefile
+    * Removed ``TriggerUnconfigureConfigureOspf`` trigger from yaml file
     * Re-enable the syntax warning in Makefile
 
 
@@ -45,7 +45,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -59,16 +59,16 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * clean-pkg
     * iosxe
-        * Remove the unused key `reload_timeout` from `install_smu`
+        * Remove the unused key ``reload_timeout``from``install_smu``
     * iosxe
-        * Added hot smu support for `install_remove_smu` and `install_smu` stage
+        * Added hot smu support for ``install_remove_smu``and``install_smu`` stage
     * iosxe
-        * Added multiple smu support for `install_remove_smu` and `install_smu` stage
+        * Added multiple smu support for ``install_remove_smu``and``install_smu`` stage
 
 * iosxe
     * Added
@@ -79,12 +79,12 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * nxos
     * Fix feature service-acceleration
-        * change config line `conn-token` to `connection-token` and update unit tests
+        * change config line ``conn-token``to``connection-token`` and update unit tests
 
 * conf-pkg
     * Added new clis in interface and macsec files.
@@ -92,7 +92,7 @@ genie.libs.conf
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -104,12 +104,12 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * fileserver
     * Modified _get_ip
-        * For newer version of `netaddr`, passing INET_ATON argument IPAddress to allow all kinds of weird-looking addresses to be parsed
+        * For newer version of ``netaddr``, passing INET_ATON argument IPAddress to allow all kinds of weird-looking addresses to be parsed
 
 * filetransferutils-pkg
     * Fix syntax warning
@@ -119,7 +119,7 @@ genie.libs.filetransferutils
 genie.libs.health
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * health-pkg
@@ -130,7 +130,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * ops-pkg
@@ -141,7 +141,7 @@ genie.libs.ops
 genie.libs.robot
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * robot-pkg
@@ -152,7 +152,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -288,7 +288,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -308,15 +308,15 @@ genie.libs.sdk
         * add handeling for InvalidCommandError
 
 * genielibs
-    * Removed `TriggerUnconfigureConfigureOspf` trigger from yaml file
+    * Removed ``TriggerUnconfigureConfigureOspf`` trigger from yaml file
 
 * junos
     * Modified verify_ospf_interface_in_database
-        * For newer version of `netaddr`, passing INET_ATON argument IPAddress to allow all kinds of weird-looking addresses to be parsed
+        * For newer version of ``netaddr``, passing INET_ATON argument IPAddress to allow all kinds of weird-looking addresses to be parsed
 
 * utils
     * Modified netmask_to_bits
-        * For newer version of `netaddr`, passing INET_ATON argument IPAddress to allow all kinds of weird-looking addresses to be parsed
+        * For newer version of ``netaddr``, passing INET_ATON argument IPAddress to allow all kinds of weird-looking addresses to be parsed
     * copy to device
         * Fixed the logic for proxy dev to check for proxy in servers
     * copy_to_device
@@ -340,7 +340,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * sdk-pkg
@@ -351,7 +351,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -414,7 +414,7 @@ genie.libs.parser
 
 * genieparer
     * Modified
-        * Unpinned `netaddr` package version in Makefile
+        * Unpinned ``netaddr`` package version in Makefile
         * Updated parsers to pass INET_ATON argument to IPAddress to allow all kinds of weird-looking addresses to be parsed
 
 * iosxr
@@ -448,14 +448,14 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
     * Added ShowPlatformHardwareFedSwitchFwdAsicInsightIpv4SgtMapping parser.
-        * Added parser for CLI `show platform hardware fed switch {switch_var} fwd-asic insight ipv4_sgt_mapping({devid})`.
+        * Added parser for CLI ``show platform hardware fed switch {switch_var} fwd-asic insight ipv4_sgt_mapping({devid})``.
     * Added ShowPlatformHardwareFedSwitchFwdAsicInsightIpv6SgtMapping parser.
-        * Added parser for CLI `show platform hardware fed switch {switch_var} fwd-asic insight ipv6_sgt_mapping({devid})`.
+        * Added parser for CLI ``show platform hardware fed switch {switch_var} fwd-asic insight ipv6_sgt_mapping({devid})``.
     * Added ShowPlatformNatTranslationsStandby parser.
         * Added parser for CLI 'show platform nat translations standby'.
     * Added ShowPlatformNatTranslationsStandbyStatistics parser.

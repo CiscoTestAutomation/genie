@@ -294,8 +294,8 @@ Features:
 ^^^^^^^^^
 
 * Modification to 'devices' attribute in the trigger, verification and PTS
-  datafile. The devices are now passed as a list, and `device_attributes` is a
-  dictionary for extra attributes. `device_attributes` is optional.
+  datafile. The devices are now passed as a list, and ``device_attributes`` is a
+  dictionary for extra attributes. ``device_attributes`` is optional.
 * Fix a Cython issue.
 
 .. code-block:: python

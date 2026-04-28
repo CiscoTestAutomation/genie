@@ -4,7 +4,7 @@ Negative testing
 ================
 
 You can get a Passed result for an action that is expected to fail by setting the key; ``expected_failure: True``. 
-Actions, [``configure``, ``execute``, ``parse``, ``learn``, ``api``, ``rest``, ``bash_console``] support this feature.
+Actions, [``configure``,``execute``,``parse``,``learn``,``api``,``rest``,``bash_console``] support this feature.
 
 .. code-block:: YAML
 

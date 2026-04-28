@@ -7,7 +7,7 @@ Introduction
 ------------
 Visit :ref:`MetaParser_Key_Usage_Traceability` for the design motivation.
 
-``tracabledict`` module located in ``metaparser`` package `util` directory 
+``tracabledict``module located in``metaparser`` package `util` directory 
 (metaparser.util). This module provides dictionary (e.g.:: metaparser output) 
 key-usage traceability.
 

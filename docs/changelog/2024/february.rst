@@ -55,19 +55,19 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie
     * setup
-        * Pinned `netaddr` to `0.10.1`
+        * Pinned ``netaddr``to``0.10.1``
 
 
 
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * modified and added hasattr
@@ -75,7 +75,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -101,7 +101,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -117,11 +117,11 @@ genie.libs.sdk
         * Added API to verify the interface media type
     * Added API verify_interfaces_transceiver_supported
         * Added API to verify the transceivers supported in the device
-    * Updated `configure_management_gnmi` API to support secure server
-    * Modified `generate_rsa_ssl_key` API to support legacy 3des
-    * Modified `get_file_contents` API, added removal of carriage return option
-    * Modified `configure_pki_import`, added device key and root CA options
-    * Added new api `generate_pkcs12` to generate pkcs12 file.
+    * Updated ``configure_management_gnmi`` API to support secure server
+    * Modified ``generate_rsa_ssl_key`` API to support legacy 3des
+    * Modified ``get_file_contents`` API, added removal of carriage return option
+    * Modified ``configure_pki_import``, added device key and root CA options
+    * Added new api ``generate_pkcs12`` to generate pkcs12 file.
     * Added API unconfigure_ip_igmp_querier_query_interval
         * Added API for unconfigure ip igmp querier query interval
     * Added API unconfigure_ip_igmp_querier_max_response_time
@@ -142,7 +142,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * linux
@@ -155,21 +155,21 @@ genie.libs.sdk
 
 * iosxe/rommon
     * configure
-        * Updated `configure_rommon_tftp` API to set TFTP_FILE as the rommon variable.
+        * Updated ``configure_rommon_tftp`` API to set TFTP_FILE as the rommon variable.
     * utils
-        * Updated `device_rommon_boot` API with a an option to boot using TFTP_FILE.
+        * Updated ``device_rommon_boot`` API with a an option to boot using TFTP_FILE.
 
 * iosxe
     * Modified configure_sdm_prefer_custom_template
         * added parameters custom_template, entried and priority
     * Modified get_snmp_snmpwalk
         * Added timeout parameter to increase timeout of execute operation
-    * `get_running_config_dict` API
-        * Added `output` parameter to pass the output of `show running-config` command.
+    * ``get_running_config_dict`` API
+        * Added ``output``parameter to pass the output of``show running-config`` command.
 
 
 --------------------------------------------------------------------------------
-                                     Modify
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -181,7 +181,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -245,7 +245,7 @@ genie.libs.parser
         * Updated regex pattern <p3> to make status optional
         * Added new regex pattern <p7> to capture status separately
     * Modified ShowModule
-        * Updated regex pattern <p1> to accommodate `N9K-vSUP` model.
+        * Updated regex pattern <p1> to accommodate ``N9K-vSUP`` model.
 
 * iosxr
     * Modified ShowBgpVrfAfPrefix
@@ -262,7 +262,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxr

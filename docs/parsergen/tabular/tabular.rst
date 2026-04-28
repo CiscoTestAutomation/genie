@@ -47,8 +47,8 @@ Full :command:`show arp` example
 We need to identify a few things in order to parse this output. First if there
 are multiple tables we must identify what the title of each table is. In this
 case the title is a card reference. Next we must identify the headers that
-define the columns. For show arp the headers are ``Address``, ``Age``,
-``Hardware Addr``, ``State``, ``Type``, and ``Interface``. Finally we need to
+define the columns. For show arp the headers are ``Address``,``Age``,
+``Hardware Addr``,``State``,``Type``, and``Interface``. Finally we need to
 determine how to uniquely identify entries from the table. These are the
 ``index`` fields. For :command:`show arp` these would be the ``Address`` and
 ``Interface`` fields or columns 0 and 5. For this command that is all we need. ::
@@ -109,7 +109,7 @@ the actual entry dictionary. This dictionary is indexed by the header name of
 the value you want.
 
 So for example if we want to see the ARP entry's MAC address for the IP
-``10.10.10.2`` on one's ``GigabitEthernet0/0/0/1`` interface we would take the
+``10.10.10.2``on one's``GigabitEthernet0/0/0/1`` interface we would take the
 above results and use the following code::
 
     addr = '10.10.10.2'

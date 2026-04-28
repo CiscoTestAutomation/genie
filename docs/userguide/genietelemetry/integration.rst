@@ -1,7 +1,7 @@
 GenieTelemetry Guide
 ====================
 
-In order to integrate ``GenieTelemetry`` with ``Genie``, User needs to follow
+In order to integrate ``GenieTelemetry``with``Genie``, User needs to follow
 the below steps;
 
 1. **GenieTelemetry config file**: ``GenieTelemetry`` needs a config file where

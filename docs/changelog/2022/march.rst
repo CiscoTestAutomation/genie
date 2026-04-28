@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * genie.conf.base.api
@@ -67,7 +67,7 @@ genie
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * conf/utils
@@ -89,7 +89,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * utils
@@ -106,7 +106,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * cheetah
@@ -123,7 +123,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * filetransferutils
@@ -152,7 +152,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -168,7 +168,7 @@ genie.libs.sdk
         * added a condition on failure, if 'prefix_no' is not 0 and traffic is not flowing, returned False. As by default traffic wont be runningi on prefix mdt 0
     * Modified verify_mpls_forwarding_table_gid_counter api
         * Added a expected_prefix_exempted condition on failure, as there will be default prefixes learnet which will not learn any traffic
-    * Updated `verify_ping` API to use minimum success rate of 1 percent
+    * Updated ``verify_ping`` API to use minimum success rate of 1 percent
     * Updated 'Install_Image' Clean Stage API
         * Updated install_add_one_shot_dialog to accept success if same image is already loaded.
     * Updated health_memory API
@@ -183,10 +183,10 @@ genie.libs.sdk
     * Modified creating the remote path so the files with more than one suffixes
 
 * ios
-    * Updated `verify_ping` API to use minimum success rate of 1 percent
+    * Updated ``verify_ping`` API to use minimum success rate of 1 percent
 
 * iosxr
-    * Updated `verify_ping` API to use minimum success rate of 1 percent
+    * Updated ``verify_ping`` API to use minimum success rate of 1 percent
 
 * all
     * Modified setup.py and Makefile
@@ -199,7 +199,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -440,7 +440,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -616,7 +616,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe

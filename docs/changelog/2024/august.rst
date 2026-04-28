@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * abstraction
@@ -63,7 +63,7 @@ genie
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * abstraction
@@ -75,7 +75,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -87,7 +87,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -98,7 +98,7 @@ genie.libs.clean
 
 * generic
     * Modified configure_management
-        * Added `alias_as_hostname` argument
+        * Added ``alias_as_hostname`` argument
         * Allows user to use the alias as the device hostname
 
 
@@ -115,7 +115,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -130,7 +130,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -211,7 +211,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -233,7 +233,7 @@ genie.libs.sdk
         * Added verify_current_image
             * Passing regex_search as True to compare images based on regex
     * Modified configure_management
-        * Added `alias_as_hostname` argument
+        * Added ``alias_as_hostname`` argument
         * Allows user to use the alias as the device hostname
     * Modified health_logging
         * Fixed logic error with log count
@@ -254,7 +254,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -368,8 +368,8 @@ genie.libs.parser
         * Updated code to fix folder_parsing job for empty test
 
 * common
-    * Modified get_parser function to pass the formatted command as `command` variable
-    * User can now use the following syntax for parser `cli` method
+    * Modified get_parser function to pass the formatted command as ``command`` variable
+    * User can now use the following syntax for parser ``cli`` method
         * ``def cli(self, command, output=None, **kwargs)``
 
 * utils
@@ -381,7 +381,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -443,7 +443,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * iosxe

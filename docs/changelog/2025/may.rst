@@ -1,7 +1,7 @@
 May 2025
 ==========
 
- - Genie v25.5 
+- Genie v25.5
 ------------------------
 
 
@@ -30,7 +30,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * harness/discovery
@@ -41,7 +41,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * clean
@@ -61,7 +61,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Add                                       
+Add
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -72,7 +72,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * conf
@@ -81,7 +81,7 @@ genie.libs.conf
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * nxos
@@ -99,7 +99,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * filetransferutils
@@ -113,7 +113,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -126,7 +126,7 @@ genie.libs.ops
 genie.libs.robot
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * genierobot
@@ -138,7 +138,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * updated api unit tests
@@ -268,12 +268,12 @@ genie.libs.sdk
     * Modified API unconfigure_ipv6_pim_bsr_candidate_rp
         * Added support for priority in the unconfiguration command.
         * Included CLI commands
-    * Modified API `unconfigure_ipv6_pim_bsr_candidate_bsr`
-        * Added support for `priority` in the unconfiguration command.
+    * Modified API ``unconfigure_ipv6_pim_bsr_candidate_bsr``
+        * Added support for ``priority`` in the unconfiguration command.
         * Included CLI commands
-            * `no ipv6 pim bsr candidate bsr 20002 priority 254`
-            * `no ipv6 pim bsr candidate bsr 20001`
-            * `no ipv6 pim bsr candidate bsr 30001`
+            * ``no ipv6 pim bsr candidate bsr 20002 priority 254``
+            * ``no ipv6 pim bsr candidate bsr 20001``
+            * ``no ipv6 pim bsr candidate bsr 30001``
     * Modified configure_tacacs_server
         * Modified the API to use hostname instead of IP address as host for tacacs server configuration
         * Added support for TLS (Transport Layer Security) configuration options
@@ -301,37 +301,37 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                          Unconfigure_Exclude_Ip_Dhcp                           
+Unconfigure_Exclude_Ip_Dhcp
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-         Unconfigure_Interface_Ip_Dhcp_Relay_Information_Option_Vpn_Id          
+Unconfigure_Interface_Ip_Dhcp_Relay_Information_Option_Vpn_Id
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-          Unconfigure_Interface_Ip_Dhcp_Relay_Source_Interface_Intf_Id          
+Unconfigure_Interface_Ip_Dhcp_Relay_Source_Interface_Intf_Id
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-              Unconfigure_Interface_Range_Dhcp_Channel_Group_Mode               
+Unconfigure_Interface_Range_Dhcp_Channel_Group_Mode
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                    Unconfigure_Ip_Dhcp_Client_Vendor_Class                     
+Unconfigure_Ip_Dhcp_Client_Vendor_Class
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                            Unconfigure_Ip_Dhcp_Pool                            
+Unconfigure_Ip_Dhcp_Pool
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -394,7 +394,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Add                                       
+Add
 --------------------------------------------------------------------------------
 
 * * iosxe
@@ -412,142 +412,142 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                         Configure_Dhcp_Pool_Dns_Server                         
+Configure_Dhcp_Pool_Dns_Server
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                      Configure_Dhcp_Pool_Ipv6_Domain_Name                      
+Configure_Dhcp_Pool_Ipv6_Domain_Name
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                    Configure_Ipv6_Dhcp_Client_Vendor_Class                     
+Configure_Ipv6_Dhcp_Client_Vendor_Class
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                 Configure/Configure_Ipv6_Dhcp_Relay_Option_Vpn                 
+Configure/Configure_Ipv6_Dhcp_Relay_Option_Vpn
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-               Configure_Ipv6_Dhcp_Relay_Destination_Ipv6Address                
+Configure_Ipv6_Dhcp_Relay_Destination_Ipv6Address
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-               Configure_Ipv6_Dhcp_Relay_Source_Interface_Intf_Id               
+Configure_Ipv6_Dhcp_Relay_Source_Interface_Intf_Id
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                                Configure_Ip_Acl                                
+Configure_Ip_Acl
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                           Configure_Ip_Acl_With_Any                            
+Configure_Ip_Acl_With_Any
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                               Configure_Ip_Sgacl                               
+Configure_Ip_Sgacl
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                               Configure_Ipv6_Acl                               
+Configure_Ipv6_Acl
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                   Configure_Mac_Access_Group_Mac_Acl_In_Out                    
+Configure_Mac_Access_Group_Mac_Acl_In_Out
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                         Unconfigure_Ip_Dhcp_Pool_Host                          
+Unconfigure_Ip_Dhcp_Pool_Host
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                     Unconfigure_Ip_Dhcp_Restrict_Next_Hop                      
+Unconfigure_Ip_Dhcp_Restrict_Next_Hop
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                     Unconfigure_Ip_Dhcp_Snooping_Database                      
+Unconfigure_Ip_Dhcp_Snooping_Database
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                Unconfigure_Ip_Dhcp_Snooping_Information_Option                 
+Unconfigure_Ip_Dhcp_Snooping_Information_Option
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-        Unconfigure_Ip_Dhcp_Snooping_Information_Option_Allow_Untrusted         
+Unconfigure_Ip_Dhcp_Snooping_Information_Option_Allow_Untrusted
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-     Unconfigure_Ip_Dhcp_Snooping_Information_Option_Allow_Untrusted_Global     
+Unconfigure_Ip_Dhcp_Snooping_Information_Option_Allow_Untrusted_Global
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                           Clear_Dhcpv4_Server_Stats                            
+Clear_Dhcpv4_Server_Stats
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                             Clear_Ip_Dhcp_Binding                              
+Clear_Ip_Dhcp_Binding
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                         Clear_Ip_Dhcp_Snooping_Binding                         
+Clear_Ip_Dhcp_Snooping_Binding
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                       Clear_Ip_Dhcp_Snooping_Statistics                        
+Clear_Ip_Dhcp_Snooping_Statistics
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                      Clear_Ip_Dhcp_Snooping_Track_Server                       
+Clear_Ip_Dhcp_Snooping_Track_Server
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                            Clear_Ipv6_Dhcp_Binding                             
+Clear_Ipv6_Dhcp_Binding
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                   Configure_Access_Map_Match_Ip_Mac_Address                    
+Configure_Access_Map_Match_Ip_Mac_Address
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                          Configure_Acl_Protocol_Port                           
+Configure_Acl_Protocol_Port
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                           Configure_Acl_With_Ip_Any                            
+Configure_Acl_With_Ip_Any
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                         Configure_Acl_With_Src_Dsc_Net                         
+Configure_Acl_With_Src_Dsc_Net
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                               Configure_Arp_Acl                                
+Configure_Arp_Acl
 --------------------------------------------------------------------------------
 
 
@@ -555,7 +555,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxr
@@ -598,13 +598,13 @@ genie.libs.parser
         * show command "show platform software fed switch active ifm interfaces detail" was hitting this parser
     * Modified Parser ShowPlatformHardwareFedSwitchActiveFwdAsicInsightVrfPorts
         * Supported CLIs
-            * `show platform hardware fed {switch} {state} fwd-asic insight vrf_ports_detail`
-            * `show platform hardware fed {switch} {state} fwd-asic insight vrf_ports`
-        * Introduced `state` as a variable for flexibility.
+            * ``show platform hardware fed {switch} {state} fwd-asic insight vrf_ports_detail``
+            * ``show platform hardware fed {switch} {state} fwd-asic insight vrf_ports``
+        * Introduced ``state`` as a variable for flexibility.
     * Modified Parser ShowPlatformHardwareFedSwitchActiveFwdAsicInsightVrfRouteTable
         * Supported CLI
-            * `show platform hardware fed {switch} {state} fwd-asic insight vrf_route_table`
-        * Introduced `state` as a variable for flexibility.
+            * ``show platform hardware fed {switch} {state} fwd-asic insight vrf_route_table``
+        * Introduced ``state`` as a variable for flexibility.
     * Modified ShowPowerInlineModule
         * Modified the regex pattern
     * Modified ShowLicenseAll
@@ -678,7 +678,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe

@@ -5,7 +5,7 @@ Examples
     - :ref:`template_doc`
 
 This section provides an example on how to create a parser class based on 
-``metaparser``. A working example ``show_version`` can be found under 
+``metaparser``. A working example``show_version`` can be found under 
 parser directory: ``parser/nxos/show_version.py`` for future 
 reference.
 

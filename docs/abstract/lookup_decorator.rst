@@ -147,7 +147,7 @@ abstracted. Behaviors:
 
 - the default *attribute getter* can be replaced by providing a new function
   through ``attr_getter`` argument. The provided function must take in two 
-  arguments: ``obj`` and ``attr`` for both the object under scrutiny and the
+  arguments: ``obj``and``attr`` for both the object under scrutiny and the
   attribute to lookup
 
 .. code-block:: python
@@ -201,7 +201,7 @@ abstracted. Behaviors:
 Lookup From Device Decorator
 ============================
 
-``LookupDecorator.from_device`` is a feature extension to ``LookupDecorator``.
+``LookupDecorator.from_device``is a feature extension to``LookupDecorator``.
 The lookup.from_device decorator operates at the runtime, allowing users to
 write a **single class** with different method implementations and dynamically
 based on the token variance combination from device's custom abstraction or

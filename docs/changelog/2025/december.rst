@@ -1,8 +1,8 @@
 December 2025
-==========
+=============
 
 December 30 - Genie v25.11
-------------------------
+--------------------------
 
 
 
@@ -33,7 +33,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * clean-pkg
@@ -55,7 +55,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * clean/recover
@@ -70,7 +70,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * fileserver/protocols/scp.py
@@ -78,7 +78,7 @@ genie.libs.filetransferutils
 
 
 --------------------------------------------------------------------------------
-                                      Add                                       
+Add
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -104,7 +104,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Add                                       
+Add
 --------------------------------------------------------------------------------
 
 * iosxe/install
@@ -144,7 +144,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -176,8 +176,8 @@ genie.libs.sdk
     * Added unconfigure_ip_ssh_server_algorithm_kex API support for the CLI command
         * New API support for 'unconfigure ip ssh server algorithm kex' CLI command to unconfigure key exchange algorithms for SSH server on IOSXE devices.
     * sdk-pkg
-        * Updated `configure_management_credentials` and `unconfigure_management_credentials` APIs to use secret password instead of plain text password.
-        * Updated `configure_management_ssh` to set modulus size to 4096 bits while generating RSA keys.
+        * Updated ``configure_management_credentials``and``unconfigure_management_credentials`` APIs to use secret password instead of plain text password.
+        * Updated ``configure_management_ssh`` to set modulus size to 4096 bits while generating RSA keys.
     * Added 'execute_test_platform' to iosxe test_platform-execute.py file.
         * New API support for 'test platform' cli.
     * Added API to execute test led cli command
@@ -206,7 +206,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -234,7 +234,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -279,7 +279,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -325,7 +325,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                     Added                                      
+Added
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -336,7 +336,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add                                       
+Add
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -345,7 +345,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                    Modified                                    
+Modified
 --------------------------------------------------------------------------------
 
 * iosxe

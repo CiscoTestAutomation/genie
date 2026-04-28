@@ -18,7 +18,7 @@ Upgrade Instruction
     pip install abstract
     pip install --upgrade genie
 
-Also make sure you upgrade `xbu-shared` libraries to the latest version.
+Also make sure you upgrade ``xbu-shared`` libraries to the latest version.
 
 .. code-block:: bash
 
@@ -29,8 +29,8 @@ Features:
 ^^^^^^^^^
 
  * New enhancement to :ref:`attribute_helper`. Replaces much of the boilerplate
-   coding requirement for each `Feature`.
- * New addition to ``Genie``, :ref:`cli`. It deals with generating `Device`
+   coding requirement for each ``Feature``.
+ * New addition to ``Genie``, :ref:`cli ``. It deals with generating`` Device`
    configuration, and automatically generates the unconfiguration.
  * :ref:`managedattribute` is another new addition which let's you finely
    control all aspect of class member variable. To list some of its
@@ -41,8 +41,8 @@ Features:
    3. Automatically document the attributes.
    4. Performs transformation on set/get/del.
 
- * New file structure to support abstract_ for `xbu_shared`.
- * `_finalize`, `_build_helper` and `_merge_level` are replaced by
+ * New file structure to support abstract_ for ``xbu_shared``.
+ * ``_finalize``, ``_build_helper``and``_merge_level`` are replaced by
    :ref:`attributehelper`.
 
 .. _abstract: http://wwwin-pyats.cisco.com/cisco-shared/abstract/html/

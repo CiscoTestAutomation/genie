@@ -47,7 +47,7 @@ If you have pyATS installed, you can use:
 **genie**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.conf
@@ -55,7 +55,7 @@ If you have pyATS installed, you can use:
         * To correctly support tunnel interface conversion for iosxe
 
 * make_json
-    * Added logic to ignore directories starting with dot (`.`)
+    * Added logic to ignore directories starting with dot (``.``)
 
 * harness
     * _commons_internal
@@ -64,13 +64,13 @@ If you have pyATS installed, you can use:
 * cli
     * Modified 'pyats develop' and 'pyats undevelop' commands
         * Execution now continues if a package fails
-        * Added `pip install --upgrade pip setuptools` to start of tool execution
-        * Added `Status` field to end of execution report
+        * Added ``pip install --upgrade pip setuptools`` to start of tool execution
+        * Added ``Status`` field to end of execution report
         * Split black box test into separate internal and external tests
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * genie
@@ -98,7 +98,7 @@ If you have pyATS installed, you can use:
 **genie.libs.clean**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -111,7 +111,7 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * common
@@ -140,7 +140,7 @@ If you have pyATS installed, you can use:
 **genie.libs.conf**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * genielibs
@@ -153,7 +153,7 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * nxos
@@ -164,7 +164,7 @@ If you have pyATS installed, you can use:
 **genie.libs.filetransferutils**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -174,15 +174,15 @@ If you have pyATS installed, you can use:
 **genie.libs.health**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * health
-    * Added `type` filter for health_tc_sections
+    * Added ``type`` filter for health_tc_sections
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * health
@@ -192,7 +192,7 @@ If you have pyATS installed, you can use:
 **genie.libs.ops**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -206,7 +206,7 @@ No changes
 **genie.libs.sdk**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -307,13 +307,13 @@ No changes
         * Added Switchover Trigger
 
 * api utils
-    * Added API `scale_accesslist_config`
+    * Added API ``scale_accesslist_config``
         * To configure more than 1k acls
-    * Added API `unconfig_extended_acl`
+    * Added API ``unconfig_extended_acl``
         * To unconfigure extended acl
-    * Added API `configure_qos_policy`
+    * Added API ``configure_qos_policy``
         * To configure qos service policy on interface
-    * Added API `unconfigure_qos_policy`
+    * Added API ``unconfigure_qos_policy``
         * To unconfigure qos service policy on interface
 
 * blitz
@@ -344,7 +344,7 @@ No changes
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * subsection.py
@@ -401,15 +401,15 @@ No changes
 
 * blitz
     * Modified parallelism
-        * Fixed issue where `continue False` wouldn't end the test on Failure
+        * Fixed issue where ``continue False`` wouldn't end the test on Failure
     * Modified custom actions
-        * Fixed issue where `continue False` wouldn't end the test on Failure
+        * Fixed issue where ``continue False`` wouldn't end the test on Failure
 
 
 **genie.libs.parser**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -567,7 +567,7 @@ No changes
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -681,7 +681,7 @@ No changes
 
 
 --------------------------------------------------------------------------------
-                                  Modification
+Modification
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -697,11 +697,11 @@ No changes
 **genie.trafficgen**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * ixianative
-    * Added support for multiple chassis with `ixianative` implementation
+    * Added support for multiple chassis with ``ixianative`` implementation
 
 * pagent
     * Added pagent and igmp multicast APIs implementation

@@ -92,7 +92,7 @@ Features
 
 
 **Genie.Examples**
-* Removed `genie.examples` modules examples are moved to https://github.com/CiscoTestAutomation/ as a repository
+* Removed ``genie.examples`` modules examples are moved to https://github.com/CiscoTestAutomation/ as a repository
 
 
 **Genie.Libs.Parser**
@@ -153,8 +153,8 @@ Features
 
 
 **Genie.Abstract**
-* Added ``Lookup.from_device(default_tokens=[])`` argument to support default device attributes to lookup from, in case ``device.custom.abstraction`` block is not defined
-* Fixed a bug related to ``Lookup().from_device()`` crashing when tokens are only defined in ``custom/abstraction`` block
+* Added ``Lookup.from_device(default_tokens=[])``argument to support default device attributes to lookup from, in case``device.custom.abstraction`` block is not defined
+* Fixed a bug related to ``Lookup().from_device()``crashing when tokens are only defined in``custom/abstraction`` block
 
 
 **Genie.Telemetry**
@@ -210,8 +210,8 @@ Features
 
   * If one or more credentials are supplied:
 
-    * The ``tacacs`` and ``passwords`` pyATS testbed keys are ignored.
-    * Use of any of the following `unicon.Unicon.Connection` arguments cause a
+    * The ``tacacs``and``passwords`` pyATS testbed keys are ignored.
+    * Use of any of the following ``unicon.Unicon.Connection`` arguments cause a
       deprecation warning to be raised :
 
       * ``username``
@@ -231,12 +231,12 @@ Features
         that server block.
 
     * The ``login_creds`` argument (specified either in pyATS connection
-      block or as a `unicon.Unicon.Connection` parameter), now controls
+      block or as a ``unicon.Unicon.Connection`` parameter), now controls
       the order credentials are applied when username/password prompts are
       received while connecting to the device.
-    * The ``prompts/login`` and ``prompts/password`` parameters are now
+    * The ``prompts/login``and``prompts/password`` parameters are now
       expected to be explicitly set in the pyATS connection block or
-      as `unicon.Unicon.Connection` parameters.
+      as ``unicon.Unicon.Connection`` parameters.
     * The switchover service now accepts a ``switchover_creds`` parameter that
       allows users to define what credentials to use should a username or
       password prompt occur during switchover.

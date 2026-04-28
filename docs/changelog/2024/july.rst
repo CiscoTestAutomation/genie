@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * conf/base
@@ -64,12 +64,12 @@ genie
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * utils
     * Enhanced Dq
-        * Added `condition_key_value` argument to get_values method to allow for filtering of values based on a key value pair.
+        * Added ``condition_key_value`` argument to get_values method to allow for filtering of values based on a key value pair.
 
 * abstract
     * Modified AbstractPackage
@@ -80,7 +80,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -89,7 +89,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -108,7 +108,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -136,7 +136,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * fileutils
@@ -151,7 +151,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * sonic
@@ -168,7 +168,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -285,11 +285,11 @@ genie.libs.sdk
             * Added new api send_break_boot.
 
 * sdk-pkg
-    * update `pysnmp-lextudio==6.1.2` to avoid deprecation issues
+    * update ``pysnmp-lextudio==6.1.2`` to avoid deprecation issues
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -313,8 +313,8 @@ genie.libs.sdk
         * Updated verifcation file to address moved parsers
 
 * apis
-    * Modified `verify_is_syncing_done` API
-        * Renamed API to verify_yang_is_syncing_done, deprecate `verify_is_syncing_done`
+    * Modified ``verify_is_syncing_done`` API
+        * Renamed API to verify_yang_is_syncing_done, deprecate ``verify_is_syncing_done``
         * Added namespace
 
 
@@ -322,7 +322,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -383,7 +383,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -428,7 +428,7 @@ genie.libs.parser
     * Modified ShowLispInstanceIdService
         * Added support for parsing publisher addresses without ETR Map-Servers
     * Modified ShowMkaStatistics
-        * Changed tx-sc-creation key in schema from `0` to `int`.
+        * Changed tx-sc-creation key in schema from ``0``to``int``.
     * Modified ShowLoggingOnboardRpClilog parser
         * Modified ShowLoggingOnboardRpClilog parser
     * Modified ShowLoggingOnboardRpActiveStatus parser
@@ -454,7 +454,7 @@ genie.libs.parser
         * Adjusted to missing spaces in CLI output
         * Do not fail parser if there is no node location appearing in output
     * Modified ShowVrf
-        * updated schema to support additional `route_distinguisher_auto`
+        * updated schema to support additional ``route_distinguisher_auto``
     * Modified cat9k/c9800/ewc_ap
         * Changed parameter pid to submodel in __init__.py file.
     * Modified cat9k/c9600/c9606r
@@ -487,7 +487,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * iosxe

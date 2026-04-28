@@ -67,7 +67,7 @@ Features:
 **Genie.Libs.Parser**
 
 * Mandatory pump version number to avoid conflict with pypi
-* Fix for parser `show ip arp` under NXOS.
+* Fix for parser ``show ip arp`` under NXOS.
 * Changelog can be checked :parserchangelog19:`here <JANUARY>`
 
 **Genie**
@@ -107,7 +107,7 @@ Features:
 
 **Genie.Ops**
 
-* Enhancements on `get_ops` API.
+* Enhancements on ``get_ops`` API.
 
 **Genie.Libs.Ops**
 
@@ -156,7 +156,7 @@ Features:
 **Genie.Harness**
 
 * Mapping datafile is now an optional argument to control connection per device,
-  otherwise `Genie` will connect to all devices in the testbed yaml file.
+  otherwise ``Genie`` will connect to all devices in the testbed yaml file.
 * Compatibility changes with latest pyAts v5.1.0.
 
 **Genie.Libs.Robot**
@@ -222,7 +222,7 @@ Features:
 
 **Genie.Ops**
 
-* Developed `get_ops` Api, returning abstracted genie Ops class as per the
+* Developed ``get_ops`` Api, returning abstracted genie Ops class as per the
   device passed.
 
 **Genie.Libs.Conf**

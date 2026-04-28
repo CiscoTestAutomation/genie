@@ -8,7 +8,7 @@ To query JSON outputs users can take advantage of a tool called Dq. You can find
 tutorial of Dq by following this `link
 <https://pubhub.devnetcloud.com/media/genie-docs/docs/userguide/utils/index.html#dq>`__.
 
-Actions ``parse``, ``learn`` and ``api`` are benefiting from this feature the most, as they are
+Actions ``parse``,``learn``and``api`` are benefiting from this feature the most, as they are
 the one that are most likely to have a JSON output. You can query a JSON using Dq
 and see whether the result of a query is included or excluded in our output.
 
@@ -131,7 +131,7 @@ Numerical
 ^^^^^^^^^^
 
 At this moment, it is only action `api` that supports this feature, as it is the only
-action that have ``integer`` and ``float`` outputs.
+action that have ``integer``and``float`` outputs.
 
 In below `example` , we want to verify that the numerical output of *get_interface_mtu_size* is
 smaller or equal 2000
@@ -165,7 +165,7 @@ greater than 1200 and smaller or equal 1500.
 
 
 If you use the keyword include without specifying any operation the default operation would be
-set to ``==`` and by using keyword exclude the operation would be set to ``!=``.
+set to ``==``and by using keyword exclude the operation would be set to``!=``.
 Below you can see an `example` of this.
 
 .. code-block:: YAML

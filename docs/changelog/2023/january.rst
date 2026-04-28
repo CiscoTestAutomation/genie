@@ -56,13 +56,13 @@ genie
 """""
 
 --------------------------------------------------------------------------------
-                                New
+New
 --------------------------------------------------------------------------------
 * genie.harness
     * Allow Trigger data order to specify trigger data using dictionary
 
 --------------------------------------------------------------------------------
-                                Fix
+Fix
 --------------------------------------------------------------------------------
 * genie.json
     * Removed the ignore directory from MAkeApi
@@ -70,7 +70,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -89,13 +89,13 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * common
-    * Added `mgt_itf`` in NOT_A_STAGE
+    * Added `mgt_itf `` in NOT_A_STAGE
     * Updated 'apply_configuration' clean stage
-        * added `error_pattern` argument to pass it to device.configure()
+        * added ``error_pattern`` argument to pass it to device.configure()
 
 * cheetah
     * Modified
@@ -126,7 +126,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -664,7 +664,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * sdk/terminal_server
@@ -688,7 +688,7 @@ genie.libs.sdk
     * Modified configure_ospfv3 api
         * Modified configure_ospfv3 API to configure additional address family changes
     * Fix broken tests
-        * Modified tests for `configure_archive_time_period`,
+        * Modified tests for ``configure_archive_time_period``,
     * Modified configure_bgp_address_advertisement
         * Updated address_family to suppport ipv6
     * Modified configure_router_bgp_maximum_paths
@@ -737,7 +737,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                     Update
+Update
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -752,7 +752,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -910,7 +910,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -991,7 +991,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                     Update
+Update
 --------------------------------------------------------------------------------
 
 * iosxe

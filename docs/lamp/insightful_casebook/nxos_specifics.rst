@@ -7,7 +7,7 @@ Verifying 'show' command outputs in JSON format
 -------------------------------------------------
 
 The Blitz framework does not natively support parsing structured JSON output from
-Cisco NX-OS ``show ... | json`` commands. The ``execute_and_parse_json`` API bridges
+Cisco NX-OS ``show ... | json``commands. The``execute_and_parse_json`` API bridges
 this gap by executing a command that returns JSON output, parsing the JSON into a
 dictionary, and returning it so that it can be queried using Dq expressions.
 
@@ -27,7 +27,7 @@ dictionary, and returning it so that it can be queried using Dq expressions.
 
 **Practical example**
 
-In this example, we use ``execute_and_parse_json`` to run ``show vrf default | json``,
+In this example, we use ``execute_and_parse_json``to run``show vrf default | json``,
 parse the JSON response, and then apply a Dq query to confirm that the VRF ID in
 the output matches the expected value (``vrf_id = 1``):
 

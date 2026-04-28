@@ -30,7 +30,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * genie
@@ -41,7 +41,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * stages
@@ -69,7 +69,7 @@ genie.libs.clean
     * Refactor plugin loading from pkg_resources.iter_entry_points to importlib.metadata.entry_points
 
 * iosxe
-    * Fixed issue in `copy_to_device` where `origin['files']` would raise an error if there were no files.
+    * Fixed issue in ``copy_to_device``where`` origin['files']`` would raise an error if there were no files.
     * InstallImage stage
         * Added new dialog to handle different platform reload patterns
 
@@ -79,7 +79,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * stages/clean/iosxe
@@ -111,7 +111,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe/cat9k
@@ -207,7 +207,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * cleaning api ut's
@@ -337,7 +337,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                     Modify                                     
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -349,7 +349,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -511,7 +511,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add                                       
+Add
 --------------------------------------------------------------------------------
 
 * iosxr
@@ -527,7 +527,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                    Modified                                    
+Modified
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -541,7 +541,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -568,7 +568,7 @@ genie.libs.parser
     * Modified ShowControllersEthernetControllerPortInfo
         * Modified regex p5
     * Added support ShowCryptoIpsecSaDetail
-        * Changes made for <p1> regex to match `GigabitEthernet0/0/0`
+        * Changes made for <p1> regex to match ``GigabitEthernet0/0/0``
     * Modified ShowIssuStateDetail parser
         * Fixed regex p19 to capture "In Progress" status
     * Modified ShowPlatformSoftwareFedQosInterfaceSuperParser parser
@@ -627,7 +627,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                     Update                                     
+Update
 --------------------------------------------------------------------------------
 
 * iosxe

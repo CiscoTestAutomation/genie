@@ -22,7 +22,7 @@ are loaded in the shell. This could be observed by pressing <TAB><TAB> after typ
 testbed & replay
 -----------------
 
-LAMP supports YAML filepath autocompletion for ``testbed load``, ``testbed save`` & ``replay`` commands.
+LAMP supports YAML filepath autocompletion for ``testbed load``,``testbed save``&``replay`` commands.
 Only '.yaml' files & directories will be listed.
 
 .. code-block:: console
@@ -31,7 +31,7 @@ Only '.yaml' files & directories will be listed.
    ios_testbed.yaml    pnp-info/           pnp-tech/           
    (lamp-host1) testbed load testbeds/ios/
 
-LAMP autocompletes device names for ``testbed remove`` similar to the ``device`` command:
+LAMP autocompletes device names for ``testbed remove``similar to the``device`` command:
 
 .. code-block:: console
 
@@ -205,7 +205,7 @@ Autocompletion for CLI are available in *'config-prompt'* mode:
 list & remove
 -------------
 
-``list -n`` and ``remove -n`` can autocomplete with the added test section names:
+``list -n``and``remove -n`` can autocomplete with the added test section names:
 
 .. code-block:: console
 

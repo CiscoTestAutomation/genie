@@ -23,8 +23,8 @@ during command execution.
 
 For example:
 
-- ``<command> <arg1>`` can become ``<command> <%{name1}>`` where name1 = arg1
-- ``INCLUDE> <entry1>`` can become ``INCLUDE> <%{name1}>`` where name1 = entry1
+- ``<command> <arg1>``can become``<command> <%{name1}>`` where name1 = arg1
+- ``INCLUDE> <entry1>``can become``INCLUDE> <%{name1}>`` where name1 = entry1
 
 This markup allows commands and entries to be easily redirected to different values,
 enabling reuse of scripts for multiple scenarios.
@@ -113,8 +113,8 @@ This allows parameters to be added to Blitz trigger YAML files:
 Using parameters
 ----------------
 
-Parameters can be substituted for arguments in commands like ``device``, ``execute``,
-``configure``, ``api``, ``parse``, and ``replay``, as well as in *include* and
+Parameters can be substituted for arguments in commands like ``device``,``execute``,
+``configure``,``api``,``parse``, and``replay``, as well as in *include* and
 *exclude* entries.
 
 device

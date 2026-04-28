@@ -1,5 +1,3 @@
-:orphan:
-
 .. _xmletree:
 
 XML Parser Using ETree

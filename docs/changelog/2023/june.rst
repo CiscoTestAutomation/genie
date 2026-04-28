@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.harness
@@ -66,7 +66,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe/cat9k
@@ -80,7 +80,7 @@ genie.libs.clean
             * Use dynamic http file server if origin.hostname is not specified
             * Add connection_alias for use with dynamic http file copy
     * Modified connect clean stage
-        * Added `alias` option to specify connection alias to use
+        * Added ``alias`` option to specify connection alias to use
 
 
 
@@ -99,7 +99,7 @@ genie.libs.ops
 genie.libs.robot
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * genie.libs.robot
@@ -110,13 +110,13 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * nxos
     * Modified TriggerIssuLxc and TriggerIssuNative
-        * modified args to handle `,` in case of multiple images
-        * fixed `filetransfer` variable to be initialzed outside of if loop in case `self.device` already has the necessary `filetransfer_attributes`
+        * modified args to handle ``,`` in case of multiple images
+        * fixed ``filetransfer``variable to be initialzed outside of if loop in case``self.device``already has the necessary``filetransfer_attributes``
 
 * iosxe
     * Modified configure_ipv6_multicast_routing
@@ -171,7 +171,7 @@ genie.libs.sdk
         * added optional 'high_ip' variable to configure high end ip range
     * Modified configure_ospfv3
         * Added if condition and no functionality change
-    * Modified `get_bgp_rt5_community_paths_label` API
+    * Modified ``get_bgp_rt5_community_paths_label`` API
         * Removed continue statement from determining if prefix is same as ip
 
 * blitz
@@ -190,7 +190,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -329,9 +329,9 @@ genie.libs.sdk
         * New API to unconfigure mdt bgp autodiscovery or mdt default group or mdt overlay protocol on VRF
     * Added config_cns_agent_passwd
         * New API to configure cns agent password
-    * Modified `save_running_config` API
+    * Modified ``save_running_config`` API
         * Added timeout argument
-    * Added `configure_generate_self_certificate` API
+    * Added ``configure_generate_self_certificate`` API
         * New API to generate self certificate on device
     * Added configure_nat_translation_max_entries
         * API to configure ip nat translation max-entries
@@ -393,7 +393,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -550,7 +550,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -624,7 +624,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                     Modify
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe

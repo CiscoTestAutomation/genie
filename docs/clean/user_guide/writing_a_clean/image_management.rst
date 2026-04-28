@@ -4,7 +4,7 @@ Image Management
 ================
 
 pyATS Clean has a feature that can manage passing images between stages to help reduce the size and complexity of the
-``Clean YAML``. Images can be defined in the ``Clean YAML`` or can be passed via command line arguments
+``Clean YAML``. Images can be defined in the``Clean YAML`` or can be passed via command line arguments
 (See :ref:`Passing images through CLI <clean_doc_image_cli>`).
 
 To illustrate the difference, please see the ``Clean YAML`` below without using `Image Management`. The highlighted lines
@@ -313,7 +313,7 @@ For `IOSXE`, this behavior can be modified with below configuration. This has no
 for other operating systems such as NXOS or IOSXR.
 
 This behavior can be changed by adding a configuration stage called `image_management` with setting
-``override_stage_images`` set to ``False``. This overrides the default behavior and allows
+``override_stage_images``set to``False``. This overrides the default behavior and allows
 stages to keep their image configuration as specified in the clean yaml file.
 
 Example clean yaml file with default behavior.

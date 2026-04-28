@@ -97,9 +97,9 @@ You can call them by doing
 
 
 **Genie.Libs.Ops**
- * New `IGMP` OPS structure on IOSXR
+ * New ``IGMP`` OPS structure on IOSXR
  * Updated ROUTING ops to support custom vrf, address_family, protocol, and route arguments (IOSXE & IOSXR)
- * Updated INTERFACE ops by excluding `uptime` key (NXOS)
+ * Updated INTERFACE ops by excluding ``uptime`` key (NXOS)
  * Changelog can be checked :opschangelog19:`here <NOVEMBER>`
 
 

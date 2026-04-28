@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.json.make_json
@@ -72,7 +72,7 @@ genie
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * conf
@@ -85,15 +85,15 @@ genie
 
 * genieparser
     * Added option to log a warning when unsupported keys are found by the schema validation
-    * Added `warn_unsupported_keys` to parse() command,
-    * Added `GENIEPARSER_WARN_UNSUPPORTED_KEYS` environment variable as alternative for the `warn_unsupported_keys` argument.
+    * Added ``warn_unsupported_keys`` to parse() command,
+    * Added ``GENIEPARSER_WARN_UNSUPPORTED_KEYS``environment variable as alternative for the``warn_unsupported_keys`` argument.
 
 
 
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * all
@@ -101,8 +101,8 @@ genie.libs.clean
         * copy_to_device stage now supports arguments unique_file_name, unique_number, and rename_images
 
 * iosxr
-    * Updated `install_image_and_packages` clean stage to install packages with local file path
-    * Added `source_directory` option for `install_image_and_packages` clean stage
+    * Updated ``install_image_and_packages`` clean stage to install packages with local file path
+    * Added ``source_directory``option for``install_image_and_packages`` clean stage
 
 * utils clean
     * Modified remove_string_from_image
@@ -117,7 +117,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -152,7 +152,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -165,7 +165,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * http fileserver
@@ -176,7 +176,7 @@ genie.libs.filetransferutils
 genie.libs.health
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * all
@@ -185,7 +185,7 @@ genie.libs.health
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * health plugin
@@ -205,7 +205,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -230,26 +230,26 @@ genie.libs.sdk
         * Configures authentication parameters on interface
     * Added authentication_convert_to_new_style API
         * Configures new style authentication
-    * Added API `configure_ptp_modes`
-    * Added API `configure_ptp_transport_ipv4`
-    * Added API `configure_ptp_domain`
-    * Added API `configure_ptp_priority`
-    * Added API `configure_switchport_trunk`
-    * Added API `configure_svi`
-    * Added API `configure_ptp_dscp_message`
-    * Added API `unconfigure_ptp_dscp_message`
-    * Added API `unconfigure_svi`
-    * Added API `unconfigure_ptp_modes`
-    * Added API `configure_ptp_aes67_rates`
-    * Added API `unconfigure_ptp_transport_ipv4`
-    * Added API `unconfigure_ptp_domain`
-    * Added API `verify_ptp_states`
-    * Added API `verify_ptp_platform_fed_results`
-    * Added API `verify_ptp_clock`
-    * Added API `verify_ptp_counters`
-    * Added API `verify_ptp_parent`
-    * Added API `verify_ptp_calibration_states`
-    * Added API `unconfig_vlan`
+    * Added API ``configure_ptp_modes``
+    * Added API ``configure_ptp_transport_ipv4``
+    * Added API ``configure_ptp_domain``
+    * Added API ``configure_ptp_priority``
+    * Added API ``configure_switchport_trunk``
+    * Added API ``configure_svi``
+    * Added API ``configure_ptp_dscp_message``
+    * Added API ``unconfigure_ptp_dscp_message``
+    * Added API ``unconfigure_svi``
+    * Added API ``unconfigure_ptp_modes``
+    * Added API ``configure_ptp_aes67_rates``
+    * Added API ``unconfigure_ptp_transport_ipv4``
+    * Added API ``unconfigure_ptp_domain``
+    * Added API ``verify_ptp_states``
+    * Added API ``verify_ptp_platform_fed_results``
+    * Added API ``verify_ptp_clock``
+    * Added API ``verify_ptp_counters``
+    * Added API ``verify_ptp_parent``
+    * Added API ``verify_ptp_calibration_states``
+    * Added API ``unconfig_vlan``
     * Added TriggerClearIpv4BGPSoft
         * Trigger to soft clear for IPv4 BGP session using ```clear ip bgp * soft``` command
     * Added TriggerClearIpv4BGPHard
@@ -323,25 +323,25 @@ genie.libs.sdk
     * Added API unconfigure_radius_automate_tester(device, server_name, username)
     * Added API configure_eap_profile(device, profile_name,method='md5')
     * Added API unconfigure_eap_profile(device, profile_name)
-    * added `configure_device_tracking_binding` API
-    * added `configure_ipv6_destination_guard_attach_policy` API
-    * added `configure_ipv6_destination_guard_detach_policy` API
-    * added `configure_ipv6_destination_guard_policy` API
-    * added `unconfigure_ipv6_destination_guard_policy` API
-    * added `configure_device_tracking_tracking` API
-    * Added API `configure_cts_authorization_list`
-    * Added API `enable_cts_enforcement`
-    * Added API `enable_cts_enforcement_vlan`
-    * Added API `configure_device_sgt`
-    * Added API `configure_vlan_to_sgt_mapping`
-    * Added API `configure_ipv4_to_sgt_mapping`
-    * Added API `configure_ipv4_subnet_to_sgt_mapping`
-    * Added API `assign_static_ipv4_sgacl`
-    * Added API `assign_default_ipv4_sgacl`
-    * Added API `configure_cts_credentials`
-    * Added API `configure_pac_key`
-    * Added API `configure_port_sgt`
-    * Added new trigger `TriggerUnconfigConfigBgpVpnRd`
+    * added ``configure_device_tracking_binding`` API
+    * added ``configure_ipv6_destination_guard_attach_policy`` API
+    * added ``configure_ipv6_destination_guard_detach_policy`` API
+    * added ``configure_ipv6_destination_guard_policy`` API
+    * added ``unconfigure_ipv6_destination_guard_policy`` API
+    * added ``configure_device_tracking_tracking`` API
+    * Added API ``configure_cts_authorization_list``
+    * Added API ``enable_cts_enforcement``
+    * Added API ``enable_cts_enforcement_vlan``
+    * Added API ``configure_device_sgt``
+    * Added API ``configure_vlan_to_sgt_mapping``
+    * Added API ``configure_ipv4_to_sgt_mapping``
+    * Added API ``configure_ipv4_subnet_to_sgt_mapping``
+    * Added API ``assign_static_ipv4_sgacl``
+    * Added API ``assign_default_ipv4_sgacl``
+    * Added API ``configure_cts_credentials``
+    * Added API ``configure_pac_key``
+    * Added API ``configure_port_sgt``
+    * Added new trigger ``TriggerUnconfigConfigBgpVpnRd``
     * Added configure_global_stackwise_virtual API
         * Configures global SVL and domain
     * Added unconfigure_global_stackwise_virtual API
@@ -350,16 +350,16 @@ genie.libs.sdk
         * Attaches interfaces to SVL
     * Added unconfigure_stackwise_virtual_interfaces
         * Removes interfaces from SVL
-    * Added API `disable_dhcp_snooping`
-    * Added API `unconfigure_cts_authorization_list`
-    * Added API `disable_cts_enforcement`
-    * Added API `disable_cts_enforcement_vlan`
-    * Added API `unconfigure_ipv4_to_sgt_mapping`
-    * Added API `remove_static_ipv4_sgacl`
-    * Added API `remove_default_ipv4_sgacl`
-    * Added API `clear_cts_credentials`
-    * Added API `clear_cts_counters`
-    * Added API `unconfigure_ipv4_subnet_to_sgt_mapping`
+    * Added API ``disable_dhcp_snooping``
+    * Added API ``unconfigure_cts_authorization_list``
+    * Added API ``disable_cts_enforcement``
+    * Added API ``disable_cts_enforcement_vlan``
+    * Added API ``unconfigure_ipv4_to_sgt_mapping``
+    * Added API ``remove_static_ipv4_sgacl``
+    * Added API ``remove_default_ipv4_sgacl``
+    * Added API ``clear_cts_credentials``
+    * Added API ``clear_cts_counters``
+    * Added API ``unconfigure_ipv4_subnet_to_sgt_mapping``
     * Added configure_errdisable API
         * Configures error disable
     * Added unconfigure_errdisable API
@@ -380,7 +380,7 @@ genie.libs.sdk
         * Executes clear logging
 
 * nxos/aci
-    * Added `verify_file_exists` and `delete_files` APIs
+    * Added ``verify_file_exists``and``delete_files`` APIs
 
 * api utils
     * Added API Unit Test Generator
@@ -388,13 +388,13 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
     * Modified TriggerReload
         * Changed TriggerReload from NotImplemented to complete implementation of node reload.
-    * Modified `get_show_tech` API, improved exception handling
+    * Modified ``get_show_tech`` API, improved exception handling
     * Modified configure_radius_group API
     * Modified API configure_dot1x_supplicant(device, interface, cred_profile_name, eap_profile='')
     * Modified RouteOutput
@@ -408,22 +408,22 @@ genie.libs.sdk
     * Modified API execute_card_OIR(device, card_number, timeout=60)
 
 * iosxr
-    * Modified `get_show_tech` API, improved exception handling
+    * Modified ``get_show_tech`` API, improved exception handling
 
 * nxos
-    * Modified `get_show_tech` API, improved exception handling
+    * Modified ``get_show_tech`` API, improved exception handling
     * Modified
         * Issu trigger can now handle invalid boot mode command on unsupported platforms/images.
 
 * aci
-    * Modified `get_show_tech` API, improved exception handling
+    * Modified ``get_show_tech`` API, improved exception handling
 
 * mapping
     * Added logging to show Ops structure when Mapping errors out
 
 
 --------------------------------------------------------------------------------
-                                     Update
+Update
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -454,7 +454,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -644,7 +644,7 @@ genie.libs.parser
         * Replaced '-' with '_' in schema
 
 * nxos/aci
-    * Add parser for `ls -l` command
+    * Add parser for ``ls -l`` command
 
 * utils
     * Modified unittest.py
@@ -659,7 +659,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * viptela

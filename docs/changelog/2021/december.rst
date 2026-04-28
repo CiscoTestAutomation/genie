@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * harness
@@ -74,7 +74,7 @@ genie
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * harness
@@ -94,7 +94,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -182,7 +182,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -195,7 +195,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -210,7 +210,7 @@ genie.libs.conf
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -226,15 +226,15 @@ genie.libs.filetransferutils
 genie.libs.health
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * health
     * Updated logic for reasons why health is not running
         * show the reason in case device is not connected
     * Fixed a case that health says PASSED even though device is not connected
-    * Optimized logic for `--health-tc-groups` argument
-    * Adjusted `pyats_health.yaml` template due to above.
+    * Optimized logic for ``--health-tc-groups`` argument
+    * Adjusted ``pyats_health.yaml`` template due to above.
 
 * health plugin
     * Updated logic to save 'pyats_health.yaml' for '--health-checks'
@@ -244,7 +244,7 @@ genie.libs.health
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * health plugin
@@ -264,7 +264,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -358,7 +358,7 @@ genie.libs.sdk
         * Enable logging monitor
     * Added unconfigure_logging_monitor API
         * disble logging monitor
-    * added `get_ip_theft_syslogs` API
+    * added ``get_ip_theft_syslogs`` API
     * Added 'configure_mdns' API
         * Configures mDNS(Multicasr Domain name services)
     * Added 'unconfigure_mdns_config' API
@@ -513,7 +513,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -521,7 +521,7 @@ genie.libs.sdk
         * changed string format variable name
     * Fix clear_device_tracking_database
         * changed to parse passed in args properly
-    * Fixed `get_ip_theft_syslogs` to support syslogs without a timezone
+    * Fixed ``get_ip_theft_syslogs`` to support syslogs without a timezone
     * Modified
         * configure_dot1x_supplicant
     * Modified
@@ -556,7 +556,7 @@ genie.libs.sdk
 
 * api utils
     * Modified API Unit Test Generator
-        * Fixed `--module-path` parsing
+        * Fixed ``--module-path`` parsing
     * Modified api_uniitest_generator.py
         * Fixed Value Error when no arguments were provided
     * Modified API Unit test Generator
@@ -611,7 +611,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -779,10 +779,10 @@ genie.libs.parser
         * show interface summary vlan
     * Added ShowMacAddressTableCountSummary
         * show mac address-table count summary
-    * Added `show cef path sets summary`
-    * Added `show cef uid`
-    * Addded `show cef path set id <id> detail | in Relpicate oce`
-    * Added `show mpls forwarding-table | sect gid`
+    * Added ``show cef path sets summary``
+    * Added ``show cef uid``
+    * Addded ``show cef path set id <id> detail | in Relpicate oce``
+    * Added ``show mpls forwarding-table | sect gid``
     * Added ShowLispEthernetMapCachePrefix
         * show lisp instance-id {instance_id} ethernet map-cache {eid_prefix}
         * show lisp {lisp_id} instance-id {instance_id} ethernet map-cache {eid_prefix}
@@ -885,7 +885,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe

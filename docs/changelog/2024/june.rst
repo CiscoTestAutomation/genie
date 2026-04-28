@@ -54,12 +54,12 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * abstract
     * Modified AbstractTree
-        * Fixed an issue where a forked process would be created when the `AbstractTree` class was loaded.
+        * Fixed an issue where a forked process would be created when the ``AbstractTree`` class was loaded.
 
 * genie.conf
     * Modified parse method
@@ -71,7 +71,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -81,7 +81,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * clean
@@ -92,7 +92,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * conf
@@ -101,7 +101,7 @@ genie.libs.conf
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -127,7 +127,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * generic
@@ -144,7 +144,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -165,7 +165,7 @@ genie.libs.ops
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -184,7 +184,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -207,13 +207,13 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
     * Added API config_replace_to_flash_memory_force
         * Added API to configure replace to flash memory force
-    * Added `get_power_supply_info` to retrieve power_supply information of respective components under cat9k/c9300
+    * Added ``get_power_supply_info`` to retrieve power_supply information of respective components under cat9k/c9300
     * udld
         * Added unconfigure_udld_recovery
     * Added configure_interface_dot1q_ethertype
@@ -235,8 +235,8 @@ genie.libs.sdk
         * Added new API to get the port id of the CDP neighbor.
     * Added configure_flow_monitor
         * New API to configure flow monitor
-    * Added `get_power_supply_info` to retrieve power_supply information of respective components under cat9k/c9400.
-    * Added `get_platform_fan_speed` to retrieve fan_speed of respective fan components under cat9k/c9300
+    * Added ``get_power_supply_info`` to retrieve power_supply information of respective components under cat9k/c9400.
+    * Added ``get_platform_fan_speed`` to retrieve fan_speed of respective fan components under cat9k/c9300
     * Added configure_tunnel_mode_gre_multipoint
         * API for configure tunnel mode gre multipoint
     * Added unconfigure_tunnel_mode_gre_multipoint
@@ -286,7 +286,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                    Seconds.
+Seconds.
 --------------------------------------------------------------------------------
 
 
@@ -294,7 +294,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                     Modify
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -308,7 +308,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * utils
@@ -380,7 +380,7 @@ genie.libs.parser
         * adding new line p1_1 regex
         * adding p1_1 parser
     * Fixed ShowOspfInterface
-        * Modified the p5 regex to handle optional field `cost`.
+        * Modified the p5 regex to handle optional field ``cost``.
     * Modified fix for ShowVlanId
         * Modified parser to accomodate various outputs
     * Modified Traceroute
@@ -403,7 +403,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxr

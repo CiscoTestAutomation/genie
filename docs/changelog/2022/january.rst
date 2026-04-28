@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie harness
@@ -71,7 +71,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -95,7 +95,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -107,7 +107,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * bgp
@@ -125,7 +125,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.filetransferutils
@@ -137,7 +137,7 @@ genie.libs.filetransferutils
 genie.libs.health
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * health_yamls
@@ -155,7 +155,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -330,7 +330,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -338,19 +338,19 @@ genie.libs.sdk
         * API for Configuring Primary MKA Key chain and fallback MKA Key chain on interface level
     * Updated 'configure_mdns' API
         * Added if condition for creating only one service list with direction and definition name
-    * Modified `verify_ip_mac_binding_in_network`
+    * Modified ``verify_ip_mac_binding_in_network``
         * Added verify_reachable option to require entries to be reachable
-    * Fixed `get_ip_theft_syslogs`
+    * Fixed ``get_ip_theft_syslogs``
         * Corrected to support new syslog output
-    * Modified `verify_module_status` API to ignore empty slots
-    * Updated `get_md5_hash_of_file` API to use 180s default timeout
+    * Modified ``verify_module_status`` API to ignore empty slots
+    * Updated ``get_md5_hash_of_file`` API to use 180s default timeout
     * Updated health_cpu API
         * Added 'timeout' argument
     * Updated health_memory API
         * Added 'timeout' argument
 
 * generic
-    * Updated `copy_from_device` and `copy_to_device` APIs to support dynamic HTTP fileserver
+    * Updated ``copy_from_device``and``copy_to_device`` APIs to support dynamic HTTP fileserver
 
 * api utils
     * Modified api_unittest_generator
@@ -391,7 +391,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -587,7 +587,7 @@ genie.libs.parser
     * Fixed  ShowRunInterface parser
         * Added regexp to grep ipv6_nd_raguard_attach_policy and device_tracking_attach_policy
     * ShowIsisRib
-        * Added the ability to parser the cli command `show isis rib flex-algo`
+        * Added the ability to parser the cli command ``show isis rib flex-algo``
     * Added ShowLispIpv4ServerExtranetPolicyEid
         * show lisp instance-id {instance_id} ipv4 server extranet-policy {prefix}
         * show lisp {lisp_id} instance-id {instance_id} ipv4 server extranet-policy {prefix}
@@ -648,7 +648,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -671,7 +671,7 @@ genie.libs.parser
         * Changed the flex algo key to contain a set of associated prefixes
         * No backwards compatibility
     * Modified ShowIsisRib
-        * Modified a regex to parse lines starting with `Prefix-SID index`
+        * Modified a regex to parse lines starting with ``Prefix-SID index``
     * Modified ShowSegmentRoutingTrafficEngPolicy
         * Added regex pattern p3_1 to handle different output
         * Added regex pattern p6_1 to handle different output

@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.abstract
@@ -68,7 +68,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -85,7 +85,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * clean/iosxe
@@ -93,7 +93,7 @@ genie.libs.clean
         * Added logic to iosxe connect stage to support HA recovery.
 
 * iosxe/cat9k
-    * Added new clean stage `install_image`
+    * Added new clean stage ``install_image``
 
 * clean
     * Modified clean.py
@@ -113,7 +113,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -128,7 +128,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -142,7 +142,7 @@ genie.libs.sdk
         * command clear configuration lock
     * Added verify_is_syncing_done API
         * This is to validate the netconf way of sync status of a device!
-    * Added `get_platform_fan_speed` to retrieve fan_speed of respective fan components under iosxe/cat9k/c9400
+    * Added ``get_platform_fan_speed`` to retrieve fan_speed of respective fan components under iosxe/cat9k/c9400
     * Added configure_cdp_run API
         * Added API for cdp run
     * Added unconfigure_cdp_run API
@@ -161,11 +161,11 @@ genie.libs.sdk
         * Added API for no diagnostic monitor interval module {mod_num} test {test_name} {time} {millisec} {days}
     * Added configure_hw_module_slot_upoe_plus API
         * Added API for hw-module slot {slot_num} upoe-plus
-    * Added `get_platform_component_type_id_info` that retrieves name, type and id for platform components.
-    * Added `get_platform_component_temp_info` to retrieve cname, temp_instant, temp_avg, temp_min, temp_max, temp_interval, alarm_status, alarm_threshold and alarm_severity.
+    * Added ``get_platform_component_type_id_info`` that retrieves name, type and id for platform components.
+    * Added ``get_platform_component_temp_info`` to retrieve cname, temp_instant, temp_avg, temp_min, temp_max, temp_interval, alarm_status, alarm_threshold and alarm_severity.
     * Added API configure_dual_port_interface_media_type
         * Added API to configure dual port media type on interface
-    * Added `get_platform_component_firmware_info` to retrieve name and firmware_version for their respective platform components.
+    * Added ``get_platform_component_firmware_info`` to retrieve name and firmware_version for their respective platform components.
     * Added configure_ecomode_optics
     * Added unconfigure_ecomode_optics
     * Added new API configure_interface_range_shutdown
@@ -177,12 +177,12 @@ genie.libs.sdk
     * Added API for no hw-module slot {slot_num} upoe-plus
 
 * iosxe/rommon
-    * Added `configure_rommon_tftp_ha` to configure rommon variables on HA device.
-    * Renamed ipv6_address argument to use_ipv6 on `configure_rommon_tftp` api.
+    * Added ``configure_rommon_tftp_ha`` to configure rommon variables on HA device.
+    * Renamed ipv6_address argument to use_ipv6 on ``configure_rommon_tftp`` api.
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -201,7 +201,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                    Modified
+Modified
 --------------------------------------------------------------------------------
 
 * cheetah
@@ -213,7 +213,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * nxos
@@ -277,7 +277,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe

@@ -98,14 +98,14 @@ Features
 New Genie Ops structures;
 
 * IOSXR
-    * `RIP`
-    * `MLD`
+    * ``RIP``
+    * ``MLD``
 
 * IOSXE
-    * `MSDP`
+    * ``MSDP``
 
 * NXOS
-    * `LLDP`
+    * ``LLDP``
 
 * Changelog can be checked :opschangelog19:`here <MAY>`
 

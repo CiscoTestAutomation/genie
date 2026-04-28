@@ -17,7 +17,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `xbu-shared` libraries to the latest version.
+Also make sure you upgrade ``xbu-shared`` libraries to the latest version.
 
 .. code-block:: bash
 
@@ -45,7 +45,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `xbu-shared` libraries to the latest version.
+Also make sure you upgrade ``xbu-shared`` libraries to the latest version.
 
 .. code-block:: bash
 

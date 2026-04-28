@@ -7,7 +7,7 @@ Genie Command Line
 automation! In this section we will take a look at how ``Genie`` CLI can help
 expedite automation of your network.
 
-``Genie`` CLI is a powerful linux-based command-line utility offering ``Genie``
+``Genie``CLI is a powerful linux-based command-line utility offering``Genie``
 Python functionality directly from a linux terminal. It requires no previous
 knowledge of Python or network programming, making it a great way to start
 getting acquainted with ``Genie``.
