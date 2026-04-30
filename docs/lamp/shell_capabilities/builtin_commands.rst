@@ -164,7 +164,7 @@ command lists them.
    ^: variable list
    (lamp-host1)
 
-An example of ``shell`` command invoked via the shortcut ``!``:
+An example of ``shell``command invoked via the shortcut``!``:
 
 .. code-block:: console
 
@@ -227,7 +227,7 @@ that does this, saved in a file named 'vxlan_script':
    device $mod1-a1,mod1-a2,mod1-a3
    execute terminal length 0
 
-To invoke it, use the ``run_script`` command or the ``@`` shortcut with the script path:
+To invoke it, use the ``run_script``command or the``@`` shortcut with the script path:
 
 .. code-block:: console
 

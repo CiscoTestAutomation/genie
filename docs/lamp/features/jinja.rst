@@ -3,7 +3,7 @@ Jinja
 
 Jinja2 templates allow automated execution of commands or 
 configuration application on network devices. The ``-j`` option 
-enables this feature with ``execute`` and ``configure`` commands.
+enables this feature with ``execute``and``configure`` commands.
 Templates work by substituting values from accompanying YAML files.
 
 What is Jinja?

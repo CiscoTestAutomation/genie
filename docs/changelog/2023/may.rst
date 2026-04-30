@@ -58,7 +58,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * generic
@@ -66,7 +66,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * clean
@@ -81,7 +81,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -93,7 +93,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * filetransferutils.server
@@ -110,7 +110,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -124,7 +124,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -369,7 +369,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * blitz
@@ -404,8 +404,8 @@ genie.libs.sdk
         * Add if condition for police cir percent {policer_percent_val} conform-action transmit
     * Modified configure_control_policies
         * Fixed the API configure_control_policies to configure only event and match options and only action and action number
-    * Added `configure_management_credentials` and `configure_management_vrf` APIs
-    * Added option to configure hostname for `configure_management` API
+    * Added ``configure_management_credentials``and``configure_management_vrf`` APIs
+    * Added option to configure hostname for ``configure_management`` API
     * Modify configure_system_disable_password_recovery_switch_all API
         * Modified the API by adding switch and switch_number as an optional argument
     * Modify unconfigure_system_disable_password_recovery_switch_all API
@@ -461,7 +461,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * nxos
@@ -588,7 +588,7 @@ genie.libs.parser
 
 * common
     * Modified interface conversion method
-        * Added `ignore_case` option to match interface name case insensitive
+        * Added ``ignore_case`` option to match interface name case insensitive
 
 * iosxr
     * Modified ShowIsisInterface
@@ -613,7 +613,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -732,7 +732,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                     Modify
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -744,7 +744,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * iosxe

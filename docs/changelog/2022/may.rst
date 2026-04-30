@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * metaparser
@@ -79,7 +79,7 @@ genie
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * device object
@@ -91,7 +91,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -100,12 +100,12 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Key.
+Key.
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -148,7 +148,7 @@ genie.libs.ops
 genie.libs.robot
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * robotframework
@@ -159,7 +159,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -278,7 +278,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -288,10 +288,10 @@ genie.libs.sdk
         * added api to configure local span to specficy destination interface
     * Added API remove_all_span
         * added api to unconfigure all span session
-    * Added `verify_ptp_profile` API to verify the configured ptp profile using "show run | include ptp" command
+    * Added ``verify_ptp_profile`` API to verify the configured ptp profile using "show run | include ptp" command
     * Modified api 'transceiver_info'
         * changed the comments according to the function args
-    * Modified `execute_write_memory` API, added dialog to handle confirm prompt
+    * Modified ``execute_write_memory`` API, added dialog to handle confirm prompt
     * Modified configure_enable_nat_scale API
         * Added dialog to configure_enable_nat_scale
     * Modified configure_fnf_exporter API
@@ -315,7 +315,7 @@ genie.libs.sdk
         * Ignore unconnected devices in learn_system_defaults setup subsection
 
 * ios
-    * Modified `execute_write_memory` API, added dialog to handle confirm prompt
+    * Modified ``execute_write_memory`` API, added dialog to handle confirm prompt
     * Modified api 'verify_file_exists'
         * Api returns False if folder and/or file does not exist
 
@@ -329,7 +329,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                    Modified
+Modified
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -343,7 +343,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -454,7 +454,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -574,7 +574,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                    Modified
+Modified
 --------------------------------------------------------------------------------
 
 * iosxe

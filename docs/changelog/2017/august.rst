@@ -106,7 +106,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `genie_libs` and `parser` to the latest version.
+Also make sure you upgrade ``genie_libs``and``parser`` to the latest version.
 
 .. code-block:: bash
 

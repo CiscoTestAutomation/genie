@@ -54,7 +54,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * schemaengine
@@ -70,7 +70,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * clean
@@ -86,7 +86,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * clean/iosxe
@@ -106,7 +106,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -128,7 +128,7 @@ genie.libs.ops
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * ops
@@ -147,7 +147,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -155,8 +155,8 @@ genie.libs.sdk
         * Added support for <processor_slot> in <request platform software system shell> command.
     * Added upgrade_rom_monitor_capsule_golden
         * upgrade rom-monitor capsule golden switch active R0
-    * Added new API `get_cpu_instant_interval` to extract CPU utilization instant and CPU utilization interval.
-    * Added new API `get_cpu_min_max_avg` to extract minimum, maximum, and average CPU utilization values.
+    * Added new API ``get_cpu_instant_interval`` to extract CPU utilization instant and CPU utilization interval.
+    * Added new API ``get_cpu_min_max_avg`` to extract minimum, maximum, and average CPU utilization values.
     * Added API configure_l2_traceroute
         * Added API to configure l2 traceroute
     * Added API unconfigure_l2_traceroute
@@ -167,15 +167,15 @@ genie.libs.sdk
         * Added API to unconfigure_flow_exporter
     * Added new api 'execute_test_cable_diagnostics_tdr_interface'
         * Executes 'test cable disgnostics tdr interface'
-    * Added `get_port_speed_info` to retrieve port_speed status for repective interfaces.
+    * Added ``get_port_speed_info`` to retrieve port_speed status for repective interfaces.
     * Added get_interfaces_transceiver_supported_dom API
         * Added API to get the DOM type for the given transceivers list
-    * Added new api `verify_last_reload_reason` to verify the Last Reload reason.
+    * Added new api ``verify_last_reload_reason`` to verify the Last Reload reason.
     * Added unconfigure_spanning_tree_portfast_on_interface
         * added api to unconfigure_spanning_tree_portfast_on_interface
-    * Added new api `get_mac_table_entries` to generate MAC table entries with VLAN, MAC address, interfaces, and their associated VRFs.
-    * Added `get_platform_memory_status` to generate VLAN information with VLAN ID, VLAN name, VLAN state and its associated VRFs.
-    * Added `get_boot_time` to retrieve boot_time in timeticks format.
+    * Added new api ``get_mac_table_entries`` to generate MAC table entries with VLAN, MAC address, interfaces, and their associated VRFs.
+    * Added ``get_platform_memory_status`` to generate VLAN information with VLAN ID, VLAN name, VLAN state and its associated VRFs.
+    * Added ``get_boot_time`` to retrieve boot_time in timeticks format.
     * Added configure_smartpower_interface_level
         * API to configure SmartPower interface level
     * Added unconfigure_smartpower_interface_level
@@ -209,7 +209,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * blitz
@@ -224,7 +224,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                     Modify
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -240,7 +240,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -312,7 +312,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -374,7 +374,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * ios

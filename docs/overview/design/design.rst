@@ -37,7 +37,7 @@ Let's start with some short questions and answers:
   topology/configuration to address a large array of user requirements in
   UT/Sanity/Regression/Solution and AS.
 
-  ``Genie`` Conf, ``Genie`` Ops, and ``Genie`` `SDK` encourage teams to write
+  ``Genie``Conf,``Genie``Ops, and``Genie`` `SDK` encourage teams to write
   loosely coupled tests that can be easily maintained, understood, and reused.
 
   ``Genie`` `SDK` provides the baseclass for most common test scenarios.

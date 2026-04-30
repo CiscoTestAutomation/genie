@@ -1,8 +1,8 @@
 October 2025
-==========
+============
 
 October 28 - Genie v25.10
-------------------------
+-------------------------
 
 
 
@@ -30,7 +30,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * removed all usage of deprecated pkg_resources module in favor of importlib.metadata where possible.
@@ -40,7 +40,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -57,7 +57,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * clean
@@ -78,7 +78,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * filetransferutils
@@ -98,7 +98,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe/c9200_480p
@@ -189,7 +189,7 @@ genie.libs.sdk
     * Added API to attach an alarm profile to an interface.
     * Added API to detach an alarm profile from an interface.
     * Added API to configure/unconfigure input alarm facility
-    * Added `get_environment_alarm_contact`
+    * Added ``get_environment_alarm_contact``
     * Added API get_hardware_led_status to retrieve the hardware LED status of a device.
     * Fixed an issue where unconfiguring alarm contact did not work as expected.
     * Added execute_show_ethernet_cfm_maintenance_points_remote,execute_show_ethernet_cfm_maintenance_points_local,execute_show_ethernet_cfm_errors to ethernet-execute.py file.
@@ -251,7 +251,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -286,7 +286,7 @@ genie.libs.sdk
     * Added new parameters in API configure_tunnel_with_ipsec
     * Health
         * Added a support to handle the notifying for new core files added.
-    * Enhanced existing API `set_platform_soft_trace_debug` to handle `rp="RP"` case by
+    * Enhanced existing API ``set_platform_soft_trace_debug``to handle`` rp="RP"`` case by
     * No changes were made to the switch-specific logic.
     * updated API with additional arguments to configure.
     * rommon
@@ -308,7 +308,7 @@ genie.libs.sdk
 
 * iosxe/c8kv
     * rommon
-        * Added `send_break_boot` api for c8kv devices to send break sequence during bootup to enter rommon mode.
+        * Added ``send_break_boot`` api for c8kv devices to send break sequence during bootup to enter rommon mode.
 
 * utils
     * Added build_export_filename
@@ -322,7 +322,7 @@ genie.libs.sdk
 
 * iosxe/ie3k
     * Modified
-        * Included missing arguments of `execute_set_config_register` to match its function signature to the base API.
+        * Included missing arguments of ``execute_set_config_register`` to match its function signature to the base API.
 
 * updated timeout for api
     * Iosxe
@@ -352,7 +352,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -494,7 +494,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxr
@@ -568,7 +568,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                     Added                                      
+Added
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -577,7 +577,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                    Modified                                    
+Modified
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -588,7 +588,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                    Removed                                     
+Removed
 --------------------------------------------------------------------------------
 
 * iosxe

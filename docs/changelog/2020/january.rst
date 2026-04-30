@@ -47,22 +47,22 @@ Features:
 
 - The following packages:
 
-  *  `genie.parsergen`,
-  *  `genie.metaparser`,
-  *  `genie.abstract`,
-  *  `genie.predcore`
-  *  `genie.ops`
-  *  `genie.conf`
-  *  `genie.harness`
-  *  `genie.utils`
+  *  ``genie.parsergen``,
+  *  ``genie.metaparser``,
+  *  ``genie.abstract``,
+  *  ``genie.predcore``
+  *  ``genie.ops``
+  *  ``genie.conf``
+  *  ``genie.harness``
+  *  ``genie.utils``
 
-  have all been merged within `genie` package. No more separate pip packages
+  have all been merged within ``genie`` package. No more separate pip packages
   for each of them.
 
-- `genie` command line is now deprecated. All functionalities has been merged
-  to `pyats` command line.
+- ``genie`` command line is now deprecated. All functionalities has been merged
+  to ``pyats`` command line.
 
-- Genie `Blitz` is a new way to write quick Trigger. All driven via `YAML` file, no
+- Genie ``Blitz``is a new way to write quick Trigger. All driven via``YAML`` file, no
   need to write python, allowing quick Trigger/Testcase development. :blitz:`Full
   documentation on Blitz<http>`.
 
@@ -151,7 +151,7 @@ You can call them by doing
 
 
 **Genie.Libs.Ops**
- * New `ISIS`, OPS structures on IOSXR, IOS, NXOS and IOSXE(cat9k)
+ * New ``ISIS``, OPS structures on IOSXR, IOS, NXOS and IOSXE(cat9k)
  * Changelog can be checked :opschangelog20:`here <JANUARY>`
 
 

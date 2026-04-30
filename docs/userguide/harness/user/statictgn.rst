@@ -1,5 +1,3 @@
-:orphan:
-
 .. _statictgn:
 
 Statictgn
@@ -179,7 +177,7 @@ connection implementation.
 
 
 The methods listed above can be executed directly on an Ixia traffic generator
-device from a Python prompt or within ``Genie`` and ``pyATS`` scripts.
+device from a Python prompt or within ``Genie``and``pyATS`` scripts.
 
 
 Traffic Generator Usage
@@ -342,7 +340,7 @@ the user's IXIA chassis and the version of the IxNetwork application they are
 running.
 
 It is highly recommended to check if the environment variables have been
-correctly set prior to executing a ``Genie``run. Do a quick check for each
+correctly set prior to executing a ``Genie`` run. Do a quick check for each
 environment variable as shown below:
 
 .. code-block:: bash

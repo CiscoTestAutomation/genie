@@ -25,7 +25,7 @@ Switch the active device context with this command:
 The ``<name>`` parameter represents the device name specified in:
 
 - Testbed YAML files when loaded via ``testbed load <file>``
-- The name specified with ``-n`` flag in ``testbed add -n <name>`` or
+- The name specified with ``-n``flag in``testbed add -n <name>`` or
   the hostname if the ``-n`` flag is not specified.
 
 Active device indicator

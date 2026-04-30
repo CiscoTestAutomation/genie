@@ -30,20 +30,20 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * ops
     * Added revisions to ops
 
 * dq
-    * Added `condition_level` argument to `get_values`
+    * Added ``condition_level``argument to``get_values``
 
 * json
     * Added standalone makers for apis, ops, clean, models, triggers, and verifications
 
 * abstraction.token
-    * Fixed bug with `VersionRange` eq
+    * Fixed bug with ``VersionRange`` eq
 
 * genie.abstract
     * Updated version parser
@@ -51,7 +51,7 @@ genie
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie harness
@@ -63,7 +63,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -72,7 +72,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * clean-pkg
@@ -94,15 +94,15 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * nxos
     * Fix feature service-acceleration
         * change vrf submode config to single line config and update unit tests
-        * `vrf vrf1 module-affinity 1` is now in a single line instead of `vrf vrf1\n  module-affinity 1\n exit`
+        * ``vrf vrf1 module-affinity 1``is now in a single line instead of``vrf vrf1\n  module-affinity 1\n exit``
     * Fix interface conf model
-        * Subinterfaces can now handle `mac_address` attribute for nxos.
+        * Subinterfaces can now handle ``mac_address`` attribute for nxos.
 
 * conf
     * Device
@@ -130,7 +130,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * ops
@@ -152,7 +152,7 @@ genie.libs.ops
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * ops
@@ -183,7 +183,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -434,7 +434,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -471,7 +471,7 @@ genie.libs.sdk
 
 * sdk
     * Generic
-        * Added `disconnect_termserver` argument to `execute_clear_line`
+        * Added ``disconnect_termserver``argument to``execute_clear_line``
 
 * sdk-pkg
     * iosxe
@@ -492,7 +492,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -627,7 +627,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe

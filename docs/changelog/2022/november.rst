@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.conf
@@ -69,7 +69,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -78,7 +78,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -98,7 +98,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe - cat9k
@@ -107,7 +107,7 @@ genie.libs.ops
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * ops
@@ -122,7 +122,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -151,9 +151,9 @@ genie.libs.sdk
     * Added configure_clear_logging_onboard_switch_voltage
         * API to configure clear logging onboard switch voltage
     * Modified ConfigIpOnInterface
-        * New parameter `secondary` in `config_ip_on_interface` to set the IPv4 address as secondary
+        * New parameter ``secondary``in``config_ip_on_interface`` to set the IPv4 address as secondary
     * Modified RemoveInterfaceIp
-        * New parameter `ip_address`, `mask` and `secondary` in `remove_interface_ip` to remove the secondary IPv4 address
+        * New parameter ``ip_address``,``mask``and``secondary``in``remove_interface_ip`` to remove the secondary IPv4 address
     * Modified configure_dot1x_cred_profile API
         * Changed the command, updated the parameters(added passwd_type)
 
@@ -176,7 +176,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -206,11 +206,11 @@ genie.libs.sdk
         * API for removing configurations from a template
     * Added configure_interface_ip_verify_unicast_source
         * API for configuring ip verify unicast source on a interface
-    * Added `unconfigure_interface_ip_verify_unicast`
+    * Added ``unconfigure_interface_ip_verify_unicast``
         * API for unconfiguring ip verify unicast on a interface
     * Added configure_interface_ipv6_verify_unicast_source
         * API for configuring ipv6 verify unicast source on a interface
-    * Added `unconfigure_interface_ipv6_verify_unicast`
+    * Added ``unconfigure_interface_ipv6_verify_unicast``
         * API for unconfiguring ipv6 verify unicast on a interface
     * Added configure_ip_igmp_static_group api
         * Api to configure igmp static group
@@ -410,7 +410,7 @@ genie.libs.sdk
     * Added unconfigure_stack_power_stack
         * API to unconfigure stack-power stack
     * Added GetInterfaceSecondaryIpv4Address
-        * New API `get_interface_secondary_ipv4_address` to retrieve the secondary IPv4 address
+        * New API ``get_interface_secondary_ipv4_address`` to retrieve the secondary IPv4 address
     * Added stop_monitor_capture API
         * API for configuring stop monitor capture cli
     * Added configure_virtual_service api
@@ -512,12 +512,12 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                       ~
+~
 --------------------------------------------------------------------------------
 
 
 --------------------------------------------------------------------------------
-                                     Update
+Update
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -529,7 +529,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxr
@@ -604,7 +604,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe

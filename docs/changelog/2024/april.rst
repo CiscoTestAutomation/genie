@@ -54,7 +54,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * utils/config
@@ -68,7 +68,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -76,11 +76,11 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
-    * Added new clean stage `reset_configuration`
+    * Added new clean stage ``reset_configuration``
 
 
 
@@ -96,7 +96,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -111,7 +111,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -195,13 +195,13 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
     * Modified configure_bandwidth_remaining_policy_map
         * Added argument to searialize the policy name in the API,  Example  policy_name = ["child1", "child2", "parent"]
-    * Updated `transceiver_intf_components` to retrieve vendor_name, vendor_part, vendor_rev, serial_no, form_factor and connector_type for their repsective transceiver interfaces.
+    * Updated ``transceiver_intf_components`` to retrieve vendor_name, vendor_part, vendor_rev, serial_no, form_factor and connector_type for their repsective transceiver interfaces.
     * Modified copy_startup_config_to_tftp
     * Modified copy_running_config_to_tftp
     * Modified copy_startup_config_to_flash_memory
@@ -245,7 +245,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -334,12 +334,12 @@ genie.libs.parser
         * parser for 'show bgp dampened-paths'
 
 * utils
-    * Updated code to generate `_actual.json` for UT
-    * Added `blocked` in result colour
+    * Updated code to generate ``_actual.json`` for UT
+    * Added ``blocked`` in result colour
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -372,11 +372,11 @@ genie.libs.parser
     * Modified ShowPlatform Parser
         * Fix p3 if condition
     * Modified ShowWlanAllSchema
-        * Updated `radio_policy` from schema to Optional
+        * Updated ``radio_policy`` from schema to Optional
     * Modified ShowWlanAll
-        * Updated regex pattern `p_name_ssid` to support SSID with spaces
+        * Updated regex pattern ``p_name_ssid`` to support SSID with spaces
     * Modified ShowWlanSummary
-        * Updated regex pattern `wlan_info_capture` to support SSID with spaces (2 spaces max between each word)
+        * Updated regex pattern ``wlan_info_capture`` to support SSID with spaces (2 spaces max between each word)
     * Modified ShowLispPublicationPrefixSuperParser
         * Updated regex to capture IPv6 Merged Locator addresses.
     * Modified ShowCdpNeighborsDetailSchema in show_cdp.py

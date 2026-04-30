@@ -30,7 +30,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * genie.harness
@@ -42,7 +42,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -54,7 +54,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.libs.conf
@@ -62,11 +62,11 @@ genie.libs.conf
 
 * nxos
     * Fix feature service-acceleration
-        * Add `https_proxy` and `https_port` to the list of attributes to be handled by the conf model
+        * Add ``https_proxy``and``https_port`` to the list of attributes to be handled by the conf model
         * Add unit tests
     * Fix nxapi_method_restconf api
         * output from a rest call is a response object, not a list
-        * fixed api call to check for instance of `output.json()` which is a list.
+        * fixed api call to check for instance of ``output.json()`` which is a list.
 
 
 
@@ -79,7 +79,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -96,7 +96,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -165,7 +165,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -185,7 +185,7 @@ genie.libs.sdk
         * updated api with optional arguments post_reload_wait_time and error_pattern
 
 * generic
-    * Modified `execute_clear_line` API
+    * Modified ``execute_clear_line`` API
         * Changed disconnect_termserver argument to default to True
         * Update logic to avoid disconnecting twice
 
@@ -194,7 +194,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -210,13 +210,13 @@ genie.libs.parser
         * Modified parser for 'show ip eigrp interfaces detail' and added <interface> option
     * Fixed the regex p1 for new output.
     * ShowIpRouteWord
-        * Added line parsing for `Default gateway is 172.27.147.1`
+        * Added line parsing for ``Default gateway is 172.27.147.1``
     * Fixed parser ShowVersion
         * Fixed regex pattern - p1_1 for show version in IOS device
     * Modified ShowPlatformSoftwareFedIgmpSnoopingGroups
         * Modified schema and parser for 'show platform software fed {state} ip igmp snooping groups vlan {vlan}'
     * ShowInterfaces
-        * Fixed p2_2 regex to correctly match this line `Hardware is BUILT-IN-4x2_5GE, address is 8c1e.8068.9f6c (bia 8c1e.8068.9f6c)`
+        * Fixed p2_2 regex to correctly match this line ``Hardware is BUILT-IN-4x2_5GE, address is 8c1e.8068.9f6c (bia 8c1e.8068.9f6c)``
     * Modified parser ShowIpMroute
         * Updated regex pattern p3 to accomodate various outputs
         * Added optional key 'iif_mdt_ip' to schema
@@ -227,7 +227,7 @@ genie.libs.parser
     * Modified ShowIpDhcpBinding
         * Added regex <p2> to match multiline Client-ID
     * Show Platform
-        * Made `chassis` optional
+        * Made ``chassis`` optional
     * Fixed schema parser ShowIpMfib
         * In regex p7, added optional parameters - 'ingress_mdt_ip'
         * In regex p8, added optional parameters - 'egress_mdt_decap' and 'egress_mdt_ip'
@@ -272,7 +272,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -281,7 +281,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe

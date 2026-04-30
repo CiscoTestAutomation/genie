@@ -53,9 +53,9 @@ Features highlights:
 
 **genie**
 
-* Added support for `pyats learn <command> --learn-hostname --learn-os`
-* Added support for `pyats parse <command> --learn-hostname --learn-os`
-* Enhanced Dq to grab information from upper or lower level by using `level` argument
+* Added support for ``pyats learn <command> --learn-hostname --learn-os``
+* Added support for ``pyats parse <command> --learn-hostname --learn-os``
+* Enhanced Dq to grab information from upper or lower level by using ``level`` argument
 * Enhanced Discovery to pick up one of devices for Blitz and pyATS Health Check
 * Enhanced pyats parse to support --rest to send REST get and collect JSON
 * Testcase description can be passed as a variable in the trigger datafile
@@ -82,7 +82,7 @@ Features highlights:
 **genie.libs.health**
 
 * Enhanced pyATS Health Check to have capability to select testcases/sections
-    * Added pyats arguments `--health-uids`, `--health-groups` and `--health-sections`
+    * Added pyats arguments ``--health-uids``, ``--health-groups``and``--health-sections``
 
 --------
 
@@ -91,7 +91,7 @@ Features highlights:
 * NXOS
     * Updated NXOS interface conf:
         * Added fabric_forwarding_mode to configure attribute
-    * Implemented config line `no ip redirect` and `no ipv6 redirect`
+    * Implemented config line ``no ip redirect``and``no ipv6 redirect``
 
 --------
 

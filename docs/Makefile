@@ -39,7 +39,7 @@ DEVNET        = true
 
 # Dependencies for building documentation
 DEPENDENCIES = sphinx-autobuild sphinx-bootstrap-theme sphinx-iowmd-theme
-DEPENDENCIES += sphinx-rtd-theme sphinx-tabs sphinx-togglebutton sphinxcontrib-apidoc
+DEPENDENCIES += sphinx-rtd-theme==3.1.0 sphinx-tabs sphinx-togglebutton sphinxcontrib-apidoc
 DEPENDENCIES += sphinxcontrib-applehelp sphinxcontrib-contentui sphinxcontrib-devhelp
 DEPENDENCIES += sphinxcontrib-htmlhelp sphinxcontrib-jquery sphinxcontrib-jsmath
 DEPENDENCIES += sphinxcontrib-mockautodoc sphinxcontrib-napoleon

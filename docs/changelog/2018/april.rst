@@ -86,7 +86,7 @@ Features:
 
 
 * Genie is growing! Many packages have been added to the Genie namespace
-  (`abstract`, `parsergen`, `genietelemetry`, `predcore`, `metaparser`)
+  (``abstract``,``parsergen``,``genietelemetry``,``predcore``,``metaparser``)
 
     * import abstract -> from genie import abstract
     * import parsergen -> from genie import parsergen
@@ -101,9 +101,9 @@ Features:
   monitors your testbed devices during script run for crashes, core dumps, and
   any related performance & stability issues/metrics through plugins. It is fully
   :ref:`integrated within Genie <genietelemetry>`
-* Following `pyATS` latest release, Genie now fully supports Python 3.4, 3.5+ and
+* Following ``pyATS`` latest release, Genie now fully supports Python 3.4, 3.5+ and
   3.6+, and can now install and run on Mac OSX platforms
-* `Unicon` is now the mandatory connection to use for ``Genie``, as `Csccon` is reaching its end of life and support
+* ``Unicon``is now the mandatory connection to use for``Genie``, as``Csccon`` is reaching its end of life and support
 
 .. code-block:: python
 
@@ -204,7 +204,7 @@ Features:
 * New :ref:`Timeout <utils_overview>` functionality
 * Enhancement for trigger and verification datafile to support abstraction
 * Modification of Mapping interaction within Genie
-* Major rework of pyats `Find` api. Allows to ask and collect multiple requirements at once
+* Major rework of pyats ``Find`` api. Allows to ask and collect multiple requirements at once
 * Enhancement to Diff
 * The connect subsection can now re-use the same via for multiple context
 * Enhancement to accept easypy plugins processor (eg; Cflow Plugin)
@@ -268,7 +268,7 @@ Features:
 
 * Over 280+ :verifications:`verifications <http>` to verify the state of the topology
 * Major re-work to Mapping, Normalize and configure
-* `Mapping` now use Timeout functionality
+* ``Mapping`` now use Timeout functionality
 * Better error handling within Triggers
 * Improve Trigger messages and logs
 * New subsections added (Save boot variable, learn system default, initialize traffic)

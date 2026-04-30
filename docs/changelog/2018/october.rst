@@ -81,8 +81,8 @@ Features:
 * Genie now supports Pcall, do actions in parallel on the devices (saving run time)
 * Added a fix for running the same processor with different arguments
 * Timeout fix (Always run triggers for up to maxtime and when time is up trigger will fail)
-* `common_setup` and `common_cleanup` can now have processors added dynamically with the subsection datafile
-* `Trigger` section can now have processors added dynamically with the trigger datafile
+* ``common_setup``and``common_cleanup`` can now have processors added dynamically with the subsection datafile
+* ``Trigger`` section can now have processors added dynamically with the trigger datafile
 * Fixed bug with adding the same processor with the different arguments
 * Datafiles are now smart. Trigger, verification, subsection and PTS datafile will find their corresponding files if not provided
 * Triggers and verification will only execute the one requested with uids or groups, old behavior was to run all triggers in datafile, unless uids/groups provided
@@ -107,7 +107,7 @@ Features:
 
 **Genie.Ops**
 
-* Enhancement for `Maker`, can now provide `attributes` longer than the smallest dest of the ops
+* Enhancement for ``Maker``, can now provide``attributes`` longer than the smallest dest of the ops
 
 **Genie.Libs.Robot**
 

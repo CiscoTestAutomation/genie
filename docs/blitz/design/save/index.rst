@@ -190,7 +190,7 @@ Save action outputs as dictionary
 ===================================
 
 Action results can now be saved as a dictionary by using ``as_dict`` argument. In the example below, we can see that
-a nested dictionary ``parse_output_dict`` is created from the saved variables ``"%VARIABLES{device.name}"``
+a nested dictionary ``parse_output_dict``is created from the saved variables``"%VARIABLES{device.name}"``
 and ``"%VARIABLES{action_output}"``.
 
 .. note::

@@ -76,7 +76,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -306,12 +306,12 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
     * Modified config_ip_on_interface
-        * When there are warnings in the output, it returns a `list` of them line by line instead of `None`
+        * When there are warnings in the output, it returns a ``list``of them line by line instead of``None``
     * Modified configure_hsrp_interface API
         * Modified API for configure hsrp interface to support priority and preempt configuration in HSRP
     * Modified configure_mdns_sd_service_peer, unconfigure_controller_service_policy_service_export and unconfigure_controller_policy_service_export API
@@ -337,11 +337,11 @@ genie.libs.sdk
         * Response will show GNMI get operation of edit-config values if AUTO VALIDATE is set to True.
 
 * sdk
-    * Modified genie.libs.sdk.genie_yamls datafile function to support `health` argument
+    * Modified genie.libs.sdk.genie_yamls datafile function to support ``health`` argument
 
 
 --------------------------------------------------------------------------------
-                                   Changelog:
+Changelog:
 --------------------------------------------------------------------------------
 
 
@@ -349,7 +349,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * hvrp
@@ -440,7 +440,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe

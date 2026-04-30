@@ -105,7 +105,7 @@ Create a YAML file (e.g., ``traffic_args.yaml``) with your traffic stream(s) par
 Executing Traffic Generation
 -----------------------------
 
-Use the ``execute`` command with the ``-j`` flag to process your Jinja template:
+Use the ``execute``command with the``-j `` flag to process your Jinja template:
 
 .. code-block:: console
 

@@ -50,7 +50,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                New
+New
 --------------------------------------------------------------------------------
 
 * Genie schemaengine
@@ -59,10 +59,10 @@ genie
     * Sort tokens
 * New feature to remove configuration part of common cleanup
 * Genie Conf Interface
-    * Added `alias` to Genie Conf Interface object
+    * Added ``alias`` to Genie Conf Interface object
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * Fixed an issue with run_genie_sdk to run multiple testcases
@@ -82,44 +82,44 @@ genie
 * testbed conversion
     * Fixed bug with non pyATS/Genie interface classes
 * Fixed trafficgen argument
-    * Fixed bug that `--tgn-traffic-streams-data` was not properly handled from CLI
+    * Fixed bug that ``--tgn-traffic-streams-data`` was not properly handled from CLI
 
 
 genie.libs.health
 """""""""""""""""
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * Health
     * Modified internal functions
         * To handle Blitz loop against devices properly
-        * To handle `common_api` key in case no device in action
+        * To handle ``common_api`` key in case no device in action
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * Health Plugin
-    * added `--health-config` to pyats command
+    * added ``--health-config`` to pyats command
         * To load health setting from health_config.yaml
-    * create `health_results.json`
+    * create ``health_results.json``
         * To have health data from results.json separately
-        * Add `health_settings` to health_results.json from health config
+        * Add ``health_settings`` to health_results.json from health config
 
 * Health
-    * Modified `add_result_as_extra` decorator in Blitz
+    * Modified ``add_result_as_extra`` decorator in Blitz
         * Moved health data to health_results.json and have minimum data in extra
-        * Added `health_data` to store each health action result in health_results.json
+        * Added ``health_data`` to store each health action result in health_results.json
 
 
 genie.libs.clean
 """"""""""""""""
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * COM
@@ -130,7 +130,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * COM
@@ -149,12 +149,12 @@ genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * Filetranferutils package
     * Modified FileUtils
-        * Added `Permission denied` to error pattern
+        * Added ``Permission denied`` to error pattern
 
 
 genie.libs.ops
@@ -166,7 +166,7 @@ genie.libs.parser
 """""""""""""""""
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * ASA
@@ -236,7 +236,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * Comware
@@ -291,7 +291,7 @@ genie.libs.parser
 
 * APIC
     * Added ShowVersion
-        * added parser for `show version`
+        * added parser for ``show version``
     * refactored unittests to be folder based
 
 * Junos
@@ -309,54 +309,54 @@ genie.libs.sdk
 """"""""""""""
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * NXOS, NXOS/ACI
-    * added `get_show_tech` API
-    * added `copy_to_script_host` API
-    * added `is_connected_via_vty` API
+    * added ``get_show_tech`` API
+    * added ``copy_to_script_host`` API
+    * added ``is_connected_via_vty`` API
 
 * IOSXE
-    * added `get_show_tech` API
-    * added `copy_to_script_host` API
-    * added `is_connected_via_vty` API
-    * Added API `health_cpu`
-    * Added API `health_memory`
-    * Added API `health_logging`
-    * Added API `health_core`
+    * added ``get_show_tech`` API
+    * added ``copy_to_script_host`` API
+    * added ``is_connected_via_vty`` API
+    * Added API ``health_cpu``
+    * Added API ``health_memory``
+    * Added API ``health_logging``
+    * Added API ``health_core``
 
 * IOSXR
-    * added `get_show_tech` API
-    * added `copy_to_script_host` API
-    * added `is_connected_via_vty` API
-    * Added API `health_cpu`
-    * Added API `health_memory`
-    * Added API `health_logging`
-    * Added API `health_core`
+    * added ``get_show_tech`` API
+    * added ``copy_to_script_host`` API
+    * added ``is_connected_via_vty`` API
+    * Added API ``health_cpu``
+    * Added API ``health_memory``
+    * Added API ``health_logging``
+    * Added API ``health_core``
 
 * APIC
-    * added `get_show_tech` API
-    * added `copy_to_script_host` API
+    * added ``get_show_tech`` API
+    * added ``copy_to_script_host`` API
 
 * Linux
-    * Added `socat_relay` API
+    * Added ``socat_relay`` API
 
 * SDK libs
-    * Updated `post_execute_command` processor to support device API calls
+    * Updated ``post_execute_command`` processor to support device API calls
 
 * FileServer
-    * Added `http` protocol support to FileServer
+    * Added ``http`` protocol support to FileServer
 
 * Common
-    * Added `get_local_ip` API to lookup local IP address
+    * Added ``get_local_ip`` API to lookup local IP address
 
 * NXOS
     * health APIs for pyATS Health Check
-        * Added API `health_cpu`
-        * Added API `health_memory`
-        * Added API `health_logging`
-        * Added API `health_core`
+        * Added API ``health_cpu``
+        * Added API ``health_memory``
+        * Added API ``health_logging``
+        * Added API ``health_core``
 
 * API Utils
     * Add get_single_interface API
@@ -364,40 +364,40 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * Junos
-    * Fixed API `default_interface`
+    * Fixed API ``default_interface``
         * changed from raising exception to returning boolean
 
 * IOSXE
-    * Modified API `get_platform_cpu_load_detail`
-        * Updated to use API `health_cpu`
-    * Modified API `get_platform_memory_usage_detail`
-        * Updated to use API `health_memory`
-    * Modified API `get_platform_logging`
-        * Updated to use API `health_logging`
-    * Modified API `get_platform_core`
-        * Updated to use API `health_core`
-    * Modified API `get_platform_cpu_load_detail`
-        * Updated to use API `health_cpu`
-    * Modified API `get_platform_memory_usage_detail`
-        * Updated to use API `health_memory`
-    * Modified API `get_platform_logging`
-        * Updated to use API `health_logging`
-    * Modified API `get_platform_core`
-        * Updated to use API `health_core`
+    * Modified API ``get_platform_cpu_load_detail``
+        * Updated to use API ``health_cpu``
+    * Modified API ``get_platform_memory_usage_detail``
+        * Updated to use API ``health_memory``
+    * Modified API ``get_platform_logging``
+        * Updated to use API ``health_logging``
+    * Modified API ``get_platform_core``
+        * Updated to use API ``health_core``
+    * Modified API ``get_platform_cpu_load_detail``
+        * Updated to use API ``health_cpu``
+    * Modified API ``get_platform_memory_usage_detail``
+        * Updated to use API ``health_memory``
+    * Modified API ``get_platform_logging``
+        * Updated to use API ``health_logging``
+    * Modified API ``get_platform_core``
+        * Updated to use API ``health_core``
 
 * IOSXR
-    * Modified API `get_platform_cpu_load_detail`
-        * Updated to use API `health_cpu`
-    * Modified API `get_platform_memory_usage_detail`
-        * Updated to use API `health_memory`
-    * Modified API `get_platform_logging`
-        * Updated to use API `health_logging`
-    * Modified API `get_platform_core`
-        * Updated to use API `health_core`
+    * Modified API ``get_platform_cpu_load_detail``
+        * Updated to use API ``health_cpu``
+    * Modified API ``get_platform_memory_usage_detail``
+        * Updated to use API ``health_memory``
+    * Modified API ``get_platform_logging``
+        * Updated to use API ``health_logging``
+    * Modified API ``get_platform_core``
+        * Updated to use API ``health_core``
     * Modified get_available_space
         * Added handling of the unit (kbytes/bytes) and convert.
     * Modified verify_file_exists
@@ -407,17 +407,17 @@ genie.libs.sdk
         * Add support for complex filepath (using several folders)
 
 * Common API
-    * Modified API `verify_device_connection_state`
-        * Added handling in case device object doesn't have attribute `is_ha`
+    * Modified API ``verify_device_connection_state``
+        * Added handling in case device object doesn't have attribute ``is_ha``
 
 * Blitz
     * Modified decorator in Blitz for pyATS Health Check
         * Added handling for new pyATS Health Check data format
-    * Modified `callback_blitz_dispatcher_gen`
-        * To pass `name` info from section with loop to action
+    * Modified ``callback_blitz_dispatcher_gen``
+        * To pass ``name`` info from section with loop to action
     * Modified blitz.py
-        * Fixed error where failures in a parallel call wouldn't end the testcase when `continue false` is set
-    * Fixed `custom_verification_message` handling
+        * Fixed error where failures in a parallel call wouldn't end the testcase when ``continue false`` is set
+    * Fixed ``custom_verification_message`` handling
     * Modified notify_wait to recognize a device gnmi connection.
     * NETCONF subsccribe operation was forming invalid RPC message.
     * The rpc-error was not printing in log.
@@ -428,8 +428,8 @@ genie.libs.sdk
         * changed the extended class from TriggerReloadLC to  TriggerReloadFabric
 
 * API utils
-    * common API `get_interface_from_yaml`
-        * removed `*args` and changed to `testbed_topology`
+    * common API ``get_interface_from_yaml``
+        * removed ``*args``and changed to``testbed_topology``
 
 
 genie.telemetry

@@ -75,7 +75,7 @@ under the default test section & the newly created test sections:
    2024-07-29 20:15:16: %LAMP-INFO: +------------------------------------------------------------------------------+
    (lamp-host1)
 
-When the trigger gets saved, the ``execute`` and ``sleep`` actions appear under
+When the trigger gets saved, the ``execute``and``sleep`` actions appear under
 the 'new_1' and 'new_2' test sections, respectively. The initial ``configure``
 action, performed before any new test section was created, is placed under
 the 'default' section. The resulting YAML file is shown below:

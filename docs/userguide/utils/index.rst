@@ -237,7 +237,7 @@ in the dictionary.
   ['mgmt0', 'Ethernet2/1', 'Ethernet2/2', 'loopback0', 'loopback1']
 
 To input regular expression values, if looking for keys with a regex pattern you need to set
-``key_regex`` to True. For applying regex pattern on values, you need to set ``value_regex`` variable
+``key_regex``to True. For applying regex pattern on values, you need to set``value_regex`` variable
 to True. Examples below elaborate this functionality
 
 .. code-block:: python
@@ -251,8 +251,8 @@ to True. Examples below elaborate this functionality
   >>> output.q.contains_key_value('slot/world_wide_name|mac.*|model', '[a-zA-Z0-9\-\s]+', key_regex=True, value_regex=True)
 
 Similar to ``contains`` here also you can do case insensitive comparison.
-- If the ``key`` has to be case insensitive then you have to set ``key_regex`` and ``ignore_case_key`` as True.
-- If the ``value`` has to be case insensitive then you have to set ``value_regex`` and ``ignore_case_value`` as True.
+- If the ``key``has to be case insensitive then you have to set``key_regex``and``ignore_case_key`` as True.
+- If the ``value``has to be case insensitive then you have to set``value_regex``and``ignore_case_value`` as True.
 
 .. code-block:: python
 
@@ -282,7 +282,7 @@ api.
   # if applying regex only for value set value_regex=True
   >>> output.q.not_contains_key_value('lc', '(3|4)', value_regex=True)
 
-This one also supports both ``ignore_case_key`` and ``ignore_case_value`` which was already explained for contains_key_value api.
+This one also supports both ``ignore_case_key``and``ignore_case_value`` which was already explained for contains_key_value api.
 
 value_operator
 ^^^^^^^^^^^^^^

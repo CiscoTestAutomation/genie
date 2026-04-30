@@ -238,7 +238,7 @@ Step 6: Register Testcases in Main Trigger Datafile
 ---------------------------------------------------
 
 Update **main_trigger_datafile.yaml** to register your testcases. Add
-file paths to ``extends`` and testcase names to ``order``:
+file paths to ``extends``and testcase names to``order``:
 
 .. code-block:: yaml
 

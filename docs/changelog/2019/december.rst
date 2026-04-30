@@ -99,8 +99,8 @@ You can call them by doing
 
 
 **Genie.Libs.Ops**
- * New `MSDP`, `ISIS`, `ACL`, `FDB` and `PLATFORM` OPS structures on IOSXR, IOS, NXOS and IOSXE(cat9k)
- * Updated `ACL` ops under IOSXE
+ * New ``MSDP``,``ISIS``,``ACL``,``FDB``and``PLATFORM`` OPS structures on IOSXR, IOS, NXOS and IOSXE(cat9k)
+ * Updated ``ACL`` ops under IOSXE
  * Updated verifications under IOSXR
  * Changelog can be checked :opschangelog19:`here <DECEMBER>`
 
@@ -130,7 +130,7 @@ You can call them by doing
 
 
 **Genie.FileTransferUtils**
- * Added `use-kstack` copy option support for nxos
+ * Added ``use-kstack`` copy option support for nxos
  * Enhanced error message handling logic, it now checks line by line instead of the entire output
 
 
@@ -144,7 +144,7 @@ You can call them by doing
 
 
 **Genie.Trafficgen**
- * Bug fix for corner case of `rx_rate` being empty in `check_traffic_loss`
+ * Bug fix for corner case of ``rx_rate``being empty in``check_traffic_loss``
 
 
 **Genie.Parsergen**

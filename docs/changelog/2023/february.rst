@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.harness
@@ -66,11 +66,11 @@ genie
 
 * harness
     * Fixed schema of mapping datafile
-        * Supported `list` for `via` in mapping datafile for HA device
+        * Supported ``list``for``via`` in mapping datafile for HA device
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * harness
@@ -82,7 +82,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * linux
@@ -117,12 +117,12 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * common
     * Updated 'apply_configuration' clean stage
-        * added dialog to handle prompt by `license accept end user agreement`
+        * added dialog to handle prompt by ``license accept end user agreement``
 
 
 
@@ -141,7 +141,7 @@ genie.libs.ops
 genie.libs.robot
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.libs.robot
@@ -152,7 +152,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -401,7 +401,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -423,8 +423,8 @@ genie.libs.sdk
         * Added two commands of "switchport", "switchport mode trunk" to accept allowed vlans configuration command
     * Modified execute_install_one_shot
         * Added xfsu optional flag.
-    * Updated `delete_unprotected_files` API
-        * Added `destination` argument
+    * Updated ``delete_unprotected_files`` API
+        * Added ``destination`` argument
 
 * sdk/powercycler
     * Modified raritan-px2_v3 to raritan-px2 and changed the connection_type to snmpv3.
@@ -432,28 +432,28 @@ genie.libs.sdk
 * updated make json
 
 * common
-    * Updated `free_up_disk_space` API
-        * Added `destination` argument
+    * Updated ``free_up_disk_space`` API
+        * Added ``destination`` argument
 
 * ios
-    * Updated `delete_unprotected_files` API
-        * Added `destination` argument
+    * Updated ``delete_unprotected_files`` API
+        * Added ``destination`` argument
 
 * nxos
-    * Updated `delete_unprotected_files` API
-        * Added `destination` argument
+    * Updated ``delete_unprotected_files`` API
+        * Added ``destination`` argument
 
 * apic
-    * Updated `delete_unprotected_files` API
-        * Added `destination` argument
+    * Updated ``delete_unprotected_files`` API
+        * Added ``destination`` argument
 
 * powercycler
-    * Updated `on` and `off` methods
-        * Fixed `outlets` argument handling
+    * Updated ``on``and``off`` methods
+        * Fixed ``outlets`` argument handling
 
 
 --------------------------------------------------------------------------------
-                                     Fixed
+Fixed
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -461,7 +461,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                     Update
+Update
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -473,7 +473,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -581,7 +581,7 @@ genie.libs.parser
 
 * common
     * Refactor parser loading, deprecate entrypoint callable function
-    * Add support for multiple parser packages via environment variable `PYATS_LIBS_EXTERNAL_PARSER` using comma separated syntax.
+    * Add support for multiple parser packages via environment variable ``PYATS_LIBS_EXTERNAL_PARSER`` using comma separated syntax.
 
 * nxos
     * Modified ShowBgpL2vpnevpnSummary
@@ -591,7 +591,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -601,7 +601,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe

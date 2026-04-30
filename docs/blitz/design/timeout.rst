@@ -5,7 +5,7 @@ Trigger timeout/interval ratio adjustments
 
 Each action performs verification to make sure it has performed as expected.
 These timeouts can be modified with a ratio from the testbed datafile.
-This feature is supported by actions ``api``, ``execute``, ``parse``, ``learn`` and ``rest``.
+This feature is supported by actions ``api``,``execute``,``parse``,``learn``and``rest``.
 
 .. code-block:: YAML
 

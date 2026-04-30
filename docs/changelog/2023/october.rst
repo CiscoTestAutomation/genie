@@ -51,8 +51,8 @@ If you have pyATS installed, you can use:
 .. warning::
     Backwards compatibility in ``genie.libs.parser``:
 
-    `ShowLispEthernetDatabase` was removed as a duplicate of the
-    `ShowLispDatabaseSuperParser`. The super parser output schema is similar
+    ``ShowLispEthernetDatabase`` was removed as a duplicate of the
+    ``ShowLispDatabaseSuperParser``. The super parser output schema is similar
     but not fully backward compatible with the removed parser and may result in
     errors in tests that depend on specific values of the removed parser output.
 
@@ -63,7 +63,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * harness
@@ -75,7 +75,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * recovery
@@ -104,7 +104,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -142,7 +142,7 @@ genie.libs.sdk
         * added api to config_interface_prpchannel
     * Added unconfig_interface_prpchannel
         * added api to unconfig_interface_prpchannel
-    * Added `configure_management_ntp` API
+    * Added ``configure_management_ntp`` API
     * Added format_directory
         * API to format {directory}
     * Added configure_vtp_pruning
@@ -226,7 +226,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -267,7 +267,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                     Modify
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -279,7 +279,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -347,7 +347,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -392,7 +392,7 @@ genie.libs.parser
     * Added ShowIpNatStatistics Parser
         * Added if condition for name_1 and name_2 key to match with all available output.
     * Modified ShowClnsNeighborsDetail
-        * Updated the regex to support `-`
+        * Updated the regex to support ``-``
     * Removed duplicate class ShowLispEthernetDatabase
         * removed the duplicate class and add a optional key to ShowLispDatabaseSuperParser schema
     * Modified ShowIpIgmpSnoopingQuerier Parser
@@ -410,7 +410,7 @@ genie.libs.parser
     * Modified ShowIpv6MldGroups Parser
         * parser for 'show ipv6 mld groups'
     * Updated ShowBgpAllNeighbors parser
-        * Added `ack_hold` and `fastretransmit` to exclude list
+        * Added ``ack_hold``and``fastretransmit`` to exclude list
     * Modified ShowCdpNeighborsDetail
         * Changed software_version from schema to Optional.
     * Modified ShowEnvironmentSuperParser Parser
@@ -461,7 +461,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                     Modify
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -472,7 +472,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                    Modified
+Modified
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -490,7 +490,7 @@ genie.trafficgen
 """""""""""""""""
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * trex
@@ -499,7 +499,7 @@ genie.trafficgen
 
 
 --------------------------------------------------------------------------------
-                                New
+New
 --------------------------------------------------------------------------------
 * trex
     * Add new APIs to trex implementation.py:

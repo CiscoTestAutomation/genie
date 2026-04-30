@@ -47,7 +47,7 @@ If you have pyATS installed, you can use:
 **genie**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * harness
@@ -73,7 +73,7 @@ If you have pyATS installed, you can use:
         * Sum up values and evaluate operator against the total value
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * harness
@@ -98,7 +98,7 @@ If you have pyATS installed, you can use:
 **genie.libs.clean**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -115,14 +115,14 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * com
     * Modified 'connect' clean stage to include 'via' argument
 
 * apic
-    * Add `apply_configuration` clean stage for REST interactions
+    * Add ``apply_configuration`` clean stage for REST interactions
 
 **genie.libs.conf**
 
@@ -131,7 +131,7 @@ No changes
 **genie.libs.filetransferutils**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * common
@@ -146,7 +146,7 @@ No changes
 **genie.libs.health**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * health
@@ -173,15 +173,15 @@ No changes
     * Added '--health-core-default-dir' argument
         * Specify directories where searching core file or etc
     * Added '--health-tc-sections' argument
-        * same with '--health-sections' and `--health-sections` is now deprecated
+        * same with '--health-sections' and ``--health-sections`` is now deprecated
     * Added '--health-tc-uids' argument
-        * same with '--health-tc-uids' and `--health-uids` is now deprecated
+        * same with '--health-tc-uids' and ``--health-uids`` is now deprecated
     * Added '--health-tc-groups' argument
-        * same with '--health-tc-groups' and `--health-groups` is now deprecated
+        * same with '--health-tc-groups' and ``--health-groups`` is now deprecated
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * health
@@ -203,7 +203,7 @@ No changes
 **genie.libs.robot**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * robot
@@ -214,7 +214,7 @@ No changes
 **genie.libs.sdk**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * blitz
@@ -263,17 +263,17 @@ No changes
         * added new argument 'ospf_process_id'. But keep 'bgp_as' for backward compatibility
 
 * api utils
-    * Modified API `verify_pcap_packet`
+    * Modified API ``verify_pcap_packet``
         * Added support to check the fragmented captured packet.
-    * Modified API `verify_pcap_dscp_bit`
+    * Modified API ``verify_pcap_dscp_bit``
         * To verify the Expected destination IP address.
         * To verify the Expected protocol message type.
-    * Modified API `verify_pcap_mpls_packet`
+    * Modified API ``verify_pcap_mpls_packet``
         * To verify the Expected source port number.
         * To verify the Expected destination port number.
         * To verify the Expected protocol message type.
         * To handle the port_and_or operation.
-    * Modified API `web_interaction`
+    * Modified API ``web_interaction``
         * To handle the result status when time limit exceeded.
 
 * utils
@@ -292,21 +292,21 @@ No changes
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * blitz
     * 'execute' action
-        * Added `result_status' to support result change only for `passed` based on user input.
+        * Added ``result_status' to support result change only for`` passed` based on user input.
     * markup.py
         * Added apply_regex_findall to search for patterns in a string
     * blitz.py
         * Modified _filter_and_save_action_output to expect regex_findall
     * Support attachment for pyATS Health Check webex notification
     * actions.py
-        * Added `result_status' to support result change only for `passed` based on user input
+        * Added ``result_status' to support result change only for`` passed` based on user input
     * actions_helper.py
-        * Added `result_status' to support result change only for `passed` based on user input
+        * Added ``result_status' to support result change only for`` passed` based on user input
     * advanced_actions.py
         * Modified custom_substep_message in loop to support the use of %VARIABLES{}
     * markup.py
@@ -315,19 +315,19 @@ No changes
         * Modified _filter_and_save_action_output to expect file_name and append arguments
     * add webex notification support for pyATS Healtch Check
     * 'execute' action
-        * Added `connection_alias` to support different connections
+        * Added ``connection_alias`` to support different connections
     * 'parse' action
-        * Added `connection_alias` to support different connections
-        * Added `context` to use different context
-    * `configure` action
-        * Added `connection_alias` to support different connections
-    * `configure_dual` action
-        * Added `connection_alias` to support different connections
+        * Added ``connection_alias`` to support different connections
+        * Added ``context`` to use different context
+    * ``configure`` action
+        * Added ``connection_alias`` to support different connections
+    * ``configure_dual`` action
+        * Added ``connection_alias`` to support different connections
 
 * api utils
-    * Added API `web_interaction`
+    * Added API ``web_interaction``
         * To return result of user choice for manual steps. same capability with WebInteraction.
-    * Added API `verify_pcap_ldp_packet`
+    * Added API ``verify_pcap_ldp_packet``
         * To verify the LDPHello and LDPKeepAlive packet
 
 * utils
@@ -340,15 +340,15 @@ No changes
 
 * iosxe
     * API Utils
-        * Added API `verify_device_tracking_policies`
-        * Added API `verify_ip_mac_binding_in_network`
-        * Added API `verify_ip_mac_binding_not_in_network`
-        * Added API `verify_ip_mac_binding_count`
+        * Added API ``verify_device_tracking_policies``
+        * Added API ``verify_ip_mac_binding_in_network``
+        * Added API ``verify_ip_mac_binding_not_in_network``
+        * Added API ``verify_ip_mac_binding_count``
 
 **genie.libs.parser**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -402,7 +402,7 @@ No changes
         * Adjusting p1 regex to support IPv6 too
         * Offloading parser to a SuperParser class
         * Support eigrp named mode
-        * Added Optional keys to ShowIpEigrpInterfacesSchema schema to support `show ip eigrp interfaces detail parser`
+        * Added Optional keys to ShowIpEigrpInterfacesSchema schema to support ``show ip eigrp interfaces detail parser``
     * Modified ShowInterfaces
         * Updated regex pattern p11 to accomodate media types with a period (ex 2.5G)
 
@@ -491,7 +491,7 @@ No changes
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -601,7 +601,7 @@ No changes
 **genie.trafficgen**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * ixiarestpy
@@ -609,11 +609,11 @@ No changes
 
 * genie.trafficgen
     * Implemented abstraction
-        * Use `os ixianative|ixiarestpy|trex` to select connection type
+        * Use ``os ixianative|ixiarestpy|trex`` to select connection type
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * ixianative

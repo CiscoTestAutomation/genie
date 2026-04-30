@@ -94,17 +94,17 @@ Features
 
 **Genie.Ops**
 
-* Enhancement in `async` call for py37 compatibility.
+* Enhancement in ``async`` call for py37 compatibility.
 
 
 **Genie.Telemetry**
 
-* Enhancement in `async` call for py37 compatibility.
+* Enhancement in ``async`` call for py37 compatibility.
 
 
 **Genie.Utils**
 
-* Enhancement in `re._pattern_type` call for py37 compatibility.
+* Enhancement in ``re._pattern_type`` call for py37 compatibility.
 
 
 **Genie.Libs.Parser**
@@ -199,7 +199,7 @@ Features
 
 		genie learn all --testbed-file /path/to/testbed.yaml --devices nx-osv-1 --output genie_learn_all
 
-* Genie diff (Compare directories of learnt features in `genie learn` and `genie parse`)
+* Genie diff (Compare directories of learnt features in ``genie learn``and``genie parse``)
 
 .. code-block:: bash
 
@@ -237,7 +237,7 @@ Features
 
 **Genie.Libs.Parser**
 
-* New `get_parser` feature for retrieving the parser class.
+* New ``get_parser`` feature for retrieving the parser class.
 * Over 100 new IOS Parsers!
 * Changelog can be checked :parserchangelog19:`here <MARCH>`
 
@@ -255,7 +255,7 @@ Features
 
 **Genie.Utils**
 
-* `Profile` new API for system profiling user passed features and compare at a later time.
+* ``Profile`` new API for system profiling user passed features and compare at a later time.
 
 **Unicon**
 

@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * harness
@@ -74,7 +74,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * generic
@@ -101,7 +101,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe/sdwan
@@ -113,7 +113,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * nxos
@@ -125,7 +125,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * common
@@ -138,7 +138,7 @@ genie.libs.filetransferutils
 genie.libs.health
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * health plugin
@@ -156,7 +156,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * api utils
@@ -206,7 +206,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -246,12 +246,12 @@ genie.libs.sdk
     * Added API verify_template_bind
     * Added configure_tacacs_server
     * Added export_packet_capture
-    * added `remove_ipv6_dhcp_guard_policy` API
-    * added `remove_ipv6_nd_suppress_policy` API
-    * added `remove_single_device_tracking_policy` API
-    * added `remove_ipv6_source_guard_policy` API
-    * added `clear_device_tracking_database` API
-    * added `clear_device_tracking_counters` API
+    * added ``remove_ipv6_dhcp_guard_policy`` API
+    * added ``remove_ipv6_nd_suppress_policy`` API
+    * added ``remove_single_device_tracking_policy`` API
+    * added ``remove_ipv6_source_guard_policy`` API
+    * added ``clear_device_tracking_database`` API
+    * added ``clear_device_tracking_counters`` API
     * Added get_auth_session API
         * API for getting the dot1x/mab authentication session
     * Added get_radius_packets API
@@ -268,9 +268,9 @@ genie.libs.sdk
         * API for enabling aes password encryption
     * Added configure_disable_aes_encryption API
         * API for disabling aes password encryption
-    * Added API `get_snmp_snmpwalk`
-    * Added API `configure_snmp`
-    * Added API `unconfigure_snmp`
+    * Added API ``get_snmp_snmpwalk``
+    * Added API ``configure_snmp``
+    * Added API ``unconfigure_snmp``
     * Added get_bgp_rt2_community_label API
         * Gets external-community, label info from route-type 2 that
         * matches with specific ip and mac
@@ -303,7 +303,7 @@ genie.libs.sdk
         * Unconfigs evpn vlan instance with re-originate RT5 in it
     * Added 'clear_platform_software_fed_active_acl_counters_hardware' API
         * to clear acl hardware counters on device
-    * Added API `configure_interface_switchport_trunk_vlan`
+    * Added API ``configure_interface_switchport_trunk_vlan``
     * Added 'configure_ip_mtu' API
         * configure mtu value under interface
     * Added 'unconfigure_ip_mtu' API
@@ -349,7 +349,7 @@ genie.libs.sdk
     * Added concurrent_ssh_sessions
 
 * linux
-    * Added `scp` API for linux os
+    * Added ``scp`` API for linux os
 
 * blitz
     * actions
@@ -362,7 +362,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                    Modified
+Modified
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -373,7 +373,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -677,7 +677,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxr

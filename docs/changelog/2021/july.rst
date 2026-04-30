@@ -47,7 +47,7 @@ If you have pyATS installed, you can use:
 **genie**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * harness
@@ -56,7 +56,7 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * harness
@@ -70,14 +70,14 @@ If you have pyATS installed, you can use:
 **genie.libs.clean**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
     * Add API "get_show_output_line_count"
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxr
@@ -92,13 +92,13 @@ If you have pyATS installed, you can use:
 
 * clean
     * reload
-        * Added `via` argument to specify which connection to use on reconnect
+        * Added ``via`` argument to specify which connection to use on reconnect
 
 
 **genie.libs.conf**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -108,7 +108,7 @@ If you have pyATS installed, you can use:
 **genie.libs.filetransferutils**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * filetransferutils
@@ -118,13 +118,13 @@ If you have pyATS installed, you can use:
 **genie.libs.health**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * health
     * Updated default health yaml
         * Changed to new argument style with '--health-tc-uids', '--health-tc-sections'
-        * Added 'escape_regex_chars' argument to `get_testcase_name` api action
+        * Added 'escape_regex_chars' argument to ``get_testcase_name`` api action
     * Updated default health yaml
         * Changed to use 'add_total True' for cpu/memory checks
 
@@ -132,13 +132,13 @@ If you have pyATS installed, you can use:
     * Renamed '--health-webex' argument to '--health-notify-webex'.
     * Added DeprecationWarning message for deprecated arguments
     * Suppressed deprecated arguments from CLI help
-    * Modified `--health-file` argument
+    * Modified ``--health-file`` argument
         * File paths or URLs can now be passed as CLI arguments
 
 **genie.libs.ops**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -160,7 +160,7 @@ No changes
 **genie.libs.sdk**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * nxos
@@ -268,7 +268,7 @@ No changes
     * Added  include_os, exclude_os, include_devices, exclude_devices and all for configure_replace.
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * blitz
@@ -285,7 +285,7 @@ No changes
 
 * utils
     * Updated 'get_testcase_name' API
-        * Added `escape_regex_chars` argument to return escaped regex chars in testcase name
+        * Added ``escape_regex_chars`` argument to return escaped regex chars in testcase name
     * Updated 'copy_from_device' API
         * changed return value for API to str/None from boolean
     * Updated 'copy_to_device' API
@@ -331,7 +331,7 @@ No changes
 **genie.libs.parser**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxr
@@ -602,7 +602,7 @@ No changes
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxr
@@ -633,7 +633,7 @@ No changes
     * Modified ShowEtherchannelSummary
         * Added regex pattern p6 to accommodate various port outputs.
     * Modified ShowDeviceTrackingDatabaseInterface
-        * Made `limit` key optional on binding_table and refactored code to support this change.
+        * Made ``limit`` key optional on binding_table and refactored code to support this change.
     * Modified ShowStandbyAll
         * Optimized parser and fixed issue with multiple group numbers under same interface
     * Modified ShowDeviceTrackingCountersVlan
@@ -669,8 +669,8 @@ No changes
         * Add folder based unittests
     * Delete iosxe/show_platform_software_fed.py instead content is Appended in iosxe/show_platform.py
     * Modified ShowPlatformSoftwareYangManagementProcessState
-        * Fixed pattern p1 to accept `Not Running` as valid state
-        * Fixed patter p2 to accept `Down` and `Reset` as valid states
+        * Fixed pattern p1 to accept ``Not Running`` as valid state
+        * Fixed patter p2 to accept ``Down``and``Reset`` as valid states
 
 * nxos
     * Modified ShowInterface

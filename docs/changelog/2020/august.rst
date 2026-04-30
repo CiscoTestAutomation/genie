@@ -61,7 +61,7 @@ Features highlights:
 * 46 new IOSXE, IOS, NXOS, IOSXE and Junos parsers with a grand total of 2561 parsers
 * 86 new apis to use on your devices. Grand total of 911 APIs
 
-* New Feature `pyATS Health Check` released
+* New Feature ``pyATS Health Check`` released
 * Monitor/Collect device status as pre/post processors to section during test run
 
 * Added 'ruamel.yaml' dependency to genielibs, to install it use: 'pip install ruamel.yaml'
@@ -94,8 +94,8 @@ Features highlights:
 
         ::
 
-                Clean yaml file schema:
-                -----------------------
+Clean yaml file schema:
+---------------------------------------
                 devices:
                   <device>:
                     reload:

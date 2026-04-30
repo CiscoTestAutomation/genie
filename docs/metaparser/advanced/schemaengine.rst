@@ -5,7 +5,7 @@ Schema Engine
 
 Introduction
 ------------
-``schemaengine`` module located in ``metaparser`` package `util` directory 
+``schemaengine``module located in``metaparser`` package `util` directory 
 (metaparser.util), along with a few other utility modules like ``util.py`` and 
 ``exceptions.py``. This module defines all `schema` related classes and 
 functions.

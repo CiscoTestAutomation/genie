@@ -46,7 +46,7 @@ May 5
 Features:
 ^^^^^^^^^
 
- * `build_config` and `build_unconfig` now uses `pcall`_ for each device.
+ * ``build_config``and``build_unconfig`` now uses `pcall`_ for each device.
 
 .. _pcall: http://wwwin-pyats.cisco.com/documentation/html/async/pcall.html
 
@@ -63,7 +63,7 @@ May 9
 Features:
 ^^^^^^^^^
 
- * Enhancement for `ces` monitor added
+ * Enhancement for ``ces`` monitor added
 
 May 11
 ------

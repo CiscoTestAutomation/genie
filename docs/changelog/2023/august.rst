@@ -55,21 +55,21 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.cli.commands.job
     * Added suite_name and test_suite to configure_parser to fix the broken genie
 
 * genie.harness
-    * Added support for `vty` as connection name in default mapping
+    * Added support for ``vty`` as connection name in default mapping
 
 
 
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * generic
@@ -77,7 +77,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -104,13 +104,13 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
     * Modified configure_ipv6_acl
         * added time range parameter
-    * Modified `configure_management_vty_lines` API to only set authentication if username and password provided
+    * Modified ``configure_management_vty_lines`` API to only set authentication if username and password provided
     * Modified configure_dhcp_pool_ipv6_domain_name
         * API to configure dhcp-pool ipv6 domain-name
     * Modify configure_bgp_address_advertisement
@@ -171,7 +171,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -328,7 +328,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -391,7 +391,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -496,7 +496,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add
+Add
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -509,7 +509,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                    Entries
+Entries
 --------------------------------------------------------------------------------
 
 

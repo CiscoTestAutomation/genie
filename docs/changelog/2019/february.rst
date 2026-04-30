@@ -72,12 +72,12 @@ Features:
 **Genie.Harness**
 
 * Fixed Genie standalone mode, calling Genie triggers within pyATS script
-* Pushed a fix for '--devices' argument when using `Genie run`
+* Pushed a fix for '--devices' argument when using ``Genie run``
 * Added documentation for genie triggers available restore methods, get_ops feature and golden pts per branch abstraction
 
 **Genie.Libs.Parser**
 
-* Added the new `get_parser` feature
+* Added the new ``get_parser`` feature
 
 * IOSXE
     * Fixed ShowBgpAllDetail and ShowBgpAllNeighbors to cover all types of vrf(s) and next_hop(s)

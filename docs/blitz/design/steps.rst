@@ -26,7 +26,7 @@ as shown in the image you can see how in the logs the starting message is custom
 
 **Example-2: Customizing substeps**
 
-By specifying keyword ``custom_substep_message`` as well as ``custom_verification_message``
+By specifying keyword ``custom_substep_message``as well as``custom_verification_message``
 the substeps would be customized as well. ``custom_verification_message`` will be only useful
 if verification on action outputs are being done (using include/exclude)
 

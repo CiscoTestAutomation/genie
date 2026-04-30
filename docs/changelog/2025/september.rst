@@ -1,8 +1,8 @@
 September 2025
-==========
+==============
 
 September 30 - Genie v25.9 
-------------------------
+--------------------------
 
 
 
@@ -33,7 +33,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * stages/iosxe
@@ -69,7 +69,7 @@ genie.libs.clean
 genie.libs.conf
 """""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * conf-pkg
@@ -80,7 +80,7 @@ genie.libs.conf
         * Added frr anycast source ip support in conf model
         * Added ead-evi route support in conf model
     * Modified
-        * update issu trigger command to `min-disruptive` based on marketing feedback.
+        * update issu trigger command to ``min-disruptive`` based on marketing feedback.
 
 
 
@@ -90,7 +90,7 @@ genie.libs.filetransferutils
 genie.libs.health
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * health-pkg
@@ -107,7 +107,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -128,9 +128,9 @@ genie.libs.sdk
         * API to execute clear {parameter}
     * Added API configure_ipv6_cef
     * Added API unconfigure_ipv6_cef
-    * Modified API `configure_standard_access_list`
+    * Modified API ``configure_standard_access_list``
         * Made 'wild_mask' as optional argument.
-    * Modified API `unconfigure_standard_access_list`
+    * Modified API ``unconfigure_standard_access_list``
         * Made 'wild_mask' as optional argument.
     * Added API to configure/unconfigure Relay mode negative
     * Added API test_platform_hardware_powersupply_oir
@@ -185,7 +185,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -193,7 +193,7 @@ genie.libs.sdk
     * Unconfigure_banner
         * Added fix for Unconfigure_banner to make it compatible
     * Modified
-        * Added support for handling reload triggered by `%PMAN-5-EXITACTION reload action requested`
+        * Added support for handling reload triggered by ``%PMAN-5-EXITACTION reload action requested``
 
 * sdk-pkg
     * Fix syntax warning
@@ -203,7 +203,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                     Modify                                     
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -219,7 +219,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -294,8 +294,8 @@ genie.libs.parser
         * Added schema and parser for'show power detail' under 9610c folder for iosxe
 
 * iosxr
-    * Added `ShowSubscriberSessionAllSummary` Parser
-        * Added schema and parser for `show subscriber session all summary` command.
+    * Added ``ShowSubscriberSessionAllSummary`` Parser
+        * Added schema and parser for ``show subscriber session all summary`` command.
     * Added Parsers for below OSPFv3 show commands
         * show ospfv3 vrf all-inclusive database ext-router
         * show ospfv3 topology detail
@@ -314,7 +314,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -337,11 +337,11 @@ genie.libs.parser
         * Updated regex for the state changes line and improved parsing of the last state change time to accommodate various output formats.
 
 * iosxr
-    * Modified ShowPlatform for `ASR-9903` with `IOS-XR v7.8.2`
+    * Modified ShowPlatform for ``ASR-9903``with``IOS-XR v7.8.2``
         * Updated regex pattern <p1> to accommodate various outputs
             * Changed whitespace before <plim> to use \s+ (was a single space) for variable spacing.
             * Made <config_state> optional by wrapping it in a non-capturing group.
-        * Ensures lines without a "Config state" column are parsed (e.g., `0/0/1             A9903-20HG-PEC             OK`).
+        * Ensures lines without a "Config state" column are parsed (e.g., ``0/0/1             A9903-20HG-PEC             OK``).
 
 * nxos
     * Fixed ShowEnvironmentPowerDetail parser.
@@ -349,7 +349,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                    Modified                                    
+Modified
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -371,7 +371,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                     Modify                                     
+Modify
 --------------------------------------------------------------------------------
 
 * iosxe
