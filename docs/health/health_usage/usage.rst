@@ -27,9 +27,9 @@ Or once you have both the testbed yaml and health yaml for custom health checks 
 
     `cpu`, `memory`, `logging`, `core` and `crashinfo` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
 
-    **cpu** uses the higher of ``show processes cpu sorted`` and ``show processes cpu platform sorted`` (5-second average). Threshold default: 90%.
+    **cpu** uses the higher of ``show processes cpu sorted`` and ``show processes cpu platform sorted`` (5-second average). The pass/fail threshold is controlled by ``include: sum_value_operator('value', '<', 90)`` in the YAML (default 90). ``health_cpu`` has no threshold parameter — the limit lives in the YAML, not the API.
 
-    **memory** first checks only the processor-pool total. The full per-process parse runs only when the threshold is exceeded (default 90%), keeping overhead low.
+    **memory** first checks only the processor-pool total. The full per-process parse runs only when the threshold is exceeded. The threshold is passed directly to ``health_memory`` as the ``threshold`` argument (default 90%), keeping overhead low.
 
     **logging** tracks log count across testcases — only *new* messages since the last check are reported. Use ``--health-clear-logging`` (flag, no value needed) to clear the device log buffer before each check.
 
@@ -150,8 +150,6 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
                   delete_crashinfo: true
                 health_tc_sections:
                   - type:CommonSetup
-                health_tc_check:
-                  os: iosxe
                 include:
                   - value_operator('num_of_crashfiles', '==', 0)
                 failed_result_status: passx  # pre-existing files don't fail the run
@@ -164,8 +162,6 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
                   delete_crashinfo: true
                 health_tc_sections:
                   - type:TestCase
-                health_tc_check:
-                  os: iosxe
                 include:
                   - value_operator('num_of_crashfiles', '==', 0)
                 save:

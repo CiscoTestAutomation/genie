@@ -158,8 +158,6 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                   delete_crashinfo: true
                 health_tc_sections:
                   - type:CommonSetup
-                health_tc_check:
-                  os: iosxe
                 include:
                   - value_operator('num_of_crashfiles', '==', 0)
                 failed_result_status: passx
@@ -173,22 +171,19 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                   delete_crashinfo: true
                 health_tc_sections:
                   - type:TestCase
-                health_tc_check:
-                  os: iosxe
                 include:
                   - value_operator('num_of_crashfiles', '==', 0)
                 save:
                   - variable_name: health_value
                     filter: get_values('filename')
 
-.. warning::
+.. note::
 
-    ``crashinfo`` is **IOS XE only**. On NX-OS or IOS XR devices,
-    ``health_crashinfo`` will raise a runtime error or silently return empty
-    results. On mixed-platform testbeds, restrict the check to IOS XE devices
-    using ``health_tc_uids``, ``health_tc_groups``, or by specifying the device
-    name explicitly (e.g. ``device: my_xe_device``) rather than a loop over all
-    devices.
+    ``crashinfo`` is **IOS XE only** — the ``health_crashinfo`` API is registered
+    under ``iosxe/health/health.py``.  On any other OS (IOS XR, NX-OS, Linux, etc.)
+    the pyATS abstraction layer resolves to a generic fallback in
+    ``health/health.py`` that logs a warning and returns
+    ``num_of_crashfiles: 0`` without sending any commands to the device.
 
 .. note::
 
