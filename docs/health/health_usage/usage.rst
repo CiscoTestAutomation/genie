@@ -147,7 +147,8 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
                 device: my_xe_device
                 function: health_crashinfo
                 arguments:
-                  delete_crashinfo: true
+                  copy_files: false       # baseline capture — do not copy
+                  delete_files: false     # baseline capture — do not delete
                 health_tc_sections:
                   - type:CommonSetup
                 include:
@@ -159,7 +160,7 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
                 device: my_xe_device
                 function: health_crashinfo
                 arguments:
-                  delete_crashinfo: true
+                  delete_files: true      # delete new files after successful copy
                 health_tc_sections:
                   - type:TestCase
                 include:
@@ -169,12 +170,24 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
                     filter: get_values('filename')
                 processor: post
 
-**What happens when a crashinfo file is found:**
+**What happens at each stage:**
 
-* The testcase result is rolled up to ``FAILED``.
-* The file is copied to ``<pyats_runinfo_dir>/crashinfo/``.
-* If ``delete_crashinfo: true``, the file is deleted from the device after a successful copy.
-* The filename is saved to ``health_value`` for display in the log viewer.
+* **CommonSetup (baseline capture):** ``crashinfo_pre_check`` scans the device
+  filesystem(s) and records all existing crashinfo files in
+  ``runtime.health_data``. No files are copied or deleted — existing files are
+  left untouched. This establishes the baseline.
+
+* **TestCase (differential detection):** ``crashinfo`` scans again, compares
+  against the baseline, and acts only on *new* files that appeared during the
+  job execution:
+
+  * The file is copied to ``<pyats_runinfo_dir>/crashinfo/``.
+  * If ``delete_files: true``, the file is deleted from the device after a successful copy.
+  * The testcase result is rolled up to ``FAILED``.
+  * The filename is saved to ``health_value`` for display in the log viewer.
+
+* **Duplicate suppression:** Files already reported in a prior testcase are not
+  re-counted in subsequent testcases.
 
 **Tuning the check via custom YAML arguments:**
 
@@ -190,9 +203,14 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
    * - ``keyword``
      - ``['crashinfo']``
      - Filename substrings to match. Covers Cat9K and ASR1K naming styles.
-   * - ``delete_crashinfo``
+   * - ``copy_files``
      - ``True``
-     - Delete file from device after successful copy. Set ``False`` to keep.
+     - Copy new crashinfo files to ``<runinfo>/crashinfo/``. Set ``False`` for
+       baseline-only mode (used by ``crashinfo_pre_check``).
+   * - ``delete_files``
+     - ``False``
+     - Delete file from device after successful copy. Set ``True`` to clean up.
+       Only deletes if the copy succeeded (or if ``copy_files`` is ``False``).
    * - ``vrf``
      - ``None``
      - Accepted for API consistency with ``health_core`` but unused — files

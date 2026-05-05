@@ -144,9 +144,9 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                 include:
                   - value_operator('num_of_cores', '==', 0)
         # crashinfo_pre_check: runs as a post-processor on CommonSetup.
-        # Deletes any pre-existing crashinfo files so they don't pollute the
-        # per-testcase check. Result is passx so a pre-existing file does not
-        # fail the overall run.
+        # Records a baseline of pre-existing crashinfo files so they don't
+        # pollute the per-testcase check. Does NOT copy or delete anything.
+        # Result is passx so a pre-existing file does not fail the overall run.
         - crashinfo_pre_check:
             - api:
                 device: uut
@@ -155,7 +155,8 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                 processor: post
                 function: health_crashinfo
                 arguments:
-                  delete_crashinfo: true
+                  delete_files: false   # do not delete pre-existing files
+                  copy_files: false     # do not copy — baseline capture only
                 health_tc_sections:
                   - type:CommonSetup
                 include:
@@ -168,7 +169,7 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                 processor: post
                 function: health_crashinfo
                 arguments:
-                  delete_crashinfo: true
+                  delete_files: true    # delete new files after successful copy
                 health_tc_sections:
                   - type:TestCase
                 include:
