@@ -2,9 +2,9 @@
 
 pyATS Health Check
 ==================
-By using pyATS Health Check, it is possible to check the CPU load, memory usage, detection of specific log messages, and whether or not the core file created in the event of a crash or malfunction is generated.
+By using pyATS Health Check, it is possible to check the CPU load, memory usage, detection of specific log messages, whether or not a process-level core file was generated on crash, and whether or not IOS XE crashinfo files exist on the device filesystem.
 
-pyATS Health Check currently supports the following 4 checks by default.
+pyATS Health Check currently supports the following 5 checks by default.
 
 .. list-table::
    :header-rows: 1
@@ -12,27 +12,39 @@ pyATS Health Check currently supports the following 4 checks by default.
    * - health check
      - description
    * - cpu
-     - cpu load check. check total of cpu load with threshold 90% by default.
+     - CPU load check. Compares the higher of ``show processes cpu sorted`` and ``show processes cpu platform sorted`` against a threshold (default 90%). Uses the 5-second average (``five_sec_cpu``).
    * - memory
-     - memory usage check. check total of memory usage with threshold 90% by default.
+     - Memory usage check. First checks total processor-pool usage against a threshold (default 90%). Only runs the full per-process parse when the threshold is exceeded, keeping overhead low.
    * - logging
-     - keyword check in show logging output. default keywords are traceback, Traceback, TRACEBACK
+     - Keyword search in ``show logging`` output. Default keywords: ``traceback``, ``Traceback``, ``TRACEBACK``. Tracks log count across testcases so only *new* messages since the last check are reported. Use ``--health-clear-logging`` to clear the log buffer before each check.
    * - core
-     - check if core file is generated on device. just check by default. Please use `--health-remote-device` to copy the core file to remote server.
+     - Checks for process-level ``.core.gz`` / ``.tar.gz`` files in ``bootflash:/core/`` (and ``harddisk:/core/``). Supports HA (also checks ``stby-bootflash:/core/``) and stack (checks ``flash-{id}:/core/``). Use ``--health-remote-device`` to copy files to a remote server. Files are only deleted from the device after a successful copy.
+   * - crashinfo
+     - Checks for IOS XE crashinfo files in ``crashinfo:`` (written on full OS crash/reload). **IOS XE only.** Supports HA (also checks ``stby-crashinfo:``) and stack (checks ``crashinfo-{id}:``). Copies discovered files automatically to ``<runinfo>/crashinfo/`` — no remote server needed. A baseline run after CommonSetup (``crashinfo_pre_check``) ensures only files appearing *during* a testcase are flagged. Optionally deletes files from the device after copy.
 
-.. note:
+.. note::
 
-    `cpu`, `memory`, `logging` and `core` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
+    ``crashinfo`` is **IOS XE only**. On mixed-platform testbeds (e.g. IOS XE +
+    NX-OS), restrict the check to IOS XE devices by specifying the device name
+    explicitly or using ``--health-devices`` / ``health_tc_uids``. Running it
+    against NX-OS or IOS XR will either raise a runtime error or silently return
+    no results.
+
+.. note::
+
+    `cpu`, `memory`, `logging`, `core` and `crashinfo` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
 
 Using pyATS Health Check is very easy. Just list the above heath check names by adding `--health-checks` to the current pyats command.
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core
+    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core crashinfo
 
-If you want to check only cpu, please specify `cpu` to `--health-checks`. **The pyATS Health Check specified by `--health-checks` runs as a post-processor after each test case.**
+If you want to check only specific checks, list only those names after `--health-checks`. **The pyATS Health Check specified by `--health-checks` runs as a post-processor after each test case.**
 
-The core file is the only detection that is by default. If you want to send it to TAC for analysis or move it to the remote server at the time of detection, you can enumerate the remote server information with `--health-remote-device` to copy the generated core file. To copy the file at the time of detection and delete the file from the device, specify the --health-remote-device argument.
+For ``core``, only detection occurs by default. To copy the file to a remote server for TAC analysis or archival, provide ``--health-remote-device``. Files are deleted from the device only after a successful copy.
+
+For ``crashinfo``, files are copied automatically to the ``crashinfo/`` subdirectory of the pyATS run directory (no remote server needed). A baseline is established after CommonSetup (``crashinfo_pre_check``) so only files that appear *during* the run are flagged as failures.
 
 The command example in that case is as follows.
 
@@ -76,17 +88,17 @@ example when using tftp and vrf `mgmt` for both iosxe and nxos
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-remote-device name:myserver path:/tmp/ protocol:scp --health-mgmt-vrf iosxe:mgmt nxos:mgmt
+    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core crashinfo --health-remote-device name:myserver path:/tmp/ protocol:scp --health-mgmt-vrf iosxe:mgmt nxos:mgmt
 
 **2. How to change threshold for cpu load/memory usage?**
 
-It can be done via `--health-threshold` argument.
+It can be done via `--health-threshold` argument. The same threshold applies to both CPU and memory checks independently.
 
 example when specifying thresholds, cpu 75% and memory 80%
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-threshold cpu:75 memory:80
+    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core crashinfo --health-threshold cpu:75 memory:80
 
 **3. How can I change which logging keywords I want to detect?**
 
@@ -96,7 +108,11 @@ example when changing to `Crash` and `CRASH` for both iosxr and nxos.
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-show-logging-keywords "iosxr:['Crash', 'CRASH']" "nxos:['Crash', 'CRASH']"
+    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core crashinfo --health-show-logging-keywords "iosxr:['Crash', 'CRASH']" "nxos:['Crash', 'CRASH']"
+
+.. note::
+
+    Use ``--health-clear-logging`` (flag, no value needed) to clear the device log buffer before each check. This prevents previously seen messages from being re-counted.
 
 **4. I want to change the location of where core files are searched for**
 
@@ -106,7 +122,11 @@ example to change to `harddisk0:/core` for iosxe.
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-core-default-dir "iosxe:['harddisk0:/core']"
+    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core crashinfo --health-core-default-dir "iosxe:['harddisk0:/core']"
+
+.. note::
+
+    ``--health-core-default-dir`` applies only to the ``core`` check. For HA devices the standby filesystem (``stby-bootflash:/core/``) is checked automatically. For stack devices ``flash-{switch_id}:/core/`` is checked per member.
 
 **5. How to run pyATS Health check against only certain devices?**
 
@@ -116,7 +136,7 @@ example to run against only `R1_xe` device.
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-devices R1_xe
+    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core crashinfo --health-devices R1_xe
 
 **6. Is it possible to send a webex notification?**
 
@@ -127,11 +147,46 @@ example to send Webex notification to webex space by using webex arguments
 
 .. code-block:: bash
 
-    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core --health-webex --webex-token <webex token> --webex-space <webex space id>
+    pyats run job <job file> --testbed-file /path/to/testbed.yaml --health-checks cpu memory logging core crashinfo --health-notify-webex --webex-token <webex token> --webex-space <webex space id>
+
+.. note::
+
+    ``--health-webex`` was deprecated in pyATS 21.7. Use ``--health-notify-webex``
+    instead — both flags are accepted but ``--health-webex`` prints a deprecation
+    warning at runtime.
 
 .. note::
 
     Webex notification is done by pyATS Webex Plugin in `pyats.contrib` package. Please refer to `Webex Plugin README <https://github.com/CiscoTestAutomation/pyats.contrib/tree/master/src/pyats/contrib/plugins/webex_plugin>`_ for more detail.
+
+**7. How do I tune the crashinfo check? (default directory, filename filter, delete behaviour)**
+
+The ``crashinfo`` check supports three tunable arguments via a custom health YAML (``--health-file``):
+
+* ``default_dir`` — filesystem(s) to inspect. Default: ``['crashinfo:']``. For non-standard setups (e.g. ``flash:/crashinfo/``) pass a list. HA and stack overrides are applied automatically.
+* ``keyword`` — filename substrings to match. Default: ``['crashinfo']``. Matches both Cat9K style (``<host>_crashinfo_1_RP_...``) and ASR1K style (``crashinfo_RP_...tar.gz``).
+* ``delete_crashinfo`` — delete files from the device after a successful copy. Default: ``True``. Set to ``False`` to keep files on device.
+
+example custom health YAML with non-default crashinfo directory and delete disabled:
+
+.. code-block:: yaml
+
+    pyats_health_processors:
+      source:
+        pkg: genie.libs.health
+        class: health.Health
+      test_sections:
+        - crashinfo:
+            - api:
+                device: my_device
+                function: health_crashinfo
+                arguments:
+                  default_dir:
+                    - flash:/crashinfo/
+                  delete_crashinfo: false
+                include:
+                  - value_operator('num_of_crashfiles', '==', 0)
+                processor: post
 
 ++++
 

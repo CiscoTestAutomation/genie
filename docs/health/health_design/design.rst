@@ -3,7 +3,7 @@ Design
 
 The previous page showed you how to use pyATS Health Check easily. This page is for those who want to use their own pyATS Health Check. If you are happy with the way it was done on the previous page, then please move on :ref:`processor key in YAML<processor_key_in_yaml>`.
 
-You can collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, core files, etc. pyATS Health Check is yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are supported in Health Check.
+You can collect and monitor the state of your devices as your testscript is executing with pyATS Health Check. It can collect traceback, process-level core files, IOS XE crashinfo files, etc. pyATS Health Check is yaml driven and it is based on :ref:`Blitz<blitz>`. All Blitz functionalities are supported in Health Check.
 
 The health check is driven by a `health_file` which is provided at run time. There are two different mechanism to run the checks:
 
@@ -71,6 +71,16 @@ pyATS Health Check yaml
 
 Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a few consideration to run it as pyATS Health Check. All the things are written as below comments in the yaml. If no comments, it means these items are exact same with `Blitz`.
 
+.. note::
+
+    The ``cpu`` and ``memory`` examples below use ``processes: ['BGP I/O']`` /
+    ``processes: ['*Init*']`` — targeted regexes that match only a few
+    processes. The default ``--health-checks`` yaml uses ``processes: .*``
+    (match all processes) with ``timeout: 120``, which is broader and carries
+    higher overhead. Use targeted process lists when you want lightweight
+    checks; use ``processes: .*`` (with ``add_total: True``) when you need a
+    true system-wide baseline.
+
 .. code-block:: yaml
 
     # testcase name should be `pyats_health_processors`
@@ -92,18 +102,89 @@ Here is the pyATS Health Check yaml. It's almost same with `Blitz`! There are a 
                 # Please find the link to the page from bottom of this section
                 function: health_cpu
                 arguments:
-                  command: show processes cpu
-                  processes: ['BGP I/O']
+                  processes:
+                    - BGP I/O  # targeted: only check this process
+                include:
+                  - sum_value_operator('value', '<', 90)
         - memory:
             - api:
                 device: uut
                 processor: post
                 function: health_memory
                 arguments:
-                  command: show processes memory
-                  processes: ['\*Init\*']
+                  processes:
+                    - '*Init*'  # regex: matches any process name containing 'Init'
                 include:
                   - sum_value_operator('value', '<', 90)
+        - logging:
+            - api:
+                device: uut
+                processor: post
+                function: health_logging
+                arguments:
+                  keywords:
+                    - traceback
+                    - Traceback
+                    - TRACEBACK
+                  # clear_log: true  # uncomment to clear buffer before each check
+                include:
+                  - value_operator('num_of_logs', '==', 0)
+        - core:
+            - api:
+                device: uut
+                processor: post
+                function: health_core
+                arguments:
+                  # default_dir is per-platform; HA/stack overrides are automatic
+                  default_dir:
+                    - bootflash:/core/
+                    - harddisk:/core/
+                  delete_core: true   # only deletes after successful remote copy
+                  # remote_device, remote_path, vrf needed to copy files
+                include:
+                  - value_operator('num_of_cores', '==', 0)
+        # crashinfo_pre_check: runs as a post-processor on CommonSetup.
+        # Records a baseline of pre-existing crashinfo files so they don't
+        # pollute the per-testcase check. Does NOT copy or delete anything.
+        # Result is passx so a pre-existing file does not fail the overall run.
+        - crashinfo_pre_check:
+            - api:
+                device: uut
+                # processor: post — runs after CommonSetup completes.
+                # health_tc_sections: type:CommonSetup scopes it to CommonSetup only.
+                processor: post
+                function: health_crashinfo
+                arguments:
+                  delete_files: false   # do not delete pre-existing files
+                  copy_files: false     # do not copy — baseline capture only
+                health_tc_sections:
+                  - type:CommonSetup
+                include:
+                  - value_operator('num_of_crashfiles', '==', 0)
+                failed_result_status: passx
+        # crashinfo: post-processor per testcase — fails testcase if new files appear
+        - crashinfo:
+            - api:
+                device: uut
+                processor: post
+                function: health_crashinfo
+                arguments:
+                  delete_files: true    # delete new files after successful copy
+                health_tc_sections:
+                  - type:TestCase
+                include:
+                  - value_operator('num_of_crashfiles', '==', 0)
+                save:
+                  - variable_name: health_value
+                    filter: get_values('filename')
+
+.. note::
+
+    ``crashinfo`` is **IOS XE only** — the ``health_crashinfo`` API is registered
+    under ``iosxe/health/health.py``.  On any other OS (IOS XR, NX-OS, Linux, etc.)
+    the pyATS abstraction layer resolves to a generic fallback in
+    ``health/health.py`` that logs a warning and returns
+    ``num_of_crashfiles: 0`` without sending any commands to the device.
 
 .. note::
 

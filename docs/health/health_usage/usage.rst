@@ -5,9 +5,9 @@ Currently, `pyATS Health Check` is only supported via integrated mode (run via p
 
 Prerequisites
 -------------
-* sourced pyATS virtual environment
-* testbed yaml
-* health yaml
+* Sourced pyATS virtual environment
+* Testbed YAML
+* Health YAML *(only required when using ``--health-file`` for custom checks; not needed for ``--health-checks``)*
 
 Integrated
 ----------
@@ -15,7 +15,7 @@ Running `pyATS Health Check` integrated with pyATS scripts is the way if a user 
 
 just add `--health-checks` then run this command::
 
-    pyats run job <job file> --testbed-file <testbed file> --health-checks cpu memory logging core
+    pyats run job <job file> --testbed-file <testbed file> --health-checks cpu memory logging core crashinfo
 
 Or once you have both the testbed yaml and health yaml for custom health checks then run this command. URL with token can be given like below example::
 
@@ -23,9 +23,19 @@ Or once you have both the testbed yaml and health yaml for custom health checks 
     pyats run job <job file> --testbed-file <testbed file> --health-file "http://<url>/health.yaml"
     pyats run job <job file> --testbed-file <testbed file> --health-file "http://<token>@<url>/health.yaml"
 
-.. note:
+.. note::
 
-    `cpu`, `memory`, `logging` and `core` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
+    `cpu`, `memory`, `logging`, `core` and `crashinfo` checks are pre-defined in /path/to/genielibs/pkgs/health-pkg/src/genie/libs/health/health_yamls/pyats_health.yaml. `--health-checks` uses this default pyats health file.
+
+    **cpu** uses the higher of ``show processes cpu sorted`` and ``show processes cpu platform sorted`` (5-second average). The pass/fail threshold is controlled by ``include: sum_value_operator('value', '<', 90)`` in the YAML (default 90). ``health_cpu`` has no threshold parameter — the limit lives in the YAML, not the API.
+
+    **memory** first checks only the processor-pool total. The full per-process parse runs only when the threshold is exceeded. The threshold is passed directly to ``health_memory`` as the ``threshold`` argument (default 90%), keeping overhead low.
+
+    **logging** tracks log count across testcases — only *new* messages since the last check are reported. Use ``--health-clear-logging`` (flag, no value needed) to clear the device log buffer before each check.
+
+    **core** detects process-level ``.core.gz`` / ``.tar.gz`` files. Files are only detected by default; use ``--health-remote-device`` to copy them. HA and stack topologies are handled automatically.
+
+    **crashinfo** detects IOS XE full-OS crash files in ``crashinfo:`` (distinct from ``bootflash:/core/`` process cores). Files are copied automatically to ``<runinfo>/crashinfo/`` — no remote server needed. A baseline is established after CommonSetup (``crashinfo_pre_check``) so only files that appear *during* a testcase are flagged as failures.
 
 Standalone
 ----------
@@ -115,5 +125,91 @@ For `memory` action, `health_tc_sections: 'bgp_full_route_check'` is given. Exac
 
 pyATS Health Check is very flexible because you can leverage any features in Blitz. You can create your own Health Check by using any of the Blitz feature, give it a try! `Quick Trigger (Blitz)
 <https://pubhub.devnetcloud.com/media/pyats-development-guide/docs/writeblitz/writeblitz.html>`_.
+
+The examples repo is open-sourced. Any contributions for pyATS Health Check examples are encouraged!
+
+Crashinfo Check Example
+-----------------------
+
+The ``crashinfo`` check differs from the ``core`` check: ``core`` catches process-level crashes (files in ``bootflash:/core/``), while ``crashinfo`` catches full IOS XE OS crashes (files in ``crashinfo:``). Both can run simultaneously.
+
+Minimal example — detect and copy crashinfo files, fail testcase if any new file appears:
+
+.. code-block:: yaml
+
+    pyats_health_processors:
+      source:
+        pkg: genie.libs.health
+        class: health.Health
+      test_sections:
+        - crashinfo_pre_check:           # post-processor on CommonSetup
+            - api:
+                device: my_xe_device
+                function: health_crashinfo
+                arguments:
+                  copy_files: false       # baseline capture — do not copy
+                  delete_files: false     # baseline capture — do not delete
+                health_tc_sections:
+                  - type:CommonSetup
+                include:
+                  - value_operator('num_of_crashfiles', '==', 0)
+                failed_result_status: passx  # pre-existing files don't fail the run
+                processor: post
+        - crashinfo:                     # post-processor per testcase
+            - api:
+                device: my_xe_device
+                function: health_crashinfo
+                arguments:
+                  delete_files: true      # delete new files after successful copy
+                health_tc_sections:
+                  - type:TestCase
+                include:
+                  - value_operator('num_of_crashfiles', '==', 0)
+                save:
+                  - variable_name: health_value
+                    filter: get_values('filename')
+                processor: post
+
+**What happens at each stage:**
+
+* **CommonSetup (baseline capture):** ``crashinfo_pre_check`` scans the device
+  filesystem(s) and records all existing crashinfo files in
+  ``runtime.health_data``. No files are copied or deleted — existing files are
+  left untouched. This establishes the baseline.
+
+* **TestCase (differential detection):** ``crashinfo`` scans again, compares
+  against the baseline, and acts only on *new* files that appeared during the
+  job execution:
+
+  * The file is copied to ``<pyats_runinfo_dir>/crashinfo/``.
+  * If ``delete_files: true``, the file is deleted from the device after a successful copy.
+  * The testcase result is rolled up to ``FAILED``.
+  * The filename is saved to ``health_value`` for display in the log viewer.
+
+* **Duplicate suppression:** Files already reported in a prior testcase are not
+  re-counted in subsequent testcases.
+
+**Tuning the check via custom YAML arguments:**
+
+.. list-table::
+   :header-rows: 1
+
+   * - argument
+     - default
+     - description
+   * - ``default_dir``
+     - ``['crashinfo:']``
+     - Filesystem(s) to inspect. HA/stack overrides applied automatically.
+   * - ``keyword``
+     - ``['crashinfo']``
+     - Filename substrings to match. Covers Cat9K and ASR1K naming styles.
+   * - ``copy_files``
+     - ``True``
+     - Copy new crashinfo files to ``<runinfo>/crashinfo/``. Set ``False`` for
+       baseline-only mode (used by ``crashinfo_pre_check``).
+   * - ``delete_files``
+     - ``False``
+     - Delete file from device after successful copy. Set ``True`` to clean up.
+       Only deletes if the copy succeeded (or if ``copy_files`` is ``False``).
 
 The examples repo is open-sourced. Any contributions for pyATS Health Check examples are encouraged!
