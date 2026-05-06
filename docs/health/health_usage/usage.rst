@@ -211,10 +211,5 @@ Minimal example — detect and copy crashinfo files, fail testcase if any new fi
      - ``False``
      - Delete file from device after successful copy. Set ``True`` to clean up.
        Only deletes if the copy succeeded (or if ``copy_files`` is ``False``).
-   * - ``vrf``
-     - ``None``
-     - Accepted for API consistency with ``health_core`` but unused — files
-       are copied locally to ``<runinfo>/crashinfo/``, not via SCP, so VRF
-       has no effect on this check.
 
 The examples repo is open-sourced. Any contributions for pyATS Health Check examples are encouraged!
