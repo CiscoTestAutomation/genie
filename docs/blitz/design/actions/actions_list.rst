@@ -51,6 +51,103 @@ Example can be seen below.
         device: PE1
         timeout: 10
 
+Scope execute output
+""""""""""""""""""""
+
+The ``scope`` keyword narrows the output from an ``execute`` action before
+Blitz checks ``include`` or ``exclude`` entries. This is useful when a command
+returns repeated blocks or large output and only one section should be
+verified. The scoped output is also the value returned by the action and the
+value used by normal ``save`` handling.
+
+Only one scope mode can be used in the same ``scope`` block:
+
+* ``start`` and optional ``end`` select text from a start regular expression to
+  the next end regular expression. If ``end`` is omitted, output is selected to
+  the end of the command output.
+* ``block_regex`` selects text matched by a regular expression. If the regular
+  expression has a capture group, the first capture group is used as the scoped
+  output; otherwise, the full match is used.
+* ``line_regex`` selects output lines that match a regular expression.
+
+The optional ``occurrence`` keyword selects which match is used. It defaults to
+``first`` and accepts ``first``, ``last``, ``all``, or a zero-based integer.
+When ``occurrence`` is ``all``, each selected block must satisfy ``include``
+checks, and none of the selected blocks can satisfy ``exclude`` checks.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show route summary
+        scope:
+          start: '^Section: primary'
+          end: '^Section:'
+        include:
+          - 'Network: 10.0.0.0/24'
+          - 'Status: active'
+        exclude:
+          - 'Status: inactive'
+
+By default, the start line is included in the scoped output and the end line is
+not included. You can change that behavior with ``include_start`` and
+``include_end``.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show service summary
+        scope:
+          start: '^Service: primary'
+          end: '^Service: backup'
+          include_start: false
+          include_end: true
+        include:
+          - 'State: up'
+
+The ``save_as`` keyword can save the scoped output directly to a Blitz
+variable.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show interface summary
+        scope:
+          block_regex: '^Interface: Ethernet1\n(?P<details>.*?)(?=^Interface:|\Z)'
+          save_as: ethernet1_details
+        include:
+          - 'Protocol: up'
+
+    - execute:
+        device: uut
+        command: show interface summary
+        scope:
+          line_regex: '^Ethernet1\s+up\s+up'
+          save_as: ethernet1_state
+        include:
+          - 'Ethernet1'
+
+When a scope cannot be found, the action fails by default. Set
+``required: false`` to keep using the full execute output when the scope is not
+found.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show route summary
+        scope:
+          start: '^Section: optional'
+          required: false
+        include:
+          - 'Summary'
+
+Invalid regular expressions, empty scope patterns, unsupported scope keys, or
+using more than one scope mode in the same ``scope`` block cause the action to
+fail.
+
 configure
 ^^^^^^^^^
 
