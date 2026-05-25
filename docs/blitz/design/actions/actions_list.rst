@@ -148,6 +148,89 @@ Invalid regular expressions, empty scope patterns, unsupported scope keys, or
 using more than one scope mode in the same ``scope`` block cause the action to
 fail.
 
+Extract values from execute output
+""""""""""""""""""""""""""""""""""
+
+The ``extract`` keyword saves one or more regular-expression matches from an
+``execute`` action into Blitz variables. Extraction runs after ``scope`` and
+after ``include`` or ``exclude`` checks. Normal ``save`` handling can still be
+used with the same action output.
+
+Each extraction rule requires a ``name`` and ``regex``. The saved variable name
+defaults to ``name`` and can be changed with ``save_as``. If ``group`` is not
+provided, Blitz uses the named group matching ``name`` when present, otherwise
+the only capture group, otherwise the full match.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show ip bgp summary
+        extract:
+          - name: first_peer
+            regex: '^(?P<first_peer>\d+\.\d+\.\d+\.\d+)\s+\d+'
+            required: true
+
+Use ``findall: true`` to save every match as a list. The ``type`` keyword can
+coerce saved values to ``str``, ``int``, ``float``, ``bool``, or list forms such
+as ``list[str]`` and ``list[int]``.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show ip bgp summary
+        extract:
+          - name: bgp_peers
+            regex: '^(?P<peer>\d+\.\d+\.\d+\.\d+)\s+\d+'
+            group: peer
+            findall: true
+            type: list[str]
+            unique: true
+            sort: true
+            min_count: 1
+            save_as: uut_bgp_peers
+
+When a rule has no match and ``required`` is false, Blitz saves a default value
+instead of failing. Scalar defaults are ``""``, ``0``, ``0.0``, or ``false`` by
+type, and list defaults are ``[]``. You can override the fallback with
+``default``.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show interface counters
+        extract:
+          - name: input_errors
+            regex: 'input errors:\s+(?P<input_errors>\d+)'
+            type: int
+            default: 0
+
+Extraction can be combined with ``scope`` when only one repeated block should
+be parsed.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show route detail
+        scope:
+          start: '^Route: 10.0.0.0/24'
+          end: '^Route:'
+        extract:
+          - name: next_hops
+            regex: 'Next hop:\s+(?P<next_hop>\d+\.\d+\.\d+\.\d+)'
+            group: next_hop
+            findall: true
+            type: list[str]
+            unique: true
+            save_as: route_next_hops
+
+The action fails for invalid regular expressions, ambiguous capture groups,
+invalid group names or indexes, failed type coercion, ``required: true`` with no
+match, or ``min_count`` / ``max_count`` violations.
+
 configure
 ^^^^^^^^^
 
