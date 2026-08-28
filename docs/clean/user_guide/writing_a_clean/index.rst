@@ -17,4 +17,5 @@ provide preliminary information.
         cleaning_devices
         cleaning_like_devices
         image_management
+        recovery_image
         device_recovery
