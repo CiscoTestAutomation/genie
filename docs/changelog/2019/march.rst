@@ -31,6 +31,7 @@ Features
   triggers and verifications within 1 trigger.
 
 * Adding custom to the mapping datafile schema
+
 .. code-block:: bash
 
     mapping:
@@ -38,12 +39,6 @@ Features
         custom:
             active: a
             standby: b
-
-**Genie.Examples**
-
-* New demo11 on how to run a clsuter Trigger (multiple triggers and verifications within 1
-trigger)
-
 
 March 12th
 ----------
@@ -99,17 +94,17 @@ Features
 
 **Genie.Ops**
 
-* Enhancement in `async` call for py37 compatibility.
+* Enhancement in ``async`` call for py37 compatibility.
 
 
 **Genie.Telemetry**
 
-* Enhancement in `async` call for py37 compatibility.
+* Enhancement in ``async`` call for py37 compatibility.
 
 
 **Genie.Utils**
 
-* Enhancement in `re._pattern_type` call for py37 compatibility.
+* Enhancement in ``re._pattern_type`` call for py37 compatibility.
 
 
 **Genie.Libs.Parser**
@@ -184,6 +179,7 @@ Features
 **Genie**
 
 * Genie run
+
 .. code-block:: bash
 
 		genie run --testbed-file /path/to/testbed.yaml \
@@ -192,21 +188,25 @@ Features
                   --devices nxos-osv-1
 
 * Genie parse
+
 .. code-block:: bash
 
 		genie parse all --testbed-file /path/to/testbed.yaml --devices uut
 
 * Genie learn
+
 .. code-block:: bash
 
 		genie learn all --testbed-file /path/to/testbed.yaml --devices nx-osv-1 --output genie_learn_all
 
-* Genie diff (Compare directories of learnt features in `genie learn` and `genie parse`)
+* Genie diff (Compare directories of learnt features in ``genie learn``and``genie parse``)
+
 .. code-block:: bash
 
 		genie diff dir1 dir2 --output diff1
 
 * Genie shell (Open a Genie interactive shell)
+
 .. code-block:: bash
 
 		genie shell --testbed-file tb.yaml
@@ -237,7 +237,7 @@ Features
 
 **Genie.Libs.Parser**
 
-* New `get_parser` feature for retrieving the parser class.
+* New ``get_parser`` feature for retrieving the parser class.
 * Over 100 new IOS Parsers!
 * Changelog can be checked :parserchangelog19:`here <MARCH>`
 
@@ -255,17 +255,19 @@ Features
 
 **Genie.Utils**
 
-* `Profile` new API for system profiling user passed features and compare at a later time.
+* ``Profile`` new API for system profiling user passed features and compare at a later time.
 
 **Unicon**
 
 * Playback, records all interaction with any device and can be replayed later!
 * device.parse for directly calling over than 580 Genie parsers as below;
+
 .. code-block:: bash
 
 	parsed_dictionary = device.parse('show version')
 
 * device.learn new feature calling Genie networking models;
+
 .. code-block:: bash
 
 	ops_dictionary = device.learn(‘ospf’)

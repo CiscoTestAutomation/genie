@@ -1,4 +1,5 @@
 .. _clean_doc_device_recovery:
+
 Device Recovery
 ===============
 

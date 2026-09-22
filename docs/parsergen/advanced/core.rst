@@ -19,9 +19,9 @@ Markup Syntax
 CLI output parsing rules may be specified using a marked-up text input that is 
 divided into ``OS`` sections and then further subdivided into 3-5 sub-sections.
 By default, the supported ``OS`` values are : 
-``IOX``, ``IOS``, ``NXOS`` and ``LINUX``.  
-The supported sub-subsections are ``CMD``, ``SHOWCMD``, ``PREFIX``, ``ACTUAL``
-and ``MARKUP``. The ``ACTUAL`` subsection is optional and is used to simply 
+``IOX``,``IOS``,``NXOS``and``LINUX``.  
+The supported sub-subsections are ``CMD``,``SHOWCMD``,``PREFIX``,``ACTUAL``
+and ``MARKUP``. The``ACTUAL`` subsection is optional and is used to simply 
 store the unmarked up raw show output.  
 
 An example of a simple marked-up file is as follows::
@@ -55,7 +55,7 @@ The ``OS`` Section
 Multiple OS architectures are supported. The ``OS`` section tells 
 :mod:`core` which OS the following show commands (and their 
 resulting `regular expressions<re>`) are for. The currently supported operating
-systems are ``IOS``, ``IOX``, ``NXOS`` and ``LINUX``.
+systems are ``IOS``,``IOX``,``NXOS``and``LINUX``.
 
 .. _markup-cmd-section-index:
 
@@ -99,13 +99,13 @@ show command output.
 The ``MARKUP`` Sub-Section
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One typically copies the ``ACTUAL`` output into the ``MARKUP`` section and then
-uses an ``XxX`` or ``Xx<name>X`` notation to tell :mod:`core` what type 
+One typically copies the ``ACTUAL``output into the``MARKUP`` section and then
+uses an ``XxX``or``Xx<name>X`` notation to tell :mod:`core` what type 
 of value follows.  The markup notation allows for instructing 
 :mod:`core` what to name the value as well. If the name is omitted then 
 :mod:`core` takes a guess as to the name by using text immediately before or after the value.  A warning is generated if duplicate names are detected.
 
-The following are the available values for ``x`` in the ``XxX`` notation:
+The following are the available values for ``x``in the``XxX`` notation:
 
 - A - IPv4 or IPv6 address.
 - B - Value terminated with a close brace, bracket, or parenthesis.
@@ -127,8 +127,8 @@ The following are the available values for ``x`` in the ``XxX`` notation:
     created.  This allows for specifying a single line multiple times in order
     to omit various values that may only optionally be present. 
 
-For example consider if the ``uptime`` and ``protos`` values were optional in 
-the output from ``show ip mroute`` on ``NXOS``::
+For example consider if the ``uptime``and``protos`` values were optional in 
+the output from ``show ip mroute``on``NXOS``::
 
   (XP<source>X13.13.13.4/32, XP<group>X232.0.0.1/32)
   (Xp<source>X13.13.13.4/32, Xp<group>X232.0.0.1/32), uptime: XT<uptime>X00:00:43
@@ -144,7 +144,7 @@ This generates the following dictionary output::
   'mrib-route.protos': '\([A-Fa-f0-9/:\.]+,\s+[A-Fa-f0-9/:\.]+\), 
     uptime:\s+\d{2}:\d{2}:\d{2},\s+([^\r\n]+)',
 
-You can see above that ``uptime`` and ``protos`` are not present on the first 
+You can see above that ``uptime``and``protos`` are not present on the first 
 and second lines because they do not need to be present for ``source`` or 
 ``group`` to match. 
 

@@ -26,7 +26,7 @@ testscripts so the script stop upon failure. Below example shows how to achieve 
 In the section apply_configuration in action level ``- continue: False`` is set, so if the result of the section is
 a failure the script stops the run of the rest of the sections in the testscript.
 
-In the section confirm_actions, in the first action ``execute`` a keyword ``continue`` is added with value ``False``.
+In the section confirm_actions, in the first action ``execute``a keyword``continue``is added with value``False``.
 That would send the signal that upon failure of an action the rest of the actions in that section should not be running.
 
 .. note::

@@ -31,7 +31,7 @@ following every time you want to prototype something interactively:
 
 .. tip::
 
-    call ``exit()``, or use ``Ctrl-D`` key to exit the interactive session. 
+    call ``exit()``, or use``Ctrl-D`` key to exit the interactive session. 
 
 
 Options

@@ -17,7 +17,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `xbu-shared` libraries to the latest version.
+Also make sure you upgrade ``xbu-shared`` libraries to the latest version.
 
 .. code-block:: bash
 
@@ -32,7 +32,7 @@ Features:
    and in the Genie example script.
  * Enhancement to diff_ to make it easier
    to use.
- * Enhancement to `conf` on managing which object contains a `Feature`
+ * Enhancement to ``conf``on managing which object contains a``Feature``
    depending where it is added.
  * Bug fix
 

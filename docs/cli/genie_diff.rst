@@ -24,7 +24,7 @@ linux terminal:
 
 	Description:
 	  Diff two feature or parser snapshots saved to file or directory
-	  Default exclusion can be found at 
+	  Default exclusion can be found at
       $VIRTUAL_ENV/lib/python<version>/site-packages/genie/libs/sdk/genie_yamls/pts_datafile.yaml
 
 	Diff Options:
@@ -214,13 +214,13 @@ No Exclusion
 ------------
 
 Users can choose to completely skip using the default exclude list by specifying
-argument '--no-default-exclusion'. 
+argument '--no-default-exclusion'.
 
 .. note::
 
 	Specifying key '--no-default-exclusion' will result in significantly larger
 	diff between two `Ops` or parser structures as all the default exclude keys
-    will now be comapred.
+	will now be comapred.
 
 The following is a repeat of the previous example with '--no-default-exclusion'
 argument, resulting in a larger diff between the two `Ops` objects:
@@ -431,8 +431,8 @@ The following is an example:
 Verbose Option
 --------------
 
-Users can also specify to display unchanged entries in tuple or list by giving 
-the '--verbose' option. This will show all the entries, changed or unchanged, of 
+Users can also specify to display unchanged entries in tuple or list by giving
+the '--verbose' option. This will show all the entries, changed or unchanged, of
 the iterable in the output diff.
 
 The following is an example:

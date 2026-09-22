@@ -4,13 +4,13 @@ Where does the code reside?
 The first step to developing a clean stage is to determine the scope of the stage. Meaning will the stage work for all OS's and Platform's or will it be specific to one? The answer to the question is used to determine what file the clean stage belongs in:
 
     * | Common Clean Stages reside in the `stages/stages.py` file.
-      | For example, the Common Clean Stages belong `here <https://github.com/CiscoTestAutomation/genielibs/blob/master/pkgs/clean-pkg/src/genie/libs/clean/stages/stages.py>`_.
+      | For example, the Common Clean Stages belong `here <https://github.com/CiscoTestAutomation/genielibs/blob/master/pkgs/clean-pkg/src/genie/libs/clean/stages/stages.py>`__.
 
     * | OS-specific Clean Stages reside in the `stages/<os>/stages.py` file.
-      | For example, the IOSXE specific Clean Stages belong `here <https://github.com/CiscoTestAutomation/genielibs/blob/master/pkgs/clean-pkg/src/genie/libs/clean/stages/iosxe/stages.py>`_.
+      | For example, the IOSXE specific Clean Stages belong `here <https://github.com/CiscoTestAutomation/genielibs/blob/master/pkgs/clean-pkg/src/genie/libs/clean/stages/iosxe/stages.py>`__.
 
     * | Platform-specific Clean Stages reside in the `stages/<os>/<platform>/stages.py` file.
-      | For example, the IOSXE CAT9K Clean Stages belong `here <https://github.com/CiscoTestAutomation/genielibs/blob/master/pkgs/clean-pkg/src/genie/libs/clean/stages/iosxe/cat9k/stages.py>`_.
+      | For example, the IOSXE CAT9K Clean Stages belong `here <https://github.com/CiscoTestAutomation/genielibs/blob/master/pkgs/clean-pkg/src/genie/libs/clean/stages/iosxe/cat9k/stages.py>`__.
 
 .. note::
 

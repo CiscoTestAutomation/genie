@@ -3,7 +3,7 @@
 Lookup Class
 ============
 
-``Lookup`` class is the main feature of ``abstract`` package. It implements
+``Lookup``class is the main feature of``abstract`` package. It implements
 :ref:`Abstraction Concepts <abstraction_concepts>` in a user-friendly fashion,
 and allows users to perform dynamic lookups just as if they were accessing
 object attributes.
@@ -42,7 +42,7 @@ namespace scope. This behavior can be generally summarized into the following:
       # you must import it directly
       from parent_package import my_abstracted_package
 
-- users can provide a dictionary of ``name: package`` to ``Lookup()`` and
+- users can provide a dictionary of ``name: package``to`` Lookup()`` and
   override the default discovery behavior. ``name`` is the alias to refer to
   the given package.
 
@@ -64,7 +64,7 @@ namespace scope. This behavior can be generally summarized into the following:
       lookup.my_abstracted_library.some_module.some_other_module.Target()
 
 - the default :ref:`token_builder` supports specifying mandatory tokens. This
-  generator can be overwritten with ``builder`` argument to ``Lookup()`` (very
+  generator can be overwritten with ``builder``argument to`` Lookup()`` (very
   advanced functionality).
 
   .. code-block:: python
@@ -242,8 +242,8 @@ device is automatically extracted following these rules:
       ``device.custom.abstraction[attrbute]``, and falls back to
       ``device.<attribute>`` if needed.
 
-All other arguments to ``Lookup()``, such as ``builder, packages,
-builder_kwargs`` also applies to this classmethod.
+All other arguments to ``Lookup()``, such as`` builder, packages,
+builder_kwargs `` also applies to this classmethod.
 
 If however you would like to not specify the ``device.custom.abstraction`` block
 in your testbed YAML file all the time, you can provide ``default_tokens`` as a
@@ -266,8 +266,8 @@ from the provided device attribute.
 .. note::
 
     note that when using ``default_tokens``, the lookup from device attribute
-    is non-strict, eg: if tokens ``a``, ``b``, ``c`` are specified, and only
-    ``a``, ``c`` exists, it will not error and just use these values instead.
+    is non-strict, eg: if tokens ``a``,``b``,``c`` are specified, and only
+    ``a``,``c`` exists, it will not error and just use these values instead.
 
 
 Tips & Tricks

@@ -67,10 +67,10 @@ Features
 
 **Genie.Utils**
 
-* genie.utils.command_line.tabber - Check if `tab` works as expected on device!
+* genie.utils.command_line.tabber - Check if ``tab`` works as expected on device!
      tabber(device, cmd='show run', expected='show running-config')
 
-* genie.utils.command_line.question_mark - Check if `?` works as expected on the device!
+* genie.utils.command_line.question_mark - Check if ``?`` works as expected on the device!
      question_mark(device, cmd='show run', expected='running-config')
 
 * Config now accepts Json format! 
@@ -98,16 +98,16 @@ Features
 New Genie Ops structures;
 
 * IOSXR
-    * `EIGRP`
-    * `VRF`
-    * `ACL`
-    * `LLDP`
+    * ``EIGRP``
+    * ``VRF``
+    * ``ACL``
+    * ``LLDP``
 
 * IOSXE
-    * `EIGRP`
+    * ``EIGRP``
 
 * NXOS
-    * `EIGRP`
+    * ``EIGRP``
 
 * Changelog can be checked :opschangelog19:`here <APRIL>`
 
@@ -122,7 +122,7 @@ New Genie Ops structures;
 **Unicon**
 
 * learn_hostname feature updated to allow common plugin-specific default device
-  names such as `Router` to be learned if no hostname has been set on the
+  names such as ``Router`` to be learned if no hostname has been set on the
   device.
 * The iosxr plugin enable pattern is now more strict.
 * Removal of legacy proxy implementation
@@ -182,7 +182,7 @@ Features
 
 **Genie.Telemetry**
 
-* Fix `Pcall` issue
+* Fix ``Pcall`` issue
 
 
 April 2nd
@@ -253,14 +253,14 @@ Features
 
 **Genie.Conf**
 
-* Genie device object can now be defined without specifying the `OS`
+* Genie device object can now be defined without specifying the ``OS``
 
 
 **Genie.Libs.Ops**
 
-* New `RIP` feature IOSXE Ops object.
-* Updated `PIM` feature NXOS Ops object.
-* Updated `PLATFORM` feature NXOS Ops object, 'system_version' attribute.
+* New ``RIP`` feature IOSXE Ops object.
+* Updated ``PIM`` feature NXOS Ops object.
+* Updated ``PLATFORM`` feature NXOS Ops object, 'system_version' attribute.
 * Changelog can be checked :opschangelog19:`here <APRIL>`
 
 

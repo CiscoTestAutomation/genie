@@ -417,7 +417,7 @@ get_interface_ip_address function"
        log.info('Found IP address {ip_address}'.format(ip_address=ip_address))
 
 Avoiding name conflicts
---------------------
+-----------------------
 
 Sometimes when writing a function with a beautiful name, it is recommended
 to check if there is another function with that same name, even in other
@@ -432,7 +432,7 @@ libs. For example:
 By keeping your function name specific, this should not happen.
 
 Calling other APIs
-----------------
+------------------
 
 If you need to use another API within one you are writing it is
 highly encouraged to use only keyword arguments due to OS abstraction.

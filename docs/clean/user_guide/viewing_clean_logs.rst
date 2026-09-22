@@ -1,4 +1,5 @@
 .. _clean_doc_log_viewer:
+
 Viewing Clean Logs
 ==================
 

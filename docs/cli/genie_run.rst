@@ -251,21 +251,21 @@ verification. The linux CLI to do so would be:
 
 Let's examine each of those arguments above in more detail:
 
-1. '--trigger-uids' and/or '--trigger-groups' arguments are used to specify 
+1. '--trigger-uids' and/or '--trigger-groups' arguments are used to specify
 which `Trigger`'s to execute from ``Genie``. Complete list of Triggers available
- to execute within ``Genie``: :triggers:`Available Genie Triggers<http>`
+to execute within ``Genie``: :triggers:`Available Genie Triggers<http>`
 
-When both '--trigger-uids' and '--trigger-groups' are provided, both will be 
+When both '--trigger-uids' and '--trigger-groups' are provided, both will be
 used to elect triggers from trigger datafile.
 
 For more information on how a ``Genie`` `Trigger` works, refer to:
 :ref:`Genie Trigger Documentation <getting_trigger>`
 
-2. '--verification-uids' and/or '--verification-groups' arguments can be used 
-to specify which `Verification`'s to execute from ``Genie``. Complete list of 
+2. '--verification-uids' and/or '--verification-groups' arguments can be used
+to specify which `Verification`'s to execute from ``Genie``. Complete list of
 Verifications available to execute within ``Genie``: :triggers:`Available Genie Verifications<http>`
 
-When both '--verification-uids' and '--verification-groups' are provided, both 
+When both '--verification-uids' and '--verification-groups' are provided, both
 will be used to elect verifications from verification datafile.
 
 For more information on how a ``Genie`` `Verification` works, refer to:

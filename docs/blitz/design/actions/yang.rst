@@ -131,9 +131,10 @@ sub_mode
 
 gNMI subscriptions can have sub-modes associated to a request_mode.
 
-- ON_CHANGE - data is sent when the resource on the device has changed state either by a config change
-or a device runtime change depending on which resource you are monitoring.
-- SAMPLE - data is sent in the specified sample_interval.
+  - ON_CHANGE - data is sent when the resource on the device has changed state either by a config change
+      or a device runtime change depending on which resource you are monitoring.
+
+  - SAMPLE - data is sent in the specified sample_interval.
 
 encoding
 ~~~~~~~~
@@ -185,7 +186,7 @@ sample_poll
 ~~~~~~~~~~~
 
 gNMI STREAM subscriptions can ask for a sampling interval in which messages are sent.  The device will only send
-data at these intervals.  Make sure STREAM sub_mode "SAMPLE" is less than the stream_max. For POLL it indicates how many seconds between POLL requests. 
+data at these intervals.  Make sure STREAM sub_mode "SAMPLE" is less than the stream_max. For POLL it indicates how many seconds between POLL requests.
 For SAMPLE sub_mode the field is equivalent to the `sample_interval`_ field but value is defined in seconds. Default value is 5.
 
 .. _sample_interval: https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-specification.md#35152-stream-subscriptions
@@ -223,9 +224,9 @@ For a GET, the maximum time that can elapse between sending a request and the re
 For gNMI subscriptions in STREAM mode, this is the time between a response arriving and the response completing. If time is exceeded, the test will fail.
 
 updates_only
-~~~~~~~~~~~~	
-A boolean that causes the server to send only updates to the current state. For STREAM subscriptions, an update occurs upon the next sample 
-(in the case of SAMPLE subscriptions), or upon the next value change for ON_CHANGE subscriptions. For POLL and ONCE subscriptions, 
+~~~~~~~~~~~~
+A boolean that causes the server to send only updates to the current state. For STREAM subscriptions, an update occurs upon the next sample
+(in the case of SAMPLE subscriptions), or upon the next value change for ON_CHANGE subscriptions. For POLL and ONCE subscriptions,
 the target should send only the sync_response message, before proceeding to process poll requests (in the case of POLL) or closing the RPC (in the case of ONCE).
 
 Content
@@ -580,7 +581,7 @@ Examples
             datatype: string
             value: 10.10.10.2
             xpath: /native/l2vpn-config/l2vpn/router-id
-            
+
 
 - gNMI STREAM subscribe testing IPv4 statistic values >= n.
 
@@ -642,7 +643,9 @@ Examples
 
 
 - gNMI ON_CHANGE subscribe testing config changes to a boolean.
+
 **NOTE:**
+
 For ON_CHANGE the returns must contain the base value of the resource as well
 as any changes to the resource setup in the test.
 

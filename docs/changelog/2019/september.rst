@@ -94,7 +94,7 @@ You can call them by doing
 * Deprecated in 19.7
 * As a reminder, all examples can be found at: https://github.com/CiscoTestAutomation/
 
-  
+
 **Genie.Libs.Parser**
 * 35 new IOSXE, IOS, NXOS & JunOS Parsers!
 * Grand total of 1375 parsers
@@ -103,9 +103,11 @@ You can call them by doing
 
 **Genie.Libs.Ops**
 * New OPS structures on IOS;
+
     * MSDP
     * HSRP
     * EIGRP
+
 * Changelog can be checked :opschangelog19:`here <SEPTEMBER>`
 
 

@@ -30,8 +30,10 @@ exists in the output. You also, have the option to check if a specific
 
 include, exclude and connection_alias keywords are optional to use.
 Two things needs to be followed to use connection_alias:
+
     1. New mapping datafile schema.
-    2. ``alias`` in mapping datafile should be the ``connection_alias``.
+    2. ``alias``in mapping datafile should be the``connection_alias``.
+
 How to use the new schema for different connection can be found at this `link
 <https://pubhub.devnetcloud.com/media/genie-docs/docs/cookbooks/harness.html#what-can-you-do-with-the-mapping-datafile>`__.
 
@@ -48,6 +50,186 @@ Example can be seen below.
         command: show version
         device: PE1
         timeout: 10
+
+Scope execute output
+""""""""""""""""""""
+
+The ``scope`` keyword narrows the output from an ``execute`` action before
+Blitz checks ``include`` or ``exclude`` entries. This is useful when a command
+returns repeated blocks or large output and only one section should be
+verified. The scoped output is also the value returned by the action and the
+value used by normal ``save`` handling.
+
+Only one scope mode can be used in the same ``scope`` block:
+
+* ``start`` and optional ``end`` select text from a start regular expression to
+  the next end regular expression. If ``end`` is omitted, output is selected to
+  the end of the command output.
+* ``block_regex`` selects text matched by a regular expression. If the regular
+  expression has a capture group, the first capture group is used as the scoped
+  output; otherwise, the full match is used.
+* ``line_regex`` selects output lines that match a regular expression.
+
+The optional ``occurrence`` keyword selects which match is used. It defaults to
+``first`` and accepts ``first``, ``last``, ``all``, or a zero-based integer.
+When ``occurrence`` is ``all``, each selected block must satisfy ``include``
+checks, and none of the selected blocks can satisfy ``exclude`` checks.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show route summary
+        scope:
+          start: '^Section: primary'
+          end: '^Section:'
+        include:
+          - 'Network: 10.0.0.0/24'
+          - 'Status: active'
+        exclude:
+          - 'Status: inactive'
+
+By default, the start line is included in the scoped output and the end line is
+not included. You can change that behavior with ``include_start`` and
+``include_end``.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show service summary
+        scope:
+          start: '^Service: primary'
+          end: '^Service: backup'
+          include_start: false
+          include_end: true
+        include:
+          - 'State: up'
+
+The ``save_as`` keyword can save the scoped output directly to a Blitz
+variable.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show interface summary
+        scope:
+          block_regex: '^Interface: Ethernet1\n(?P<details>.*?)(?=^Interface:|\Z)'
+          save_as: ethernet1_details
+        include:
+          - 'Protocol: up'
+
+    - execute:
+        device: uut
+        command: show interface summary
+        scope:
+          line_regex: '^Ethernet1\s+up\s+up'
+          save_as: ethernet1_state
+        include:
+          - 'Ethernet1'
+
+When a scope cannot be found, the action fails by default. Set
+``required: false`` to keep using the full execute output when the scope is not
+found.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show route summary
+        scope:
+          start: '^Section: optional'
+          required: false
+        include:
+          - 'Summary'
+
+Invalid regular expressions, empty scope patterns, unsupported scope keys, or
+using more than one scope mode in the same ``scope`` block cause the action to
+fail.
+
+Extract values from execute output
+""""""""""""""""""""""""""""""""""
+
+The ``extract`` keyword saves one or more regular-expression matches from an
+``execute`` action into Blitz variables. Extraction runs after ``scope`` and
+after ``include`` or ``exclude`` checks. Normal ``save`` handling can still be
+used with the same action output.
+
+Each extraction rule requires a ``name`` and ``regex``. The saved variable name
+defaults to ``name`` and can be changed with ``save_as``. If ``group`` is not
+provided, Blitz uses the named group matching ``name`` when present, otherwise
+the only capture group, otherwise the full match.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show ip bgp summary
+        extract:
+          - name: first_peer
+            regex: '^(?P<first_peer>\d+\.\d+\.\d+\.\d+)\s+\d+'
+            required: true
+
+Use ``findall: true`` to save every match as a list. The ``type`` keyword can
+coerce saved values to ``str``, ``int``, ``float``, ``bool``, or list forms such
+as ``list[str]`` and ``list[int]``.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show ip bgp summary
+        extract:
+          - name: bgp_peers
+            regex: '^(?P<peer>\d+\.\d+\.\d+\.\d+)\s+\d+'
+            group: peer
+            findall: true
+            type: list[str]
+            unique: true
+            sort: true
+            min_count: 1
+            save_as: uut_bgp_peers
+
+When a rule has no match and ``required`` is false, Blitz saves a default value
+instead of failing. Scalar defaults are ``""``, ``0``, ``0.0``, or ``false`` by
+type, and list defaults are ``[]``. You can override the fallback with
+``default``.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show interface counters
+        extract:
+          - name: input_errors
+            regex: 'input errors:\s+(?P<input_errors>\d+)'
+            type: int
+            default: 0
+
+Extraction can be combined with ``scope`` when only one repeated block should
+be parsed.
+
+.. code-block:: YAML
+
+    - execute:
+        device: uut
+        command: show route detail
+        scope:
+          start: '^Route: 10.0.0.0/24'
+          end: '^Route:'
+        extract:
+          - name: next_hops
+            regex: 'Next hop:\s+(?P<next_hop>\d+\.\d+\.\d+\.\d+)'
+            group: next_hop
+            findall: true
+            type: list[str]
+            unique: true
+            save_as: route_next_hops
+
+The action fails for invalid regular expressions, ambiguous capture groups,
+invalid group names or indexes, failed type coercion, ``required: true`` with no
+match, or ``min_count`` / ``max_count`` violations.
 
 configure
 ^^^^^^^^^
@@ -383,26 +565,29 @@ configuration in a lightweight way. It does not save all device configuration,
 instead, it scans Genie Trigger information and find out ``yang`` actions that
 will change the device configuration before the next ``yang_snapshot_restore``
 action. Note that one ``yang_snapshot`` action can be followed by one or
-multiple ``yang_snapshot_restore`` actions. When the related ``yang`` actions
+multiple ``yang_snapshot_restore``actions. When the related``yang`` actions
 are known, ``yang_snapshot`` action is able to snapshot partial device
 configuration, which will be restored when the ``restore_config_snapshot``
 action comes.
 
 More details on implementation:
 
- * ``yang_snapshot`` scans all following actions, including ``yang`` and
- ``yang_snapshot_restore`` until the next ``yang_snapshot``. If there is no
- ``yang_snapshot_restore`` action between two ``yang_snapshot`` actions,
- ``yang`` actions in between are ignored. Otherwise, it takes a snapshot of
- related configurations. In addition, it begins collection of ``yang`` action
- configuration changes;
- * If ``yang_snapshot_restore`` is called, the ``yang`` action configuration
- changes collected since the ``yang_snapshot`` was analyzed are then reversed,
- and the collection continues;
- * If another ``yang_snapshot_restore`` is detected, similarly, the ``yang``
- action configuration changes collected since the ``yang_snapshot`` are
- reversed, and the collection continues;
- * This continues up to the last ``yang_snapshot_restore`` of the test.
+    * ``yang_snapshot``scans all following actions, including``yang`` and
+        ``yang_snapshot_restore``until the next``yang_snapshot``. If there is no
+        ``yang_snapshot_restore``action between two``yang_snapshot`` actions,
+        ``yang`` actions in between are ignored. Otherwise, it takes a snapshot of
+        related configurations. In addition, it begins collection of ``yang`` action
+        configuration changes;
+
+    * If ``yang_snapshot_restore``is called, the``yang`` action configuration
+        changes collected since the ``yang_snapshot`` was analyzed are then reversed,
+        and the collection continues;
+
+    * If another ``yang_snapshot_restore``is detected, similarly, the``yang``
+        action configuration changes collected since the ``yang_snapshot`` are
+        reversed, and the collection continues;
+
+    * This continues up to the last ``yang_snapshot_restore`` of the test.
 
 Currently the ``yang_snapshot`` action is only supported with Netconf protocol.
 More protocols will be added in the future.
@@ -416,16 +601,16 @@ More protocols will be added in the future.
         banner: TAKE YANG SNAPSHOT 1
 
 There is one snapshot per device. A new ``yang_snapshot`` action replaces the
-snapshot created by the previous ``yang_snapshot`` action. ``banner`` is
+snapshot created by the previous ``yang_snapshot``action.``banner`` is
 optional and it is just for your information.
 
 yang_snapshot_restore
 ^^^^^^^^^^^^^^^^^^^^^
 
 The ``yang_snapshot_restore`` action is used to restore a snapshot taken from
-the previous ``yang_snapshot`` action. As explained in ``yang_snapshot`` action
+the previous ``yang_snapshot``action. As explained in``yang_snapshot`` action
 above, this is not to restore a complete snapshot. The
-``yang_snapshot_restore`` action cleans up what the related ``yang`` actions
+``yang_snapshot_restore``action cleans up what the related``yang`` actions
 have altered.
 
 The same snapshot is allowed to be re-used as needed.
@@ -469,11 +654,11 @@ Allow to diff two variables (Dictionary or Ops object).
 By default it will just print the difference, but can also fail the section
 if they are different with the argument `fail_different=True`.
 
-``command`` or ``feature`` to diff will gather pre-defined exclude list from
+``command``or``feature`` to diff will gather pre-defined exclude list from
 the parser or Ops.
 
-``mode`` can be specified only what you want to check. ``mode`` has ``add``,
-``remote`` and ``modified``. By default, it will show all the differences,
+``mode``can be specified only what you want to check.``mode``has``add``,
+``remote``and``modified``. By default, it will show all the differences,
 for the case ``add``, will show only added difference.
 
 .. code-block:: YAML
@@ -548,7 +733,7 @@ Action ``dialog`` allows you to create a list of sequences to handle multiple in
 The following items must be declared in the action dialog:
 
  * ``device`` the name of the device.
- * ``start`` and ``end`` represent states a device can be in.
+ * ``start``and``end`` represent states a device can be in.
  * ``sequence`` is a list of steps that can be executed to interact with the interface.
 
 In turn, each step in sequences must be declared with the following keywords:
@@ -573,6 +758,6 @@ The example below shows how you can use this action.
               expect: switch#
               exclude: NXOS
 
-``include`` or ``exclude`` are optional keywords you can use to verify if a pattern exists in the output.
+``include``or``exclude`` are optional keywords you can use to verify if a pattern exists in the output.
 In the example above, the test will pass if the pattern "NXOS" is not present in the output.
-If ``include`` was declared instead of ``exclude``, the test would fail if the output contained "NXOS".
+If ``include``was declared instead of``exclude``, the test would fail if the output contained "NXOS".

@@ -77,9 +77,10 @@ You can call them by doing
 
 **Genie**
 * New Genie create cli command
-  * Allow to create testbed from excel
-  * Allow to create testbed question prompt
-  * Allow to create testbed dictionary
+
+    * Allow to create testbed from excel
+    * Allow to create testbed question prompt
+    * Allow to create testbed dictionary
 
 
 **Genie.Ops**
@@ -117,7 +118,7 @@ You can call them by doing
 * Deprecated in 19.7
 * As a reminder, all examples can be found at: https://github.com/CiscoTestAutomation/
 
-  
+
 **Genie.Libs.Parser**
 * 52 new IOSXE, IOS, NXOS & JunOS Parsers!
 * Grand total of 1294 parsers
@@ -125,7 +126,8 @@ You can call them by doing
 
 
 **Genie.Libs.Ops**
-* New OPS structures on IOS;
+* New OPS structures on IOS
+
     * ACL
     * DOT1X
     * acl
@@ -148,6 +150,7 @@ You can call them by doing
     * prefix_list
     * bgp
     * lisp
+
 * Changelog can be checked :opschangelog19:`here <AUGUST>`
 
 

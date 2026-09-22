@@ -36,10 +36,10 @@ Features:
 * Timeout fix
     * No more negative number
     * Always run for up to maxtime
-* `common_setup` and `common_cleanup` can now have processors added dynamically with the subsection datafile
-* `Trigger` section can now have processors added dynamically with the trigger datafile
+* ``common_setup``and``common_cleanup`` can now have processors added dynamically with the subsection datafile
+* ``Trigger`` section can now have processors added dynamically with the trigger datafile
 * Fix bug with adding the same processor with the different arguments
-* Enhancement for `Maker`, can now provide `attributes` longer than the smallest dest of the ops.
+* Enhancement for ``Maker``, can now provide``attributes`` longer than the smallest dest of the ops.
 * Removal of interfaces.find_links, as interfaces only have 1 link. (Following pyATS model)
 
 * Datafiles are now smart. Trigger, verification, subsection and PTS datafile will find their corresponding files if not provided. 

@@ -34,13 +34,14 @@ sys.path.insert(0, os.path.abspath('../'))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.extlinks',
-    #'sphinxcontrib_robotframework',
-]
+# No longer needed. All dependencies are added from makefile.
+# extensions = [
+#     'sphinx.ext.autodoc',
+#     'sphinx.ext.napoleon',
+#     'sphinx.ext.intersphinx',
+#     'sphinx.ext.extlinks',
+#     #'sphinxcontrib_robotframework',
+# ]
 
 # html_theme_options = {
 #    "collapse_navigation" : False,
@@ -96,7 +97,18 @@ release = ''
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = [
+    '_build',
+    'changelog/undistributed.rst',
+    'changelog/undistributed/*',
+    'genie_libs/**',
+    'metaparser/advanced/xmletree.rst',
+    'metaparser/advanced/xmlregex.rst',
+    'userguide/Conf/developer/subattributes.rst',
+    'userguide/Conf/developer/template.rst',
+    'userguide/harness/user/atstcltree.rst',
+    'userguide/harness/user/statictgn.rst',
+]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -159,6 +171,11 @@ html_favicon = 'genie_ico.ico'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static',]
+
+# Custom CSS files to be loaded
+html_css_files = [
+    'custom_console.css',
+]
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -340,3 +357,9 @@ templates_path = ['_templates',]
 #        app.add_stylesheet('css/asciinema-player.css')
 #        app.add_stylesheet('js/asciinema-player.css')
 
+suppress_warnings = [
+    'ref.ref',
+    'docutils',
+    'misc.highlighting_failure',
+    'toc.not_readable',
+]

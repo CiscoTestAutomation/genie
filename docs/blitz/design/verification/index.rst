@@ -13,7 +13,7 @@ of querying and verification is provided. For instance you can see:
 * if numerical output of an action is equal, greater (greate equal) or smaller (smaller equal) then a certain value.
 * if numerical output of an action is within a specific range.
 
-Keywords ``include`` and ``exclude`` can be used to apply a query for verification. ``include`` would 
+Keywords ``include``and``exclude``can be used to apply a query for verification.``include`` would 
 make sure that you are query is validated and true. On the other hand ``exclude`` is useful for negative testing and
 make sure a certain query is not applicable on an action output.
 
@@ -42,7 +42,7 @@ make sure a certain query is not applicable on an action output.
                     - get_values('platform')
 
 Different mechanisms is used depending the type the action output.
-Supported types are ``JSON``, ``List``, ``Boolean`` and ``Numerical``. 
+Supported types are ``JSON``,``List``,``Boolean``and``Numerical``. 
 Example for how to verify the actions output is provided :ref:`here<types>`.
 
 

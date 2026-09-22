@@ -1,5 +1,5 @@
 May 2016
-==========
+========
 
 May 2
 -----
@@ -14,8 +14,8 @@ May 2
 Features:
 ^^^^^^^^^
 
- * Initial introduction. 
- 
+ * Initial introduction.
+
 May 4
 -----
 
@@ -32,7 +32,7 @@ Features:
  * xBU-shared now contains type directories (cli, xml and yang).
    For more information :
    http://wwwin-pyats.cisco.com/cisco-shared/genie/html/installation/structure.html#feature-libraries
- 
+
 May 5
 -----
 
@@ -46,7 +46,7 @@ May 5
 Features:
 ^^^^^^^^^
 
- * `build_config` and `build_unconfig` now uses `pcall`_ for each device.
+ * ``build_config``and``build_unconfig`` now uses `pcall`_ for each device.
 
 .. _pcall: http://wwwin-pyats.cisco.com/documentation/html/async/pcall.html
 
@@ -63,10 +63,10 @@ May 9
 Features:
 ^^^^^^^^^
 
- * Enhancement for `ces` monitor added
- 
- May 11
- ------
+ * Enhancement for ``ces`` monitor added
+
+May 11
+------
 
 +-------------------------------+-------------------------------+
 | Module                        | Versions                      |
@@ -79,4 +79,4 @@ Features:
 ^^^^^^^^^
 
  * Template and example script added as part of package now
- 
+

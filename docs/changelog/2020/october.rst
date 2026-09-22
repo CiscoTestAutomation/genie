@@ -112,7 +112,7 @@ Features highlights:
     * Added clean stage: revert_vm_snapshot
 
 * PLEASE FOLLOW THE TEMPLATE.
-* ADDED `PYATSDEVICECLEAN` MODULE FOR USE INSIDE `CLEANERS` SECTION OF THE CLEAN YAML. THIS ALLOWS USE OF BOTH PYATS CLEAN AND UNICLEAN SIMULTANEOUSLY.
+* ADDED ``PYATSDEVICECLEAN``MODULE FOR USE INSIDE``CLEANERS`` SECTION OF THE CLEAN YAML. THIS ALLOWS USE OF BOTH PYATS CLEAN AND UNICLEAN SIMULTANEOUSLY.
 
 --------
 
@@ -126,7 +126,7 @@ Features highlights:
         * pyATS Health Check reconnects device in case device crashes/reloads
     * Added to convert testbed object from pyATS to Genie for pyATS run:
     * Removed processor tag restriction in health.yaml:
-        * mixed `pre`/`post`/etc under same section is possible
+        * mixed ``pre``/``post``/etc under same section is possible
     * Enhanced to not show up the section in log which is not supposed to run
         * see executed sections only in log
     * Enhanced to run section with non-connected device

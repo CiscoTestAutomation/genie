@@ -81,8 +81,8 @@ at: pyats-support@cisco.com
 
 **Genie**
 
-* device.parse support short form clis, for example: `show ver` for show version
-* device.parse supports fuzzy search, for example `show bgp.*` to execute all
+* device.parse support short form clis, for example: ``show ver`` for show version
+* device.parse supports fuzzy search, for example ``show bgp.*`` to execute all
   show commands which begins with show bgp
 
 .. code-block:: python
@@ -141,7 +141,7 @@ pyats.contrib can create pyATS testbed out of Ansible, Netbox, Excel, CSV and pr
 
 **Genie.Libs.Parser**
 
- * ``Dq()`` is now by default a ``device.parse()`` return object type
+ * ``Dq()``is now by default a``device.parse()`` return object type
  * 823 new IOSXE, IOS, NXOS, IOSXR, Junos and F5  Parsers! (700 are F5)
  * Grand total of 2435 parsers
  * Changelog can be checked :parserchangelog20:`here <APRIL>`

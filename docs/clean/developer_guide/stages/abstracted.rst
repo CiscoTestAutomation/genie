@@ -160,7 +160,7 @@ This is the parent class we will inherit for our cat9k implementation.
                     step.passed("Config-register is as expected")
 
 Abstracted ChangeBootVariable (IOSXE cat9k)
-------
+-------------------------------------------
 
 Abstracted stages should redefine the three main sections (`Stage Schema`, `Argument Defaults`, and `exec_order`) and the docstring. This removes any doubts about what order steps run in, argument values, and changes to the schema.
 

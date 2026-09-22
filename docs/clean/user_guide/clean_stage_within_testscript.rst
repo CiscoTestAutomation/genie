@@ -14,7 +14,7 @@ Example
 
 For this example the IOSXE implementation of the `install_image` stage will be used. Below is a snapshot of the docstring found in the `Clean Stages Browser <https://pubhub.devnetcloud.com/media/genie-feature-browser/docs/#/clean>`_. Any key/value pairs in the schema are the possible arguments to be passed.
 
-.. code-block:: txt
+.. code-block:: text
 
     This stage installs a provided image onto the device using the install
     CLI. It also handles the automatic reloading of your device after the
@@ -67,7 +67,7 @@ Get the device object that the clean stage will run on. Call the stage using the
 
 When running the script you will see the steps of the clean stage being logged to console.
 
-.. code-block:: txt
+.. code-block:: text
 
     %EASYPY-INFO: Starting task execution: Task-1
     %EASYPY-INFO:     test harness = pyats.aetest
@@ -157,7 +157,7 @@ To enable this roll-up, pass the steps object which is automatically created by 
 
 Now the stage result will affect the testscript result. The steps will also appear in the `Task Result Details` section. Observe this new behaviour in the below snippet.
 
-.. code-block:: txt
+.. code-block:: text
 
     %EASYPY-INFO: Starting task execution: Task-1
     %EASYPY-INFO:     test harness = pyats.aetest

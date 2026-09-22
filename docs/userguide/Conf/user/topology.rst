@@ -11,7 +11,7 @@ Introduction
 The Genie topology is based on the :pyats_topology:`pyats topology <http>`. There are two ways to
 create the ``Genie`` topology:
 
- 1. Automatically : By converting the ``pyATS`` Testbed object into the ``Genie`` Testbed 
+ 1. Automatically : By converting the ``pyATS``Testbed object into the``Genie`` Testbed 
  	object. This is the most common way to create the ``Genie`` topology.
  2. Manually: By creating each topology object and then interconnecting them
      using their corresponding APIs.  Whenever users manually create the ``Genie`` topology, 

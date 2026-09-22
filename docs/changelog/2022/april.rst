@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * ops
@@ -65,7 +65,7 @@ genie
 
 * conf
     * Modified Base
-        * Added `__new__` definition to enable local package extension upon class creation
+        * Added ``__new__`` definition to enable local package extension upon class creation
 
 * harness
     * Modified Utils
@@ -80,7 +80,7 @@ genie
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * harness
@@ -91,7 +91,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -123,7 +123,7 @@ genie.libs.clean
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -146,7 +146,7 @@ genie.libs.health
 genie.libs.ops
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * all
@@ -159,7 +159,7 @@ genie.libs.ops
 genie.libs.robot
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * robot
@@ -171,7 +171,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -264,7 +264,7 @@ genie.libs.sdk
     * Added verify_routing_route_attrs and verify_static_routing_route_attrs APIs
         * APIs to verify existence of an IPv4/IPv6 route or static route, and
     * Added get_static_routing_ipv6_routes
-        * Get `show ipv6 static detail` parser output containing IPv6 static
+        * Get ``show ipv6 static detail`` parser output containing IPv6 static
     * Added configure_bba_group API
         * bba-group pppoe {name}
         * virtual-template {vt_number}
@@ -344,7 +344,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -356,9 +356,9 @@ genie.libs.sdk
     * Modified execute_issu_install_package API
         * API for installing  issu package
     * Modify get_ipv6_interface_ip_address API
-        * Add `as_list` keyword argument (default `False`) to return multiple
+        * Add ``as_list``keyword argument (default``False``) to return multiple
     * Modify get_routing_routes and get_routing_ipv6_routes APIs
-        * Allow the `vrf` argument to be passed as `None` and execute the
+        * Allow the ``vrf``argument to be passed as``None`` and execute the
     * Modified configure_flow_monitor API
         * Made few arguments as optional, added new arguments
     * Modified configure_flow_record API
@@ -390,7 +390,7 @@ genie.libs.sdk
         * Avoid script crash when service 'sap' is not available in show command output
 
 * genie.libs.sdk
-    * Added `yang.connector` as dependency
+    * Added ``yang.connector`` as dependency
 
 * blitz
     * run_netconf
@@ -401,7 +401,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -495,7 +495,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -531,7 +531,7 @@ genie.libs.parser
         * Changed the key <nominal_bitrate_per_channel>' to optional
         * Updated regex <p2>, <p3>, <p4>, <p5>, <p8>, <p13>, <p14>, and <p15>
     * Modified ShowIpStaticRoute
-        * Add the optional `owner_code` key under `next_hop.outgoing_interface`
+        * Add the optional ``owner_code``key under``next_hop.outgoing_interface``
     * Modified ShowIpv6DhcpBinding
         * Add the optional client 'interface' key to the schema
         * Make the existing client 'ia_na' key optional
@@ -555,7 +555,7 @@ genie.libs.parser
     * Modified ShowL2vpnServiceAll
         * Fixed regex <p2> to match more patterns in output
     * Modified ShowDeviceTrackingMessages
-        * Added option for `show device-tracking messages | section {message}`
+        * Added option for ``show device-tracking messages | section {message}``
     * Modified ShowInterfaces
         * Added optional keys <tunnel_source_interface>
         * Updated regex pattern p46 to accommodate various outputs.
@@ -585,7 +585,7 @@ genie.libs.parser
 
 * ios
     * Modified ShowIpStaticRoute
-        * Add the optional `owner_code` key under `next_hop.outgoing_interface`
+        * Add the optional ``owner_code``key under``next_hop.outgoing_interface``
 
 * iosxr
     * Modified ShowPolicyMapInterface Parser, update pattern p4 output direction

@@ -55,7 +55,7 @@ Changelogs
 genie
 """""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * harness
@@ -71,7 +71,7 @@ genie
 genie.libs.clean
 """"""""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -88,7 +88,7 @@ genie.libs.conf
 genie.libs.filetransferutils
 """"""""""""""""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -109,7 +109,7 @@ genie.libs.robot
 genie.libs.sdk
 """"""""""""""
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -280,40 +280,40 @@ genie.libs.sdk
         * API to configure diagnostic bootup level minimal
     * Added configure_cos
         * API to configure_cos
-    * Modified `get_interface_packet_output_rate` API
+    * Modified ``get_interface_packet_output_rate`` API
         * Removed dependency with timestamp output
-    * Modified `configure_ipsec_tunnel` API
+    * Modified ``configure_ipsec_tunnel`` API
         * Added arguments to support IPv6 based tunnel
-    * Modified `config_interface_isis` API
-        * Added `process` and `metric` arguments
-    * Added `configure_isis_interface_metric` API
+    * Modified ``config_interface_isis`` API
+        * Added ``process``and``metric`` arguments
+    * Added ``configure_isis_interface_metric`` API
         * New API to configure ISIS metric under interface
-    * Added `unconfigure_isis_interface_metric` API
+    * Added ``unconfigure_isis_interface_metric`` API
         * New API to unconfigure ISIS metric under interface
-    * Added `get_isis_interface_metric` API
+    * Added ``get_isis_interface_metric`` API
         * New API to get ISIS interface metric on interface
-    * Modified `execute_write_erase` API
+    * Modified ``execute_write_erase`` API
         * Support multiple devices with Pcall
-    * Modified `get_routes` API
-        * Added `route` and `vrf` arguments
-    * Modified `get_next_hops` API
-        * Added `vrf` argument
-    * Added `get_next_hops_with_vrf` API
+    * Modified ``get_routes`` API
+        * Added ``route``and``vrf`` arguments
+    * Modified ``get_next_hops`` API
+        * Added ``vrf`` argument
+    * Added ``get_next_hops_with_vrf`` API
         * New API to get next hop from routing table info
-    * Added `get_outgoing_interface_with_vrf` API
+    * Added ``get_outgoing_interface_with_vrf`` API
         * New API to get outgoing interface from routing table info
-    * Modified `restore_running_config` API
-        * Added `delete_after`, `max_time` and `check_interval` arguments
-    * Modified `get_vrf_route_distinguisher` API
-        * Added `vrf` argument
-    * Modified `get_devices` API
-        * Changed `testbed` argument as optional
-    * Added `get_devices_simple` API
+    * Modified ``restore_running_config`` API
+        * Added ``delete_after``,``max_time``and``check_interval`` arguments
+    * Modified ``get_vrf_route_distinguisher`` API
+        * Added ``vrf`` argument
+    * Modified ``get_devices`` API
+        * Changed ``testbed`` argument as optional
+    * Added ``get_devices_simple`` API
         * New API to get devices based on runtime.testbeds
-    * Added `check_memory_leaks` processor
+    * Added ``check_memory_leaks`` processor
         * New processor to check memory leak
-    * Modified `Restore` class in abstracted_libs
-        * Added `timeout` argument to restore config
+    * Modified ``Restore`` class in abstracted_libs
+        * Added ``timeout`` argument to restore config
     * Added configure_interface_ip_verify_source
         * API to configure ip verify source on interface
     * Added unconfigure_interface_ip_verify_source
@@ -403,10 +403,10 @@ genie.libs.sdk
     * New API to unconfigure stack-mac persistent timer
 
 * common
-    * Added `verify_ping` processor
+    * Added ``verify_ping`` processor
         * Verify ping result in parallel
-    * Modified `execute_reload` API
-        * Added `reload_command`, `error_pattern`, `devices` and `exclude_devices` arguments
+    * Modified ``execute_reload`` API
+        * Added ``reload_command``,``error_pattern``,``devices``and``exclude_devices`` arguments
 
 * blitz
     * Added functionality, that will use timestamps in gnmi Subscribtions to measure transaction_time
@@ -418,7 +418,7 @@ genie.libs.sdk
 
 
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -449,9 +449,9 @@ genie.libs.sdk
         * Added group name argument to the API
     * Modified configure_username
         * Added privilige argument to the API
-    * Modified `verify_ping` API
+    * Modified ``verify_ping`` API
         * Added AttributeError handling
-    * Modified `learn_routing` processor
+    * Modified ``learn_routing`` processor
         * Fixed initializing default argument value
     * Modified configure_vrf_ipv6_eigrp_named_networks
         * Modified api configure vrf ipv6 eigrp named networks
@@ -467,9 +467,9 @@ genie.libs.sdk
         * Added prefix_name options to API
 
 * common
-    * Updated `restore_running_configuration` processor
+    * Updated ``restore_running_configuration`` processor
         * Enhanced to run in parallel for speed
-    * Updated `save_running_configuration` processor
+    * Updated ``save_running_configuration`` processor
         * Enhanced to run in parallel for speed
 
 * added disable_system_integrity api
@@ -483,7 +483,7 @@ genie.libs.sdk
 genie.libs.parser
 """""""""""""""""
 --------------------------------------------------------------------------------
-                                      Fix                                       
+Fix
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -508,7 +508,7 @@ genie.libs.parser
     * Modified ShowLispDatabaseConfigPropSuperParser
         * Added support for parsing IPv6 RLOC addresses
     * Modified ShowLine
-        * Added `line` key to the schema
+        * Added ``line`` key to the schema
         * Update regex pattern to support output with and witout line
         * Added logic to handle output that has tty line names cut short
     * Modified ShowInventory
@@ -558,7 +558,7 @@ genie.libs.parser
     * Modified ShowBgpSummarySuperParser
         * Updated regex to capture variation of outputs
     * Modified ShowRedundancyStates
-        * Changed `unit` in schema as optional
+        * Changed ``unit`` in schema as optional
     * Modified ShowIpRoute
         * Updated regex to capture variation of outputs
     * Modified ShowIpCefInternal
@@ -601,7 +601,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * iosxe
@@ -658,21 +658,21 @@ genie.libs.parser
     * Added ShowLldpCustomInformation
         * show lldp custom-information
     * Modified ShowClnsProtocol
-        * Added `lsp_mtu` in schema
+        * Added ``lsp_mtu`` in schema
     * Modified ShowInterfaces
-        * Added `out_broadcast_pkts` to exclude
+        * Added ``out_broadcast_pkts`` to exclude
     * Modified ShowIsisTopology
-        * Added `show isis {address_family} topology` to cli_command
+        * Added ``show isis {address_family} topology`` to cli_command
     * Modified ShowIpRouteDistributor
-        * added `updated` to exclude
+        * added ``updated`` to exclude
     * Modified ShowIpv6RouteDistributor
-        * Added `updated` to exclude
+        * Added ``updated`` to exclude
     * Modified ShowRunInterface
         * Updated schema to capture ISIS level
     * Added ShowRunInterfaceAllSectionInterface
-        * New parser `show running-config all | section ^interface`
+        * New parser ``show running-config all | section ^interface``
     * Added ShowRunSectionVrfDefinition
-        * New parser `show running-config | section vrf definition`
+        * New parser ``show running-config | section vrf definition``
     * Added ShowMplsTrafficEngAutoroute Parser
         * Parser for "show mpls traffic-eng autoroute"
     * Added ShowMplsForwardingTableSummary Parser
@@ -721,7 +721,7 @@ genie.libs.parser
 
 
 --------------------------------------------------------------------------------
-                                      Add                                       
+Add
 --------------------------------------------------------------------------------
 
 * iosxe

@@ -112,7 +112,7 @@ object<book_setup_testbed>`.
 .. tip::
 
 	use ``device.parse('all')`` to run all the available parsers on the device, and the output will be returned in a dictionary
-	format: ``{'show command' : parsed_output}``. If an exception occurred during the execution a particular parser, then ``parsed_output`` will become the exception object.
+	format: ``{'show command' : parsed_output}``. If an exception occurred during the execution a particular parser, then``parsed_output`` will become the exception object.
 
 3. How to execute a parser - Linux
 ----------------------------------
@@ -234,10 +234,10 @@ Here are some example of matches:
 +------------------------------+---------------------------------------------------+
 | sh .* abc .* ext             |             show ospf vrf {vrf} database external |
 +------------------------------+---------------------------------------------------+
-| sh .* [a-z]* ext\S+          |                       show ted database extensive |
-|                              |                    show ospf3 interface extensive |
-|                              |     show ospf vrf all-inclusive database external |
-|                              |                                               ... |
+| sh .* [a-z]* ext\S+          | |                     show ted database extensive |
+|                              | |                  show ospf3 interface extensive |
+|                              | |   show ospf vrf all-inclusive database external |
+|                              | |                                             ... |
 +------------------------------+---------------------------------------------------+
 
 Fuzzy matching will return multiple parsed results in the form of a dictionary,

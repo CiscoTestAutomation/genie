@@ -170,6 +170,51 @@ do with list in Python.
   >>> dev.parse('show interface').q.get_values('[0]', '[0:2]')
   ['mgmt0', 'Ethernet2/1']
 
+`get_values` also supports filtering by sibling key-value conditions using the
+`conditions_key_value` argument. This is useful when you need to retrieve a
+value that shares the same dictionary level with specific key-value pairs.
+
+.. code-block:: python
+
+  >>> out = {
+  ...     'vrf': {
+  ...         'vrf101': {
+  ...             'protocol': {
+  ...                 'ipv4': {
+  ...                     'vni': {
+  ...                         '3000101': {
+  ...                             'installed': 'yes',
+  ...                             'rmac_address': 'AABB.CC80.5B00',
+  ...                             'vtep_ip': '10.0.10.3',
+  ...                         },
+  ...                     },
+  ...                 },
+  ...                 'ipv6': {
+  ...                     'vni': {
+  ...                         '3000101': {
+  ...                             'installed': 'yes',
+  ...                             'rmac_address': 'AABB.CC80.5C00',
+  ...                             'vtep_ip': '10.0.0.1',
+  ...                         },
+  ...                     },
+  ...                 },
+  ...             },
+  ...         },
+  ...     },
+  ... }
+  
+  # Without conditions_key_value - returns all rmac_address values
+  >>> Dq(out).get_values('rmac_address')
+  ['AABB.CC80.5B00', 'AABB.CC80.5C00']
+  
+  # With conditions_key_value - returns only rmac_address where vtep_ip is '10.0.0.1'
+  >>> Dq(out).get_values('rmac_address', conditions_key_value={'vtep_ip': '10.0.0.1'})
+  ['AABB.CC80.5C00']
+  
+  # Multiple conditions are supported - all conditions must match at the same level
+  >>> Dq(out).get_values('rmac_address', conditions_key_value={'vtep_ip': '10.0.0.1', 'installed': 'yes'})
+  ['AABB.CC80.5C00']
+
 get_value does not return a Dq object, considered a "Final" api.
 
 contains_key_value
@@ -192,7 +237,7 @@ in the dictionary.
   ['mgmt0', 'Ethernet2/1', 'Ethernet2/2', 'loopback0', 'loopback1']
 
 To input regular expression values, if looking for keys with a regex pattern you need to set
-``key_regex`` to True. For applying regex pattern on values, you need to set ``value_regex`` variable
+``key_regex``to True. For applying regex pattern on values, you need to set``value_regex`` variable
 to True. Examples below elaborate this functionality
 
 .. code-block:: python
@@ -206,8 +251,8 @@ to True. Examples below elaborate this functionality
   >>> output.q.contains_key_value('slot/world_wide_name|mac.*|model', '[a-zA-Z0-9\-\s]+', key_regex=True, value_regex=True)
 
 Similar to ``contains`` here also you can do case insensitive comparison.
-- If the ``key`` has to be case insensitive then you have to set ``key_regex`` and ``ignore_case_key`` as True.
-- If the ``value`` has to be case insensitive then you have to set ``value_regex`` and ``ignore_case_value`` as True.
+- If the ``key``has to be case insensitive then you have to set``key_regex``and``ignore_case_key`` as True.
+- If the ``value``has to be case insensitive then you have to set``value_regex``and``ignore_case_value`` as True.
 
 .. code-block:: python
 
@@ -237,7 +282,7 @@ api.
   # if applying regex only for value set value_regex=True
   >>> output.q.not_contains_key_value('lc', '(3|4)', value_regex=True)
 
-This one also supports both ``ignore_case_key`` and ``ignore_case_value`` which was already explained for contains_key_value api.
+This one also supports both ``ignore_case_key``and``ignore_case_value`` which was already explained for contains_key_value api.
 
 value_operator
 ^^^^^^^^^^^^^^

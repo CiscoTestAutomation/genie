@@ -1,8 +1,8 @@
 September 2020
-========
+==============
 
 September 29th - Genie v20.9
---------------------------
+----------------------------
 
 +-----------------------------------+-------------------------------+
 | Module                            | Versions                      |
@@ -48,14 +48,14 @@ these packages
    pyats version update
 
 Features highlights:
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 
 **genie**
 
-* Added support for `pyats learn <command> --learn-hostname --learn-os`
-* Added support for `pyats parse <command> --learn-hostname --learn-os`
-* Enhanced Dq to grab information from upper or lower level by using `level` argument
+* Added support for ``pyats learn <command> --learn-hostname --learn-os``
+* Added support for ``pyats parse <command> --learn-hostname --learn-os``
+* Enhanced Dq to grab information from upper or lower level by using ``level`` argument
 * Enhanced Discovery to pick up one of devices for Blitz and pyATS Health Check
 * Enhanced pyats parse to support --rest to send REST get and collect JSON
 * Testcase description can be passed as a variable in the trigger datafile
@@ -82,7 +82,7 @@ Features highlights:
 **genie.libs.health**
 
 * Enhanced pyATS Health Check to have capability to select testcases/sections
-    * Added pyats arguments `--health-uids`, `--health-groups` and `--health-sections`
+    * Added pyats arguments ``--health-uids``, ``--health-groups``and``--health-sections``
 
 --------
 
@@ -91,7 +91,7 @@ Features highlights:
 * NXOS
     * Updated NXOS interface conf:
         * Added fabric_forwarding_mode to configure attribute
-    * Implemented config line `no ip redirect` and `no ipv6 redirect`
+    * Implemented config line ``no ip redirect``and``no ipv6 redirect``
 
 --------
 
@@ -143,7 +143,7 @@ Features highlights:
 **genie.trafficgen**
 
 * Added traffic and stream statistics table for TRex
-* Added disable_tracking and disable_port_pair arguments for 
+* Added disable_tracking and disable_port_pair arguments for
   create_genie_statistics_view, check_traffic_loss and create_traffic_streams_table
 
 --------

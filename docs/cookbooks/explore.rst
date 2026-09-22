@@ -21,7 +21,7 @@ recommended for you to spend some time and go through them.
 
 .. note::
 
-Examples can be cloned_ from: `https://github.com/CiscoTestAutomation/examples/tree/master/libraries`.
+    Examples can be cloned from: `https://github.com/CiscoTestAutomation/examples/tree/master/libraries`.
 
 
 .. _Clone: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
@@ -176,7 +176,7 @@ between all OS (Identical between all the OS).
 
 More information on :ref:`Ops<book_ops>` and :ref:`Genie Cli <genie_cli>`.
 
-3. Configure devices feature with python object 
+3. Configure devices feature with python object
 -----------------------------------------------
 
 Genie Conf allows to configure a device with with python object following a
@@ -276,7 +276,7 @@ Genie comes with a harness to execute triggers on your devices.
               --trigger-uids="And('TriggerShutNoShutBgp$')" \
               --verification-uids="And('Verify_BgpProcessVrfAll$')" \
               --html_logs . \
-              --replay run_mocked_devices 
+              --replay run_mocked_devices
 
 :testcase:`All avaible triggers <http>`
 
@@ -352,7 +352,7 @@ Here are a few inspiration on how Genie can be useful
 * Re-use any of the available :testcase:`testcases <http>` to test your devices/images.
 * Future-proof design which works across connection (Cli/Yang/Xml/OpenConfig/Native models/...)
 * One script which works across platforms, spend time writing good libraries and less into modifying scripts
-* Verify Cli outputs with Yang and xml outputs! 
+* Verify Cli outputs with Yang and xml outputs!
 
 
 **DevNet oriented examples**

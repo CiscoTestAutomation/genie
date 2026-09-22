@@ -1,5 +1,5 @@
 June 2020
-========
+=========
 
 July 7th - Genie v20.6
 --------------------------
@@ -59,6 +59,7 @@ Features:
     * - Dq
       - :ref:`Docs <utils_overview>`
       - | Dq makes it very easy to query dictionary and collect values
+
         ::
 
             >>> new_dict = Dq(dev.parse('show interfaces')).value_operator('in_crc_errors', '>', 0)
@@ -130,6 +131,7 @@ Features:
     * - Robot
       - :ref:`Docs <robot_genie>`
       - | Query Dq from RobotFramework - For example
+
         ::
 
             dq query    data=${data}   filters=contains('lc').not_contains('2').get_values('slot/world_wide_name')

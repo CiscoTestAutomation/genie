@@ -6,7 +6,7 @@ Examples
 The below 11 examples demonstrate the flow of ``Genie`` and how it can be used
 in testing different features and frameworks.
 
-Examples can be cloned_ from: `https://github.com/CiscoTestAutomation/examples/tree/master/libraries`.
+Examples can be cloned from: `https://github.com/CiscoTestAutomation/examples/tree/master/libraries`.
 
 
 .. _Clone: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository

@@ -47,7 +47,7 @@ If you have pyATS installed, you can use:
 **genie**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * testbed conversion
@@ -55,10 +55,10 @@ If you have pyATS installed, you can use:
     * Fixed bug with non pyATS/Genie device classes
 
 * Fixed trafficgen argument
-    * Fixed bug that `--tgn-traffic-streams-data` was not properly handled from CLI
+    * Fixed bug that ``--tgn-traffic-streams-data`` was not properly handled from CLI
 
 * Genie Conf Interface
-    * Added `alias` to Genie Conf Interface object
+    * Added ``alias`` to Genie Conf Interface object
 
 * Device settings in topology
     * Moved Genie default error pattern implementation to Unicon
@@ -66,7 +66,7 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * Genie schemaengine
@@ -80,7 +80,7 @@ If you have pyATS installed, you can use:
 **genie.libs.clean**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * genie.conf
@@ -100,7 +100,7 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * IOSXE
@@ -135,7 +135,7 @@ If you have pyATS installed, you can use:
 **genie.libs.conf**
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * NXOS
@@ -146,7 +146,7 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * Utils
@@ -164,7 +164,7 @@ If you have pyATS installed, you can use:
 **genie.libs.sdk**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * JUNOS
@@ -181,7 +181,7 @@ If you have pyATS installed, you can use:
 
 * ABSTRACTED_LIBS
     * Modified Post_Execute_Command Processor
-        * Made The `Valid_Section_Results` Argument Work As Intended
+        * Made The ``Valid_Section_Results`` Argument Work As Intended
 
 * IOSXE
     * Modified Triggerissu To Set The 'Device.Filetranser_Attributes' Attribute If Run Through Run_Genie_Sdk
@@ -214,7 +214,7 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      New
+New
 --------------------------------------------------------------------------------
 
 * IOSXR
@@ -246,7 +246,7 @@ If you have pyATS installed, you can use:
 **genie.libs.parser**
 
 --------------------------------------------------------------------------------
-                                      Fix
+Fix
 --------------------------------------------------------------------------------
 
 * NXOS
@@ -286,7 +286,7 @@ If you have pyATS installed, you can use:
     * Added Parser For Show Flow Monitor Sdwan_Flow_Monitor Statistics Command
     * Patch Showmplsldpdiscovery
     * Updated Showaccesslists
-        * Added `Acl_Type` To Distinguish Standard, Extended Or Ipv6
+        * Added ``Acl_Type`` To Distinguish Standard, Extended Or Ipv6
     * Modified Ping
         * Added Arguments For Ping Api
         * Updated Regex To Support Various Outputs
@@ -348,8 +348,8 @@ If you have pyATS installed, you can use:
     * Modified Pingmplsrsvp
         * Updated Code To Sopport Different Output
     * Updated Showinterfaces
-        * Updated P2 Regex. Added ? To `(, +Generation +\S+)`
-        * Added P32_1. Checks For `Addresses`
+        * Updated P2 Regex. Added ? To ``(, +Generation +\S+)``
+        * Added P32_1. Checks For ``Addresses``
     * Modified Showchassispower
         * Changed Some Keys To Optional.
         * Added Regex To Capture Wider Variety Of Device Output
@@ -543,7 +543,7 @@ If you have pyATS installed, you can use:
 
 
 --------------------------------------------------------------------------------
-                                      New                                       
+New
 --------------------------------------------------------------------------------
 
 * IOSXR
@@ -583,7 +583,7 @@ If you have pyATS installed, you can use:
         * Ping {Addr} Source {Source} Count {Count}
     * Modified Showinterfacebrief
         * Modified Parser To Accommodate Nve Related Config.
-        * `Show Interface Brief Nve 1`
+        * ``Show Interface Brief Nve 1``
     * Added Showenvironment
         * For 'Show Environment'
     * Added Showenvironmentfan
@@ -628,4 +628,4 @@ If you have pyATS installed, you can use:
 
 * ixianative.py
     * Modified save_packet_capture_file
-        * Fixed so that it returns `directory` variable instead of static value
+        * Fixed so that it returns ``directory`` variable instead of static value

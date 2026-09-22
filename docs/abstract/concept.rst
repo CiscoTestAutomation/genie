@@ -133,7 +133,7 @@ if a package contains token ``nxos``, it suggests that the libraries following
 this token module is specific to Cisco NXOS. 
 
 In addition, tokens may be chained/nested. This allows for library tiering. For
-example, if token ``yang`` is declared under token ``nxos``, it suggests that
+example, if token ``yang``is declared under token``nxos``, it suggests that
 these libraries would be specific to Cisco NXOS's NETCONF/YANG implementation.
 
 .. note::
@@ -150,7 +150,7 @@ these libraries would be specific to Cisco NXOS's NETCONF/YANG implementation.
 Abstraction Mechanism
 ---------------------
 
-The ``abstract`` module works most of its magic at the Python ``import`` and
+The ``abstract``module works most of its magic at the Python``import`` and
 ``getattr()`` level. It does so by dissecting each lookup into three distinct
 parts: 
 
@@ -160,7 +160,7 @@ parts:
 
     - **tokens**: the list of abstraction tokens currently known by the 
       abstraction engine. This portion is registered through the ``Lookup``
-      object. Eg: ``iosxr``, ``fretta``, ``xml``.
+      object. Eg: ``iosxr``,``fretta``,``xml``.
 
     - **target**: the module/class/function/variable user is looking for.
 
@@ -285,7 +285,7 @@ all of its child modules are *recursively imported*. This allows the abstraction
 engine to build an internal table of relative paths, their available token 
 combinations learnt from the import and its corresponding module. This reduced
 **relative path + tokens** relationship effectively simplies the above
-brute-force search algorithm into an ``O(n)`` lookup, where ``n`` is the number 
+brute-force search algorithm into an ``O(n)``lookup, where``n`` is the number 
 of tokens.
 
 .. code-block:: text

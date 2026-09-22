@@ -155,7 +155,7 @@ All supported feature can be seen on our :models:`models page<http>`.
 .. tip::
 
 	use ``device.learn('all')`` to learn all the supported features on the device, and the result will be returned in a dictionary
-	format like: ``{'interface' : <Interface object at 0x7fcec85d8160>}``. If an exception occurred while learning a particular feature, then ``featureObject`` will become the exception object.
+	format like: ``{'interface' : <Interface object at 0x7fcec85d8160>}``. If an exception occurred while learning a particular feature, then``featureObject`` will become the exception object.
 
 
 3. Get partial state of a feature - command based

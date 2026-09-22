@@ -12,10 +12,8 @@ more!
    attributeshelper
    clibuilder
    managedattribute
-   keyedattributes
    abstraction
    final
-   maker
    uml
 
 .. sectionauthor:: Jean-Benoit Aubin <jeaubin@cisco.com>

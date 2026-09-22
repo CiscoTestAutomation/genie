@@ -18,7 +18,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `genie_libs` to the latest version.
+Also make sure you upgrade ``genie_libs`` to the latest version.
 
 .. code-block:: bash
 

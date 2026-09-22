@@ -18,7 +18,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `genie_libs` to the latest version.
+Also make sure you upgrade ``genie_libs`` to the latest version.
 
 .. code-block:: bash
 
@@ -53,7 +53,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `genie_libs` to the latest version.
+Also make sure you upgrade ``genie_libs`` to the latest version.
 
 .. code-block:: bash
 
@@ -65,9 +65,9 @@ Features:
 
 Genie 2.0.1 introduces small enhancements/bug fixes to ``Genie``.
 
-* Enhancement to Tftp for `Genie` harness.
-* Enhancement to `Maker` to support regex in src and not in dest.
-* Bug fix for `Diff` utils libraries.
+* Enhancement to Tftp for ``Genie`` harness.
+* Enhancement to ``Maker`` to support regex in src and not in dest.
+* Bug fix for ``Diff`` utils libraries.
 
 For more information, make sure to go through the
 genie_ documentation.
@@ -91,7 +91,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `genie_libs` to the latest version.
+Also make sure you upgrade ``genie_libs`` to the latest version.
 
 .. code-block:: bash
 
@@ -108,7 +108,7 @@ exciting new features!
   agnostic event driven testing to pyATS.
 * ``Genie`` SDK provides triggers and verifications libraries.
 * Agnostic based on OS, platform device, and management interfaces (CLI/Yang/...)
-* Improved and enhanced ``Genie`` `Conf` and `Ops`.
+* Improved and enhanced ``Genie````Conf``and``Ops``.
 * ``Genie`` SDK/Harness - the much-anticipated Python implementation of `BEST/PSAT-NG`_.
 
 For more information, make sure to go through the
@@ -132,7 +132,7 @@ Upgrade Instruction
 
     pip install --upgrade genie
 
-Also make sure you upgrade `genie_libs` to the latest version.
+Also make sure you upgrade ``genie_libs`` to the latest version.
 
 .. code-block:: bash
 

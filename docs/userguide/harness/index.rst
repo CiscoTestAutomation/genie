@@ -27,7 +27,6 @@ verifications.
 
     user/index
     developer/index
-    genietelemetry/integration
 
 .. sectionauthor:: Jean-Benoit Aubin <jeaubin@cisco.com>
 

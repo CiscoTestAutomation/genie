@@ -3,7 +3,7 @@
 
 
 Save action outputs
-===============
+===================
 
 
 .. toctree::
@@ -120,7 +120,7 @@ by using ``"%VARIABLES{testscript.part}"``.
                       - variable_name: testscript.part
                         filter: get_values("rtr_type")
   test2:
-  
+
       source:
           pkg: genie.libs.sdk
           class: triggers.blitz.blitz.Blitz
@@ -161,10 +161,10 @@ To save the result of an action to a file, you need to use the `file_name` argum
                             filter: get_values("rtr_type")
 
 
-Moreover, it is possible to save multiple results in the same file. For this to happen, you 
+Moreover, it is possible to save multiple results in the same file. For this to happen, you
 must also use `append: True`. The output (or the result of a filter) will be appended to an existing file or create it if it does not yet exist.
 
-In the example below, you can see how this can be achieved. 
+In the example below, you can see how this can be achieved.
 The parsed output of `show version` is saved to a variable named `parse_output` and also saved to a file named `file.txt`.
 After that, the parsed output is filtered using `get_values("rtr_type")` and the result of this operation is appended to the same file.
 
@@ -190,7 +190,7 @@ Save action outputs as dictionary
 ===================================
 
 Action results can now be saved as a dictionary by using ``as_dict`` argument. In the example below, we can see that
-a nested dictionary ``parse_output_dict`` is created from the saved variables ``"%VARIABLES{device.name}"``
+a nested dictionary ``parse_output_dict``is created from the saved variables``"%VARIABLES{device.name}"``
 and ``"%VARIABLES{action_output}"``.
 
 .. note::

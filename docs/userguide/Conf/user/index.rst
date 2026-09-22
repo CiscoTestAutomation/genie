@@ -10,6 +10,5 @@ the `Feature` baseclasses.
    topology
    feature
    connections
-   traffic
 
 .. sectionauthor:: Jean-Benoit Aubin <jeaubin@cisco.com>

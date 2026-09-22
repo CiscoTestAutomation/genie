@@ -49,15 +49,14 @@ these packages
 Features:
 ^^^^^^^^^
 
-* End of Support for genie.telemetry starting January - migrate to `pyATS Health Check
-<https://pubhub.devnetcloud.com/media/genie-docs/docs/health/index.html>`_.
 * End of Support for Python3.5 starting January - upgrade to Python3.6/3.7/3.8
+
 
 **genie**
 
 * Enhanced mapping datafile to pass netconf_poolsize as argument for NetConf connections.
 * Enhancement to Standalone to support non UUT testbed
-* Updated genie device error pattern to propagate into device settings 
+* Updated genie device error pattern to propagate into device settings
 * Enhanced mapping datafile to pass netconf_poolsize as argument for NetConf connections.
 * Fixed API abstraction for platform specific APIs
 * Fixed an issue using run_genie_sdk with only a/b connections defined for a device
@@ -150,6 +149,7 @@ Features:
 * 79 new apis to use on your devices!
 * Grand total of 1101 APIs
 * Changelog can be checked :sdkchangelog20:`here <december>`
+
 --------
 
 **genie.telemetry**

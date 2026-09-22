@@ -4,7 +4,6 @@ User Guide
 .. toctree::
     :maxdepth: 1
 
-    design/index
     examples/index
     Conf/index
     Ops/index

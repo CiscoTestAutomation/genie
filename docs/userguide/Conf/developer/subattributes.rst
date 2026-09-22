@@ -76,8 +76,8 @@ needed.
 Another scenario is to group attributes for each device. Some values for
 device `PE1` and others for `P1` might/will need to be different.
 
-SubAttributes
--------------
+SubAttributes Feature
+---------------------
 
 `SubAttributes` hold a subset of `Feature` configuration specified by a
 certain context. This context can be `per device`, `per address family`, `per

@@ -196,7 +196,7 @@ Instead, let's create an object that does this for us.
                         cli_config=cfgs)
 
 YangConfig
----------
+----------
 
 It is exactly the same a `CliConfig`, but related to `Yang` and `Ydk`.
 

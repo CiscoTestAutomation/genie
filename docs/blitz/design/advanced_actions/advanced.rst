@@ -26,7 +26,7 @@ your *trigger_datafile*. Below you can see an example of of configuring multiple
 
 While you can execute actions in parallel to make the execution of a *trigger_datafile* faster,
 you can still run some other actions in the same sequential manner. In below example action ``execute``
-gets executed first and then two actions ``api`` and ``parse`` start their work in parallel, and finally
+gets executed first and then two actions ``api``and``parse`` start their work in parallel, and finally
 the action ``sleep`` start its work for 5 seconds.
 
 .. code-block:: YAML
@@ -59,9 +59,9 @@ the action ``sleep`` start its work for 5 seconds.
   variable in an action that is being executed in parallel, you need to save that variable beforehand in an
   action outside of that parallel block.
 
-In below `example` value ``min`` and ``max`` are saved from the output of the *get_interface_mtu_config_range*
+In below `example` value ``min``and``max`` are saved from the output of the *get_interface_mtu_config_range*
 api action and later is being used in *get_interface_mtu_size* api that is going to be executed in parallel
-along with a ``configure`` action. Within the same parallel block the output of the action ``configure`` is being saved
+along with a ``configure``action. Within the same parallel block the output of the action``configure`` is being saved
 to be used later in other actions.
 
 .. code-block:: YAML
@@ -143,7 +143,7 @@ Each loop can contains the following keywords as explained in the table:
 
 .. note::
 
-    A loop can only have one of the ``value``, ``range``, ``until``, ``do_until``.
+    A loop can only have one of the ``value``,``range``,``until``,``do_until``.
 
 
 There are a lot of use cases for looping with various features. Examples can be found below.
@@ -151,7 +151,7 @@ There are a lot of use cases for looping with various features. Examples can be 
 **Example-1: Loop over dictionary/hash**
 
 Each dictionary is a collection of key value pairs.
-To use the keys and values of the dictionary you can use the keywords ``._keys`` and ``._values``
+To use the keys and values of the dictionary you can use the keywords ``._keys``and``._values``
 
 .. code-block:: YAML
 
@@ -302,7 +302,7 @@ In case that the goal is to loop over more than one iterable at the same time (o
 you can define your ``loop_variable_name`` to have a list of variable names along with a list of iterables. Blitz then would zip each iterable to its variable name
 accordingly, and use items of multiple iterable within your actions that are iterating.
 
-Below example attempts to reuse items of 3 different lists and print each list item. variable name ``a`` is going to represent list ``[1,2]``, ``b`` is going to represent list ``['d', 'e']``,
+Below example attempts to reuse items of 3 different lists and print each list item. variable name ``a``is going to represent list``[1,2]``,``b``is going to represent list``['d', 'e']``,
 and ``c`` will map to [0, 98] 
 
 This way you are iterating over 3 different lists at the same using one single loop.
@@ -325,7 +325,7 @@ This way you are iterating over 3 different lists at the same using one single l
                     value: "%VARIABLES{c}"
 
 
-The print action here would print ``[1, 'd', 0]`` in the first iteration and in the next iteration it print ``[2, 'e', 98]``.
+The print action here would print ``[1, 'd', 0]``in the first iteration and in the next iteration it print``[2, 'e', 98]``.
 
 
 .. note::

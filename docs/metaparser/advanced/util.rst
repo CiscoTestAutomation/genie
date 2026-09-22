@@ -5,8 +5,8 @@ Utility Class
 
 Introduction
 ------------
-``util`` module is located in ``metaparser`` package `util` directory along with 
-few other utility modules like ``schemaengine`` and ``exceptions``. This module 
+``util``module is located in``metaparser`` package `util` directory along with 
+few other utility modules like ``schemaengine``and``exceptions``. This module 
 defines a set of methods that perform common, often re-used functions to help 
 parser developers in manipulating the parser output data structures.
 
@@ -47,5 +47,3 @@ The following example shows the usage of ``util`` functions:
     assert 'ip_address' in new_dict['address']
     assert 'mask' in new_dict['address']
     assert 'intf' not in new_dict
-
---------------------------------------------------------------------------------
