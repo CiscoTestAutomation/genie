@@ -43,9 +43,19 @@ Passing images through CLI
 .. topic:: Providing the images through CLI arguments
 
     * Can provide a new image at every run without modifying the Clean YAML file.
-    * Can provide the image to a specific device, to all devices in a group, to all devices with a given OS, or all devices with a specific platform.
-    * `--clean-device-image`, `--clean-os-image`, `--clean-group-image` and `--clean-platform-image` can all be specified simultaneously. Conflicts are resolved by `device > group > platform > os`.
-    * Images specified with the CLI override images specified in the YAML file, i.e. `CLI device > CLI group > CLI platform > CLI os > YAML device > YAML group > YAML platform > YAML os`
+    * Can provide the image to a specific device, to all devices in a group, or
+      to all devices with a given model, platform, or OS.
+    * `--clean-device-image`, `--clean-os-image`, `--clean-group-image`,
+      `--clean-model-image` and `--clean-platform-image` can all be specified
+      simultaneously. Conflicts are resolved by
+      `device > group > model > platform > os`.
+    * Images specified with the CLI override images specified in the YAML file,
+      i.e. `CLI device > CLI group > CLI model > CLI platform > CLI os > YAML
+      device > YAML group > YAML platform > YAML os`.
+    * CLI selectors are applied after clean groups are expanded and before image
+      ``%CALLABLE`` markup is evaluated. A callable replaced by a matching CLI
+      image is not invoked. Callables in image values that remain after CLI
+      image selection are evaluated normally.
 
     .. code-block:: bash
 
