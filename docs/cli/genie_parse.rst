@@ -260,10 +260,15 @@ the same or is the prefix of the other. When it encounters the supported regex
 expressions, it will perform regex matching as expected and return the results.
 The search is done by best fit, meaning it will try its best to fit your query
 with each command, and if it succeeds, it will be counted as a match. As a
-result, arguments are essentially wild cards, and using fuzzy will attempt to
-fit your query with the arguments in any way possible. For instance,
+result, unconstrained arguments act as wild cards, and fuzzy search attempts to
+fit your query to those arguments. For instance,
 `sh .* abc .*` will match with `show vrf {vrf} detail`. In this case `abc` is
 simply an argument for `vrf`.
+
+Parser authors can add :ref:`regex-constrained-parser-arguments` to validate the
+entire captured value before accepting a match. These constraints belong to the
+parser's ``cli_command`` declaration and are separate from regex expressions in
+the search query.
 
 Fuzzy current supports the follow regex symbols and their combinations:
 

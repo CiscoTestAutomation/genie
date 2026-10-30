@@ -407,6 +407,75 @@ Example to pass `output` and `cli_command`
 
 
 
+.. _regex-constrained-parser-arguments:
+
+Regex constraints on command arguments
+-------------------------------------
+
+Parser command lookup accepts an optional regex constraint after an argument
+name in ``cli_command``: ``{argument_name:regex_pattern}``. Existing
+``{argument_name}`` placeholders retain their matching behavior. Constraints are
+checked when finding a parser, both during normal command lookup and when using
+fuzzy search.
+
+Both standalone arguments and arguments embedded in a command token can declare
+a constraint:
+
+.. code-block:: python
+
+    # Standalone argument
+    cli_command = r'show vlan {vlan_id:\d{1,4}}'
+
+    # Argument embedded after a literal prefix
+    cli_command = r'get /interface/{interface:[A-Za-z]+\d+/\d+}/detail'
+
+The entire captured value must match the Python regular expression. For example,
+``show vlan {vlan_id:\d+}`` accepts ``show vlan 123`` and extracts
+``{'vlan_id': '123'}``, but rejects ``show vlan abc`` and ``show vlan 123abc``.
+Only the argument name is passed to the parser; the constraint is lookup
+metadata. Regex quantifiers such as ``{1,4}``, character classes, escaped braces,
+and colons are supported within constraints.
+
+Use raw Python strings for backslashes, as in the examples above, or double
+backslashes in ordinary strings. Commands are split into tokens at spaces, so
+use ``\s`` rather than a literal space inside a constraint. Existing argument
+limits still apply:
+
+* Standalone arguments can span up to two words.
+* ``vrf``, ``rd``, ``instance``, ``vrf_type``, ``feature``, ``fileA``, and
+  ``fileB`` are limited to one word.
+* Arguments embedded after a literal prefix occupy a single command token.
+
+.. note::
+
+    An invalid regex pattern produces a warning and allows the candidate value
+    to match. This permissive fallback keeps an otherwise valid parser command
+    reachable while making the malformed constraint visible in the logs.
+
+Constructing the command to execute
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Keep lookup constraints separate from the execution string inside ``cli()``.
+Calling Python's ``str.format()`` directly on a constrained ``cli_command``
+interprets ``:regex_pattern`` as a format specifier. Instead, construct the
+execution string with the captured argument, for example:
+
+.. code-block:: python
+
+    cli_command = r'show vlan {vlan_id:\d{1,4}}'
+
+    def cli(self, vlan_id, output=None):
+        if output is None:
+            command = f'show vlan {vlan_id}'
+            output = self.device.execute(command)
+        # Continue parsing output with the parser's schema and regex patterns.
+
+During normal command lookup, ``get_parser()`` supplies the rendered command
+without regex metadata to parsers whose ``cli()`` explicitly accepts a
+``command`` argument. Such parsers can execute that supplied command instead of
+formatting the constrained template themselves.
+
+
 .. sectionauthor:: Ke Liu <kel2@cisco.com>,
                    Karim Mohamed <karmoham@cisco.com>,
                    Zahra Vakhideh <zvakhide@cisco.com>
