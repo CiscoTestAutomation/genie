@@ -452,6 +452,11 @@ limits still apply:
     to match. This permissive fallback keeps an otherwise valid parser command
     reachable while making the malformed constraint visible in the logs.
 
+    Each constraint match has a 50 ms execution timeout. A match that times out,
+    or otherwise cannot be evaluated by the matcher, produces a warning and
+    rejects the candidate value so parser discovery can continue. These failures
+    do not use the permissive fallback for malformed regex syntax.
+
 Constructing the command to execute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
