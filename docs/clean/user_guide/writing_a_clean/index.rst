@@ -18,3 +18,4 @@ provide preliminary information.
         cleaning_like_devices
         image_management
         device_recovery
+        clean_health
