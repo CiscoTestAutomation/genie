@@ -7,6 +7,9 @@ Clean runs pyATS Health checks around its stages using the same Health
 processors as test scripts. Checks run after device recovery when recovery is
 configured. Health results appear in the Clean report and in a per-device
 ``clean_health/<device>/health_results.json`` file in the run archive.
+The archive also contains ``pyats_clean_health.yaml``. Its ``devices`` mapping
+preserves each device's prepared Health source, settings, reconnect options,
+sections, and configured filters, including the translated Clean selectors.
 
 Health is disabled by default. A device's ``health_checks`` configuration
 selects built-in checks or a custom Health datafile. Health failures are
@@ -85,8 +88,9 @@ copies as well.
 Custom Health datafiles
 -----------------------
 
-``health_file`` loads a pyATS Health datafile. Its actions, settings, processor
-timing, and section selectors are used as defined in the file.
+``health_file`` loads a pyATS Health datafile. Its actions, settings, and
+``processor: pre`` or ``processor: post`` timing are preserved. Test-script
+section types are translated to Clean selectors as described below.
 ``health_settings`` overrides settings from that file. An optional ``checks``
 list selects named sections from it.
 
@@ -123,6 +127,11 @@ Stage filters
 ``health_tc_sections``, ``health_tc_uids``, and ``health_tc_groups`` use the
 pyATS Health filtering rules. Stage report names and UIDs accept regular expressions.
 ``health_tc_sections`` also accepts ``type:TestSection`` for Clean stages.
+In both built-in and custom datafiles, ``type:TestCase`` is translated to
+``type:TestSection``, while ``type:CommonSetup`` selects only the ``Connect``
+stage, including repeated Connect stages. Other section expressions are
+preserved. These translations are logged and saved in
+``pyats_clean_health.yaml``.
 
 .. code-block:: yaml
 
