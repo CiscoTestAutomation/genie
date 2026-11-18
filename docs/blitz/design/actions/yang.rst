@@ -696,8 +696,8 @@ as any changes to the resource setup in the test.
         - id: '1'
           name: heavyTemplate
           op: ==
-          selected: false                                     # the change value
-          value: true
+          selected: true
+          value: false                                        # the change value
           xpath: /System/igmp-items/inst-items/heavyTemplate
     - configure:
         banner: CONFIG CHANGE FOR ON_CHANGE
