@@ -10,6 +10,9 @@ configured. Health results appear in the Clean report and in a per-device
 The archive also contains ``pyats_clean_health.yaml``. Its ``devices`` mapping
 preserves each device's prepared Health source, settings, reconnect options,
 sections, and configured filters, including the translated Clean selectors.
+Each Clean worker scopes the Health ``devices`` settings to its own device,
+including when a custom datafile lists multiple devices. A stage's existing
+processors continue to run alongside Health and device recovery.
 
 Health is disabled by default. A device's ``health_checks`` configuration
 selects built-in checks or a custom Health datafile. Health failures are
