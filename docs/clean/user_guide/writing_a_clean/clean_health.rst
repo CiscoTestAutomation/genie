@@ -4,8 +4,10 @@ Clean Health
 ============
 
 Clean runs pyATS Health checks around its stages using the same Health
-processors as test scripts. Checks run after device recovery when recovery is
-configured. Health results appear in the Clean report and in a per-device
+processors as test scripts. Pre actions run before the Clean stage. Post
+actions run after the stage and, when configured, after device recovery.
+Custom Health datafiles retain their configured pre/post phases.
+Health results appear in the Clean report and in a per-device
 ``clean_health/<device>/health_results.json`` file in the run archive.
 The archive also contains ``pyats_clean_health.yaml``. Its ``devices`` mapping
 preserves each device's prepared Health source, settings, reconnect options,
