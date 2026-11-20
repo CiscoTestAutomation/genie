@@ -85,7 +85,9 @@ New artifacts found after the baseline are copied into per-device directories
 under ``clean_health`` in the run archive. Each source path has a separate
 archive directory, including when active, standby, or stack filesystems contain
 identical filenames. Clean deletes a source file only after the copy API
-confirms a verified transfer. Failed scans and transfers leave source files in
+confirms a verified transfer. Each copied file's ``archive_path`` in the Health
+results identifies its destination file, including the filename selected by
+the transfer API. Failed scans and transfers leave source files in
 place; later checks retry unsuccessful collections. Setting
 ``health_settings.delete_files: false`` retains source files after verified
 copies as well.
