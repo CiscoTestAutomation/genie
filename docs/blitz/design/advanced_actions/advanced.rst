@@ -145,6 +145,14 @@ Each loop can contains the following keywords as explained in the table:
 
     A loop can only have one of the ``value``,``range``,``until``,``do_until``.
 
+For a timed serial loop, set ``final_sample: true`` with ``max_time`` and
+``check_interval`` to allow a final iteration at the deadline. Blitz can still
+stop early when the condition is met or the loop runs out of items.
+``check_interval`` sets the delay between iterations. If ``every_seconds`` is
+also set, Blitz waits for the longer of ``check_interval`` and the remaining
+time in that period, up to the deadline. See :ref:`blitz-final-sample` for the
+timing requirements.
+
 
 There are a lot of use cases for looping with various features. Examples can be found below.
 
