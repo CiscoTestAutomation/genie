@@ -424,30 +424,50 @@ Example
 Timeout
 -------
 
-In any kind of automation, there is a need of polling. Try to do a
-check/action, verify if expected result is there, otherwise, sleep for a defined time
-and repeat up to a defined maximum time.
-
-Class `Timeout` was made to do this.
+``Timeout`` schedules polls using elapsed time from a monotonic clock. For
+convergence checks, return as soon as the condition matches and call
+``sleep()`` between attempts. ``iterate()`` returns ``False`` when the
+timer has finished.
 
 .. code-block:: python
 
     from genie.utils.timeout import Timeout
-    # Try up to 60 seconds, and between interval wait 10 seconds, display timeout logs
-    timeout = Timeout(max_time = 60, interval = 10, disable_log = False)
 
-    while timeout.iterate():
-        ret = do_something(**kwargs)
-        if ret is None:
-            return
-        # Didn't get expected result, keep trying
-        timeout.sleep()
+    def wait_until_ready(read_status):
+        timeout = Timeout(max_time=60, interval=10)
+        while timeout.iterate():
+            if read_status() == 'ready':
+                return True
+            timeout.sleep()
+        return False
 
+Use ``final_sample=True`` to check a condition through the deadline.
+``sleep()`` caps the wait at the time remaining. The next ``iterate()``
+allows one sample at or after the deadline, then returns ``False`` on
+subsequent calls. If a poll is still running when the deadline arrives,
+its result counts as the final sample when the caller next calls
+``sleep()``.
 
-When the maximum time is reached, an `TimeoutError` is raised. Timeout can be
-used to time limit a trigger, to time limit a specific action.
+.. code-block:: python
 
-This api is very useful for any kind of polling.
+    def check_ready_at_deadline(read_status):
+        timeout = Timeout(max_time=60, interval=10, final_sample=True)
+        status = None
+        while timeout.iterate():
+            status = read_status()
+            if status not in (None, 'ready'):
+                raise AssertionError(f'Unexpected status {status!r}')
+            timeout.sleep()
+        if status != 'ready':
+            raise AssertionError('Service was unavailable at the deadline')
+
+In final-sample mode, ``max_time`` and ``interval`` must be finite numbers
+in seconds. ``max_time`` can be zero for an immediate sample, and
+``interval`` must be positive. Invalid durations raise ``ValueError``.
+
+The ``snapshot_time`` and ``timeout`` attributes give the start time and
+nominal deadline as Unix timestamps. Use ``iterate()`` and ``sleep()`` to
+schedule polls independently of wall-clock adjustments.
 
 TempResult
 ----------
