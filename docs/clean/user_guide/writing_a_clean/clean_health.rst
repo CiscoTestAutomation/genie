@@ -18,8 +18,10 @@ processors continue to run alongside Health and device recovery.
 
 Health is disabled by default. A device's ``health_checks`` configuration
 selects built-in checks or a custom Health datafile. Health failures are
-reported independently of Clean stage results, so later stages and device
-recovery continue according to the Clean configuration.
+included in the Clean stage result. Later stages follow the Clean
+configuration's failure handling. Reports show the Health checks that ran;
+empty processor phases and setup helpers such as ``get_testcase_name`` are
+hidden.
 
 Built-in checks
 ---------------
